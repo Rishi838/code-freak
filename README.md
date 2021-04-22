@@ -4,4 +4,4 @@ we grow together
 we learn together
 
 
-we are an exiting bunch of people coming together to learn upto all capabilities and give our level best to become the best
+we are an exciting bunch of people coming together to learn upto all capabilities and give our level best to become the best
