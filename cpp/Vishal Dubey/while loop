@@ -1,0 +1,19 @@
+//print the number that is entered by user and end the program if user enters 42.
+
+
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+       int n;
+       while(1)
+       {
+       cin>>n;
+       if(n==42)
+       break;
+       else
+       cout<<n<<endl;
+       }
+}
