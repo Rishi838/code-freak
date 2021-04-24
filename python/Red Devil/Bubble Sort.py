@@ -7,4 +7,11 @@ for i in range(len(lst)):
             for k in range(len(lst[j])):  
                 if (lst[j][k] > lst[j + 1][k]): #Check each element of both strings and if string at l is bigger than string at l+1
                     lst[j], lst[j + 1] = lst[j + 1], lst[j] #To interchange elements of array at index j and j+1
-print(lst)
+print(last)
+
+
+
+lst = list(map(str, input("Enter the list elements separated by space").split()))
+if lst[j]> lst[j + 1]:
+    lst[j], lst[j + 1] = lst[j + 1], lst[j]
+print(lst) #Apparently this works too😂😂😂😂
