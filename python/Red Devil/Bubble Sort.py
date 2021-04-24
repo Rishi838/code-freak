@@ -1,4 +1,4 @@
-lst = list(map(str, input("Enter the list elements seperated by space").split())) #To input a string array
+lst = list(map(str, input("Enter the list elements separated by space").split())) #To input a string array
 for i in range(len(lst)):
     for j in range(len(lst)-i-1):
         if (len(lst[j]) > len(lst[j + 1])): #If length of element at j is bigger than j+1 then interchange them
