@@ -1,0 +1,24 @@
+//To find Sum of all the numbers between two given numbers
+//PRADIPSUM spoj question
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    long int t;
+    long long int c;
+    cin>>t;
+    while(t--){
+        long long int a,b,s;
+        cin>>a>>b;
+       if(b>a){ s=b-a+1;}
+       else
+       {
+           s=a-b+1;
+       }
+        c=(s*s+s)/2;
+        cout<<c<<endl;
+
+
+    }
+}
