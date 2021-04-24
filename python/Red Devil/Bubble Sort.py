@@ -7,7 +7,7 @@ for i in range(len(lst)):
             for k in range(len(lst[j])):  
                 if (lst[j][k] > lst[j + 1][k]): #Check each element of both strings and if string at l is bigger than string at l+1
                     lst[j], lst[j + 1] = lst[j + 1], lst[j] #To interchange elements of array at index j and j+1
-print(last)
+print(lst)
 
 
 
