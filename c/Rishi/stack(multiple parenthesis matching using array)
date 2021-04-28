@@ -1,0 +1,118 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct stack
+{
+    int size, top;
+    char *arr;
+};
+
+int isempty(struct stack *ptr)
+{
+    if (ptr->top == -1)
+    {
+        return 1;
+    }
+    return 0;
+}
+
+int isfull(struct stack *ptr)
+{
+    if (ptr->top == ptr->size - 1)
+    {
+        return 1;
+    }
+    return 0;
+}
+
+int match(char a, char b)
+{
+    if (a == '(' && b == ')')
+    {
+        return 1;
+    }
+    if (a == '{' && b == '}')
+    {
+        return 1;
+    }
+    if (a == '[' && b == ']')
+    {
+        return 1;
+    }
+    return 1;
+}
+
+void push(struct stack *ptr, char val)
+{
+    if (isfull(ptr))
+    {
+        printf("stack overflow");
+    }
+    else
+    {
+        ptr->top++;
+        ptr->arr[ptr->top] = val;
+    }
+}
+char pop(struct stack *ptr)
+{
+    if (isempty(ptr))
+    {
+        printf("Stack underflow");
+    }
+    else
+    {
+        char val = ptr->arr[ptr->top];
+        ptr->top--;
+        return val;
+    }
+}
+
+int parenthesis_match(char *exp, int size)
+{
+    struct stack *s;
+    s->size = size;
+    s->top = -1;
+    s->arr = (char *)malloc(s->size * sizeof(char));
+    char popped_ch;
+    for (int i = 0; exp[i] != '\0'; i++)
+    {
+        if (exp[i] == '(' || exp[i] == '{' || exp[i] == '[')
+        {
+            push(s, exp[i]);
+        }
+        else if (exp[i] == ')' || exp[i] == '}' || exp[i] == ']')
+        {
+            if (isempty(s))
+            {
+                return 0;
+            }
+            popped_ch = pop(s);
+            if (!match( popped_ch,exp[i]))
+            {
+                return 0;
+            }
+        }
+    }
+    if (isempty(s))
+    {
+        return 1;
+    }
+    return 0;
+}
+
+int main()
+{
+    char *s = "[{(3*5)/10}-1*2)]";
+    int size = sizeof(s) / sizeof(char);
+    if (parenthesis_match(s, size) == 1)
+    {
+        printf("\nParenthesis matched");
+    }
+    else
+    {
+        printf("\nParenthesis not matched");
+    }
+
+    return 0;
+}
