@@ -1,0 +1,86 @@
+//Implementing stack using linked list
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node
+{
+    int data;
+    struct node *next;
+};
+
+int isempty(struct node *top)
+{
+    if (top == NULL)
+    {
+        return 1;
+    }
+    return 0;
+}
+int isfull(struct node *top)
+{
+    struct node *p = (struct node *)malloc(sizeof(struct node));
+    if (p == NULL)
+    {
+        return 1;
+    }
+    return 0;
+}
+
+struct node *push(struct node *top, int val)
+{
+    if (isfull(top))
+    {
+        printf("Stack overflow\n");
+    }
+    else
+    {
+        struct node *n = (struct node *)malloc(sizeof(struct node));
+        n->data = val;
+        n->next = top;
+        top = n;
+        return top;
+    }
+}
+int pop(struct node **top)
+{
+    if (isempty(*top))
+    {
+        printf("\nStack underflow");
+        return -1; //Provided there is no such value
+    }
+    else
+    {
+        struct node *n = *top;
+        *top = (*top)->next;
+        int val = n->data;
+        free(n);
+        return val;
+    }
+}
+
+void display(struct node *s)
+{
+    while (s != NULL)
+    {
+        printf("%d\t", s->data);
+        s = s->next;
+    }
+}
+
+int main()
+{
+    struct node *top = NULL;
+    top = push(top, 78);
+    top = push(top, 79);
+    top = push(top, 80);
+    display(top);
+    printf("\nThe value extracted is: %d\n", pop(&top)); //Jo function me change ho rha hai usme se koi fark nhi padta
+    display(top);
+    printf("\nThe value extracted is: %d\n", pop(&top)); //Main function me
+    display(top);
+    printf("\nThe value extracted is: %d\n", pop(&top));
+    printf("\nThe value extracted is: %d\n", pop(&top));
+    //Either we have to pass addess of the variable or make top a global variable
+    display(top);
+    return 0;
+}
