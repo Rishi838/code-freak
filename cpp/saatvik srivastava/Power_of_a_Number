@@ -1,0 +1,16 @@
+// Calculate Power of a Number without power function For ex 2^4
+#include<iostream>
+using namespace std;
+int main(){
+    int m = 2;
+    int n = 4;
+    long long int val = 1;
+    for (int i = 0; i < n; i++)
+    {
+        val = val * m;
+    }
+    cout<<"The value is  ";
+    cout<< val<<endl;
+    
+    return 0;
+}
