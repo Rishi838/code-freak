@@ -1,0 +1,31 @@
+//We have to find rectangles that can be formed from n squares starting from 1 and ount squares as well as all squares are rectangles;
+
+#include <iostream>
+using namespace std;
+int main()   
+{
+    int n;
+    cin >> n;
+    int rectangle = 0;
+    for (int i = 1; i <= n; i++)
+    {
+        rectangle++;
+        for (int j = 2; j < i/2; j++)
+        {
+            if (i%j==0)
+            {
+                rectangle++;
+            }
+            
+        }
+        if (i==4)
+        {
+        rectangle++;
+        }
+        
+        
+    }
+    cout << rectangle;
+
+    return 0;
+}
