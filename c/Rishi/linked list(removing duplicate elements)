@@ -1,0 +1,80 @@
+//Programme to remove duplicate elements from a linked list
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node
+{
+    int data;
+    struct node *next;
+};
+struct node *head = NULL;
+struct node *last = NULL;
+
+void addition(int val)
+{
+    struct node *n = (struct node *)malloc(sizeof(struct node));
+    n->data = val;
+    n->next = NULL;
+    if (head == NULL)
+    {
+        head = last = n;
+    }
+    else
+    {
+        last->next = n;
+        last = n;
+    }
+}
+void display(struct node *head)
+{
+    struct node *ptr = head;
+    while (ptr != NULL)
+    {
+        printf("%d  ", ptr->data);
+        ptr = ptr->next;
+    }
+}
+
+void remove_duplicate()
+{
+    struct node *current = head, *temp, *index;
+    while (current != NULL)
+    {
+        temp = current;
+        index = current->next;
+        while (index != NULL)
+        {
+            if (current->data == index->data)
+            {
+                temp->next = index->next;
+            }
+            else
+            {
+                temp = index;
+            }
+            index = index->next;
+        }
+        current = current->next;
+    }
+}
+
+int main()
+{
+
+    int n;
+    printf("Enter number of elements to be added: ");
+    scanf("%d", &n);
+    for (int i = 0; i < n; i++)
+    {
+        int a;
+        printf("Enter element: ");
+        scanf("%d", &a);
+        addition(a);
+    }
+    printf("Previous List: \n");
+    display(head);
+    remove_duplicate();
+    printf("\nUpdated List: \n");
+    display(head);
+    return 0;
+}
