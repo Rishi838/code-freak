@@ -1,0 +1,78 @@
+//Programme to sort elements in linked list
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node
+{
+    int data;
+    struct node *next;
+};
+
+void addition(struct node **head, struct node **last, int val)
+{
+    struct node *n = (struct node *)malloc(sizeof(struct node));
+    n->data = val;
+    n->next = NULL;
+    if (*head == NULL)
+    {
+        *head = *last = n;
+    }
+    else
+    {
+        (*last)->next = n;
+        *last = n;
+    }
+}
+
+void display(struct node *head)
+{
+    struct node *ptr = head;
+    while (ptr != NULL)
+    {
+        printf("%d  ", ptr->data);
+        ptr = ptr->next;
+    }
+}
+
+void sort(struct node *head)
+{
+    struct node *temp = head, *index;
+    while (temp != NULL)
+    {
+        index = temp->next;
+        while (index != NULL)
+        {
+            if (index->data < temp->data)
+            {
+                int temp1 = temp->data;
+                temp->data = index->data;
+                index->data = temp1;
+            }
+
+            index = index->next;
+        }
+
+        temp = temp->next;
+    }
+    display(head);
+}
+
+int main()
+{
+    struct node *head = NULL;
+    struct node *last = NULL;
+    int n;
+    printf("Enter number of elemennts to be added: ");
+    scanf("%d", &n);
+    for (int i = 0; i < n; i++)
+    {
+        int a;
+        printf("Enter element: ");
+        scanf("%d", &a);
+        addition(&head, &last, a);
+    }
+    printf("\nSorted array is:\n");
+    sort(head);
+
+    return 0;
+}
