@@ -1,0 +1,85 @@
+//Implementing queue using data structures
+#include <stdio.h>
+#include <stdlib.h>
+
+struct queue
+{
+    int size, f, b;
+    int *arr;
+};
+
+int isempty(struct queue *q)
+{
+    if (q->f == q->b)
+    {
+        return 1;
+    }
+    return 0;
+}
+
+int isfull(struct queue *q)
+{
+    if (q->b == q->size - 1)
+    {
+        return 1;
+    }
+    return 0;
+}
+
+void enqueue(struct queue *q, int val)
+{
+    if (isfull(q))
+    {
+        printf("Queue Overflow");
+    }
+    else
+    {
+        q->b = q->b + 1;
+        q->arr[q->b] = val;
+    }
+}
+int dequeue(struct queue *q)
+{
+    if (isempty(q))
+    {
+        printf("Queue Underflow");
+        return -1;
+    }
+    else
+    {
+        q->f++;
+        int a = q->arr[q->f];
+        return a;
+    }
+}
+
+void display(struct queue *q)
+{
+    for (int i = q->f + 1; i <= q->b; i++)
+    {
+        printf("%d  ", q->arr[i]);
+    }
+    printf("\n");
+}
+int main()
+{
+    struct queue *q=(struct queue*)malloc(sizeof(struct queue));
+    q->size = 10;
+    q->f = q->b = -1;
+    q->arr = (int *)malloc(q->size * sizeof(int));
+    enqueue(q, 1);
+    display(q);
+    enqueue(q, 2);
+    display(q);
+    enqueue(q, 3);
+    display(q);
+    dequeue(q);
+    display(q);
+    dequeue(q);
+    display(q);
+    dequeue(q);
+    display(q);
+    return 0;
+}
+//Basically itna yaad rakho ki agar struct ka pointer bna rhe ho to dynamically memory bhi alocate kro struct ki
+//Warna programme run hi nhi krega ya fir static se karna hai to object bnao pointer nhi
