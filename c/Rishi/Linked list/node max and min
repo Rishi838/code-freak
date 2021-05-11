@@ -1,0 +1,72 @@
+//Programme to find maximum and minimum node of a linked list
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node
+{
+    int data;
+    struct node *next;
+};
+
+void addition(struct node **head, struct node **last, int val)
+{
+    struct node *n = (struct node *)malloc(sizeof(struct node));
+    n->data = val;
+    n->next = NULL;
+    if (*head == NULL)
+    {
+        *head = *last = n;
+    }
+    else
+    {
+        (*last)->next = n;
+        *last = n;
+    }
+}
+
+int max(struct node *head)
+{
+    int a = head->data;
+    while (head != NULL)
+    {
+        if (head->data > a) 
+        {
+            a = head->data;
+        }
+        head = head->next;
+    }
+    return a;
+}
+
+int min(struct node *head)
+{
+    int a = head->data;
+    while (head != NULL)
+    {
+        if (head->data < a) 
+        {
+            a = head->data;
+        }
+        head = head->next;
+    }
+    return a;
+}
+
+int main()
+{
+    struct node *head = NULL;
+    struct node *last = NULL;
+    int n;
+    printf("Enter number of elemennts to be added: ");
+    scanf("%d", &n);
+    for (int i = 0; i < n; i++)
+    {
+        int a;
+        printf("Enter element: ");
+        scanf("%d", &a);
+        addition(&head, &last, a);
+    }
+    printf("The Maximum node is:%d\n", max(head));
+    printf("The Minimum node is:%d", min(head));
+    return 0;
+}
