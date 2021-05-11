@@ -1,0 +1,20 @@
+//To arrange a array in descending order 
+#include <iostream>
+#include <algorithm>
+using namespace std;
+int main()
+{
+    int n;
+    cin >> n;
+    int arr[n];
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+    sort(arr, arr + n,greater<int>());   //The only diference is we need to add a parameter greater<int>()   to sort in descending order.it is function basically
+    for (int i = 0; i < n; i++)
+    {
+        cout << arr[i] << " ";
+    }
+
+    return
