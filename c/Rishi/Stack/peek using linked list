@@ -1,0 +1,99 @@
+//Implementing stack using linked list
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node
+{
+    int data;
+    struct node *next;
+};
+
+int isempty(struct node *top)
+{
+    if (top == NULL)
+    {
+        return 1;
+    }
+    return 0;
+}
+int isfull(struct node *top)
+{
+    struct node *p = (struct node *)malloc(sizeof(struct node));
+    if (p == NULL)
+    {
+        return 1;
+    }
+    return 0;
+}
+
+struct node *push(struct node *top, int val)
+{
+    if (isfull(top))
+    {
+        printf("Stack overflow\n");
+    }
+    else
+    {
+        struct node *n = (struct node *)malloc(sizeof(struct node));
+        n->data = val;
+        n->next = top;
+        top = n;
+        return top;
+    }
+}
+int pop(struct node **top)
+{
+    if (isempty(*top))
+    {
+        printf("\nStack underflow");
+        return -1; //Provided there is no such value
+    }
+    else
+    {
+        struct node *n = *top;
+        *top = (*top)->next;
+        int val = n->data;
+        free(n);
+        return val;
+    }
+}
+int peek(struct node *top, int index)
+{
+    int i = 0;
+    while (i != index - 1 && top != NULL)
+    {
+        top = top->next;
+        i++;
+    }
+    if (top != NULL)
+    {
+        return top->data;
+    }
+    else
+    {
+        return -1;
+    }
+}
+
+void display(struct node *s)
+{
+    while (s != NULL)
+    {
+        printf("%d\t", s->data);
+        s = s->next;
+    }
+}
+
+int main()
+{
+    struct node *top = NULL;
+    top = push(top, 78);
+    top = push(top, 79);
+    top = push(top, 80);
+    display(top);
+    int postion;
+    printf("\nEnter index:");
+    scanf("%d", &postion);
+    printf("\nVAlue at that index is:%d", peek(top, postion));
+    return 0;
+}
