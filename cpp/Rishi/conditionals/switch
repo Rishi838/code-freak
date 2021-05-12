@@ -1,0 +1,30 @@
+//switch statement
+//If we dont apply break statement then once a case is satisfied alll further case will be executed including default
+#include <iostream>
+using namespace std;
+int main()
+{
+    int a;
+    cin >> a;
+    switch (a)
+    {
+    case 1:
+        printf("HLO");
+
+    case 2:
+        printf("HLO");
+
+    case 3:
+        printf("HLO");
+
+    case 34:
+        printf("HLO");
+
+    case 4:
+        printf("HLO");
+
+    default:
+        printf("HLO");
+    }
+    return 0;
+}
