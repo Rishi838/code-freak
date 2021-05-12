@@ -1,0 +1,26 @@
+//Resize operator
+#include <iostream>
+#include <vector>
+using namespace std;
+int main()
+{
+    vector<string> v{"c", "c++", "Java", "Python"};
+    for (int i = 0; i < v.size(); i++)
+    {
+        cout << v[i] << endl;
+    }
+    cout << endl;
+    v.resize(2);   //This will create a two size array with first two elements
+    for (int i = 0; i < v.size(); i++)
+    {
+        cout << v[i] << endl;
+    }
+    cout << endl;
+    cout << endl;
+    v.resize(7, "Machine learning");//This will create a 7 size array with left over elements of machine learning
+    for (int i = 0; i < v.size(); i++)
+    {
+        cout << v[i] << endl;
+    }
+    return 0;
+}
