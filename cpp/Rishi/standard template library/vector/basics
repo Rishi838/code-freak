@@ -1,0 +1,17 @@
+//Vectors
+#include<iostream>
+#include<vector>
+using namespace std;
+int main()
+{
+    vector<string> vec1;//It is a zero length vector
+    vec1.push_back("Hello everyone\n");
+    vec1.push_back("How u doing");
+    vector<string>:: iterator iter=vec1.begin();  //creating a iterator
+    for (iter ; iter != vec1.end(); iter++)
+    {
+        cout<<*iter;
+    }
+    
+    return 0;
+}
