@@ -1,0 +1,23 @@
+//Insert Operator
+#include <iostream>
+#include <vector>
+using namespace std;
+int main()
+{
+    vector<int> v{1, 2, 3, 4, 5};
+    vector<int> v1{6, 7, 8, 9, 10};
+    v.insert(v.begin() + 1, 2, 5); //Enter one index less than that required
+    for (int i = 0; i < v.size(); i++)
+    {
+        cout << v[i] << " ";
+    }
+    cout<<endl;
+    v.insert(v.end(), v1.begin(), v1.end());  //if we add iterator than all elements in contigous location are added
+
+    for (int i = 0; i < v.size(); i++)
+    {
+        cout << v[i] << " ";
+    }
+
+    return 0;
+}
