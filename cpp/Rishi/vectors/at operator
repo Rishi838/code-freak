@@ -1,0 +1,15 @@
+//At operator
+//we can user many things like v[i],v.at(i),*iter
+#include<iostream>
+#include<vector>
+using namespace std;
+int main()
+{
+    vector<int> v{1,2,3,4};
+    for (int i = 0; i < 4; i++)
+    {
+        cout<<v.at(i)<<endl;
+    }
+    
+    return 0;
+}
