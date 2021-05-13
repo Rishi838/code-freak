@@ -1,0 +1,17 @@
+//Lists
+#include<iostream>
+#include<list>
+#include<vector>
+using namespace std;
+int main()
+{
+    list<int> l(3); //creates a 3 element list with all zeores 
+    list<int> :: iterator iter=l.begin();
+    *iter=45;     //Adding one element at the itertator
+    for (iter; iter != l.end() ; iter++)
+    {
+        cout<<*iter<<endl;  //Dont use l[i] as the memory llocation is not contigous
+    }
+    
+    return 0;
+} 
