@@ -1,0 +1,32 @@
+/*
+in first line take input of  size of array a and no of queries
+store a array of k integers in arr[i]  (array at index of an array)
+then in next n lines take first input of size of array and then take input of element of array
+then take input of queries in format i j where i is index of array a whereas j is element of that index in array of array a
+print the value of element
+*/
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+int main()
+{
+    int a, size, k, i, j;
+    cin >> a;
+    vector<vector<int>> vec;
+    for (int i = 0; i < a; i++)
+    {
+        cin >> size;
+        vector<int> nvec;
+        for (int i = 0; i < size; i++)
+        {
+            cin >> k;
+            nvec.push_back(k);
+        }
+        vec.push_back(nvec);
+    }
+
+cin >> i >> j;
+cout << vec[i][j];
+  return 0;
+}
