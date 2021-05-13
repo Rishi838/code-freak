@@ -1,0 +1,32 @@
+//Use of insert operator in lists(important)
+#include <iostream>
+#include <list>
+#include <vector>
+using namespace std;
+
+void display(list<int> l)
+{
+    list<int>::iterator iter = l.begin();
+    for (iter; iter != l.end(); iter++)
+    {
+        cout << *iter << " ";
+    }
+    cout << endl;
+}
+
+int main()
+{
+    list<int> l{1, 2, 3, 4, 5, 6};
+    list<int> l1{7, 8, 9};
+    display(l);
+    list<int>::iterator iter = l.begin();
+    l.insert(iter, 5); //it will add elemenst at that iterator and elements will be pushed further
+    display(l);
+    iter = l.begin();      //Think of this as a linked list ,point at begining again because it is adding at that
+    l.insert(iter, 2, 10); //position which it was given earlier
+    display(l);
+    iter = l.begin();
+    l.insert(iter, l1.begin(), l1.end());
+    display(l);
+    return 0;
+}
