@@ -1,0 +1,31 @@
+//Dequeue(Double ended queue)
+#include <iostream>
+#include <queue>
+using namespace std;
+
+void display(deque<int> d)
+{
+    deque<int>::iterator iter = d.begin();
+    for (iter; iter != d.end(); iter++)
+    {
+        cout << *iter << " ";
+    }
+    cout << endl;
+}
+
+int main()
+{
+    deque<int> d = {1, 2, 3, 4};
+    display(d);
+    d.push_back(5);
+    d.push_back(6);
+    display(d);
+    d.pop_back();
+    display(d);
+    d.pop_front();
+    display(d);
+    d.push_front(1);
+    display(d);
+
+    return 0;
+}
