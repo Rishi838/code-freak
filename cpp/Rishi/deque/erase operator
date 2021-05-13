@@ -1,0 +1,29 @@
+#include <queue>
+#include <iostream>
+#include<list>
+using namespace std;
+
+void display(deque<int> d)
+{
+    deque<int>::iterator iter = d.begin();
+    for (iter; iter != d.end(); iter++)
+    {
+        cout << *iter << " "; //can access like this as well as with iterator but using iertaor is preferred
+    }
+    cout << endl;
+}
+
+int main()
+{
+    deque<int> q{1, 2, 3, 4, 5, 6, 7, 8, 9};
+    deque<int>::iterator iter = q.begin();
+    display(q);
+    q.erase(iter);
+    display(q);     //repeat the same with list u will know the difference
+    q.erase(iter);
+    display(q);
+    q.erase(iter,iter+3);
+    display(q);
+
+    return 0;
+}
