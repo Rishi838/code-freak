@@ -1,0 +1,15 @@
+//Multimaps
+#include<iostream>
+#include<map>
+using namespace std;
+int main()
+{
+    multimap<char,int> m={{'d',1},{'b',2},{'c',5},{'c',4}};   //Will automatically arranged in sequential order of the
+    multimap<char,int> :: iterator iter=m.begin();            //Keys
+    for (iter; iter != m.end(); iter++)
+    {
+        cout<<iter->first<<": "<<iter->second<<endl;
+    }
+    
+    return 0;
+}
