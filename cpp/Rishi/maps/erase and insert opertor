@@ -1,0 +1,42 @@
+//Insert  and erase operator
+#include <iostream>
+#include <map>
+using namespace std;
+
+void display(map<char, int> m)
+{
+    map<char, int>::iterator iter = m.begin();
+    for (iter; iter != m.end(); iter++)
+    {
+        cout << (*iter).first << ": " << (*iter).second << "\t";
+    }
+}
+
+int main()
+{
+    map<char, int> m{{'b', 1}, {'d', 2}, {'c', 3}}; //Automatically arranges in sequential orders
+    display(m);
+    cout << endl
+         << endl;
+    m.insert(pair<char, int>('a', 4)); //Everything with will ne arranged in sequential orders of keys
+    display(m);
+    //If you want to add a element at a particular position
+    m.insert(m.begin(), pair<char, int>{'f', 5});
+    cout << endl
+         << endl;
+    display(m);
+    map<char, int> m2;
+    m2.insert(m.begin(), m.end());
+    cout << endl
+         << endl;
+    display(m2);
+    m2.erase(m2.begin());   //Erasing a index
+    cout << endl
+         << endl;
+    display(m2);
+    m2.erase('c');     //Erasing a key
+    cout << endl
+         << endl;
+    display(m2);
+    return 0;
+}
