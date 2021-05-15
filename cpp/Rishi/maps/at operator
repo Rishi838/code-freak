@@ -1,0 +1,13 @@
+//Maps
+#include<iostream>
+#include<map>
+using namespace std;
+int main()
+{
+    map<int,int> m={{1,1},{2,2},{3,3},{4,4}};
+    cout<<m[1]<<endl;    //This is how we use opertor[]
+    cout<<m[2]<<endl;
+
+    cout<<m.at(1);   //This is use pf at operator
+    return 0;
+}
