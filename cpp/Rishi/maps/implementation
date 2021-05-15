@@ -1,0 +1,24 @@
+//Maps
+#include<iostream>
+#include<map>
+using namespace std;
+int main()
+{
+    map<int,string> m;
+    m[8]="Abhas";
+    m[7]="Utkarsh";
+    m[3]="Saawal";
+    m[4]="Pranzy";
+    m[5]="Tushar";
+    cout<<"M[0] is: "<<m[0]<<endl;
+    cout<<"Size of map is: "<<m.size()<<endl;
+    //This is the way to display a map;
+    map<int,string> :: iterator iter=m.begin();
+    for (iter ; iter != m.end(); iter++)
+    {
+        cout<<(*iter).first<<": "<<(*iter).second<<endl;   //order will always be maintained from starting
+        //O is always displayed if it is not there 
+    }
+    
+    return 0;
+}
