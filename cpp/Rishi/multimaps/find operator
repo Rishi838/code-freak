@@ -1,0 +1,14 @@
+//Multimaps(find operator)
+#include <iostream>
+#include <map>
+using namespace std;
+
+int main()
+{
+    multimap<char, int> m = {{'b', 1}, {'b', 2}, {'c', 3}, {'c', 4}, {'c', 5}};
+    multimap<char, int> :: iterator it= m.find('c');   //FInd first key always
+    cout<<it->second;
+     
+    
+    return 0;
+}
