@@ -1,0 +1,14 @@
+//sets   (asociative container)
+#include <iostream>
+#include <set>
+using namespace std;
+int main()
+{
+    set<string> s{"hello", "world", "how", "are", "you"};
+    set<string>::iterator iter = s.begin();
+    for (iter; iter != s.end(); iter++)
+    {
+        cout << *iter << " ";
+    }
+    return 0;
+}
