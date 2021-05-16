@@ -1,0 +1,27 @@
+//Multimaps
+#include <iostream>
+#include <map>
+using namespace std;
+
+void display(multimap<char, int> m)
+{
+    multimap<char, int>::iterator iter = m.begin();
+    for (iter; iter != m.end(); iter++)
+    {
+        cout << iter->first << ": " << iter->second << endl;
+    }
+    cout << endl;
+}
+
+int main()
+{
+    multimap<char, int> m = {{'b', 1}, {'b', 2}, {'c', 3}, {'c', 4}, {'c', 5}};
+    display(m);
+    multimap<char, int>::iterator iter = m.find('c');
+    m.erase(iter);       //Deleting with iterator will remove only that node
+    display(m);
+    m.erase('c'); //Erasing with key will erase all the values having that same keys
+    display(m);
+    
+    return 0;
+}
