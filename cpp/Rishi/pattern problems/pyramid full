@@ -1,0 +1,44 @@
+//Full Pyramid  
+/*
+    *
+   ***
+  *****
+ ******* 
+ */
+#include<iostream>
+using namespace std;
+int main()
+{
+int l;
+cin>>l;
+for (int i = 0; i < l; i++)
+{
+   for (int j = 0; j < 2*l; j++)
+   {
+       if (j< l-i-1)
+       {
+        cout<<"  ";
+       }
+       else if( j < l)
+       {
+           cout<<"* ";
+       }
+       if (j<=l+i && j>l)
+       {
+           cout<<"* ";
+       }
+       else if(j>l)
+       {
+           cout<<"  ";
+       }
+       
+      
+       
+       
+   }
+   
+    cout<<endl;
+}
+
+    return 0;
+}
