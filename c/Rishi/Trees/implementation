@@ -1,0 +1,38 @@
+//Trees
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node
+{
+    int data;
+    struct node *left;
+    struct node *right;
+};
+
+struct node *create_Node(int data)
+{
+    struct node *p = (struct node *)malloc(sizeof(struct node));
+    p->data = data;
+    p->left = NULL;
+    p->right = NULL;
+    return p;
+}
+
+int main()
+{
+    struct node *p = create_Node(1);
+    struct node *p1 = create_Node(2);
+    struct node *p2 = create_Node(3);
+    struct node *p3 = create_Node(4);
+    struct node *p4 = create_Node(5);
+
+    p->left = p1;
+    p->right = p2;
+    p1->left = p3;
+    p2->right = p4;
+
+  printf("%d %d %d %d %d",p->data,p1->data,p2->data,p3->data,p4->data);
+
+
+    return 0;
+}
