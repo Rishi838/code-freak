@@ -1,0 +1,65 @@
+//to rotate a doubly linked list by n nodes
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node
+{
+    int data;
+    struct node *next;
+    struct node *prev;
+};
+
+void addition(struct node **head, struct node **tail, int data)
+{
+    struct node *n = (struct node *)malloc(sizeof(struct node));
+    n->data = data;
+    if (*head == NULL)
+    {
+        *head = *tail = n;
+        (*head)->prev = NULL;
+        (*tail)->next = NULL;
+    }
+    else
+    {
+        (*tail)->next = n;
+        n->prev = *tail;
+        *tail = n;
+        (*tail)->next = NULL;
+    }
+}
+
+struct node *rotate(struct node *head, struct node *tail, int n)
+{
+    struct node *current = head;
+    for (int i = 1; i < n; i++)
+    {
+        current = current->next;
+    }
+    tail->next = head;
+    head = current->next;
+    head->prev = NULL;
+    tail = current;
+    tail->next = NULL;
+    return head;
+}
+
+void display(struct node *head)
+{
+    while (head != NULL)
+    {
+        printf("%d", head->data);
+        head = head->next;
+    }
+}
+int main()
+{
+    struct node *head = NULL;
+    struct node *tail = NULL;
+    addition(&head, &tail, 1);
+    addition(&head, &tail, 2);
+    addition(&head, &tail, 3);
+    addition(&head, &tail, 4);
+    addition(&head, &tail, 5);
+    head = rotate(head, tail, 4);
+    display(head);
+}
