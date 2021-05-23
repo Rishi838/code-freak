@@ -1,0 +1,54 @@
+//to reverse a circular linked list
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node
+{
+    int data;
+    struct node *next;
+};
+struct node*head=NULL ;
+struct node*tail=NULL;
+
+
+void addition( int data)
+{
+    struct node *n=(struct node*)malloc(sizeof(struct node));
+    n->data=data;
+  if (head == NULL)
+  {
+   head=n;
+   tail=n;
+   n->next=head;   
+  }
+  else
+  {
+      tail->next=n;
+      tail=n;
+      tail->next=head;
+  }
+  
+}
+
+        
+void reverse(struct node*current) {  
+    if(current->next == head) {  
+        printf("%d ",current->data);  
+        return;  
+    }  
+    reverse(current->next);  
+    printf("%d ",current->data);  
+}  
+    
+
+
+int main()
+{
+    addition(1);
+    addition(2);
+    addition(3);
+    addition(4);
+    addition(5);
+    reverse(head);
+    return 0;
+}
