@@ -1,0 +1,57 @@
+//Display a doubly linked list in reverse order
+#include<stdio.h>
+#include<stdlib.h>
+
+struct node{
+    int data;
+    struct node*next;
+    struct node*prev;
+};
+
+void addition(struct node **head,struct node **tail,int data)
+{
+    struct node *n=(struct node*)malloc(sizeof(struct node));
+    n->data=data;
+    if (*head==NULL)
+    {
+        *head=*tail=n;
+        (*head)->prev=NULL;
+        (*tail)->next=NULL;
+    }
+    else
+    {
+        (*tail)->next=n;
+        n->prev=*tail;
+        *tail=n;
+        (*tail)->next=NULL;
+    }
+    
+}
+
+void reverse_display(struct node *head)
+{
+    struct node*temp=head;
+while (temp->next!=NULL)
+{
+    temp=temp->next;
+}
+while (temp != NULL)
+{
+    printf("%d ",temp->data);
+    temp=temp->prev;
+}
+
+
+
+}
+int main()
+{
+    struct node*head=NULL;
+    struct node*tail=NULL;
+    addition(&head,&tail,1);
+    addition(&head,&tail,2);
+    addition(&head,&tail,3);
+    addition(&head,&tail,4);
+    addition(&head,&tail,5);
+    reverse_display(head);
+}
