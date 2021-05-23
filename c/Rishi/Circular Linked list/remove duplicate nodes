@@ -1,0 +1,78 @@
+//to remove duplicate nodes
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node
+{
+    int data;
+    struct node *next;
+};
+struct node *head = NULL;
+struct node *tail = NULL;
+
+void addition(int data)
+{
+    struct node *n = (struct node *)malloc(sizeof(struct node));
+    n->data = data;
+    if (head == NULL)
+    {
+        head = n;
+        tail = n;
+        n->next = head;
+    }
+    else
+    {
+        tail->next = n;
+        tail = n;
+        tail->next = head;
+    }
+}
+
+struct node *remove_duplicate(struct node *head)
+{
+    struct node *current = head, *index, *temp;
+    ;
+    while (current->next != head)
+    {
+        index = current->next;
+        temp = current;
+        while (index->next != head)
+        {
+            if (current->data == index->data)
+            {
+                temp->next = index->next;
+            }
+            else
+            {
+                temp = index;
+            }
+
+            index = index->next;
+        }
+
+        current = current->next;
+    }
+    return head;
+}
+
+void display(struct node *current)
+{
+    while (current->next != head)
+    {
+        printf("%d ", current->data);
+        current = current->next;
+    }
+    printf("%d ", current->data);
+}
+
+int main()
+{
+    addition(1);
+    addition(2);
+    addition(2);
+    addition(2);
+    addition(5);
+    head = remove_duplicate(head);
+    display(head);
+    return 0;
+}
