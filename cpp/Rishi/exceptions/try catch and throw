@@ -1,0 +1,26 @@
+//Excenption handling
+#include<iostream>
+using namespace std;
+int main()
+{
+    int age;
+    cin>>age;
+    try
+    {
+        if (age>=18)
+        {
+            cout<<"You are 18 or above";
+        }
+        else
+        {
+            throw age;
+        }
+        
+    }
+    catch(int num)
+    {
+        cout<<"Sorry your age is less than the minimum age";
+    }
+    
+    return 0;
+}
