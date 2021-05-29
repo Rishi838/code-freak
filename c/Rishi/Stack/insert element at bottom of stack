@@ -1,0 +1,44 @@
+//Inserting a element at bottom of stack using recursion
+#include <iostream>
+#include <stack>
+using namespace std;
+
+void insert_at_bottom(stack<int> &s, int x)
+{
+    if (s.empty())
+    {
+        s.push(x);
+        return;
+    }
+    else
+    {
+        int a = s.top();
+        s.pop();
+        insert_at_bottom(s, x);
+        s.push(a);
+    }
+}
+
+int main()
+{
+    stack<int> s1;
+    int n, a, c;
+    cout << "Enter number of elements in stack: ";
+    cin >> n;
+    for (int i = 0; i < n; i++)
+    {
+        cout << "Enter element no " << i + 1 << ": ";
+        cin >> a;
+        s1.push(a);
+    }
+    cout << "Enter element to be inserted at bottom: ";
+    cin >> c;
+    insert_at_bottom(s1, c);
+    while (!s1.empty())
+    {
+        cout << s1.top() << " ";
+        s1.pop();
+    }
+
+    return 0;
+}
