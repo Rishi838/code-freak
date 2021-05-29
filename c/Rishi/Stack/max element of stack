@@ -1,0 +1,34 @@
+//Finding the maximum elements of a stack
+#include <iostream>
+#include <stack>
+using namespace std;
+int main()
+{
+    stack<int> main_stack, track_stack;
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; i++)
+    {
+        int a;
+        cin >> a;
+        main_stack.push(a);
+        if (track_stack.empty())
+        {
+            track_stack.push(a);
+        }
+        else
+        {
+            if (a > track_stack.top())
+            {
+                track_stack.push(a);
+            }
+            else
+            {
+                track_stack.push(track_stack.top());
+            }
+        }
+        cout<<track_stack.top()<<endl;  //stack top after each operation
+    }
+cout<<"Max Element: "<<track_stack.top();
+    return 0;
+}
