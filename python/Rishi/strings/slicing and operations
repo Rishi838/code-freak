@@ -1,0 +1,30 @@
+#strings
+mystr="why i am so bad"
+print(mystr)
+print(mystr[4])  # This will print the char at index 4
+# the next step is known as string slicing
+print(mystr[0:7])  # In this case 0 is incluisve but 7 is exclusive
+print("The length of the string is:",len(mystr))
+print(mystr[0:14])   # this will not include 14 index so we have to give one more than this
+print(mystr[0:80]) # This will not throw any error as it will give us the string upto is its length and ignore others
+#print(mystr[80])   This will show error as no such index exixts in a string
+print(mystr[0:])   # if we write zero and then leave it blank then it will go upto length of string
+print(mystr[:5])   # if we write :5 then it will start from 0 and go upto that
+print(mystr[:])    # if we write like this then it will consider full string
+print(mystr[0:5:2])   # third one specifies of index-1 to leave
+print(mystr[::])   # by default the spacing default is set to 1
+# Deafult values  0 : length of string : 1
+print(mystr[::2])
+print(mystr[::21])  #it will travel upto valid index only
+print(mystr[-6:-1])  # the last element has index of -1 and will decrement upto start of the string
+print(mystr[::-1])  # this is aa good method to reverse a string
+print(mystr[::-2])   # this will reverse a string nut with gap of one words
+print(mystr.isalnum())  # it returns true if it is a alphanumeric string but int his it has spaces so false
+print(mystr.isalpha())  # it returns true if it is a alphabetic ,it has spaces so false
+print(mystr.endswith("so bad"))  # it returns true if the string ends with this string
+print(mystr.count("a"))   # it returns count of that function of that variable
+print(mystr.capitalize())  # it capitalise first letter of the string
+print(mystr.find("am"))   # tells index of the entered string
+print(mystr.upper())   # change to uppercase letter
+print(mystr.lower())  # change to lowercase letter
+print(mystr.replace("am","as"))   # replace the two strings
