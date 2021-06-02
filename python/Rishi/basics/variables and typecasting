@@ -1,0 +1,21 @@
+#variables and data types
+var1="hello world"
+var2=4
+var3=36.71
+var4=" my name is rishi"
+var5="54"
+var6="32"
+var7="Rishi "
+print(type(var1))
+print(type(var2))
+print(type(var3))
+print(var2+var3)
+print(var1 + var4)
+print(var5+var6)
+# now we are typecasting the variables
+print(int(var5)+int(var6))
+print(int(var3))
+print(float(var2))
+print(10*var7)
+print(var1,"\n")
+print(var1)
