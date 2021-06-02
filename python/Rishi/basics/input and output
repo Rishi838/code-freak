@@ -1,0 +1,7 @@
+#Basic input and output
+print("Enter your number 1: ")
+num1 =input()
+print("Enter your number 2: ")
+num2 =input()
+#Tip: It always accepts iput of a string so typecaats accordingly
+print("The sum of two numbers is: ",int(num1)+int(num2))
