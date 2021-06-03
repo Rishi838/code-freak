@@ -1,0 +1,35 @@
+//Find maximum value of Sum( i*arr[i]) with only rotations on given array allowed
+//This is the best solution
+//Dont do rotation in questions of rotation as it takes two much time
+//Instead search for patterns
+//eg arr{1,20,2,10}  - ------ ouput is 72
+#include <iostream>
+using namespace std;
+int main()
+{
+    int n;
+    cin >> n;
+    int arr[n];
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+    int arrsum = 0, maxvalue = 0, currentvalue = 0;
+    for (int i = 0; i < n; i++)
+    {
+        arrsum += arr[i];
+        maxvalue += i * arr[i];
+    }
+    currentvalue = maxvalue;
+    for (int i = 1; i < n; i++)
+    {
+        currentvalue += arrsum - n * (arr[n - i]);
+        if (currentvalue > maxvalue)
+        {
+            maxvalue = currentvalue;
+        }
+    }
+    cout<<maxvalue;
+
+    return 0;
+}
