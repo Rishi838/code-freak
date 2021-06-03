@@ -1,0 +1,37 @@
+//Rotate a array
+// In this method time complexity is o(n)
+//Also %d allows us to cut all the rotations that yield same product after n rotations
+//This is left circular rotation
+// TIme complexity is o(n)
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int arr[]={1,2,3,4,5,6,7,8,9};
+    int d=10,n=sizeof(arr)/sizeof(int),j=0;   // No of rotations
+    d=d%n;
+    int temp[d];
+    for (int i = 0; i < d; i++)
+    {
+        temp[i]=arr[i];
+    }
+    for (int i = 0; i < n-d; i++)
+    {
+        arr[i]=arr[i+d];
+    }
+   for (int i = n-d; i < n; i++)
+   {
+       arr[i]=temp[j];
+       j++;
+   }
+   
+    for (int i = 0; i < n; i++)
+    {
+        cout<<arr[i]<<" ";
+    }
+    
+    
+    
+    
+}
