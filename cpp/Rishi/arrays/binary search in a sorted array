@@ -17,11 +17,11 @@ int main()
         }
         else if (element < arr[mid])
         {
-            high = high - 1;
+            high = mid - 1;
         }
         else
         {
-            low++;
+            low=mid+1;
         }
     }
 
