@@ -1,0 +1,40 @@
+//Rotate a array
+// In this method time complexity is o(n)
+//Also %d allows us to cut all the rotations that yield same product after n rotations
+//h=This is right circular rotation
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int n,k,q;
+    scanf("%d %d %d",&n,&k,&q);
+    k=k%n;
+    cout<<k;
+  long long int arr[n],temp[k];
+    for (int i = 0; i < n; i++)
+    {
+        scanf("%lld",&arr[i]);
+    }
+    int j=n-1,a;
+    for (int i =k-1; i >=0; i--)
+    {
+        temp[i]=arr[j];
+        j--;
+    }
+    for (int i = 0; i < n-k; i++)
+    {
+       arr[i+k]=arr[i]; 
+    }
+    for (int i = 0; i < k; i++)
+    {
+        arr[i]=temp[i];
+    }
+    
+    for (int i = 0; i < q; i++)
+    {
+        scanf("%d",&a);
+        printf("%lld\n",arr[a]);
+    }
+    return 0;
+}
