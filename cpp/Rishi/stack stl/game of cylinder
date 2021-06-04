@@ -1,0 +1,108 @@
+You have three stacks of cylinders where each cylinder has the same diameter, but they may vary in height. You can change the height of a stack by removing and discarding its
+topmost cylinder any number of times.Find the maximum possible height of the stacks such that all of the stacks are exactly the same height. This means you must remove zero 
+or more cylinders from the top of zero or more of the three stacks until they are all the same height, then return the height.
+
+#include <iostream>
+#include <stack>
+using namespace std;
+
+int max_height(stack<int> s)
+{
+    int sum = 0;
+    while (!s.empty())
+    {
+        sum += s.top();
+        s.pop();
+    }
+    return sum;
+}
+
+int main()
+{
+    bool flag=false;
+    int a, b, c, d;
+    cin >> a >> b >> c;
+    stack<int> s1, s2, s3, s4, s5, s6;
+    for (int i = 0; i < a; i++)
+    {
+        cin >> d;
+        s4.push(d);
+    }
+    for (int i = 0; i < b; i++)
+    {
+        cin >> d;
+        s5.push(d);
+    }
+    for (int i = 0; i < c; i++)
+    {
+        cin >> d;
+        s6.push(d);
+    }
+    while (!s4.empty())
+    {
+        s1.push(s4.top());
+        s4.pop();
+    }
+    while (!s5.empty())
+    {
+        s2.push(s5.top());
+        s5.pop();
+    }
+    while (!s6.empty())
+    {
+        s3.push(s6.top());
+        s6.pop();
+    }
+
+    int p = max_height(s1), q = max_height(s2), r = max_height(s3);
+    while (!s1.empty() && !s2.empty() && !s3.empty())
+    {
+        if (p == q && q == r)
+        {
+            cout << p;
+            flag=true;
+            break;
+        }
+        if (p > q && p > r)
+        {
+            p = p - s1.top();
+            s1.pop();
+        }
+        else if (q > p && q > r)
+        {
+            q = q - s2.top();
+            s2.pop();
+        }
+        else if (r > p && r > p)
+        {
+            r = r - s3.top();
+            s3.pop();
+        }
+        else if (p == q && p > r)
+        {
+            p = p - s1.top();
+            q = q - s2.top();
+            s1.pop();
+            s2.pop();
+        }
+        else if (p == r && p > q)
+        {
+            p = p - s1.top();
+            r = r - s3.top();
+            s1.pop();
+            s3.pop();
+        }
+        else if (q == r && q > p)
+        {
+            q = q - s2.top();
+            r = r - s3.top();
+            s2.pop();
+            s3.pop();
+        }
+    }
+    if (!flag) {
+    cout<<"0";
+    }
+
+    return 0;
+}
