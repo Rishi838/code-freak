@@ -1,0 +1,23 @@
+//reverse a sentence using stack
+#include<iostream>
+#include<stack>
+using namespace std;
+int main()
+{
+    string s,s1="";
+    getline(cin,s);
+    stack<char> str;
+    for (int i = 0; i < s.length(); i++)
+    {
+        str.push(s.at(i));
+    }
+    while (!str.empty())
+    {
+        s1+=str.top() ;
+       str.pop();
+    }
+    cout<<s1;
+    
+    
+    return 0;
+}
