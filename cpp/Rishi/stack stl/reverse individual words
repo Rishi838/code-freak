@@ -1,0 +1,34 @@
+//Reverse individual words
+// eg  hello world    ouput---->  olleh dlrow
+#include <iostream>
+#include <stack>
+using namespace std;
+int main()
+{
+    stack<char> s;
+    string str;
+    getline(cin, str);
+    for (int i = 0; i < str.length(); i++)
+    {
+        if (str.at(i) == ' ')
+        {
+            while (!s.empty())
+            {
+                cout << s.top();
+                s.pop();
+            }
+            cout<<" ";
+        }
+        else
+        {
+            s.push(str.at(i));
+        }
+    }
+    while (!s.empty())
+    {
+        cout << s.top();
+        s.pop();
+    }
+
+    return 0;
+}
