@@ -1,0 +1,48 @@
+task is to unlock a string . Unlocking rule is k[s]  multiply s by k times
+eg 3[a2[c]]ef   ---------->    accaccaccef
+#include <iostream>
+#include <stack>
+using namespace std;
+int main()
+{
+    stack<string> str;
+    string s, s1 = "", s2, s3, result = "";
+    cin >> s;
+    for (int i = 0; i < s.length(); i++)
+    { 
+        if (s.at(i) == ']')
+        {
+            while (str.top() != "[")
+            {
+                string ch = str.top();
+                str.pop();
+                s1 = ch + s1;
+            }
+            str.pop();
+            string s3 = str.top();
+            int a = stoi(s3);
+            str.pop();
+            for (int i = 0; i < a; i++)
+            {
+                s2 += s1;
+            }
+            s1.erase();
+            str.push(s2);
+            s2.erase();
+        }
+        else
+        {
+            string s4 = s.substr(i, 1);
+            str.push(s4);
+        }
+    }
+
+    while (!str.empty())
+    {
+        result = str.top() + result;
+        str.pop();
+    }
+    cout << result;
+
+    return 0;
+}
