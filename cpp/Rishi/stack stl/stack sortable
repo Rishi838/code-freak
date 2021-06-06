@@ -1,0 +1,54 @@
+//TO check whether an array is stack sortable
+/*
+Given an array of N distinct elements where elements are between 1 and N both inclusive, check if it is stack
+-sortable or not. An array A[] is said to be stack sortable if it can be stored in another array B[], using a 
+temporary stack S.
+
+The operations that are allowed on array are:
+
+!>  Remove the starting element of array A[] and push it into the stack.
+2> Remove the top element of the stack S and append it to the end of array B.
+If all the element of A[] can be moved to B[] by performing these operations such that array B is sorted in 
+ascending order, then array A[] is stack sortable.
+
+*/
+#include <iostream>
+#include <stack>
+using namespace std;
+int main()
+{
+    stack<int> s;
+    int n, a = 0;
+    cin >> n;
+    int arr[n], temp[n];
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+    for (int i = 0; i < n; i++)
+    {
+        s.push(arr[i]);
+    }
+    while (!s.empty())
+    {
+        temp[a] = s.top();
+        a++;
+        s.pop();
+    }
+    bool flag = true;
+    for (int i = 0; i < n - 1; i++)
+    {
+        if (temp[i] > temp[i + 1])
+        {
+            flag = false;
+            cout << "No";
+            break;
+        }
+    }
+    if (flag)
+    {
+        cout << "Yes";
+    }
+
+    return 0;
+}
