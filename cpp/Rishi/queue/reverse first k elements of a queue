@@ -1,0 +1,63 @@
+//Reversing first k numbers of queue using stack
+/*
+Given an integer k and a queue of integers, we need to reverse the order of the first k elements of the queue, 
+leaving the other elements in the same relative order.Only following standard operations are allowed on queue. 
+
+enqueue(x) : Add an item x to rear of queue
+dequeue() : Remove an item from front of queue
+size() : Returns number of elements in queue.
+front() : Finds front item.
+
+eg
+Input : Q = [10, 20, 30, 40, 50, 60, 
+            70, 80, 90, 100]
+        k = 5
+Output : Q = [50, 40, 30, 20, 10, 60, 
+             70, 80, 90, 100]
+
+*/
+#include <iostream>
+#include <queue>
+#include <stack>
+using namespace std;
+int main()
+{
+    queue<int> q;
+    q.push(10);
+    q.push(20);
+    q.push(30);
+    q.push(40);
+    q.push(50);
+    q.push(60);
+    q.push(70);
+    q.push(80);
+    q.push(90);
+    q.push(100);
+    int k = 5;
+    stack<int> s;
+    while (k--)
+    {
+        s.push(q.front());
+        q.pop();
+    }
+    cout << endl;
+    while (!s.empty())
+    {
+        q.push(s.top());
+        s.pop();
+    }
+    int a = q.size() - 5;
+    cout << a << endl;
+    while (a--)
+    {
+        q.push(q.front());
+        q.pop();
+    }
+    while (!q.empty())
+    {
+        cout << q.front() << " ";
+        q.pop();
+    }
+
+    return 0;
+}
