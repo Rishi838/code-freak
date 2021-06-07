@@ -1,0 +1,46 @@
+//Reversing a queue
+/*
+eg
+Input : Q = [10, 20, 30, 40, 50, 60, 
+            70, 80, 90, 100]
+Output : Q = [100, 90, 80, 70, 60, 50, 
+             40, 30, 20, 10]
+
+*/
+#include <iostream>
+#include <queue>
+#include <stack>
+using namespace std;
+int main()
+{
+    queue<int> q;
+    q.push(10);
+    q.push(20);
+    q.push(30);
+    q.push(40);
+    q.push(50);
+    q.push(60);
+    q.push(70);
+    q.push(80);
+    q.push(90);
+    q.push(100);
+    int k = q.size();
+    stack<int> s;
+    while (k--)
+    {
+        s.push(q.front());
+        q.pop();
+    }
+    while (!s.empty())
+    {
+        q.push(s.top());
+        s.pop();
+    }
+    while (!q.empty())
+    {
+        cout << q.front() << " ";
+        q.pop();
+    }
+
+    return 0;
+}
