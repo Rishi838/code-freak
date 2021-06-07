@@ -1,0 +1,63 @@
+//Remove brackets from an algebraic string containing + and – operators
+/*
+Input : "a-(b-c-(d+e))-f"
+Output : "a-b+c+d+e-f" 
+*/
+#include <stack>
+#include <iostream>
+using namespace std;
+
+void remove(string str)
+{
+    stack<string> s;
+    int i = 0;
+    while (str[i] != '\0')
+    {
+        if (str[i] != ')')
+        {
+            s.push(str.substr(i, 1));
+        }
+        else
+        {
+            string result = "";
+            while (s.top() != "(")
+            {
+                result = s.top() + result;
+                s.pop();
+            }
+            s.pop();
+            string str1 = s.top();
+            if (str1 == "-")
+            {
+                for (int j = 0; j < result.length(); j++)
+                {
+                    if (result[j] == '-')
+                    {
+                        result[j] = '+';
+                    }
+                    else if (result[j] == '+')
+                    {
+                        result[j] = '-';
+                    }
+                }
+            }
+            s.push(result);
+        }
+        i++;
+    }
+    string result1 = "";
+    while (!s.empty())
+    {
+        result1 = s.top() + result1;
+        s.pop();
+    }
+    cout << result1;
+}
+
+int main()
+{
+    string str;
+    cin >> str;
+    remove(str);
+    return 0;
+}
