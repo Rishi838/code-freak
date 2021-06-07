@@ -1,0 +1,65 @@
+/*
+Given a queue of integers of even length, rearrange the elements by interleaving the first half of the queue with 
+the second half of the queue.
+
+only a stack can be used as a auxilarry space
+
+Input : 11 12 13 14 15 16 17 18 19 20
+Output : 11 16 12 17 13 18 14 19 15 20
+*/
+#include <stack>
+#include <iostream>
+#include <queue>
+using namespace std;
+int main()
+{
+    queue<int> q;
+    q.push(11);
+    q.push(12);
+    q.push(13);
+    q.push(14);
+    q.push(15);
+    q.push(16);
+    q.push(17);
+    q.push(18);
+    q.push(19);
+    q.push(20);
+    int a = q.size() / 2;
+    stack<int> s;
+    while (a--)
+    {
+        s.push(q.front());
+        q.pop();
+    }
+    while (!s.empty())
+    {
+        q.push(s.top());
+        s.pop();
+    }
+    a = q.size() / 2;
+    while (a--)
+    {
+        q.push(q.front());
+        q.pop();
+    }
+    a = q.size() / 2;
+    while (a--)
+    {
+        s.push(q.front());
+        q.pop();
+    }
+    while (!s.empty())
+    {
+        q.push(s.top());
+        s.pop();
+        q.push(q.front());
+        q.pop();
+    }
+    while (!q.empty())
+    {
+        cout << q.front() << " ";
+        q.pop();
+    }
+
+    return 0;
+}
