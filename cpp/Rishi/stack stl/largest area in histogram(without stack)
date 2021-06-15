@@ -1,0 +1,32 @@
+#include <iostream>
+#include <stack>
+using namespace std;
+int main()
+{
+    int n;
+    cin >> n;
+    int arr[n], maximum = 0, current = 0;
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+    for (int j = 0; j < n; j++)
+    {
+        int b = 0, c = 0, i = j;
+        while (arr[i] >= arr[j] && i >= 0)
+        {
+            b++;
+            i--;
+        }
+        i = j + 1;
+        while (arr[i] >= arr[j] && i <= n - 1)
+        {
+            i++;
+            c++;
+        }
+        current = arr[j] * (b + c);
+        maximum = max(maximum, current);
+    }
+    cout << maximum;
+    return 0;
+}
