@@ -1,0 +1,59 @@
+/*
+Given a sequence of n strings, the task is to check if any two similar words come together then they
+destroy each other then print the number of words left in the sequence after this pairwise destruction
+
+Examples:
+
+Input : ab aa aa bcd ab
+Output : 3
+As aa, aa destroys each other so, ab bcd ab is the
+new sequence.
+*/
+#include <iostream>
+#include <stack>
+using namespace std;
+int main()
+{
+    stack<string> string_stack, s2;
+    string s, result = "";
+    getline(cin, s);
+    int a = 0, i = s.length() - 1;
+    while (i >= 0)
+    {
+        if (s[i] != ' ')
+        {
+            result = s[i] + result;
+        }
+        else
+        {
+            string_stack.push(result);
+            result.clear();
+        }
+        i--;
+    }
+    string_stack.push(result);
+    while (!string_stack.empty())
+    {
+        if (s2.empty())
+        {
+            s2.push(string_stack.top());
+            string_stack.pop();
+        }
+        else
+        {
+            if (s2.top() == string_stack.top())
+            {
+                s2.pop();
+                string_stack.pop();
+            }
+            else
+            {
+                s2.push(string_stack.top());
+                string_stack.pop();
+            }
+        }
+    }
+    cout<<s2.size();
+
+    return 0;
+}
