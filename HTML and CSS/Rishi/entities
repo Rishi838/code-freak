@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        HTML Entities
+    </title>
+</head>
+
+<body>
+    <!-- Entities are used to print special charaters and special symbols that are not on our keyborad -->
+<p>This is a&nbsp;&nbsp;&nbsp;&nbsp;para</p>
+<p>If you want to write this &lt;p&gt;  do it like this</p>
+<p>This is the symbol of pound &pound;</p>
+<p>This is the symbol of copyright &copy;</p>
+<p>This is a blank charaters &#8203;</p>
+</body>
+
+</html> 
