@@ -1,0 +1,48 @@
+// Reverse a queue using reursion
+
+// Given a queue, write a recursive function to reverse it.
+// Standard operations allowed :
+// enqueue(x) : Add an item x to rear of queue.
+// dequeue() : Remove an item from front of queue.
+// empty() : Checks if a queue is empty or not.
+
+// Examples :
+
+// Input : Q = [5, 24, 9, 6, 8, 4, 1, 8, 3, 6]
+// Output : Q = [6, 3, 8, 1, 4, 8, 6, 9, 24, 5]
+#include <iostream>
+#include <queue>
+using namespace std;
+
+void recursion(queue<int> &q)
+{
+  if (q.empty())
+  {
+      return;
+  }
+  int a=q.front();
+  q.pop();
+  recursion(q);
+  q.push(a);
+  
+}
+int main()
+{
+    int n, a;
+    cin >> n;
+    queue<int> q;
+    while (n--)
+    {
+        cin >> a;
+        q.push(a);
+    }
+    recursion(q);
+    while (!q.empty())
+    {
+        cout<<q.front()<<" ";
+        q.pop();
+    }
+    
+
+    return 0;
+}
