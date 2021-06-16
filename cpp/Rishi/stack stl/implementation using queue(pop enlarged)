@@ -1,0 +1,44 @@
+//Implementing stack using queues
+//Making pop operation costely
+#include <iostream>
+#include <queue>
+using namespace std;
+
+void push(queue<int> &q, int x)
+{
+    q.push(x);
+}
+int pull(queue<int> &q)
+{
+    queue<int> q1;
+    while (q.size() != 1)
+    {
+        q1.push(q.front());
+        q.pop();
+    }
+    int a = q.front();
+    q.pop();
+    queue<int> q2 = q;
+    q = q1;
+    q1 = q;
+    return a;
+}
+
+int main()
+{
+    queue<int> q;
+    int n, a;
+    cin >> n;
+    while (n--)
+    {
+        cin >> a;
+        push(q,a);
+    }
+    while (!q.empty())
+    {
+        cout<<pull(q)<<" ";
+    }
+    
+   
+    return 0;
+}
