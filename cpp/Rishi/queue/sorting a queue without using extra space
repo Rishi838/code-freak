@@ -1,0 +1,77 @@
+// //Sort a queue witout using any extra space
+// Input : A queue with elements
+//         11  5  4  21
+// Output : Modified queue with
+//          following elements
+//         4 5 11 21
+
+#include <iostream>
+#include <queue>
+using namespace std;
+
+int min_index(queue<int> q, int sorted_index)
+{
+    int index = -1, min = q.front();
+    for (int i = 0; i < q.size(); i++)
+    {
+        int b = q.front();
+        q.pop();
+        if (i < sorted_index && b <= min)
+        {
+            min = b;
+            index = i;
+        }
+        q.push(b);
+    }
+    return index;
+}
+
+void insert_to_rear(queue<int> &q, int min_index)
+{
+    int n = q.size(), min;
+    for (int i = 0; i < n; i++)
+    {
+        int a = q.front();
+        q.pop();
+        if (i != min_index)
+        {
+            q.push(a);
+        }
+        else
+        {
+            min = a;
+        }
+    }
+    q.push(min);
+}
+
+void sort(queue<int> &q)
+{
+    int n = q.size();
+    for (int i = 0; i < n; i++)
+    {
+        int min = min_index(q, q.size() - i);
+        insert_to_rear(q, min);
+    }
+}
+
+int main()
+{
+    queue<int> q;
+  int n,a;
+  cin>>n;
+  for (int i = 0; i < n; i++)
+  {
+      cin>>a;
+      q.push(a);
+  }
+  
+    sort(q);
+    while (!q.empty())
+    {
+        cout << q.front() << " ";
+        q.pop();
+    }
+
+    return 0;
+}
