@@ -1,4 +1,4 @@
-//Count all nodes recursively
+//sum of all nodes recursively
 
 #include <iostream>
 #include <queue>
@@ -17,7 +17,7 @@ public:
     }
 };
 
-int count_nodes(Node *root)
+int sum_nodes(Node *root)
 {
     if (root==NULL)
     {
@@ -35,7 +35,7 @@ int main()
     root->right->left = new Node(6);
     root->right->right = new Node(7);
     root->right->right->right = new Node(8);
-    cout<<count_nodes(root);
+    cout<<sum_nodes(root);
 
     return 0;
 }
