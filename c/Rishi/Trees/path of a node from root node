@@ -1,0 +1,68 @@
+//Finding path of given Node from root
+//Height balanced tree
+/* 
+         1                                          
+        / \                                      
+       /   \                                   
+      2     3                                
+     / \    /  \                            
+    /   \   /   \                          
+   4      5 6    7                        
+*/
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class Node
+{
+public:
+    int data;
+    Node *left, *right;
+    Node(int x)
+    {
+        data = x;
+        left = NULL;
+        right = NULL;
+    }
+};
+
+bool path(Node *root, vector<int> &v, int k)
+{
+    if (root == NULL)
+    {
+        return false;
+    }
+    v.push_back(root->data);
+    // cout<<"Pushing "<<root->data<<endl;
+    if (root->data == k)
+    {
+        return true;
+    }
+    5 if (path(root->left, v, k) || path(root->right, v, k))
+    {
+        return true;
+    }
+    // cout<<"Popping "<<root->data<<endl;
+    v.pop_back();
+    return false;
+}
+
+int main()
+{
+    Node *root = new Node(1);
+    root->left = new Node(2);
+    root->right = new Node(3);
+    root->left->left = new Node(4);
+    root->left->right = new Node(5);
+    root->right->left = new Node(6);
+    root->right->right = new Node(7);
+    vector<int> v;
+    path(root, v, 7);
+    for (int i = 0; i < v.size(); i++)
+    {
+        cout << v[i] << " ";
+    }
+
+    return 0;
+}
