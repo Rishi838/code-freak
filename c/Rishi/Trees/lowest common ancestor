@@ -1,0 +1,83 @@
+//Finding path of given Node from root
+//Height balanced tree
+/* 
+         1                                          
+        / \                                      
+       /   \                                   
+      2     3                                
+     / \    /  \                            
+    /   \   /   \                          
+   4      5 6    7                        
+*/
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class Node
+{
+public:
+    int data;
+    Node *left, *right;
+    Node(int x)
+    {
+        data = x;
+        left = NULL;
+        right = NULL;
+    }
+};
+
+bool path(Node *root, vector<int> &v, int k)
+{
+    if (root == NULL)
+    {
+        return false;
+    }
+    v.push_back(root->data);
+    // cout<<"Pushing "<<root->data<<endl;
+    if (root->data == k)
+    {
+        return true;
+    }
+    if (path(root->left, v, k) || path(root->right, v, k))
+    {
+        return true;
+    }
+    // cout<<"Popping "<<root->data<<endl;
+    v.pop_back();
+    return false;
+}
+
+int lca(Node *root, int n, int k)
+{
+    vector<int> v1, v2;
+    if (!path(root, v1, n) || !path(root, v2, k))
+    {
+        return -1;
+    }
+    else
+    {
+        int i;
+        for (i = 0; i < v1.size() && i < v2.size(); i++)
+        {
+            if (v1[i] != v2[i])
+            {
+                return v1[i - 1];
+            }
+        }
+    }
+}
+
+int main()
+{
+    Node *root = new Node(1);
+    root->left = new Node(2);
+    root->right = new Node(3);
+    root->left->left = new Node(4);
+    root->left->right = new Node(5);
+    root->right->left = new Node(6);
+    root->right->right = new Node(7);
+  cout<< lca(root,4,3);
+
+    return 0;
+}
