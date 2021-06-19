@@ -1,0 +1,64 @@
+//Pringting all nodes at distance k from a given node
+#include <iostream>
+#include<vector>
+using namespace std;
+
+class Node
+{
+public:
+    int data;
+    Node *left, *right;
+    Node(int x)
+    {
+        data = x;
+        left = NULL;
+        right = NULL;
+    }
+};
+
+void check_bst(Node *root,vector<int> &v)
+{    
+    if (root==NULL)
+    {
+        return;
+    }
+    else
+    {
+        check_bst(root->left,v);
+         v.push_back(root->data);
+         check_bst(root->right,v);
+    }
+    
+}
+
+int main()
+{
+    Node *root = new Node(9);
+    root->left = new Node(4);
+    root->right = new Node(11);
+    root->left->left = new Node(2);
+    root->left->right = new Node(7);
+    root->left->right->left = new Node(5);
+    root->left->right->right = new Node(8);
+    root->right->right = new Node(19);
+    root->right->right->left = new Node(14);
+     vector<int> v;
+     check_bst(root,v);
+     bool flag=true;
+     for (int i = 0; i < v.size()-1; i++)
+     {
+         if (v[i+1]<=v[i])
+         {
+             cout<<"Not a bst";
+             flag=false;
+             break;
+         }
+         
+     }
+     if (flag)
+     {
+         cout<<"Bst";
+     }
+     
+    return 0;
+}
