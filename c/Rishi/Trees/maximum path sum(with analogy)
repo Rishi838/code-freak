@@ -1,0 +1,70 @@
+//Finding max sum path
+#include <iostream>
+using namespace std;
+
+class Node
+{
+public:
+    int data;
+    Node *left, *right;
+    Node(int x)
+    {
+        data = x;
+        left = NULL;
+        right = NULL;
+    }
+};
+
+int max_path_sum(Node *root)
+{
+    if (root == NULL)
+    {
+        return 0;
+    }
+    int a = max_path_sum(root->left);
+    int b = max_path_sum(root->right);
+    cout << root->data << "-----> a " << a << " b " << b << endl;
+    if (a <= 0 && b <= 0)
+    {
+        if (root->data < 0)
+        {
+            cout << "--------Returning 0" << endl;
+            return 0;
+        }
+        else
+        {
+            cout << "-------------Returning " << root->data << endl;
+            return root->data;
+        }
+    }
+    else
+    {
+        int sum = max(a, b) + root->data;
+        if (sum < 0)
+        {
+            cout << "return 0" << endl;
+            return 0;
+        }
+        else
+        {
+            cout << "return " << sum << endl;
+            return sum;
+        }
+    }
+}
+
+int main()
+{
+    Node *root = new Node(1);
+    root->left = new Node(-12);
+    root->right = new Node(3);
+    root->left->left = new Node(4);
+     root->left->right = new Node(5);
+    root->right->left = new Node(-2);
+    root->right->right = new Node(-6);
+     root->right->right->right = new Node(3);
+     root->right->right->left = new Node(3);
+    int a = max_path_sum(root->left), b = max_path_sum(root->right);
+    cout << a + b + root->data;
+    return 0;
+}
