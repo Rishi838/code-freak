@@ -1,0 +1,76 @@
+//Pringting all nodes at distance k from a given node
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class Node
+{
+public:
+    int data;
+    Node *left, *right;
+    Node(int x)
+    {
+        data = x;
+        left = NULL;
+        right = NULL;
+    }
+};
+
+void insert(Node *root, int key)
+{
+    Node *prev = NULL;
+    while (root != NULL)
+    {
+        prev = root;
+        if (root->data == key)
+        {
+            cout << "Cannot insert: " << key;
+            return;
+        }
+        else if (key < root->data)
+        {
+            root = root->left;
+        }
+        else
+        {
+            root = root->right;
+        }
+    }
+    Node *new_node = new Node(key);
+        if (key < prev->data)
+        {
+            prev->left = new_node;
+        }
+        else
+        {
+            prev->right = new_node;
+        }
+}
+
+void inorder(Node *root)
+{
+    if (root==NULL)
+    {
+        return;
+    }
+    inorder(root->left);
+    cout<<root->data<<" ";
+    inorder(root->right);
+
+}
+
+int main()
+{
+    Node *root = new Node(8);
+    root->left = new Node(3);
+    root->right = new Node(10);
+    root->left->left = new Node(1);
+    root->left->right = new Node(6);
+    root->right->right = new Node(14);
+    root->right->right->right = new Node(16);
+    inorder(root);
+    insert(root, 15);
+    cout<<endl;
+    inorder(root);
+    return 0;
+}
