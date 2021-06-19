@@ -1,0 +1,69 @@
+//Binary search tree
+//post order traversal
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node
+{
+    int data;
+    struct node *left;
+    struct node *right;
+};
+
+struct node *create_node(int data)
+{
+    struct node *n = (struct node *)malloc(sizeof(struct node));
+    n->data = data;
+    n->left = NULL;
+    n->right = NULL;
+}
+
+void inorder(struct node *ptr)
+{
+    if (ptr != NULL)
+    {
+        inorder(ptr->left);
+        printf("%d  ", ptr->data);
+        inorder(ptr->right);
+    }
+}
+
+int isBST(struct node *ptr)
+{
+    struct node *prev=NULL;
+    if (ptr != NULL)
+    {
+      if (!isBST(ptr->left))
+      {
+          return 0;
+      }
+      if (prev != NULL && ptr->data <= prev->data)
+      {
+          return 0;
+      }
+      prev=ptr;
+      return(isBST(ptr->right));
+        
+    }
+    else
+    {
+        return 1;
+    }
+}
+
+int main()
+{
+    struct node *p1 = create_node(5);
+    struct node *p2 = create_node(3);
+    struct node *p3 = create_node(6); // This is a binary search tree which i have created
+    struct node *p4 = create_node(1);
+    struct node *p5 = create_node(4);
+
+    p1->left = p2;
+    p1->right = p3;
+    p2->left = p4;
+    p2->right = p5;
+    inorder(p1);
+    printf("\n%d",isBST(p1));
+    return 0;
+}
