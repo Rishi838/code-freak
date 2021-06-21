@@ -1,0 +1,81 @@
+//zig zag treversal
+#include <iostream>
+#include <stack>
+using namespace std;
+
+class Node
+{
+public:
+    int data;
+    Node *left, *right;
+    Node(int x)
+    {
+        data = x;
+        left = NULL;
+        right = NULL;
+    }
+};
+
+void zig_zag(Node *root)
+{
+    if (root==NULL)
+    {
+        return;
+    }
+    
+    stack<Node *> current, next;
+    bool left_to_right = true;
+    current.push(root);
+    while (!current.empty())
+    {
+        Node *temp = current.top();
+        current.pop();
+        if (temp != NULL)
+        {
+            cout << temp->data << " ";
+            if (left_to_right)
+            {
+                if (temp->left != NULL)
+                {
+                    next.push(temp->left);
+                }
+                if (temp->right != NULL)
+                {
+                    next.push(temp->right);
+                }
+            }
+            else
+            {
+                if (temp->right != NULL)
+                {
+                    next.push(temp->right);
+                }
+                if (temp->left != NULL)
+                {
+                    next.push(temp->left);
+                }
+            }
+
+            if (current.empty())
+            {
+                left_to_right = !left_to_right;
+                swap(current, next);
+            }
+        }
+    }
+}
+
+int main()
+{
+    Node *root = new Node(1);
+    root->left = new Node(2);
+    root->right = new Node(3);
+    root->left->right = new Node(4);
+    root->left->right->left = new Node(6);
+    root->left->right->right = new Node(7);
+    root->right->right = new Node(5);
+    root->right->right->left = new Node(8);
+    root->right->right->right = new Node(9);
+    zig_zag(root);
+    return 0;
+}
