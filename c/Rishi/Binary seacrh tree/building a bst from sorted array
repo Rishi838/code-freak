@@ -1,4 +1,4 @@
-//Construct bst from preorser traversal
+//Construct bst from sorted array
 #include <iostream>
 using namespace std;
 
