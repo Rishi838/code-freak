@@ -1,0 +1,68 @@
+//Construct bst from preorser traversal
+#include <iostream>
+using namespace std;
+
+class Node
+{
+public:
+    int data;
+    Node *left;
+    Node *right;
+    Node(int value)
+    {
+        data = value;
+        left = NULL;
+        right = NULL;
+    }
+};
+
+bool check_bst(Node *root, Node *min, Node *max)
+{
+    if (root == NULL)
+    {
+        cout << "returning true  " << endl;
+        return true;
+    }
+    if (min != NULL && root->data <= min->data)
+    {
+        cout << "returning false "<<root->data << endl;
+        return false;
+    }
+    if (max != NULL && root->data >= max->data)
+    {
+        cout << "returning false "<<root->data << endl;
+        return false;
+    }
+
+    bool left = check_bst(root->left, min, root);
+    bool right = check_bst(root->right, root, max);
+
+    if (left && right)
+    {
+        cout << "returning true "<<root->data << endl;
+        return true;
+    }
+    cout << "returning false " <<root->data<< endl;
+    return false;
+}
+
+int main()
+{
+    Node *root = new Node(4);
+    root->left = new Node(2);
+    root->right = new Node(7);
+    root->left->left = new Node(1);
+    // root->left->right = new Node(5);
+    root->right->left = new Node(3);
+    root->right->right = new Node(8);
+    if (check_bst(root, NULL, NULL))
+    {
+        cout << "Bst";
+    }
+    else
+    {
+        cout << "Not a bst";
+    }
+
+    return 0;
+}
