@@ -1,0 +1,73 @@
+// /Modify a binary tree to get preorder traversal using right pointers only
+//Given a binary tree. Modify it in such a way that after modification you can have a preorder traversal of it using only the right pointers. During modification,
+//you can use right as well as left pointers.
+#include <iostream>
+using namespace std;
+
+class Node
+{
+public:
+    int data;
+    Node *left, *right;
+    Node(int value)
+    {
+        data = value;
+        left = right = NULL;
+    }
+};
+
+Node *preorder(Node *root)
+{
+    if (root == NULL)
+    {
+        // cout<<"Returning NULL"<<endl;
+        return NULL;
+    }
+    if (root->left == NULL && root->right == NULL)
+    {
+        // cout<<"returning "<<root->data<<endl;
+        return root;
+    }   
+    // cout<<"calling left for "<<root->data<<endl;
+    Node *left = preorder(root->left);
+    //  cout<<"calling right for "<<root->data<<endl;
+    Node *right1 = preorder(root->right);
+    root->right = left;
+    Node *temp = root;
+    while (temp->right != NULL)
+    {
+        // cout<<temp->data<<" ";
+        temp = temp->right;
+    }
+    // cout<<endl;
+    temp->right = right1;
+    // cout<<"returning "<<root->data<<endl<<endl;
+    return root;
+}
+
+int main()
+{
+    Node *root = new Node(10);
+    root->left = new Node(8);
+    root->left->left = new Node(3);
+    //  root->left->left->left = new Node(8);
+    //  root->left->left->right = new Node(9);
+    root->left->right = new Node(5);
+    // root->left->right->left = new Node(10);
+    // root->left->right->right = new Node(11);
+    root->right = new Node(2);
+    // root->right->left = new Node(6);
+    // root->right->left->left = new Node(12);
+    // root->right->left->right = new Node(13);
+    // root->right->right = new Node(7);
+    // root->right->right->left = new Node(14);
+    // root->right->right->right = new Node(15);
+    root = preorder(root);
+    while (root != NULL)
+    {
+        cout << root->data << " ";
+        root = root->right;
+    }
+
+    return 0;
+}
