@@ -1,0 +1,80 @@
+//Sorted level order
+// we will do it using priority queue but at first we are doing it using sort
+#include <iostream>
+#include <vector>
+#include <queue>
+#include <algorithm>
+using namespace std;
+
+class Node
+{
+public:
+    int data;
+    Node *left, *right;
+    Node(int value)
+    {
+        data = value;
+        left = right = NULL;
+    }
+};
+
+void sorted_level_order(Node *root)
+{
+    queue<Node *> q;
+    vector<int> vec;
+    q.push(root);
+    q.push(NULL);
+    while (!q.empty())
+    {
+        Node *ptr = q.front();
+        q.pop();
+        if (ptr)
+        {
+            vec.push_back(ptr->data);
+            if (ptr->left)
+            {
+                q.push(ptr->left);
+            }
+            if (ptr->right)
+            {
+                q.push(ptr->right);
+            }
+        }
+        else if (!q.empty() && ptr == NULL)
+        {
+            sort(vec.begin(), vec.end());
+            for (int i = 0; i < vec.size(); i++)
+            {
+                cout << vec[i] << " ";
+            }
+            vec.clear();
+            cout << endl;
+            q.push(NULL);
+        }
+    }
+    for (int i = 0; i < vec.size(); i++)
+    {
+        cout << vec[i] << " ";
+    }
+}
+
+int main()
+{
+    Node *root = new Node(1);
+    root->left = new Node(3);
+    root->left->left = new Node(4);
+    root->left->left->left = new Node(8);
+    root->left->left->right = new Node(9);
+    root->left->right = new Node(5);
+    root->left->right->left = new Node(10);
+    root->left->right->right = new Node(11);
+    root->right = new Node(2);
+    root->right->left = new Node(6);
+    root->right->left->left = new Node(12);
+    root->right->left->right = new Node(13);
+    root->right->right = new Node(7);
+    root->right->right->left = new Node(14);
+    root->right->right->right = new Node(15);
+    sorted_level_order(root);
+    return 0;
+}
