@@ -1,0 +1,84 @@
+//We have discussed the level order traversal of a post in the previous post. The idea is to print the last level first, then the second last level, and so on.
+// Like Level order traversal, every level is printed from left to right.
+#include <iostream>
+#include <stack>
+#include <queue>
+using namespace std;
+
+class Node
+{
+public:
+    int data;
+    Node *left, *right;
+    Node(int value)
+    {
+        data = value;
+        left = right = NULL;
+    }
+};
+
+void level_order(Node *root)
+{
+    stack<queue<Node*>> s;
+    queue<Node *> q;
+    q.push(root);
+    s.push(q);
+    q.push(NULL);
+    while (!q.empty())
+    {
+         Node *temp=q.front();
+         q.pop();
+         if (temp!=NULL)
+         {
+             if (temp->left)
+             {
+                q.push(temp->left);
+             }
+             
+             if (temp->right)
+             {
+                q.push(temp->right);
+             }
+         }
+         else if (!q.empty() && temp==NULL)
+         {
+             s.push(q);
+             q.push(NULL);
+         }   
+    }
+    while (!s.empty())
+    {
+        while (!(s.top()).empty())
+        {
+            cout<<s.top().front()->data<<" ";
+            s.top().pop();
+        }
+        cout<<endl;
+        s.pop();
+    }
+    
+    
+    
+    
+}
+
+int main()
+{
+    Node *root = new Node(1);
+    root->left = new Node(2);
+    root->left->left = new Node(4);
+    root->left->left->left = new Node(8);
+    root->left->left->right = new Node(9);
+    root->left->right = new Node(5);
+    root->left->right->left = new Node(10);
+    root->left->right->right = new Node(11);
+    root->right = new Node(3);
+    root->right->left = new Node(6);
+    root->right->left->left = new Node(12);
+    root->right->left->right = new Node(13);
+    root->right->right = new Node(7);
+    root->right->right->left = new Node(14);
+    root->right->right->right = new Node(15);
+    level_order(root);
+    return 0;
+}
