@@ -1,0 +1,78 @@
+//Write a function to print spiral order traversal of a tree.
+#include <iostream>
+#include <stack>
+using namespace std;
+
+class Node
+{
+public:
+    int data;
+    Node *left, *right;
+    Node(int value)
+    {
+        data = value;
+        left = right = NULL;
+    }
+};
+
+void level_order(Node *root)
+{
+    stack<Node *> current, next;
+    bool Ltor = true;
+    current.push(root);
+    while (!current.empty())
+    {
+        Node *ptr = current.top();
+        cout<<ptr->data<<" ";
+        current.pop();
+        if (Ltor)
+        {
+            if (ptr->left)
+            {
+                next.push(ptr->left);
+            }
+            if (ptr->right)
+            {
+                next.push(ptr->right);
+            }
+        }
+        else
+        {
+            if (ptr->right)
+            {
+                next.push(ptr->right);
+            }
+            if (ptr->left)
+            {
+                next.push(ptr->left);
+            }
+        }
+        if (current.empty())
+        {
+            Ltor = !Ltor;
+            swap(current,next);
+        }
+        
+    }
+}
+
+int main()
+{
+    Node *root = new Node(1);
+    root->left = new Node(2);
+    root->left->left = new Node(4);
+    root->left->left->left = new Node(8);
+    root->left->left->right = new Node(9);
+    root->left->right = new Node(5);
+    root->left->right->left = new Node(10);
+    root->left->right->right = new Node(11);
+    root->right = new Node(3);
+    root->right->left = new Node(6);
+    root->right->left->left = new Node(12);
+    root->right->left->right = new Node(13);
+    root->right->right = new Node(7);
+    root->right->right->left = new Node(14);
+    root->right->right->right = new Node(15);
+    level_order(root);
+    return 0;
+}
