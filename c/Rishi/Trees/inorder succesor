@@ -1,0 +1,98 @@
+#include <iostream>
+using namespace std;
+
+class Node
+{
+public:
+    int data;
+    Node *left, *right;
+    Node(int value)
+    {
+        data = value;
+        left = right = NULL;
+    }
+};
+
+Node *rightmost(Node *root)
+{
+    while (root->right!=NULL)
+    {
+        root=root->right;
+    }
+    return root;
+}
+
+Node *findInorderRecursive(Node *root,Node *x)
+{
+    if (root==NULL)
+    {
+        return NULL;
+    }
+    Node *temp;
+     if (root==x || (temp = findInorderRecursive(root->left,x)) ||
+                   (temp = findInorderRecursive(root->right,x)))
+    {
+        if (temp)
+        {
+            if (root->left == temp)
+            {
+                cout << "Inorder Successor of " << x->data;
+                cout << " is "<< root->data << "\n";
+                return NULL;
+            }
+        }
+  
+        return root;
+    }
+  
+    return NULL;
+}
+
+void inorder_succesor(Node *root, Node *x)
+{
+    if (root == NULL)
+    {
+        return;
+    }
+    if (x->right != NULL)
+    {
+        Node *temp = x->right;
+        while (temp->right != NULL)
+        {
+            temp = temp->left;
+        }
+        cout << "Inorder succesor of " << x->data << " is " << temp->data << endl;
+    }
+    else
+    {
+           if (x==rightmost(root))
+           {
+             cout<<"No inorder succesor exist as it is the last element of inorder"<<endl;
+           }
+           else
+           {
+            findInorderRecursive(root,x);
+           }
+    }
+}
+
+int main()
+{
+    Node *root = new Node(1);
+    root->left = new Node(2);
+    root->left->left = new Node(4);
+    root->left->left->left = new Node(8);
+    root->left->left->right = new Node(9);
+    root->left->right = new Node(5);
+    root->left->right->left = new Node(10);
+    root->left->right->right = new Node(11);
+    root->right = new Node(3);
+    root->right->left = new Node(6);
+    root->right->left->left = new Node(12);
+    root->right->left->right = new Node(13);
+    root->right->right = new Node(7);
+    root->right->right->left = new Node(14);
+    root->right->right->right = new Node(15);
+    inorder_succesor(root, root->left->left->right);
+    return 0;
+}
