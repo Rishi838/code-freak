@@ -1,5 +1,3 @@
-//Binary search tree
-//post order traversall
 #include <stdio.h>
 #include <stdlib.h>
 
