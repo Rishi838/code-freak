@@ -1,0 +1,45 @@
+// Given a sorted array and a number x, find the pair in array whose sum is closest to x
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+void check(int arr[], int n, int sum)
+{
+  sort(arr, arr + n);
+  int diff = INT_FAST16_MAX;
+  int a = 0;
+  int b = n - 1;
+  int st=0,en=1;
+  while (a < b)
+  {
+    if (abs(arr[a] + arr[b] - sum) < diff)
+    {
+      diff = abs(arr[a] + arr[b] -sum);
+      st=a;
+      en=b;
+    }
+    else if ( arr[a] + arr[b] > sum)
+    {
+      b--;
+    }
+    else
+    {
+      a++;
+    }
+  }
+  cout<<arr[st]<<" "<<arr[en];
+}
+
+int main()
+{
+  int n, sum;
+  cin >> n >> sum;
+  int arr[n];
+  for (int i = 0; i < n; i++)
+  {
+    cin >> arr[i];
+  }
+  check(arr, n, sum);
+
+  return 0;
+}
