@@ -17,6 +17,7 @@ bool ratInMaze(int arr[][n], int x, int y, int solution[][n])
 {
     if (x == n - 1 && y == n - 1)
     {
+        cout<<"We are at "<<x<<" "<<y<<endl;
         solution[x][y] = 1;
         return true;
     }
@@ -25,13 +26,20 @@ bool ratInMaze(int arr[][n], int x, int y, int solution[][n])
         solution[x][y] = 1;
         if (ratInMaze(arr, x + 1, y, solution))
         {
+            cout<<"Calling for "<<x+1<<" "<<y<<endl;
             return true;
         }
         if (ratInMaze(arr, x, y + 1, solution))
         {
+             cout<<"Calling for "<<x<<" "<<y+1<<endl;
             return true;
         }
         solution[x][y] = 0;
+        cout<<"returning false for "<<x<<" "<<y<<endl<<endl;
+        return false;
+    }
+    else
+    {
         return false;
     }
 }
@@ -52,3 +60,10 @@ int main()
 
     return 0;
 }
+/*
+ 1 0 1 0 1
+ 1 1 1 1 1
+ 0 1 0 1 0
+ 1 0 0 1 1
+ 1 1 1 0 1
+*/
