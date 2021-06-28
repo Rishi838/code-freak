@@ -1,0 +1,16 @@
+#include<iostream>
+#include<map>
+using namespace std;
+int main()
+{
+   map<int,int> m;
+   m[1]=1;
+   m[2]=2;
+   m[3]=3;
+   for(auto i : m)
+   {
+       cout<<i.first<<" "<<i.second<<endl;
+   }
+    return 0;
+}
+//We can use this for any of the containers
