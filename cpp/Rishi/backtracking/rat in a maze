@@ -1,0 +1,54 @@
+//Rat in a maze
+#include <iostream>
+using namespace std;
+
+const int n = 5;
+
+bool issafe(int arr[][n], int x, int y)
+{
+    if (x < n && y < n && arr[x][y] == 1)
+    {
+        return true;
+    }
+    return false;
+}
+
+bool ratInMaze(int arr[][n], int x, int y, int solution[][n])
+{
+    if (x == n - 1 && y == n - 1)
+    {
+        solution[x][y] = 1;
+        return true;
+    }
+    if (issafe(arr, x, y))
+    {
+        solution[x][y] = 1;
+        if (ratInMaze(arr, x + 1, y, solution))
+        {
+            return true;
+        }
+        if (ratInMaze(arr, x, y + 1, solution))
+        {
+            return true;
+        }
+        solution[x][y] = 0;
+        return false;
+    }
+}
+
+int main()
+{
+    int arr[][n] = {{1, 0, 1, 0,1}, {1, 1, 1,1, 1}, {0, 1, 0, 1,0}, {1, 0, 0, 1,1},{1,1,1,0,1}};
+    int solution[n][n] ={{0,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0}};
+    ratInMaze(arr, 0, 0, solution);
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            cout << solution[i][j] << " ";
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
