@@ -1,0 +1,68 @@
+//Programme to check whether a tree is a complete binary tree or not
+#include <iostream>
+using namespace std;
+
+class Node
+{
+public:
+    int data;
+    Node *left, *right;
+    Node(int value)
+    {
+        data = value;
+        left = right = NULL;
+    }
+};
+
+bool check(Node *root)
+{
+    if (root == NULL || (root->left == NULL && root->right == NULL))
+    {
+        return true;
+    }
+    if (root->right != NULL && root->left == NULL)
+    {
+        return false;
+    }
+    if (root->right == NULL && root->left != NULL)
+    {
+        if (root->left->left != NULL || root->left->right != NULL)
+        {
+            return false;
+        }
+        else
+        {
+            if (root->left->data <= root->data)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+    if (!check(root->left) || !check(root->right))
+    {
+        return false;
+    }
+    if (root->data >= root->left->data && root->data >= root->right->data)
+    {
+        return true;
+    }
+    return false;
+}
+
+int main()
+{
+    Node *root = new Node(90);
+    root->left = new Node(45);
+    root->left->right = new Node(4);
+    root->left->left = new Node(2);
+    root->right = new Node(40);
+   root->right->left = new Node(342);
+    // root->right->right = new Node(21);
+    cout << check(root);
+
+    return 0;
+}
