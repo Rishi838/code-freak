@@ -1,0 +1,52 @@
+//deletion
+#include <iostream>
+#include <vector>
+using namespace std;
+
+void heapify(vector<int> &vec, int i)
+{
+
+    if (2 * i + 1 >= vec.size() && 2 * i + 2 >= vec.size())
+    {
+        return;
+    }
+    int a;
+    if (2 * i + 2 >= vec.size())
+    {
+        if (vec[i] < vec[2 * i + 1])
+        {
+            swap(vec[i], vec[2 * i + 1]);
+        }
+        else
+        {
+            return;
+        }
+    }
+    else
+    {
+        if (vec[2 * i + 1] > vec[2 * i + 2])
+        {
+            a = 2 * i + 1;
+        }
+        else
+        {
+            a = 2 * i + 2;
+        }
+        swap(vec[i] , vec[a]);
+    }
+    heapify(vec,a);
+}
+
+int main()
+{
+    vector<int> vec = {50, 45, 35,33, 16, 25, 34, 12,10};
+    vec[0] = vec[vec.size()-1];
+    vec.pop_back();
+    heapify(vec, 0);
+    for (int i = 0; i < vec.size(); i++)
+    {
+        cout << vec[i] << " ";
+    }
+
+    return 0;
+}
