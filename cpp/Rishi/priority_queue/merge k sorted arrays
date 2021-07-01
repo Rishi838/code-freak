@@ -1,0 +1,34 @@
+#include<iostream>
+#include<vector>
+#include<queue>
+using namespace std;
+typedef pair<int,pair<int,int>> ppi;
+int main()
+{
+   vector<vector<int>> vec{ {1, 3}, {2, 4, 6},{0, 9, 10, 11}};
+   vector<int> v;
+   priority_queue<ppi,vector<ppi>,greater<ppi>> p;
+   for (int i = 0; i < vec.size(); i++)
+   {
+      p.push({vec[i][0], {i,0}});
+   }
+   while (!p.empty())
+   {
+       ppi curr=p.top();
+       int i=curr.second.first;
+       int j=curr.second.second;
+       v.push_back(curr.first);
+       p.pop();
+       if(j + 1 < vec[i].size())
+       {
+        p.push({vec[i][j+1],{i,j+1}});
+       }
+   }
+   for (int i = 0; i < v.size(); i++)
+   {
+       cout<<v[i]<<" ";
+   }
+   
+  
+    return 0;
+}
