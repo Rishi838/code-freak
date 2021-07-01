@@ -1,0 +1,61 @@
+class MedianFinder {
+public:
+    /** initialize your data structure here. */
+    priority_queue<int> pmax;
+    priority_queue<int,vector<int>,greater<int>> pmin;
+    double median;
+    MedianFinder() {
+    }
+    
+    void addNum(int num) {
+        if(pmax.size()==0 && pmin.size()==0)
+        {
+            pmax.push(num);
+            median=num;
+        }
+        else if(pmax.size() > pmin.size())
+        {
+            if(num > median)
+            {
+            pmin.push(num);
+            }
+            else
+            {
+            pmin.push(pmax.top());
+                pmax.pop();
+                pmax.push(num);
+            }
+            median = ((double)pmax.top() + (double)pmin.top())/2;
+        }
+        else if(pmax.size()==pmin.size())
+        {
+             if(num>median)
+             {
+              pmin.push(num);
+                 median=(double)pmin.top();
+             }
+            else
+              {
+                pmax.push(num);
+                median=(double)pmax.top();
+               }
+        }
+        else
+        {
+         if (num > median)
+            {
+                pmax.push(pmin.top());
+                pmin.pop();
+                pmin.push(num);
+            }
+            else
+                pmax.push(num);
+  
+            median = ((double)pmax.top() + (double)pmin.top())/2;
+        }
+    } 
+    
+    double findMedian() {
+       return median;
+    }
+};
