@@ -1,0 +1,63 @@
+//printing top view of tree
+#include <iostream>
+#include <map>
+#include <vector>
+using namespace std;
+
+class Node
+{
+public:
+  int data;
+  Node *left;
+  Node *right;
+  Node(int data)
+  {
+    this->data = data;
+    this->left = NULL;
+    this->right = NULL;
+  }
+};
+
+void topView(Node *root, int hd, map<int, vector<int>> &m)
+{
+  if (root == NULL)
+  {
+    return;
+  }
+  m[hd].push_back(root->data);
+  topView(root->left, hd - 1, m);
+  topView(root->right, hd + 1, m);
+}
+
+int main()
+{
+  Node *root = new Node(1);
+  root->left = new Node(2);
+  root->left->left = new Node(4);
+  root->left->left->left = new Node(8);
+  root->left->left->right = new Node(9);
+  root->left->right = new Node(5);
+  root->left->right->left = new Node(10);
+  root->left->right->right = new Node(11);
+  root->right = new Node(3);
+  root->right->left = new Node(6);
+  root->right->left->left = new Node(12);
+  root->right->left->right = new Node(13);
+  root->right->right = new Node(7);
+  root->right->right->left = new Node(14);
+  root->right->right->right = new Node(15);
+
+  map<int, vector<int>> m;
+
+  int hd = 0;
+  topView(root, hd, m);
+  for (auto i : m)
+  {
+    for (auto j : i.second)
+    {
+      cout << j << " ";
+    }
+    cout << endl;
+  }
+  return 0;
+}
