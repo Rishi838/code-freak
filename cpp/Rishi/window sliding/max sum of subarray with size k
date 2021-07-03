@@ -1,0 +1,26 @@
+//Given an array of integers of size ‘n’.
+// Our aim is to calculate the maximum sum of ‘k’ 
+// consecutive elements in the array.
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    int arr[] = {1, 4, 2, 10, 23, 3, 1, 0, 20};
+    int k=4;
+
+    int window_sum=0;
+    for(int i=0;i<k;i++)
+    {
+        window_sum += arr[i];
+    }
+    int max_sum=window_sum;
+    for (int i = k; i < 9; i++)
+    {
+        window_sum += arr[i] - arr[i-k];
+        max_sum = max(max_sum,window_sum);
+    }
+    cout<<max_sum;
+    
+    return 0;
+}
