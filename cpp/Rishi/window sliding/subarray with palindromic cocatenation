@@ -1,0 +1,48 @@
+// subarray of size k with palindromc concatenation
+#include <iostream>
+#include <queue>
+using namespace std;
+
+bool check_palindrome(string s)
+{
+    for (int i = 0; i < s.size() / 2; i++)
+    {
+        if (s[i] != s[s.size() - 1 - i])
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+int main()
+{
+    int arr[] = {7, 27, 72, 12, 21, 312};
+    int n = sizeof(arr) / sizeof(int), k = 2;
+    string a[n];
+    for (int i = 0; i < n; i++)
+    {
+        a[i] = to_string(arr[i]);
+    }
+     string s = "";
+    for (int i = 0; i < k; i++)
+    {
+        s += a[i];
+    }
+    if (check_palindrome(s))
+    {
+        cout << s << endl;
+    }
+    for (int i = k; i < n; i++)
+    {
+        s.erase(0, a[i - k].size());
+        s += a[i];
+        if (check_palindrome(s))
+        {
+            cout << s << endl;
+        }
+    }
+
+   
+    return 0;
+}
