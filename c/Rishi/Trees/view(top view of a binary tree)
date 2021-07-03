@@ -1,0 +1,21 @@
+ void printTop(Node* root, int dist, int level, map<int,pair<int,int>> &m)
+{
+    if (root == nullptr) {
+        return;
+    }
+    if (m.find(dist) == m.end() || level < m[dist].second)
+    {
+        m[dist] = { root->data, level };
+    }
+ 
+    printTop(root->left, dist - 1, level + 1, m);
+    printTop(root->right, dist + 1, level + 1, m);
+}
+    void topView(Node * root) {
+            map<int,pair<int,int>> m;
+            int hd=0;
+            printTop(root,0,0,m);
+            for(auto i : m)
+           {
+                cout<<i.second.first<<" ";
+            }
