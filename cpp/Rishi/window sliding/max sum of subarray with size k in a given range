@@ -1,0 +1,32 @@
+// For a given array and two integers of x and k find maximum sum of all subarrays of size k under x
+#include<iostream>
+#include<queue>
+using namespace std;
+
+int main()
+{
+    int arr[] = {21,5,4,6,8,9};
+    int k=3,x=20,n=6;
+  int max_sum,curr_sum=0;
+    for (int i = 0; i < k; i++)
+    {
+        curr_sum+=arr[i];
+    }
+    max_sum=curr_sum;
+    if(max_sum>k)
+    {
+     max_sum=INT8_MIN;
+    }
+    for (int i = k; i < n; i++)
+    {
+        curr_sum += arr[i] -arr[i-k];
+        if(curr_sum<x)
+        {
+            max_sum=max(max_sum,curr_sum);
+        }
+    }
+    cout<<max_sum;
+    
+    
+    return 0;
+}
