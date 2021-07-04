@@ -1,4 +1,5 @@
 // For a given array we have to find smallest subarray with sum greater than x
+//Valid only if subarray is positive
 #include <iostream>
 #include <queue>
 using namespace std;
