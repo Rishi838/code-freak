@@ -1,0 +1,22 @@
+Given an integer array nums, find a contiguous non-empty subarray within the array that has the largest product, and return the product.
+
+int maxProduct(vector<int>& nums) {
+        int p=INT_MIN,maximum=1,minimum=1;
+        for(int i=0;i<nums.size();i++)
+        {
+          maximum*=nums[i];
+             minimum*=nums[i];
+            if(nums[i]<0)
+            {
+             swap(maximum,minimum);
+            }
+            p=max(p,maximum);
+            if(nums[i]==0)
+            {
+                maximum=minimum=1;
+            }
+            maximum=max(1,maximum);
+            minimum=min(1,minimum);
+        }
+        return p;
+    }
