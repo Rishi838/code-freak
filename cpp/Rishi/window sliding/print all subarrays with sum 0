@@ -1,0 +1,45 @@
+//Print all suvarrays with sum 0
+#include <iostream>
+#include <map>
+#include <vector>
+using namespace std;
+
+vector<pair<int, int>> subarray(vector<int> nums)
+{
+    map<int, vector<int>> m;
+    vector<pair<int, int>> result;
+    int sum = 0;
+    for (int i = 0; i < nums.size(); i++)
+    {
+        sum += nums[i];
+        if (sum == 0)
+        {
+            result.push_back({0, i});
+        }
+        cout<<"Sum "<<sum<<endl;
+        if (m.find(sum) != m.end())
+        {
+            vector<int> vec = m[sum];
+            for(auto it=vec.begin();it!=vec.end();it++)
+            {
+                cout<<"Making pairs "<<*it + 1<<","<<i<<endl;
+                result.push_back({*it + 1,i});
+            }
+        }
+        cout<<"pushing back "<<nums[i]<<endl<<endl;
+        m[sum].push_back(i);
+    }
+    return result;
+}
+
+int main()
+{
+    vector<int> vec{6, 3, -1, -3, 4, -2, 2, 4, 6, -12, -7};
+    vector<pair<int,int>> v=subarray(vec);
+    for(auto i: v)
+    {
+        cout<<"{"<<i.first<<","<<i.second<<"}"<<"  ";
+    }
+    
+    return 0;
+}
