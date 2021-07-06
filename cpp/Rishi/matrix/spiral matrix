@@ -1,0 +1,26 @@
+Given a positive integer n, generate an n x n matrix filled with elements from 1 to n2 in spiral order.
+
+
+int t=0,b=n,r=n,l=0;
+        int counter = 1;
+        vector<vector<int>> result (n, vector<int>(n));
+        while(counter<=n*n){
+            for(int i=l;i<=r-1;i++){
+                result[t][i] = counter++;
+            }
+            t++;
+            for(int j=t;j<b;j++){
+                result[j][r-1] = counter++;
+            }
+            r--;
+            for(int k=r-1;k>=l;k--){
+                result[b-1][k] = counter++;
+            }
+            b--;
+            for(int p=b-1;p>=t;p--){
+                result[p][l] = counter++;        
+            }
+            l++;
+        }
+        return result;
+    }
