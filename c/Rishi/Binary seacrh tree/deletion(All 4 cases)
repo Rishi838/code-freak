@@ -1,0 +1,96 @@
+#include <iostream>
+using namespace std;
+
+class Node
+{
+public:
+    int data;
+    Node *left, *right;
+    Node(int x)
+    {
+        data = x;
+        left = right = NULL;
+    }
+};
+
+Node *inorder_pree(Node *root)
+{
+    Node *p = root->left;
+    while (p->right)
+    {
+        p = p->right;
+    }
+    return p;
+}
+
+Node *deletion(Node *root, int key)
+{
+    if (root == NULL)
+    {
+        return NULL;
+    }
+    if (key > root->data)
+    {
+        root->right = deletion(root->right, key);
+    }
+    else if (root->data > key)
+    {
+        root->left = deletion(root->left, key);
+    }
+    else
+    {
+        if (root->left == NULL && root->right == NULL)
+        {
+            free(root);
+            return NULL;
+        }
+        else if (root->right == NULL)
+        {
+            Node *temp = root->left;
+            free(root);
+            return temp;
+        }
+        else if (root->left == NULL)
+        {
+            Node *temp = root->right;
+            free(root);
+            return temp;
+        }
+        else
+        {
+            Node *ipree = inorder_pree(root);
+            swap(root->data, ipree->data);
+            root->left = deletion(root->left, key);
+        }
+    }
+}
+void inorder(Node *root)
+{
+    if (root == NULL)
+    {
+        return;
+    }
+    inorder(root->left);
+    cout << root->data << " ";
+    inorder(root->right);
+}
+
+int main()
+{
+    Node *root = new Node(15);
+    root->left = new Node(8);
+    root->left->right = new Node(10);
+    root->left->right->left = new Node(9);
+    root->left->right->right = new Node(11);
+    root->left->right->right->right = new Node(13);
+    root->left->right->right->right->left = new Node(12);
+    root->right = new Node(18);
+    root->right->left = new Node(16);
+    root->right->left->right = new Node(17);
+    root->right->right = new Node(20);
+    root->right->right->left = new Node(19);
+    root->right->right->right = new Node(21);
+    root = deletion(root, 21);
+    inorder(root);
+    return 0;
+}
