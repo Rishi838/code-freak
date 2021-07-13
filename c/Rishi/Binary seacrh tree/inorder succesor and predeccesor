@@ -1,0 +1,89 @@
+#include <iostream>
+using namespace std;
+
+class Node
+{
+public:
+    int data;
+    Node *left, *right;
+    Node(int x)
+    {
+        data = x;
+        left = right = NULL;
+    }
+};
+
+Node *inorder_succ(Node *root)
+{
+    Node *p = root->right;
+    while (p->left)
+    {
+        p = p->left;
+    }
+    return p;
+}
+Node *inorder_pree(Node *root)
+{
+    Node *p = root->left;
+    while (p->right)
+    {
+        p = p->right;
+    }
+    return p;
+}
+
+void func(Node *root, Node *&pree, Node *&succ, int key)
+{
+    if (root == NULL)
+        return;
+
+    if (root->data == key)
+    {
+        if (root->left)
+            pree = inorder_pree(root);
+
+        if (root->right)
+            succ = inorder_succ(root);
+
+        return;
+    }
+    else if (key > root->data)
+    {
+        pree = root;
+        func(root->right, pree, succ, key);
+    }
+    else
+    {
+        succ = root;
+        func(root->left, pree, succ, key);
+    }
+}
+
+int main()
+{
+    Node *root = new Node(15);
+    root->left = new Node(8);
+    root->left->right = new Node(10);
+    root->left->right->left = new Node(9);
+    root->left->right->right = new Node(11);
+    root->left->right->right->right = new Node(13);
+    root->left->right->right->right->left = new Node(12);
+    root->right = new Node(18);
+    root->right->left = new Node(16);
+    root->right->left->right = new Node(17);
+    root->right->right = new Node(20);
+    root->right->right->left = new Node(19);
+    root->right->right->right = new Node(21);
+
+    Node *pree=NULL,*succ=NULL;
+    func(root,pree,succ,11);
+    if(pree)
+    {
+        cout<<"pree "<<pree->data<<endl;
+    }
+    if(succ)
+    {
+        cout<<"succ "<<succ->data;
+    }
+    return 0;
+}
