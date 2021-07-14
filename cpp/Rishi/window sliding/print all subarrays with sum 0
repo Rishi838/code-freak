@@ -1,4 +1,4 @@
-//Print all suvarrays with sum 0
+//Print all suvarrays with sum zero
 #include <iostream>
 #include <map>
 #include <vector>
