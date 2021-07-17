@@ -1,0 +1,88 @@
+#include<iostream>
+#include<stdlib.h>
+#include<vector>
+using namespace std;
+
+//A structure to represent adjacency list node
+struct AdjacentNode
+{
+    int data;
+    struct AdjacentNode* next;
+};
+
+//A structure to prepresent adjacency list
+
+struct AdjacentList
+{
+   struct AdjacentNode*head;
+};
+
+// structure to represent a graph where v is number of vertices , a graph is an array of adjacency list
+struct graph
+{
+   int vertices;
+   struct AdjacentList* arr;
+};
+
+struct AdjacentNode *newNode(int value)
+{
+    struct AdjacentNode *node=(struct AdjacentNode*)malloc(sizeof(struct AdjacentNode));
+    node->data=value;
+    node->next=NULL;
+    return node;
+}
+
+struct graph* create_graph(int value)
+{
+    struct graph *grp=(struct graph*)malloc(sizeof(struct graph));
+    grp->vertices=value;
+    grp->arr=(struct AdjacentList*)malloc(value * sizeof(struct AdjacentList));
+    for (int i = 0; i < value; i++)
+    {
+        grp->arr[i].head=NULL;
+    }
+    return grp;
+}
+//THis function will add an edge in a undirected graph
+void add_edge(struct graph* grp,int src,int data)
+{
+ struct AdjacentNode* node=newNode(data);
+ node->next=grp->arr[src].head;
+ grp->arr[src].head=node;
+
+//Since graph is undirected so we have add both edges
+ node=newNode(src);
+ node->next=grp->arr[data].head;
+ grp->arr[data].head=node;
+}
+
+void printgraph(struct graph* grp)
+{
+    for(int i=0;i<grp->vertices;i++)
+    {
+        struct AdjacentNode *node=grp->arr[i].head;
+         printf("\n Adjacency list of vertex %d\n head ", i);
+        while (node)
+        {
+            cout<<"->"<<node->data;
+            node=node->next;
+        }
+        cout<<endl;
+    }
+}
+
+
+int main()
+{
+     int v=5;
+     struct graph *grp=create_graph(v);
+     add_edge(grp,0,1);
+     add_edge(grp,0,4);
+     add_edge(grp,1,2);
+     add_edge(grp,1,3);
+     add_edge(grp,1,4);
+     add_edge(grp,2,3);
+     add_edge(grp,3,4);
+     printgraph(grp);
+    return 0;
+}
