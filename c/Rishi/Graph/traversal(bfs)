@@ -1,0 +1,61 @@
+#include <iostream>
+#include <vector>
+#include <queue>
+using namespace std;
+
+void add_edge(vector<vector<int>> &vec, int src, int data)
+{
+    vec[src].push_back(data);
+    vec[data].push_back(src);
+}
+
+void breadth_first_traversal(vector<vector<int>> vec)
+{
+    queue<int> q;
+    bool array[vec.size()];
+    for (int i = 0; i < vec.size(); i++)
+    {
+        array[vec[i][0]] = false;
+    }
+
+    q.push(vec[0][0]);
+    array[vec[0][0]] = true;
+
+    while (!q.empty())
+    {
+        int s = q.front();
+        q.pop();
+        cout << s << " ";
+        for (int i = 0; i < vec[s].size(); i++)
+        {
+            if (array[vec[s][i]] == false)
+            {
+                q.push(vec[s][i]);
+                array[vec[s][i]] = true;
+            }
+        }
+    }
+}
+
+int main()
+{
+    int vertices = 5;
+    vector<vector<int>> vec(vertices);
+    add_edge(vec, 0, 1);
+    add_edge(vec, 0, 3);
+    add_edge(vec, 1, 2);
+    add_edge(vec, 1, 3);
+    add_edge(vec, 1, 4);
+    add_edge(vec, 2, 3);
+    add_edge(vec, 2, 4);
+    for (int i = 0; i < vec.size(); i++)
+    {
+        for (int j = 0; j < vec[i].size(); j++)
+        {
+            cout<<vec[i][j]<<" ";
+        }
+        cout<<endl;
+    }
+     breadth_first_traversal(vec);
+    return 0;
+}
