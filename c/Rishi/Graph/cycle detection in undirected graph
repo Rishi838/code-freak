@@ -1,0 +1,56 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+bool cycle(int src,vector<vector<int>>&adjc_list,vector<bool> &visited,int parent)
+{
+    visited[src]=true;
+   for(auto i: adjc_list[src])
+   {
+       if(i!=parent)
+       {
+           if(visited[i])
+           {
+               return true;
+           }
+           if(!visited[i] && cycle(i,adjc_list,visited,src))
+           {
+               return true;
+           }
+       }
+   }
+   return false;
+}
+
+int main()
+{
+    int n,m;
+    cin>>n>>m;
+    vector<vector<int>> adjc_list(n);
+    for (int i = 0; i < m; i++)
+    {
+        int x,y;
+        cin>>x>>y;         //x-->y
+         adjc_list[x].push_back(y);
+         adjc_list[y].push_back(x);
+    }
+  vector<bool> visited(n,false);
+  bool cycle_test=false;
+  for (int i = 0; i < n; i++)
+  {
+      if(!visited[i] && cycle(i,adjc_list,visited,-1))
+      {
+          cycle_test=true;
+      }
+  }
+  if(cycle_test)
+  {
+      cout<<"cycle is present";
+  }
+  else
+  {
+      cout<<"Not present";
+  }
+  
+    
+    return 0;
+}
