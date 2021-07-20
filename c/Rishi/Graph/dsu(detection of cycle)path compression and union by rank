@@ -1,0 +1,81 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+struct node
+{
+int parent,rank;
+};
+vector<node> vec;
+
+int find(int a)
+{
+    if(vec[a].parent==-1)
+    {
+        return a;
+    }
+     vec[a].parent=find(vec[a].parent);
+    return vec[a].parent;
+}
+
+void union_set(int a,int b)
+{
+    if(vec[a].rank > vec[b].rank)
+    {
+        vec[b].parent=a;
+    }
+    else if(vec[b].rank > vec[a].rank)
+    {
+        vec[a].parent=b; 
+    }
+    else
+    {
+        vec[a].parent=b;
+        vec[b].rank+=1;
+    }
+}
+
+bool cyclic(vector<pair<int,int>> edge_list)
+{
+   for(auto i:edge_list)
+   {
+       int a=find(i.first);
+       int b=find(i.second);
+
+       if(a==b)
+       {
+           return true;
+       }
+       union_set(a,b);
+   }
+   return false;
+}
+
+int main()
+{
+    int e, v; // e is edges and v is vertices
+    cin >> e >> v;
+    vec.resize(v);
+for (int i = 0; i < v; i++)
+{
+   vec[i].parent=-1;
+   vec[i].rank=0;    
+}
+
+
+    vector<pair<int, int>> edge_list;
+    for (int i = 0; i < e; i++)
+    {
+        int x, y;
+        cin >> x >> y;
+        edge_list.push_back({x, y});
+    }
+    if (cyclic(edge_list))
+    {
+        cout << "Graph has a cycle";
+    }
+    else
+    {
+        cout << "Graph does not contain a cycle";
+    }
+    return 0;
+}
