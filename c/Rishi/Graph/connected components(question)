@@ -1,0 +1,56 @@
+// Given n persons you have to find no of persons which do not have a link between then x,y have a link , (y,z) have a link, so
+//(x,z) also have a link
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int connected_components(int src, vector<bool> &visited, vector<vector<int>> adjc_list)
+{
+    if(visited[src])
+    {
+        return 0;
+    }
+    visited[src] = true;
+    int ans=1;
+    for (auto i : adjc_list[src])
+    {
+        if (!visited[i])
+        {
+            ans+=connected_components(i, visited, adjc_list);
+        }
+    }
+    return ans;
+}
+
+int main()
+{
+    int n, m;
+    cin >> n >> m;
+    vector<vector<int>> adjc_list(n);
+    for (int i = 0; i < m; i++)
+    {
+        int x, y;
+        cin >> x >> y; //x-->y
+        adjc_list[x].push_back(y);
+        adjc_list[y].push_back(x);
+    }
+    vector<bool> visited(n, false);
+    vector<int> components;
+    for (int i = 0; i < n; i++)
+    {
+        if (!visited[i])
+        {
+           components.push_back(connected_components(i, visited, adjc_list));
+        }
+    }
+   int answer=0;
+   for (int i = 0; i < components.size(); i++)
+   {
+       cout<<components[i]<<" "<<n<<endl;
+       answer+= components[i]*(n-components[i]);
+   }
+   cout<<answer/2;                 //To avoid overcounting
+   
+    return 0;
+}
