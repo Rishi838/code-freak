@@ -1,0 +1,61 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+vector<int> vec;
+
+int find(int v)
+{
+    if (vec[v] == -1)
+    {
+        return v;
+    }
+    return find(vec[v]);
+}
+
+void union_set(int a, int b)
+{
+    a = find(a);
+    b = find(b);
+    if (a != b)
+    {
+        vec[a] = b;
+    }
+}
+
+bool cyclic(vector<pair<int, int>> edge_list)
+{
+    for (auto i : edge_list)
+    {
+        int a = find(i.first);
+        int b = find(i.second);
+        if (a == b)
+        {
+            return true;
+        }
+        union_set(a, b);
+    }
+    return false;
+}
+
+int main()
+{
+    int e, v; // e is edges and v is vertices
+    cin >> e >> v;
+    vec.resize(v, -1);
+    vector<pair<int, int>> edge_list;
+    for (int i = 0; i < e; i++)
+    {
+        int x, y;
+        cin >> x >> y;
+        edge_list.push_back({x, y});
+    }
+    if (cyclic(edge_list))
+    {
+        cout << "Graph has a cycle";
+    }
+    else
+    {
+        cout << "Graph does not contain a cycle";
+    }
+    return 0;
+}
