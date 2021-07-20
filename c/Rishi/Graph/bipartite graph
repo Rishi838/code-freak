@@ -1,0 +1,58 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+void color_func(int src,int color,vector<bool> visited,vector<int> color_vector,vector<vector<int>>adjc_list,bool &ans)
+{
+ if(color_vector[src]!=-1 && color_vector[src]!= color)
+ {
+   ans=false;
+   return;
+ }
+ color_vector[src]=color;
+//  cout<<color_vector[src]<<endl;
+ if(visited[src])
+ {
+     return;
+ }
+ visited[src]=true;
+ for(auto i: adjc_list[src])
+ {
+     color_func(i,color xor 1,visited,color_vector,adjc_list,ans);
+ }
+ 
+}
+
+int main()
+{
+    int n, m;
+    cin >> n >> m;
+    vector<vector<int>> adjc_list(n);
+    for (int i = 0; i < m; i++)
+    {
+        int x, y;
+        cin >> x >> y; //x-->y
+        adjc_list[x].push_back(y);
+        adjc_list[y].push_back(x);
+    }
+    bool bipartite = true;
+    vector<bool> visited(n,false);
+    vector<int> color(n, -1);
+    for (int i = 0; i < n; i++)
+    {
+        if (!visited[i])
+        {
+            // cout<<"calling for "<<i<<endl;
+            color_func(i, 0, visited, color, adjc_list,bipartite);
+        } 
+    }
+
+    if (bipartite)
+    {
+        cout << "Bipartite graph";
+    }
+    else
+    {
+        cout << "Non Bipartite graph";
+    }
+    return 0;
+}
