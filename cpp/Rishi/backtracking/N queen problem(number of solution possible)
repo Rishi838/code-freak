@@ -1,0 +1,62 @@
+class Solution {
+public:
+     int count=0;
+          bool isPossible(vector<string> board ,int row,int column ,int n)
+    {
+              for(int i=0;i<n;i++)
+              {
+                   if(board[i][column]=='Q')
+                   {
+                     return false;
+                   }
+              }
+              int a=row,b=column;
+          while(a>=0 && b<n)
+          {
+                if(board[a][b]=='Q')
+                   {
+                     return false;
+                   }
+                 a--;
+              b++;
+          }
+           a=row,b=column;
+          while(a>=0 && b>=0)
+          {
+                if(board[a][b]=='Q')
+                   {
+                     return false;
+                   }
+                 a--;
+              b--;
+          }
+        return true;
+    }
+
+    
+    void solve(vector<string> &board, int n, int row)
+    {
+        if (row == n)
+        {
+            count++;
+            return;
+        }
+        for (int i = 0; i < n; i++)
+        {
+            if (isPossible(board,  row, i,n))
+            {
+                board[row][i] = 'Q';
+                solve(board, n, row + 1);
+                board[row][i] = '.';
+            }
+        }
+    }
+        
+        
+    
+    int totalNQueens(int n) {
+      vector<string> board(n,string(n,'.'));
+        solve(board,n,0);
+        return count;
+    }
+};
