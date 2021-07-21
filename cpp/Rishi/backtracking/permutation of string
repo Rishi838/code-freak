@@ -1,0 +1,30 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+
+void permutation(string s,int pos,vector<string> &ans)
+{
+    if(pos==s.size()-1)
+    {
+          ans.push_back(s);
+          return;
+    }
+    for(int i=pos;i<s.size();i++)
+    {
+        swap(s[pos],s[i]);
+        permutation(s,pos+1,ans);
+        swap(s[pos],s[i]);
+    }
+}
+
+int main()
+{
+    vector<string> ans;
+    permutation("abcd",0,ans);
+    for (int i = 0; i < ans.size(); i++)
+    {
+        cout<<ans[i]<<endl;
+    }
+    
+    return 0;
+}
