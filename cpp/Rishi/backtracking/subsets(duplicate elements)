@@ -1,0 +1,27 @@
+class Solution {
+public:
+    void sets(set<vector<int>> &vec,vector<int> v,int i, vector<int> nums)
+    {
+        if(i==nums.size())
+        {
+            vec.insert(v);
+            return;
+        }
+        sets(vec,v,i+1,nums);
+        v.push_back(nums[i]);
+        sets(vec,v,i+1,nums);
+    }
+
+    vector<vector<int>> subsetsWithDup(vector<int>& nums) {
+        sort(nums.begin(),nums.end());
+         set<vector<int>> vec;
+        vector<int> v;
+        sets(vec,v,0,nums);
+        vector<vector<int>> ans;
+        for(auto i: vec)
+        {
+              ans.push_back(i);
+         }
+        return ans;
+    }
+};
