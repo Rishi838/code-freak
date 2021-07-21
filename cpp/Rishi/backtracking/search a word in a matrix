@@ -1,0 +1,45 @@
+class Solution {
+public:
+    bool ans=false;
+    bool visited[6][6];
+    
+    void solve(vector<vector<char>> &board,string word,string temp,int row,int column,int pos)
+    {
+        if(temp==word)
+        {
+             ans=true;
+            return;
+        }
+        if(temp.size()>=word.size())
+        {
+           return;
+        }
+          if(row<0 || column<0 || row>=board.size() || column>=board[0].size() ||visited[row][column] )
+        {
+            return;
+        }
+        visited[row][column]=true;
+        if(word[pos]==board[row][column])
+        {
+           temp+=word[pos];
+            solve(board,word,temp,row-1,column,pos+1);
+             solve(board,word,temp,row+1,column,pos+1);
+             solve(board,word,temp,row,column-1,pos+1); solve(board,word,temp,row,column+1,pos+1);
+        }
+        visited[row][column]=false;
+    }
+    
+    bool exist(vector<vector<char>>& board, string word) {
+        for(int i=0;i<board.size();i++)
+        {
+            for(int j=0;j<board[0].size();j++)
+            {
+               memset(visited,false,sizeof(visited));
+          solve(board,word,"",i,j,0);
+          if(ans)
+            return true;
+            }
+        }
+        return false;
+    }
+};
