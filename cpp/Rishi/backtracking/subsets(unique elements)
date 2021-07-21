@@ -1,0 +1,18 @@
+void sets(vector<vector<int>> &vec,vector<int> v,int i, vector<int> nums)
+    {
+        if(i==nums.size())
+        {
+            vec.push_back(v);
+            return;
+        }
+        sets(vec,v,i+1,nums);
+        v.push_back(nums[i]);
+        sets(vec,v,i+1,nums);
+    }
+    
+    vector<vector<int>> subsets(vector<int>& nums) {
+        vector<vector<int>> vec;
+        vector<int> v;
+        sets(vec,v,0,nums);
+        return vec;
+    }
