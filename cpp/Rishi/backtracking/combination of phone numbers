@@ -1,0 +1,46 @@
+Given a string containing digits from 2-9 inclusive, return all possible letter combinations that the number could represent. Return the answer in any order.
+
+A mapping of digit to letters (just like on the telephone buttons) is given below. Note that 1 does not map to any letters.
+
+Input: digits = "23"
+Output: ["ad","ae","af","bd","be","bf","cd","ce","cf"]
+
+class Solution {
+public:
+    string str="";
+    void combination(vector<string> &ans, string digits,int n,map<char,string>m,int a)
+    {
+        if(a>=n)
+        {
+            ans.push_back(str);
+            return;
+        } 
+        for(int i=0; i< m[digits[a]].size();i++)
+        {
+            str+=m[digits[a]][i];
+            combination(ans,digits,n,m,a+1);
+            str.erase(str.size()-1,1);
+        }
+        
+        
+    }
+    
+    vector<string> letterCombinations(string digits) {
+        vector<string> ans;
+        if(digits.size()==0)
+        {
+            return ans;
+        }
+        map<char,string> m;
+        m['2']="abc";
+        m['3']="def";
+        m['4']="ghi";
+        m['5']="jkl";
+        m['6']="mno";
+        m['7']="pqrs";
+        m['8']="tuv";
+        m['9']="wxyz";
+        combination(ans,digits,digits.size(),m,0);
+        return ans;
+    }
+};
