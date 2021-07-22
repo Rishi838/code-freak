@@ -1,0 +1,45 @@
+Given a string s, we can transform every letter individually to be lowercase or uppercase to create another string.
+
+Return a list of all possible strings we could create. You can return the output in any order.
+
+Input: s = "a1b2"
+Output: ["a1b2","a1B2","A1b2","A1B2"]
+
+
+class Solution {
+public:
+    
+   void solve(int i,vector<string>&vec,string s)
+   {
+       if(i==s.size())
+       {
+           vec.push_back(s);
+           return;
+       }
+       if((s[i]>='a' && s[i]<='z') || (s[i]>='A' && s[i]<='Z'))
+       {
+           solve(i+1,vec,s);
+           if(s[i]>='a' && s[i]<='z')
+           {
+               s[i]=toupper(s[i]);
+               solve(i+1,vec,s);
+           }
+           else
+           {
+               s[i]=tolower(s[i]);
+               solve(i+1,vec,s);
+           }
+       }
+       else
+       {
+           solve(i+1,vec,s);
+       }
+       
+   }
+    
+    vector<string> letterCasePermutation(string s) {
+        vector<string> ans;
+        solve(0,ans,s);
+        return ans;
+    }
+};
