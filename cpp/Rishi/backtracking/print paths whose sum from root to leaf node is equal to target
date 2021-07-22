@@ -1,0 +1,43 @@
+ Given the root of a binary tree and an integer targetSum, return all root-to-leaf paths where each path's sum equals targetSum.
+
+A leaf is a node with no children.
+ 
+ 
+ void solve(vector<vector<int>> &ans,vector<int> &vec,int target,int &sum,TreeNode*root)
+    {
+        if(root->left==NULL && root->right==NULL)
+        {
+            if(target==sum +root->val)
+            {
+                vec.push_back(root->val);
+                ans.push_back(vec);
+                vec.pop_back();
+            }
+            return;
+        }
+        vec.push_back(root->val);
+       sum= sum+root->val;
+        if(root->left!=NULL)
+        {
+            solve(ans,vec,target,sum,root->left);
+        }
+        if(root->right!=NULL)
+        {
+            solve(ans,vec,target,sum,root->right);
+        }
+        sum=sum-root->val;
+        vec.pop_back();
+        
+    }
+    
+    vector<vector<int>> pathSum(TreeNode* root, int targetSum) {
+        vector<vector<int>> ans;
+        if(root==NULL)
+        {
+            return ans;
+        }
+        vector<int> v;
+        int sum=0;
+        solve(ans,v,targetSum,sum,root);
+        return ans;
+    }
