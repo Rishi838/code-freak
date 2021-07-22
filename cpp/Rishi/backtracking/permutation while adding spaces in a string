@@ -1,0 +1,27 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+
+void permutation(string s,int pos,vector<string> &ans,int n)
+{
+    if(pos==s.size()-1)
+    {
+          ans.push_back(s);
+          return;
+    }
+    permutation(s,pos+1,ans,n);
+    s.insert(pos+1,"_");
+    permutation(s,pos+2,ans,n+1);
+}
+
+int main()
+{
+    vector<string> ans;
+    permutation("abcde",0,ans,5);
+    for (int i = 0; i < ans.size(); i++)
+    {
+        cout<<ans[i]<<endl;
+    }
+   
+    return 0;
+}
