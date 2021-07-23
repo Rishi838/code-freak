@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    vector<int> profit = {60, 100, 120}, weight = {10, 20, 30};
+    int mass = 50;
+    vector<float> pw(3);
+    map<float, int> mw;
+    for (int i = 0; i < 3; i++)
+    {
+        pw[i] = (float)profit[i] / (float)weight[i];
+        mw[pw[i]] = weight[i];
+    }
+    float p = 0;
+    sort(pw.begin(), pw.end(), greater<>());
+    for (int i = 0; i < 3; i++)
+    {
+        if (mass > 0 && mw[pw[i]] < mass)
+        {
+            p += pw[i] * mw[pw[i]];
+            mass = mass - mw[pw[i]];
+        }
+        else
+        {
+            p += pw[i] * mass;
+            break;
+        }
+    }
+    cout << p;
+
+    return 0;
+}
