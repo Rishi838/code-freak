@@ -1,0 +1,36 @@
+//Priority queue for a structure
+#include<iostream>
+#include<queue>
+
+struct name
+{
+char data;
+int value;
+};
+
+class compare
+{
+  public:
+  bool operator()(name a,name b)
+  {
+      return b.value > a.value;
+  }
+};
+
+using namespace std;
+int main()
+{
+    name arr[5]={{'a',1},{'b',4},{'c',2},{'d',-1},{'e',6}};
+    priority_queue<struct name,vector<struct name>,compare> p;
+    p.push(arr[0]);
+    p.push(arr[1]);
+    p.push(arr[2]);
+    p.push(arr[3]);
+    p.push(arr[4]);
+     while (!p.empty())
+     {
+         cout<<p.top().value<<" "<<p.top().data<<endl;
+         p.pop();
+     }
+    return 0;
+}
