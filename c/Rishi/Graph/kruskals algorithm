@@ -1,0 +1,96 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+struct node
+{
+    int parent, rank;
+};
+
+class edge
+{
+public:
+    int src, dst, wt;
+};
+
+bool compare(edge a, edge b)
+{
+    return a.wt < b.wt;
+}
+
+vector<node> vec;
+int find(int v)
+{
+    if (vec[v].parent == -1)
+    {
+        return v;
+    }
+    vec[v].parent = find(vec[v].parent);
+    return vec[v].parent;
+}
+
+void union_set(int a, int b)
+{
+    if (vec[a].rank > vec[b].rank)
+    {
+        vec[b].parent = a;
+    }
+    else if (vec[b].rank > vec[a].rank)
+    {
+        vec[a].parent = b;
+    }
+    else
+    {
+        vec[a].parent = b;
+        vec[b].rank += 1;
+    }
+}
+
+void kruskals(vector<edge> edge_list, int e,int v, vector<edge> &mst)
+{
+    sort(edge_list.begin(), edge_list.end(), compare);
+    int i = 0, j = 0;
+    while (i < v - 1 && j < e)
+    {
+        int from = find(edge_list[j].src);
+        int to = find(edge_list[j].dst);
+        if (from == to)
+        {
+            j++;
+            continue;
+        }
+        union_set(from, to);
+        mst.push_back(edge_list[j]);
+    }
+}
+
+int main()
+{
+    int e, v;
+    cin >> e >> v;
+
+    vec.resize(v);
+
+    for (int i = 0; i < v; i++)
+    {
+        vec[i].parent = -1;
+        vec[i].rank = 0;
+    }
+    vector<edge> edge_list;
+    edge temp;
+    for (int i = 0; i < e; i++)
+    {
+        int x, y, z;
+        cin >> x >> y >> z;
+        temp.src = x;
+        temp.dst = y;
+        temp.wt = z;
+        edge_list.push_back(temp);
+    }
+    vector<edge> mst;
+    kruskals(edge_list, e, v, mst);
+    for(auto i: mst)
+    {
+        cout<<i.src<<"-->"<<i.dst<<"    Wt:"<<i.wt<<endl;
+    }
+    return 0;
+}
