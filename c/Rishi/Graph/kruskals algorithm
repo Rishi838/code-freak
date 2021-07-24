@@ -60,6 +60,7 @@ void kruskals(vector<edge> edge_list, int e,int v, vector<edge> &mst)
         }
         union_set(from, to);
         mst.push_back(edge_list[j]);
+        i++;
     }
 }
 
