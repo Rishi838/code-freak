@@ -1,0 +1,57 @@
+#include <bits/stdc++.h>
+#define v 6
+using namespace std;
+
+int set_min_vertex(vector<int> value, vector<bool> set_mst)
+{
+    int minimum = INT_FAST16_MAX, vertex;
+    for (int i = 0; i < value.size(); i++)
+    {
+        if (set_mst[i] == false && value[i] < minimum)
+        {
+            vertex = i;
+            minimum = value[i];
+        }
+    }
+    return vertex;
+}
+
+void find_mst(int graph[][v])
+{
+    int parent[v];
+    vector<int> value(v, INT_FAST16_MAX);
+    vector<bool> set_mst(v, false);
+    parent[0] = -1;
+    value[0] = 0;
+
+    for (int i = 0; i < v - 1; i++)
+    {
+        int u = set_min_vertex(value, set_mst);
+        set_mst[u] = true;
+        for (int j = 0; j < v; j++)
+        {
+            if (graph[u][j] != 0 && set_mst[j] == false && graph[u][j] < value[j])
+            {
+                value[j] = graph[u][j];
+                parent[j] = u;
+            }
+        }
+    }
+
+    for (int i = 1; i < v; i++)
+    {
+        cout << parent[i] << "-->" << i << "   Wt=" << graph[i][parent[i]] << endl;
+    }
+}
+
+int main()
+{
+    int graph[v][v] = {{0, 4, 6, 0, 0, 0},
+                       {4, 0, 6, 3, 4, 0},
+                       {6, 6, 0, 1, 0, 0},
+                       {0, 3, 1, 0, 2, 3},
+                       {0, 4, 0, 2, 0, 7},
+                       {0, 0, 0, 3, 7, 0}};
+    find_mst(graph);
+    return 0;
+}
