@@ -1,0 +1,58 @@
+#include <bits/stdc++.h>
+#define v 6
+using namespace std;
+
+int minimum_vertex(vector<int> value, vector<bool> set)
+{
+    int minimun = INT_FAST16_MAX, index;
+    for (int i = 0; i < value.size(); i++)
+    {
+        if (set[i] == false && value[i] < minimun)
+        {
+            minimun = value[i];
+            index = i;
+        }
+    }
+    return index;
+}
+
+void dijkstra(int graph[][v])
+{
+    vector<int> parent(v, -1);
+    vector<int> value(v, INT_FAST16_MAX);
+    vector<bool> set(v, false);
+
+    value[0] = 0;
+
+    for (int i = 0; i < v - 1; i++)
+    {
+        int u = minimum_vertex(value, set);
+        set[u] = true;
+        for (int j = 0; j < v; j++)
+        {
+            if (graph[u][j] != 0 && set[j] == false && graph[u][j] + value[u] < value[j])
+            {
+                value[j] = graph[u][j] + value[u];
+                parent[j] = u;
+            }
+        }
+    }
+
+    for (int i = 1; i < v; i++)
+    {
+        cout << i << "--->" << parent[i] << "   Wt:" << graph[i][parent[i]] << endl;
+        ;
+    }
+}
+
+int main()
+{
+    int graph[v][v] = {{0, 1, 4, 0, 0, 0},
+                       {1, 0, 4, 2, 7, 0},
+                       {4, 4, 0, 3, 4, 0},
+                       {0, 2, 3, 0, 4, 6},
+                       {0, 7, 5, 4, 0, 7},
+                       {0, 0, 0, 6, 7, 0}};
+    dijkstra(graph);
+    return 0;
+}
