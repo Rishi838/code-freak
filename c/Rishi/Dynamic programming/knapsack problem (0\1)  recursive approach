@@ -1,0 +1,26 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int knapsack(int wt[], int profit[], int w, int n)
+{
+    if (w <= 0 || n <= 0)
+    {
+        return 0;
+    }
+    if (wt[n] > w)
+    {
+        return knapsack(wt, profit, w, n - 1);
+    }
+    else
+    {
+        return max(knapsack(wt, profit, w, n - 1), profit[n] + knapsack(wt, profit, w - wt[n], n - 1));
+    }
+}
+
+int main()
+{
+    int wt[] = {3, 4, 1};
+    int profit[] = {5, 6, 2};
+ cout<<knapsack(wt,profit,6,2);
+    return 0;
+}
