@@ -1,0 +1,40 @@
+You are given an integer array nums and an integer x. In one operation, you can either remove the leftmost or the rightmost element from the array nums and subtract its value from x. Note that this modifies the array for future operations.
+
+Return the minimum number of operations to reduce x to exactly 0 if it is possible, otherwise, return -1.
+
+ 
+
+Example 1:
+
+Input: nums = [1,1,4,2,3], x = 5
+Output: 2
+Explanation: The optimal solution is to remove the last two elements to reduce x to zero.
+
+
+
+class Solution {
+public:
+    unordered_map<string,int> m;
+    int operations(int i,int j ,vector<int> &nums,int x,int count)
+    {
+       if(x==0)
+       {
+           return count;
+       }
+        if(x<0 || i>j)
+        {
+            return 1e6;
+        }
+        string key=to_string(i) + " * " + to_string(j) + " * " + to_string(x);
+        if(m.count(key))
+            return m[key];
+        int l=operations(i+1,j,nums,x-nums[i],count+1);
+        int r=operations(i,j-1,nums,x-nums[j],count+1);
+        return m[key]=min(l,r);     
+    }
+    
+    int minOperations(vector<int>& nums, int x) {
+       int ans =operations(0,nums.size()-1,nums,x,0);
+        return ans>=1e6 ?-1:ans;
+    }
+};
