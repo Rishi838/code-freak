@@ -1,0 +1,42 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int max_profit(int arr[], int pt[], int l, int n)
+{
+    int dp[n + 1][l + 1];
+    for (int i = 0; i <= n; i++)
+    {
+        for (int j = 0; j <= l; j++)
+        {
+            if (i == 0 || j == 0)
+            {
+                dp[i][j] = 0;
+            }
+           else if (arr[i - 1] > j)
+            {
+                dp[i][j] = dp[i - 1][j];
+            }
+            else
+            {
+                dp[i][j] = max(dp[i - 1][j], pt[i - 1] + dp[i][j - arr[i - 1]]);
+            }
+        }
+    }
+    for (int i = 0; i <= n; i++)
+    {
+        for (int j = 0; j <= l; j++)
+        {
+            cout << dp[i][j] << " ";
+        }
+        cout << endl;
+    }
+    return dp[n][l];
+}
+
+int main()
+{
+    int arr[] = {1, 2, 3, 4,5,8,9};
+    int pt[] = {2,1,9,12,18,7,19},n=sizeof(arr)/sizeof(int);
+    cout << max_profit(arr, pt, 12, n);
+    return 0;
+}
