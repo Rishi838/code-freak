@@ -1,0 +1,29 @@
+#include <vector>
+#include <iostream>
+using namespace std;
+
+int uncrossed_lines(vector<int> v1, vector<int> v2, int a, int b)
+{
+    cout<<"Calling for "<<a<<"  "<<b<<endl;
+    if (a >= v1.size() || b >= v2.size())
+    {
+        cout << "Returning 0" << endl;
+        return 0;
+    }
+    if (v1[a] == v2[b])
+    {
+       
+        int c=1 + uncrossed_lines(v1, v2, a + 1, b + 1);
+        cout<<"Returning "<<c<<endl;
+        return c;
+    }
+    int l=uncrossed_lines(v1, v2, a, b + 1),r= uncrossed_lines(v1, v2, a + 1, b);
+    cout<<"Returning "<<max(l,r)<<endl;
+    return max(l,r);
+}
+
+int main()
+{
+    vector<int> v1{2,5,1,2,5}, v2{2,5,2,1,5,2};
+    cout << uncrossed_lines(v1, v2, 0, 0);
+}
