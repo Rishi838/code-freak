@@ -1,0 +1,41 @@
+We write the integers of nums1 and nums2 (in the order they are given) on two separate horizontal lines.
+
+Now, we may draw connecting lines: a straight line connecting two numbers nums1[i] and nums2[j] such that:
+
+nums1[i] == nums2[j];
+The line we draw does not intersect any other connecting (non-horizontal) line.
+Note that a connecting lines cannot intersect even at the endpoints: each number can only belong to one connecting line.
+
+Return the maximum number of connecting lines we can draw in this way.
+
+ 
+
+Example 1:
+
+
+Input: nums1 = [1,4,2], nums2 = [1,2,4]
+Output: 2
+Explanation: We can draw 2 uncrossed lines as in the diagram.
+We cannot draw 3 uncrossed lines, because the line from nums1[1]=4 to nums2[2]=4 will intersect the line from nums1[2]=2 to nums2[1]=2.
+
+
+class Solution {
+public:
+    int uncrossed_lines(vector<int> v1, vector<int> v2, int a, int b)
+{
+    if (a >= v1.size() || b >= v2.size())
+    {
+        return 0;
+    }
+    if (v1[a] == v2[b])
+    {
+        return 1 + uncrossed_lines(v1, v2, a + 1, b + 1);
+    }
+    return max(uncrossed_lines(v1, v2, a, b + 1), uncrossed_lines(v1, v2, a + 1, b));
+}
+
+    
+    int maxUncrossedLines(vector<int>& nums1, vector<int>& nums2) {
+        return uncrossed_lines(nums1,nums2,0,0);
+    }
+};
