@@ -1,0 +1,28 @@
+Find if p is a subsequence of s
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+bool pattern_matching(string a, string b, int m, int n)
+{
+    if (m >= a.size() || n >= b.size())
+    {
+        if (m == a.size())
+        {
+            return true;
+        }
+        return false;
+    }
+    if(a[m]==b[n])
+    {
+        return pattern_matching(a,b,m+1,n+1);
+    }
+    return pattern_matching(a,b,m,n+1);
+}
+
+int main()
+{
+  cout<<pattern_matching("aab","abbbaaaaab",0,0);
+    return 0;
+}
