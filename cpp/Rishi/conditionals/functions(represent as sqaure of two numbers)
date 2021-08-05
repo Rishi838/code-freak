@@ -1,0 +1,46 @@
+Given a non-negative integer c, decide whether there're two integers a and b such that a2 + b2 = c.
+
+ 
+
+Example 1:
+
+Input: c = 5
+Output: true
+Explanation: 1 * 1 + 2 * 2 = 5
+Example 2:
+
+Input: c = 3
+Output: false
+Example 3:
+
+Input: c = 4
+Output: true
+
+
+class Solution {
+public:
+    bool judgeSquareSum(int c) {
+        if(c==0)
+            return true;
+        int a=sqrt(c),i=1;
+        if(a*a==c)
+            return true;
+        while(i<=a)
+        {
+           long long r=(long long)i*i + (long long)a*a;
+            if(r==(long long)c)
+            {
+                return true;
+            }
+            else if(r > (long long)c)
+            {
+                a--;
+            }
+            else
+            {
+                i++;
+            }
+        }
+        return false;
+    }
+};
