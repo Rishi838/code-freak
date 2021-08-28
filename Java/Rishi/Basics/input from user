@@ -1,0 +1,16 @@
+package com.company;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        System.out.println("This is programme to Take input From User: ");
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter Number one:");
+        float a=sc.nextFloat();
+        System.out.println("Enter Number Two:");
+        float b=sc.nextFloat();
+        System.out.println("Sum of Two numbers is: ");
+        System.out.println(a+b);
+    }
+}
