@@ -1,0 +1,14 @@
+package com.company;
+import java.util.Scanner;
+public class Main
+{
+    public static void main(String[] args)
+    {
+        System.out.println("This is the print a sentence With Name of User");
+        Scanner sc=new Scanner(System.in);
+        String s=sc.nextLine();
+        System.out.println("Hello " + s+",Have a Good Day");
+
+    }
+}
+
