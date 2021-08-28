@@ -1,0 +1,23 @@
+package com.company;
+import java.util.Scanner;
+public class Main
+{
+    public static void main(String[] args)
+    {
+        System.out.println("This is the programme to calculate percentage of student");
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter Marks in first subject: ");
+        int a=sc.nextInt();
+        System.out.println("Enter Marks in second subject: ");
+        int b=sc.nextInt();
+        System.out.println("Enter Marks in third subject: ");
+        int c=sc.nextInt();
+        System.out.println("Enter Marks in fourth subject: ");
+        int d=sc.nextInt();
+        System.out.println("Enter Marks in fifth subject: ");
+        int e=sc.nextInt();
+        int sum=a+b+c+d+e;
+        System.out.println(sum/5.0);
+    }
+}
+
