@@ -1,0 +1,15 @@
+package com.company;
+
+public class Main {
+
+    public static void main(String[] args) {
+          int a=1,b=2,c=3;
+          int sum=a+b+c;
+          System.out.print("The sum of Three numbers is: ");
+          System.out.print(sum);
+
+        System.out.println("\nThe sum of Three numbers is: ");
+        System.out.println(sum);
+
+    }
+}
