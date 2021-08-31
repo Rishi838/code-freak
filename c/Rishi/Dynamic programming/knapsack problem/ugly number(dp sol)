@@ -1,0 +1,32 @@
+//FInding nth ugly number
+
+class Solution {
+public:
+    int nthUglyNumber(int n) {
+        int ugly[n],ugly_num=1;
+        int i2=0,i3=0,i5=0,m2=2,m3=3,m5=5;
+           ugly[0]=1;
+
+        for(int i=1;i<n;i++)
+        {
+           ugly_num=min(m2,min(m3,m5));
+            ugly[i]=ugly_num;
+            if(ugly_num==m2)
+            {
+                i2=i2+1;
+                m2=ugly[i2]*2;
+            }
+             if(ugly_num==m3)
+            {
+                i3=i3+1;
+                m3=ugly[i3]*3;
+            } 
+            if(ugly_num==m5)
+            {
+                i5=i5+1;
+                m5=ugly[i5]*5;
+            }
+        }
+        return ugly_num;
+    }
+};
