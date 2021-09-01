@@ -1,0 +1,37 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+  vector<int> prime{3,5,7,11,13};
+  int n=11;
+  vector<int> no_muliple(prime.size(),0);
+  vector<int> multiple_of=prime;
+
+  set<int> ans;
+  ans.insert(1);
+  while(ans.size()!=n)
+  {
+    int ugly=*min_element(multiple_of.begin(),multiple_of.end());
+    cout<<ugly<<endl;
+    ans.insert(ugly);
+    for(int i=0;i<multiple_of.size();i++)
+    {
+      if(ugly==multiple_of[i])
+      {
+        no_muliple[i]++;
+        cout<<i<<"  "<<no_muliple[i]<<endl;
+        set<int> :: iterator it=ans.begin();
+        for(int j=1;j<=no_muliple[i];j++)
+        it++;
+        multiple_of[i]=prime[i] * (*it);
+        cout<<prime[i]<<"  "<<*it<<"  "<<multiple_of[i]<<endl;
+        break;
+      }
+    }
+  }
+  set<int> :: iterator it=ans.end();
+    it--;
+    cout<<*it;
+
+  return 0;
+}
