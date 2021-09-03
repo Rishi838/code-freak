@@ -1,0 +1,23 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+  int n=5;
+  vector<vector<int>> vec(n);
+  vec[0].push_back(1);
+  for(int i=1;i<=n-1;i++)
+  {
+    vec[i].push_back(vec[i-1][i-1]);
+    for(int j=0;j<i;j++)
+    {
+      vec[i].push_back(vec[i][j] + vec[i-1][j]);
+    }
+  }
+  for(auto i: vec)
+  {
+    for(auto j: i)
+    cout<<j<<" ";
+    cout<<endl;
+  }
+  return 0;
+}
