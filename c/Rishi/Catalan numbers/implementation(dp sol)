@@ -1,0 +1,24 @@
+#include<iostream>
+using namespace std;
+
+int catalan_number(int n)
+{
+  int ct[n];
+  ct[0]=1;
+  ct[1]=1;
+  for(int i=2;i<n;i++)
+  {
+    ct[i]=0;
+    for(int j=0;j<i;j++)
+    {
+      ct[i]+=ct[j]*ct[i-1-j];
+    }
+  }
+  return ct[n-1];
+}
+
+int main()
+{
+  cout<<catalan_number(7);
+  return 0;
+}
