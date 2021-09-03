@@ -1,0 +1,18 @@
+#include<iostream>
+using namespace std;
+
+int bell_number(int n,int k)
+{
+  if(n==0 || k==0 || k>n)
+  return 0;
+  if(n==k || k==1)
+  return 1;
+  return k*bell_number(n-1,k) + bell_number(n-1,k-1);
+}
+
+int main()
+{
+cout<<bell_number(5,3
+);
+  return 0;
+}
