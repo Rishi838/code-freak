@@ -1,0 +1,18 @@
+#include<iostream>
+using namespace std;
+
+int permutation(int n,int r)
+{
+  int dp[n+1];
+  dp[0]=1;
+  for(int i=1;i<=n;i++)
+  dp[i]=dp[i-1]*i;
+
+   return dp[n]/dp[n-r];
+}
+
+int main()
+{
+  cout<<permutation(6,3);
+  return 0;
+}
