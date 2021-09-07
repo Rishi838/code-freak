@@ -1,0 +1,24 @@
+#include<iostream>
+using namespace std;
+
+int recusive_sol(string s1,string s2,int i,int j)
+{
+  if(i==0)
+  return j;
+  if(j==0)
+  return i;
+  if(s1[i-1]==s2[j-1])
+  return recusive_sol(s1,s2,i-1,j-1);
+  int insert=recusive_sol(s1,s2,i,j-1)+1;
+  int deletion=recusive_sol(s1,s2,i-1,j) +1;
+  int sub=recusive_sol(s1,s2,i-1,j-1) +1;
+  return min(insert,min(deletion,sub));
+}
+
+int main()
+{
+   string a="aabc",b="caab";
+   int p=a.size(),q=b.size();
+   cout<<recusive_sol(a,b,p,q);
+  return 0;
+}
