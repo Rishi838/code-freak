@@ -1,0 +1,50 @@
+Given an array of n distinct elements, find length of the largest subset such that every pair in the subset is such that the larger element of the pair is divisible by smaller element. 
+
+Examples: 
+
+Input : arr[] = {10, 5, 3, 15, 20} 
+Output : 3 
+Explanation: The largest subset is 10, 5, 20.
+10 is divisible by 5, and 20 is divisible by 10.
+
+Input : arr[] = {18, 1, 3, 6, 13, 17} 
+Output : 4
+Explanation: The largest subset is 18, 1, 3, 6,
+In the subsequence, 3 is divisible by 1, 
+6 by 3 and 18 by 6.
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+void friend_func(vector<int> vec, int &ans, vector<int> &v, int i)
+{
+  if (i >= vec.size())
+  {
+    int a = v.size();
+    ans = max(ans, a);
+    return;
+  }
+  if (v.empty() || vec[i] % v.back() == 0)
+  {
+    v.push_back(vec[i]);
+    friend_func(vec, ans, v, i + 1);
+    v.pop_back();
+    friend_func(vec, ans, v, i + 1);
+  }
+  else
+  {
+    friend_func(vec, ans, v, i + 1);
+  }
+}
+
+int main()
+{
+  vector<int> vec{18, 1, 3, 6, 13, 17} , v;
+  sort(vec.begin(), vec.end());
+  int ans = INT_MIN;
+  friend_func(vec, ans, v, 0);
+  cout << ans;
+
+  return 0;
+}
