@@ -1,0 +1,15 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+   vector<int> vec{-2,-3,4,-1,-2,1,5,-3};
+   int ans=vec[0],current=ans;
+   for(int i=1;i<vec.size();i++)
+   {
+     current=max(vec[i],current + vec[i]);
+     ans=max(ans,current);
+   }
+   cout<<ans;
+  return 0;
+}
