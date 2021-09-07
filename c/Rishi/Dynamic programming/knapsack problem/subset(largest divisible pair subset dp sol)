@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int friend_func(vector<int> vec)
+{
+ vector<int> dp(vec.size(),1);
+ for(int i=0;i<vec.size();i++)
+ {
+   for(int j=0;j<i;j++)
+    {
+      if(vec[i] %vec[j]==0)
+      {
+        if(dp[i] <= dp[j])
+         dp[i]=dp[j] + 1;
+      }
+    }
+ }
+ return *max_element(dp.begin(),dp.end());
+}
+
+int main()
+{
+  vector<int> vec{4,7,8,9,15,16} , v;
+  sort(vec.begin(), vec.end());
+  cout<<friend_func(vec);
+ 
+  return 0;
+}
