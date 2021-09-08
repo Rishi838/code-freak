@@ -1,0 +1,23 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int recursive_sol(vector<vector<int>> v, int i, int j)
+{
+  if (v[i][j] == 1)
+    return 0;
+  if (i == v.size() - 1 && j == v[0].size() - 1)
+    return 1;
+  int a = 0, b = 0;
+  if (i + 1 < v.size() && j < v[0].size() && v[i + 1][j] == 0)
+    a = recursive_sol(v, i + 1, j);
+  if (i < v.size() && j + 1 < v[0].size() && v[i][j + 1] == 0)
+    b = recursive_sol(v, i, j + 1);
+  return a + b;
+}
+int main()
+{
+  vector<vector<int>> v{
+      {0, 0, 0, 0}, {0, 1, 0, 0}, {0, 0, 1, 0}, {0, 0, 1, 0}};
+      cout<<recursive_sol(v,0,0);
+  return 0;
+}
