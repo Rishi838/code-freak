@@ -1,0 +1,17 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int unique_path(int i, int j, int m, int n)
+{
+  if (i == m - 1)
+    return 1;
+  if (j == n - 1)
+    return 1;
+  return unique_path(i + 1, j, m, n) + unique_path(i, j + 1, m, n);
+}
+
+int main()
+{
+  cout << unique_path(0, 0, 3, 7);
+  return 0;
+}
