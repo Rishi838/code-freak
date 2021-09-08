@@ -1,0 +1,38 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+  vector<vector<int>> v{{0},{1}};
+    int a=v.size(),b=v[0].size();
+     int dp[a][b];
+     cout<<a<<' '<<b<<endl;
+     int i=1;
+     dp[0][0]=0;
+     while(i<b && v[0][i]!=1)
+     dp[0][i++]=1;
+     while(i<b)
+     dp[0][i++]=0;
+     i=1;
+     while(i<a && v[i][0]!=1)
+     dp[i++][0]=1;
+     while(i<a)
+     dp[i++][0]=0;
+     for(int i=1;i<a;i++)
+     {
+       for(int j=1;j<b;j++)
+       {
+         if(v[i][j]==1)
+         dp[i][j]=0;
+         else
+         dp[i][j]=dp[i-1][j] + dp[i][j-1];
+       }
+     }
+     for(int i=0;i<a;i++)
+     {
+       for(int j=0;j<b;j++)
+        cout<<dp[i][j]<<" ";
+        cout<<endl;
+     }
+  return 0;
+}
