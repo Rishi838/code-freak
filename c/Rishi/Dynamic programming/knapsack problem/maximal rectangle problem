@@ -1,0 +1,66 @@
+class Solution {
+public:
+    
+        int largestRectangleArea(vector<int>& heights) {
+        vector<pair<int, int>> vec(heights.size());
+  stack<int> s;
+  for (int i = 0; i < heights.size(); i++)
+  {
+    while (!s.empty() && heights[i] <= heights[s.top()])
+    {
+      s.pop();
+    }
+    if (s.empty())
+      vec[i].first = 0;
+    else
+      vec[i].first = s.top() + 1;
+    s.push(i);
+  }
+  stack<int> str;
+  for (int i = heights.size() - 1; i >= 0; i--)
+  {
+    while (!str.empty() && heights[i] <= heights[str.top()])
+      str.pop();
+    if (str.empty())
+      vec[i].second = heights.size() - 1;
+    else
+      vec[i].second = str.top() - 1;
+    str.push(i);
+  }
+  int ans = INT_MIN;
+  for (int i = 0; i < vec.size(); i++)
+    ans = max(ans, (vec[i].second - vec[i].first + 1) * heights[i]);
+        return ans;
+        
+    }
+    
+    int maximalRectangle(vector<vector<char>>& matrix) {
+        
+        int a=matrix.size();
+        if(a==0)
+            return 0;
+       int b=matrix[0].size();
+        vector<vector<int>> dp(a,vector<int>(b));
+        for(int i=0;i<a;i++)
+        {
+         for(int j=0;j<b;j++)
+         {
+             if(i==0)
+             {
+                 if(matrix[i][j]=='1')
+                     dp[i][j]=1;
+                 else
+                     dp[i][j]=0;
+             }
+            else if(matrix[i][j]=='0')
+                dp[i][j]=0;
+             else
+                 dp[i][j]=dp[i-1][j]+1;
+         }
+        }
+        int ans=INT_MIN;
+        for(int i=0;i<a;i++)
+            ans=max(ans,largestRectangleArea(dp[i]));
+       return ans;
+    }
+};
