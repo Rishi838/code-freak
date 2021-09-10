@@ -1,0 +1,16 @@
+class Solution {
+public:
+    int maxProfit(vector<int>& p) {
+        vector<int> b(p.size()),s(p.size()),c(p.size());
+        b[0]=-p[0];
+        s[0]=0;
+        c[0]=0;
+        for(int i=1;i<p.size();i++)
+        {
+            b[i]=max(b[i-1],c[i-1]-p[i]);
+            s[i]=max(s[i-1],p[i] + b[i-1]);
+            c[i]=max(s[i-1],c[i-1]);
+        }
+        return s[p.size()-1];
+    }
+};
