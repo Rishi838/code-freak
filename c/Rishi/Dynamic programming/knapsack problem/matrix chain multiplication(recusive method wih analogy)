@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+int recurive(int arr[], int l, int r)
+{
+   cout << "Calling for: " << l << " " << r << endl;
+   if (l >= r)
+   {
+      cout << "returning 0" << endl;
+      return 0;
+   }
+   int res = INT16_MAX;
+   for (int i = l; i < r; i++)
+   {
+      int a = recurive(arr, l, i), b = recurive(arr, i + 1, r), c = arr[i] * arr[l - 1] * arr[r];
+      cout << a << "  " << b << "   " << c << endl;
+      res = min(res, a + b + c);
+      cout <<"Going to next part of loop "<<endl;
+   }
+   cout << "Returning for " << l << " " << r << endl;
+   return res;
+}
+
+int main()
+{
+   int arr[] = {10, 30, 5, 60};
+   cout << recurive(arr, 1, 3);
+   return 0;
+}
