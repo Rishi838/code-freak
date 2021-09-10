@@ -1,0 +1,22 @@
+#include<iostream>
+using namespace std;
+
+int recurive(int arr[],int l,int r)
+{
+   if(l>=r)
+   return 0;
+   int res=INT16_MAX;
+   for(int i=l;i<r;i++)
+   {
+      int curr = recurive(arr,l,i) + recurive(arr,i+1,r) + (arr[i]*arr[l-1] * arr[r]);
+      res=min(curr,res);
+   }
+   return res;
+}
+
+int main()
+{
+   int arr[]={1,2,3,4,3};
+   cout<<recurive(arr,1,4);
+   return 0;
+}
