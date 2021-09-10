@@ -1,0 +1,26 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+map<pair<int, int>, int> mp;
+
+int recurive(int arr[], int l, int r)
+{
+   if (l >= r)
+      return mp[{l, r}] = 0;
+   if (mp.find({l, r}) != mp.end())
+      return mp[{l, r}];
+   int res = INT16_MAX;
+   for (int i = l; i < r; i++)
+   {
+      int curr = recurive(arr, l, i) + recurive(arr, i + 1, r) + (arr[i] * arr[l - 1] * arr[r]);
+      res = min(curr, res);
+   }
+   return mp[{l, r}] = res;
+}
+
+int main()
+{
+   int arr[] = {10,30,5,60};
+   cout << recurive(arr, 1, 3);
+   return 0;
+}
