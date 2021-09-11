@@ -1,0 +1,63 @@
+You are given an array of binary strings strs and two integers m and n.
+
+Return the size of the largest subset of strs such that there are at most m 0's and n 1's in the subset.
+
+A set x is a subset of a set y if all elements of x are also elements of y.
+
+ 
+
+Example 1:
+
+Input: strs = ["10","0001","111001","1","0"], m = 5, n = 3
+Output: 4
+Explanation: The largest subset with at most 5 0's and 3 1's is {"10", "0001", "1", "0"}, so the answer is 4.
+Other valid but smaller subsets include {"0001", "1"} and {"10", "1", "0"}.
+{"111001"} is an invalid subset because it contains 4 1's, greater than the maximum of 3.
+
+
+
+
+
+
+class Solution {
+public:
+    
+    void recursion(vector<pair<int,int>> vec,int i,int m ,int n,int count,int &ans)
+    {
+        if(i>=vec.size())
+        {
+            ans=max(ans,count);
+            return;
+        }
+        if(vec[i].first<=m && vec[i].second<=n)
+        {
+            recursion(vec,i+1,m-vec[i].first,n-vec[i].second,count+1,ans);
+            recursion(vec,i+1,m,n,count,ans);
+            return;
+        }
+        recursion(vec,i+1,m,n,count,ans);
+    }
+    
+    int findMaxForm(vector<string>& strs, int m, int n) {
+        vector<pair<int,int>> vec(strs.size());
+        for(int i=0;i<strs.size();i++)
+        {
+         int c0=0,c1=0;
+            for(auto j: strs[i])
+            {
+           if(j=='0')
+               c0++;
+                if(j=='1')
+                    c1++;
+                
+             }
+            vec[i].first=c0;
+            vec[i].second=c1;
+        }
+        
+        int ans=INT_MIN;
+        recursion(vec,0,m,n,0,ans);
+        return ans;
+        
+    }
+};
