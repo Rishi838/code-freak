@@ -1,0 +1,30 @@
+class Solution {
+public:
+    vector<int> countBits(int n) {
+      vector<int> dp;
+        dp.push_back(0);
+        if(n==0)
+            return dp;
+        dp.push_back(1);
+        if(n==1)
+            return dp;
+        dp.push_back(1);
+        if(n==2)
+            return dp;
+        int x=1;
+        for(int i=3;i<=n;i++)
+        {
+            int j=i;
+            while(j>1 && j%2==0)
+                j=j/2;
+            if(j==1)
+            {
+                x=i;
+             dp.push_back(1);
+            }
+            else
+                dp.push_back(dp[x] + dp[i-x]);
+        }
+        return dp;
+    }
+};
