@@ -1,35 +1,32 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<string> vec{"mobile", "samsung", "sam", "sung",
-                   "man", "mango", "icecream", "and",
-                   "go", "i", "like", "ice", "cream"};
+vector<string> vec{"leet", "code","how","are"};
 
-bool contains(string word)
+bool check(string word)
 {
-   for (int i = 0; i < vec.size(); i++)
-   {
-      if (vec[i]==word)
-         return true;
-   }
-   return false;
+  for (int i = 0; i < vec.size(); i++)
+  {
+    if (vec[i] == word)
+      return true;
+  }
+  return false;
 }
 
-bool dictionary_contains(string s)
+bool conatins(string s, int pos)
 {
-   if (s.size() == 0)
+  if (pos == s.size())
+    return true;
+  for (int i = pos; i < s.size(); i++)
+  {
+    if (check(s.substr(pos, i - pos + 1)) && conatins(s, i + 1))
       return true;
-
-   for (int i = 1; i <= s.size(); i++)
-   {
-      if (contains(s.substr(0, i)) && dictionary_contains(s.substr(i)));
-         return true;
-   }
-   return false;
+  }
+  return false;
 }
 
 int main()
 {
-   cout<<dictionary_contains("ilikesamsungmobileansicecream");
-   return 0;
+  cout << conatins("leethowcodeare", 0);
+  return 0;
 }
