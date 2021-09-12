@@ -1,0 +1,27 @@
+
+class Solution {
+public:
+    
+    void func(TreeNode*root ,string s,vector<string>&vec)
+    {
+        if(root==NULL)
+            return;
+        if(root->left==NULL && root->right==NULL)
+        {
+            s+=to_string(root->val);
+            vec.push_back(s);
+        return;
+        }
+        string t=to_string(root->val)  + "->";
+        s += t;
+        func(root->left,s,vec);
+        func(root->right,s,vec);
+        s.erase(s.size()-t.size(),t.size());
+    }
+    
+    vector<string> binaryTreePaths(TreeNode* root) {
+        vector<string> vec;
+        func(root,"",vec);
+        return vec;
+    }
+};
