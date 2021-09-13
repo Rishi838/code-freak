@@ -1,0 +1,21 @@
+class Solution {
+public:
+    string getHint(string s, string g) {
+         int count=0;
+        map<char,int> m1,m2;
+        for(int i=0;i<s.size();i++)
+        {
+            if(g[i]==s[i])
+                count++;
+            
+            m1[s[i]]++;
+            m2[g[i]]++;
+        }
+        int sum=0;
+        for(auto i: m1)
+        {
+            sum += min(m2[i.first] ,i.second);
+        }
+        return to_string(count) + "A" + to_string(sum-count) + "B";
+    }
+};
