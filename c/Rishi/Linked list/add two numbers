@@ -1,0 +1,45 @@
+class Solution {
+public:
+    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+       vector<int> v1,v2;
+        while(l1)
+        {
+            v1.push_back(l1->val);
+            l1=l1->next;
+        }
+        while(l2)
+        {
+            v2.push_back(l2->val);
+            l2=l2->next;
+        }
+        for(int i=0;i<v1.size()/2;i++)
+            swap(v1[i],v1[v1.size()-1-i]);
+         for(int i=0;i<v2.size()/2;i++)
+            swap(v2[i],v2[v2.size()-1-i]);
+        int a=max(v1.size(),v2.size()),i=0,sum=0;
+        ListNode *head=NULL;
+        while(i<a)
+        {
+            int b=0;
+            if(i<v1.size())
+                b+=v1[i];
+            if(i<v2.size())
+                b+=v2[i];
+            b+=sum;
+            ListNode *ptr=new ListNode(b%10);
+            sum=b/10;
+            ptr->next=head;
+            head=ptr;
+            i++;
+        }
+        if(sum!=0)
+        {
+            ListNode *ptr=new ListNode(sum);
+        ptr->next=head;
+        head=ptr;
+        }
+        return head;
+        
+            
+    }
+};
