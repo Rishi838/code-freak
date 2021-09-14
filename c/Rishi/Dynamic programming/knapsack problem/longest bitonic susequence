@@ -1,0 +1,30 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    vector<int> vec{10,22,9,33,50,41,60,80,3};
+    vector<int> lis(vec.size(),1),lds(vec.size(),1);
+    for(int i=0;i<vec.size();i++)
+    {
+        for(int j=0;j<i;j++)
+        {
+            if(vec[i] > vec[j] && lis[j]>=lis[i])
+            lis[i] = lis[j] + 1;
+        }
+    }
+    for(int i=vec.size()-1;i>=0;i--)
+    {
+        for(int j=vec.size()-1;j>i;j--)
+        {
+          if(vec[i] > vec[j] && lds[j] >= lds[i])
+          lds[i]=lds[j] +1;   
+        }
+    }
+   int ans=INT_MIN;
+   for(int i=0;i<vec.size();i++)
+   {
+       ans=max(ans,lis[i] + lds[i] - 1);
+   }
+   cout<<ans;
+    return 0;
+}
