@@ -1,0 +1,31 @@
+class Solution {
+public:
+    map<string,int> m;
+   bool func(string s1, string s2, string s3, int i, int j, int k)
+{
+       string s=to_string(i) + " " + to_string(j) + " " + to_string(k);
+       if(m.find(s)!=m.end())
+           return m[s];
+    if (k >= s3.size())
+        return m[s]=true;
+    if ((i > s1.size() || s1[i] != s3[k]) && (j > s2.size() || s2[j] != s3[k]))
+        return  m[s]=false;
+    bool f1 = false, f2 = false;
+
+    if (i < s1.size() && s1[i] == s3[k])
+        if (func(s1, s2, s3, i + 1, j, k + 1))
+        return m[s]=true;
+
+    if (j < s2.size() && s2[j] == s3[k])
+        if(func(s1, s2, s3, i, j + 1, k + 1))
+        return m[s]=true;
+
+    return m[s]=false;
+}
+    
+    bool isInterleave(string s1, string s2, string s3) {
+        if(s3.size() != s1.size() + s2.size())
+            return false;
+       return func(s1,s2,s3,0,0,0);       
+    }
+};
