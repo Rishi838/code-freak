@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    string s = "abccbc";
+    int x = s.size();
+    vector<vector<bool>> dp(x, vector<bool>(x, false));
+    int a = 0, b = 0,count=0;
+    for(int i=0;i<s.size();i++)
+    {
+        int p=0;
+        for(int j=i;j<s.size();j++)
+        {
+          if(p==j)
+          dp[p][j]=true;
+          else if(s[p]!=s[j])
+          dp[p][j]=false;
+          else if(s[p]==s[j])
+          {
+               if(j==p+1)
+               dp[p][j]=true;
+               else
+               dp[p][j]=dp[p+1][j-1];
+          }
+            if(dp[p][j]==true)
+            count++;
+             p++;
+        }
+    }
+     cout<<count;
+    return 0;
+}
