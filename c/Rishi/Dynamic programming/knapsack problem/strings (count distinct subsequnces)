@@ -1,0 +1,20 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    map<char, int> m;
+    string s = "abcbb";
+    int dp[s.size() + 1];
+    dp[0] = 1;
+    for (int i = 0; i < s.size(); i++)
+    {
+         dp[i + 1] = dp[i] * 2;
+        if(m.find(s[i])!=m.end())
+        dp[i + 1] -= dp[m[s[i]]-1];
+        m[s[i]] = i + 1;
+    }
+    for(auto i:dp)
+    cout<<i<<" ";
+      cout<<dp[s.size()];
+      return 0;
+}
