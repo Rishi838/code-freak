@@ -1,0 +1,44 @@
+The Hamming distance between two integers is the number of positions at which the corresponding bits are different.
+
+Given two integers x and y, return the Hamming distance between them.
+
+
+
+
+
+class Solution {
+public:
+    int hammingDistance(int x, int y) {
+       string s1="",s2="";
+        while(x>0)
+        {
+            s1+= to_string(x%2) ;
+            x=x/2;
+        }
+         while(y>0)
+        {
+            s2+= to_string(y%2) ;
+            y=y/2;
+        }
+        int a=min(s1.size(),s2.size());
+        int b=0,i;
+        for( i=0;i<a;i++)
+        {
+            if(s1[i] != s2[i])
+                b++;
+        }         
+        while(i<s1.size())
+        {
+           if(s1[i]=='1')
+               b++;
+            i++;
+        }
+        while(i<s2.size())
+        {
+            if(s2[i]=='1')
+                b++;
+            i++;
+        }
+        return b;
+    }
+};
