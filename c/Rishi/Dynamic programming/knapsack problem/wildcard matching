@@ -1,0 +1,55 @@
+class Solution {
+public:
+    bool isMatch(string a, string b) {
+      int x = a.size(), y = b.size();
+        if(x==0)
+        {
+            int q=0,as=0,a=0;
+            for(auto i: b)
+            {
+              if(i=='*')
+                  as++;
+                else if(i=='?')
+                    q++;
+                else
+                    a++;
+            }
+            if(q==0 && a==0)
+                return true;
+            return false;
+        }
+  vector<vector<bool>> dp(y + 1, vector<bool>(x + 1, false));
+  for (int i = y; i >= 0; i--)
+  {
+    for (int j = x; j >= 0; j--)
+    {
+      if (i == y && j == x)
+      {
+        dp[i][j] = true;
+      }
+        else if (b[i] == '*')
+      {
+            if(j+1>x)
+                dp[i][j]=dp[i+1][j];
+            else
+                dp[i][j]= dp[i+1][j] || dp[i+1][j+1] || dp[i][j+1];
+      }
+      else if (i == y || j == x)
+      {
+        dp[i][j] = false;
+      }
+      else if (b[i] == '?')
+        dp[i][j] = dp[i + 1][j + 1];
+      
+      else
+      {
+        if (b[i] == a[j])
+          dp[i][j] = dp[i + 1][j + 1];
+        else
+          dp[i][j] = false;
+      }
+    }
+  }  
+        return dp[0][0];
+    }
+};
