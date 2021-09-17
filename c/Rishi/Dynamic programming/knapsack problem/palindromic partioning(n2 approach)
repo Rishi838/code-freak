@@ -1,0 +1,65 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+  string s = "abccbc";
+  int a = s.size();
+  vector<vector<bool>> dp(a, vector<bool>(a, 0));
+  for (int i = 0; i < a; i++)
+  {
+    int p = 0;
+    for (int j = i; j < a; j++)
+    {
+      if (p == j)
+        dp[p][j] = true;
+      else if (p + 1 == j)
+      {
+        dp[p][j] = false;
+        if (s[p] == s[j])
+          dp[p][j] = true;
+      }
+      else
+      {
+        if (s[p] == s[j])
+          dp[p][j] = dp[p + 1][j - 1];
+        else
+          dp[p][j] = false;
+      }
+      p++;
+    }
+  }
+  vector<int> ans(a);
+  for (int i = 0; i < a; i++)
+  {
+    if (i == 0)
+      ans[i] = 0;
+    else if (i == 1)
+    {
+      if (s[0] == s[1])
+        ans[i] = 0;
+      else
+        ans[i] = 1;
+    }
+    else
+    {
+      int l = i, r = i;
+      int as = INT_MAX;
+      while (l >= 0)
+      {
+        if (dp[l][r] == true)
+        {
+          if (l == 0)
+            as = 0;
+          else
+            as = min(as, ans[l - 1] + 1);
+        }
+        l--;
+      }
+      ans[i]=as;
+    }
+  }
+  for (auto i : ans)
+    cout << i << " ";
+
+  return 0;
+}
