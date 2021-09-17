@@ -1,0 +1,41 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+  string s = "abccbc";
+  int a = s.size();
+  vector<vector<int>> dp(a, vector<int>(a, 0));
+  for (int i = 0; i < a; i++)
+  {
+    int p = 0;
+    for (int j = i; j < a; j++)
+    {
+      if (p == j)
+        dp[i][j] = 0;
+      else if (p+1 == j)
+      {
+        if (s[p] == s[j])
+          dp[p][j] = 0;
+        else
+          dp[p][j] = 1;
+      }
+      else if (s[p] == s[j] && dp[p + 1][j - 1] == 0)
+        dp[p][j] = 0;
+      else
+      {
+        dp[p][j] = INT_MAX;
+        for (int k = p; k < j; k++)
+          dp[p][j] = min(dp[p][j], dp[p][k] + dp[k + 1][j] + 1);
+      }
+      p++;
+    }
+    cout<<endl;
+  }
+  for (auto i : dp)
+  {
+    for (auto j : i)
+      cout << j << " ";
+    cout << endl;
+  }
+  return 0;
+}
