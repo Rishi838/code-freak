@@ -1,0 +1,30 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+  vector<int> arr{3,1,5,8};
+  int a=arr.size();
+  vector<vector<int>> dp(a,vector<int> (a,0));
+ for(int g=0;g<a;g++)
+ {
+   for(int i=0,j=g;j<a;j++,i++)
+   {
+     int m=INT_MIN;
+     for(int k=i;k<=j;k++)
+     {
+       int l=k==i? 0: dp[i][k-1];
+       int r= k==j? 0: dp[k+1][j];
+       int v=(i==0? 1: arr[i-1]) *arr[k]  * (j==a-1?1: arr[j+1]);
+       m=max(m,l+r+v);
+     }
+     dp[i][j]=m;
+   }
+ }
+  for(auto i: dp)
+  {
+    for(auto j:i)
+    cout<<j<<" ";
+    cout<<endl;
+  }
+  return 0;
+}
