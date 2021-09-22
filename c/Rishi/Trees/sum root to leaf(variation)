@@ -1,0 +1,23 @@
+class Solution {
+public:
+    
+    void sum(TreeNode *root,int &ans,int s)
+    {
+        if(root==NULL)
+            return;
+        if(root->left==NULL && root->right==NULL)
+        {
+            s= s*10 + root->val;
+            ans+=s;
+            return;
+        }
+        sum(root->left,ans,s*10 + root->val);
+        sum(root->right,ans,s*10 + root->val);
+    }
+    
+    int sumNumbers(TreeNode* root) {
+        int ans=0;
+        sum(root,ans,0);
+        return ans;
+    }
+};
