@@ -2,10 +2,10 @@
 using namespace std;
 int main()
 {
-    int i=7;  // off last bit
+    int i=7;  // toggling a bit
     int b=2;
     int togglemask=(1<<b);
-    cout<<(i ^ offmask);
+    cout<<(i ^ togglemask);
 
     return 0;
 }
