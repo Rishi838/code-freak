@@ -1,0 +1,9 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n=9;
+     cout << "Binary Number: "<<bitset<5>(n).to_string();
+
+    return 0;
+}
