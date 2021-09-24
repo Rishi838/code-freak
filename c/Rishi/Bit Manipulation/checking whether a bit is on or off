@@ -1,0 +1,14 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    int i = 5;
+    int b = 1;
+    int checkmask = (1 << b);
+  if(((i & checkmask) == 0))
+  cout<<"Bit is off";
+  else
+  cout<<"Bit is on";
+
+    return 0;
+}
