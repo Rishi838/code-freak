@@ -1,0 +1,11 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+   int n=12;
+   int a= (n & (-n));
+   cout<<a<<endl;
+   cout<<"Right most Bitmask: "<<bitset<8>(a).to_string();
+
+    return 0;
+}
