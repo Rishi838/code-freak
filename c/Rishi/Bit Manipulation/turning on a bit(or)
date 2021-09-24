@@ -1,0 +1,11 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+    int i=16;  //  On second bit
+    int b=2;
+    int onmask=(1<<b);
+    cout<<(i | onmask);
+
+    return 0;
+}
