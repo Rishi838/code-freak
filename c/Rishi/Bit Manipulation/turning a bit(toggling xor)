@@ -1,0 +1,11 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+    int i=7;  // off last bit
+    int b=2;
+    int togglemask=(1<<b);
+    cout<<(i ^ offmask);
+
+    return 0;
+}
