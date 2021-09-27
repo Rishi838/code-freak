@@ -1,0 +1,37 @@
+Given the root of a binary tree, return the sum of values of its deepest leaves.
+
+
+class Solution {
+public:
+    
+     void count(TreeNode *root,int &c,int a)
+     {
+         if(root==NULL)
+         {
+             c=max(a,c);
+             return;
+         }
+         count(root->left,c,a+1);
+         count(root->right,c,a+1);
+     }
+     void sum1(TreeNode*root,int &sum,int a,int c)
+     {
+         if(root==NULL)
+             return;
+      if(a==c-1)
+      {
+          sum += root->val;
+      }
+         sum1(root->left,sum,a+1,c);
+         sum1(root->right,sum,a+1,c);
+     }
+    
+    int deepestLeavesSum(TreeNode* root) {
+        int c,sum=0;
+        count(root,c,0);
+        cout<<c;
+        sum1(root,sum,0,c);
+        return sum;
+
+    }
+};
