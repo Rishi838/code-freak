@@ -1,0 +1,29 @@
+Given the root of a binary tree, return the sum of all left leaves.
+
+
+
+
+
+
+class Solution {
+public:
+    
+    void sum1(TreeNode *root,bool flag,int &sum)
+    {
+        if(root==NULL)
+            return;
+        if(root->left==NULL && root->right==NULL && flag)
+        {
+            sum += root->val;
+            return;
+        }
+        sum1(root->left,true,sum);
+        sum1(root->right,false,sum);
+    }
+    
+    int sumOfLeftLeaves(TreeNode* root) {
+        int sum=0;
+        sum1(root,false,sum);
+        return sum;
+    }
+};
