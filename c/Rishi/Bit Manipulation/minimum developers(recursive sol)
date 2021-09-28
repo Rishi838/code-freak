@@ -1,0 +1,47 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+map<string, int> m;
+vector<int> ans;
+void sol(vector<int> p,int n,int cp,vector<int> vec,int mask)
+{
+  if(cp==p.size())
+  {
+    if(mask == ((1<<n)-1))
+    {
+      if(ans.size()==0 || vec.size() <ans.size())
+      ans=vec; 
+    }
+    return;
+  }
+  sol(p,n,cp+1,vec,mask);
+  vec.push_back(cp);
+  sol(p,n,cp+1,vec,(mask | p[cp]));
+  vec.pop_back();
+}
+
+vector<int> smallestSufficientTeam(vector<string> &r, vector<vector<string>> &p)
+{
+  for (int i = 0; i < r.size(); i++)
+    m[r[i]] = i;
+  vector<int> people(p.size(), 0),  v;
+  for (int i = 0; i < p.size(); i++)
+  {
+    for (auto j : p[i])
+    {
+      people[i] = people[i] | (1 << m[j]);
+    }
+  }
+  sol(people,r.size(),0,v,0);
+  return ans;
+}
+
+int main()
+{
+ vector<string> r{"a","b","c","d","e"};
+ vector<vector<string>> s{{"a","c"},{"b","d"},{"a","b","c","d"},{"e"}};
+ smallestSufficientTeam(r,s);
+ for(auto i:ans)
+ cout<<i<< " ";
+ cout<<ans.size();
+}
