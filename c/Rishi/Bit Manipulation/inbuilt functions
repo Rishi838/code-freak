@@ -1,0 +1,10 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+   int a=7;
+    cout<<__builtin_ctz(a)<<endl;          //Count trailing zeroes
+    cout<<__builtin_clz(a)<<endl;          //Count leading zeroes
+    cout<<__builtin_parity(a)<<endl;          //Check parity of bits
+    cout<<__builtin_popcount(a)<<endl;      //Count no of 1 bits  
+}
