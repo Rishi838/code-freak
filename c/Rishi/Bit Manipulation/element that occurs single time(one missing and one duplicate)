@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    vector<int> vec{3,2,2,4,6,7,5};
+    int a = vec[0];
+    for (int i = 1; i < vec.size(); i++)
+    {
+        a = (a ^ vec[i])^i;
+    }
+    a = (a^vec.size());
+    int b = (a & (-a)), c = -1, d = -1;
+    for (int i = 0; i < vec.size(); i++)
+    {
+        int rmsb = (vec[i] & (-vec[i]));
+        if (b == rmsb)
+        {
+            if (c == -1)
+                c = vec[i];
+            else
+                c = (c ^ vec[i]);
+        }
+        else
+        {
+            if (d == -1)
+                d = vec[i];
+            else
+                d = (d ^ vec[i]);
+        }
+    }
+    cout<<c<<" "<<d;
+    return 0;
+}
