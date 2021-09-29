@@ -1,0 +1,15 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+    int a=57,b=42;
+    int c=a^b,d=0;
+    while(c!=0)
+    {
+        int rmsb=(c & (-c));
+        c=c-rmsb;
+        d++;
+    }
+    cout<<d;
+    return 0;
+}
