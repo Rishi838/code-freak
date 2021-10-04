@@ -1,0 +1,25 @@
+class Solution {
+public:
+    uint32_t reverseBits(uint32_t n) {
+       int rev=0,a=31;
+        for(int i=31;i>=16;i--)
+        {
+           int mask= (1<<i);
+            int s=(n&mask);
+            s=(unsigned(s) >> a);
+            rev |= s;
+            a-=2;
+        }
+        a=1;
+        for(int i=15;i>=0;i--)
+        {
+            int mask=(1<<i);
+            int s= (n&mask);
+            s<<=a;
+            rev |=s;
+            a+=2;
+        }
+
+        return rev;
+    }
+};
