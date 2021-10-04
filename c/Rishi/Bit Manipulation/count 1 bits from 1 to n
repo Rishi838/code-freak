@@ -1,0 +1,30 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int pow(int x)
+{
+    int a=0;
+    while((1<<a) <=x)
+    a++;
+    return a-1;
+}
+
+int sol(int x)
+{
+    if(x<=0)
+    return 0;
+    int a=pow(x);
+    int bitsupto2x=a*(1<<(a-1));
+    int firstbit= x - (1<<a) + 1;
+    int rest= x - (1<<a);
+    cout<<bitsupto2x<<" "<<firstbit<<" "<<rest<<endl;
+    return bitsupto2x + firstbit + sol(rest);
+}
+
+int main()
+{
+    int x=4 ;
+cout<<sol(x);
+
+    return 0;
+}
