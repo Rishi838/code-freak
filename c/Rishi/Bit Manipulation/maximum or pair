@@ -1,0 +1,23 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+  vector<int> arr{4,8,12,16};
+  sort(arr.begin(),arr.end());
+  int a=arr[arr.size()-1],ans=INT_MIN;
+  for(int i=0;i<arr.size()-1;i++)
+  ans=max(ans,(a^arr[i]));
+  cout<<ans;
+  return 0;
+}#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+  vector<int> arr{4,8,12,16};
+  sort(arr.begin(),arr.end());
+  int a=arr[arr.size()-1],ans=INT_MIN;
+  for(int i=0;i<arr.size()-1;i++)
+  ans=max(ans,(a^arr[i]));
+  cout<<ans;
+  return 0;
+}
