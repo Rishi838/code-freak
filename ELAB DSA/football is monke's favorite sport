@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+using namespace std;
+void heapify(int arr[],int n,int i){}
+int main()
+{
+ int n,m;
+ cin>>n>>m;
+ vector<int> vec(n);
+ for(int i=0;i<n;i++)
+ cin>>vec[i];
+ int sum=0;
+ while(m--)
+ {
+     int ans=INT_MIN,b;
+     for(int i=0;i<n;i++)
+     {
+        if(vec[i]>ans)
+        {
+            ans=vec[i];
+            b=i;
+        }
+     }
+     sum+=ans;
+     vec[b]--;
+     
+ }
+ cout<<sum;
+	return 0;
+}
