@@ -1,0 +1,41 @@
+#include <bits/stdc++.h>
+using namespace std;
+void func(){}
+int main()
+{
+int t,a,b,c,d;
+cin>>t;
+while(t--)
+{
+    cin>>a>>b;
+    if(!b)
+    {
+    cout<<"DIV0\n";
+    continue;
+    }
+    if(a>0)
+       printf("%d %d",a/b,a%b);
+    else
+    {
+        c=a/b;d=a%b;
+    if(b<0)
+    {
+      if(c*b!=a){
+      c++;
+          d-=b;
+      };
+    }
+    else
+    {
+      if(c*b!=a){
+      c--;
+          d+=b;
+      }
+    }
+  printf("%d %d",c,d);
+    }
+    
+    cout<<endl;
+      
+}
+}
