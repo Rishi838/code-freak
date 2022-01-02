@@ -1,0 +1,47 @@
+#include <bits/stdc++.h>
+using namespace std;
+struct node{
+    int data;
+   struct node *left,*right; 
+};
+struct node* newNode(int item)
+{
+    struct node*temp=new node;
+    temp->data=item;
+    temp->left=temp->right=NULL;
+    return temp;
+}
+void postorder(struct node* root)
+{
+    if(root==NULL)
+    return;
+    postorder(root->left);
+    postorder(root->right);
+    cout<<root->data<<" ";
+}
+int main()
+{
+   int n,a;
+   cin>>n>>a;
+   struct node *root=newNode(a);
+   n--;
+   while(n--)
+   {
+       cin>>a;
+       struct node *temp=newNode(a),*b=root,*p=b;
+       while(b)
+       {
+           p=b;
+           if(a > b->data)
+           b=b->right;
+           else 
+           b=b->left;
+       }
+       if(a>p->data)
+       p->right=temp;
+       else
+       p->left=temp;
+   }
+   postorder(root);
+	return 0;
+}
