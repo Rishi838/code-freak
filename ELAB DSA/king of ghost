@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+   int n,m,x,i;
+   cin>>n>>m;
+   vector<int> vec(1000,0);
+   while(n--)
+   {
+       cin>>x;
+       vec[x-1]++;
+       int a=INT_MIN,b;
+       for(int i=0;i<1000;i++)
+       {
+           if(vec[i] >= a)
+           {
+           a=vec[i];
+           b=i+1;
+           }
+       }
+       cout<<b<<" "<<a<<endl;
+   }
+   for(i=0;i<n-1;i++);
+	return 0;
+}
