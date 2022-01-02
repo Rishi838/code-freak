@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std;
+void build(int *aa,int k,int l,int r){}
+int query(int k,int l,int r,int ql,int qr){return 0;}
+int main()
+{
+   int n,m;
+   cin>>n>>m;
+   int arr[n];
+   for(int i=0;i<n;i++)
+   cin>>arr[i];
+   while(m--)
+   {
+       int a,b,c=INT_MAX;
+       cin>>a>>b;
+       for(int i=a-1;i<b;i++)
+       c=min(c,arr[i]);
+       cout<<c<<endl;
+   }
+	return 0;
+}
