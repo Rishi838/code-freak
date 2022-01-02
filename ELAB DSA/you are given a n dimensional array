@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+using namespace std;
+void func(){}
+int main()
+{
+   int n,q,k,i;
+   cin>>n>>q;
+    deque<int> vec(n);
+   for(i=0;i<n;i++)
+   cin>>vec[i];
+   while(q--)
+   {
+       cin>>k;
+        deque<int> v=vec;
+       while(k--)
+       {
+       sort(v.begin(),v.end());
+       int a=v.back(),b=v.front();
+       v.pop_front();
+       v.pop_back();
+       v.push_back(a-b);
+       }
+       int sum=0;
+       for(auto i: v)
+       sum+=i;
+       cout<<sum<<endl;
+   }
+	return 0;
+}
