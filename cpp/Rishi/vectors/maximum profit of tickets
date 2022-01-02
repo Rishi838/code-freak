@@ -1,0 +1,40 @@
+Problem Description
+
+Football is Mork's favourite sport, and his favourite team is "Manchester United." Manchester United has qualified for the Champions League Final, which will take place ar london's Wembley Smagum As a mmit, he decided to go watch his favourite team play.
+
+When he arrived at the stadium, he noticed that there was a long wait for match lickets. He is aware that the stadium hos M rews, auch with a distinct seating capacity they could or might not be compamble the coafa Sicket is determined by the row. If there are Klulways higher than Of empty soah in a row, the ticket will coal K pounds (units of British Currency)
+
+Now, every football fan standing in the line will gat a ticker one by one.
+
+Given the smaling capacities of different rows, find the maximum possible pounds that the dub will gain with the help of the ticket salet.
+
+
+#include <bits/stdc++.h>
+using namespace std;
+void heapify(int arr[],int n,int i){}
+int main()
+{
+ int n,m;
+ cin>>n>>m;
+ vector<int> vec(n);
+ for(int i=0;i<n;i++)
+ cin>>vec[i];
+ int sum=0;
+ while(m--)
+ {
+     int ans=INT_MIN,b;
+     for(int i=0;i<n;i++)
+     {
+        if(vec[i]>ans)
+        {
+            ans=vec[i];
+            b=i;
+        }
+     }
+     sum+=ans;
+     vec[b]--;
+     
+ }
+ cout<<sum;
+	return 0;
+}
