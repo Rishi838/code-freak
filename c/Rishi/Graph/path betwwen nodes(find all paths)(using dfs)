@@ -1,0 +1,48 @@
+#include <bits/stdc++.h>
+using namespace std;
+int n;
+vector<vector<int>> vec;
+void add(int a, int b)
+{
+    vec[a].push_back(b);
+    vec[b].push_back(a);
+}
+void reacheable(vector<bool> visited, int s, int d,vector<int> v)
+{
+    if (s == d)
+    {
+        v.push_back(d);
+        for(auto i:v)
+        cout<<i<<" ";
+        cout<<endl;
+    }
+    visited[s] = true;
+     v.push_back(s);
+    for (auto i : vec[s])
+    {
+        if (!visited[i])
+        {
+           
+             reacheable(visited, i, d,v);
+          
+       }
+    }
+       v.pop_back();
+}
+int main()
+{
+    n = 7;
+    vec.resize(n);
+    add(0, 1);
+    add(0, 3);
+    add(1, 2);
+    add(2, 3);
+    add(3, 4);
+    add(4, 5);
+    add(4, 6);
+    add(5, 6);
+    vector<bool> visited(n, false);
+    vector<int> v;
+     reacheable(visited,0 , 6,v);
+    return 0;
+}
