@@ -1,0 +1,42 @@
+#include <iostream>
+using namespace std;
+int rotLeft(int arr[],int n,int d)
+{
+    int temp=arr[0];
+    for(int i=0;i<n-1;i++)
+    arr[i]=arr[i+1];
+    arr[n-1]=temp;
+    return 0;
+}
+int rotRight(int arr[],int n,int d)
+{
+    int temp=arr[n-1];
+    for(int i=n-1;i>0;i--)
+    arr[i]=arr[i-1];
+    arr[0]=temp;
+    return 0;
+}
+int main()
+{
+   int n,k,c;
+   cin>>n;
+   int arr[n];
+   for(int i=0;i<n;i++)
+   cin>>arr[i];
+   cin>>k;
+   char ch;
+   cin>>ch;
+   k=k%n;
+   for(int i=0;i<k;i++)
+   {
+       if(ch=='L')
+       c= rotLeft(arr,n,k);
+       else
+       c= rotRight(arr,n,k);
+   }
+   c=n;
+   for(int i=0;i<c-1;i++)
+   cout<<arr[i]<<" ";
+   cout<<arr[c-1];
+	return 0;
+}
