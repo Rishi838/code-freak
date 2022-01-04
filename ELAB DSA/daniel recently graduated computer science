@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+using namespace std;
+ int t,n;
+ void func()
+ {
+    n=(n%2)?n-1:n;
+ }
+int main()
+{
+    map<char,char> m;
+    char c='a',d='z';
+    while(c<='z')
+        m[c++]=d--;
+ cin>>t;
+ while(t--)
+ {
+     cin>>n;
+     char arr[1000000];
+    func();
+     int i=0,a=-1;
+     cin>>arr;
+     for(;i<n;i+=2)
+         swap(arr[i],arr[i+1]);
+     i=strlen(arr);
+    while(a++<i)
+     arr[a]=m[arr[a]];
+     cout<<arr<<endl;
+ }
+	return 0;
+}
