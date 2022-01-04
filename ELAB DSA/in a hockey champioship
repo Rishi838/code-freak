@@ -1,0 +1,38 @@
+#include <bits/stdc++.h>
+using namespace std;
+void func(int lo,int hi)
+{
+    int mid=(lo+hi+1)/2;
+    cout<<mid;
+}
+int main()
+{
+    int t;cin>>t;
+    while(t--)
+    {
+        int a,b,c,d,e=0;
+        cin>>a>>b>>c>>d;
+        vector<int> arr(a),v;
+        for(int i=0;i<a;i++)
+        cin>>arr[i];
+        sort(arr.begin(),arr.end());
+        for(int i=0;i<a;i++)
+        {
+            v=arr;
+            int x=i,y=i+1,z=0;
+            while(x>=0 && z<c)
+            {                v[x]+=b;      x--;                z++;    }
+            while(y<a && z<c)
+            {        v[y]+=b;                y++;         z++;    }
+            set<int> s(v.begin(),v.end());
+            int p=s.size(),q=0,r=arr[i] + b;
+            for(auto it:s)
+            {                q++;        if(it==r)        break;    }
+            if(p-q<d)
+            e++;
+            
+        }
+        cout<<e<<endl;
+    }
+	return 0;
+}
