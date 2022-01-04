@@ -1,0 +1,20 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+int n,s1=0,ans=INT_MIN,s2=0;
+cin>>n;
+int A[n];
+for(int i=0;i<n;i++)
+{
+    cin>>A[i];
+    s1=s1+A[i];
+}
+for(int i=0;i<n;i++)
+{
+   s2=s2+A[i];
+   ans=max(ans,s2*(s1-s2));
+}
+cout<<ans;
+	return 0;
+}
