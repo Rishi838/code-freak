@@ -1,0 +1,43 @@
+#include<bits/stdc++.h>
+using namespace std;
+int minOperatins(int arr[],int n)
+{
+    int i=0,j=n-1,c=0;
+    while(i<=j)
+    {
+        if(arr[i]==arr[j])
+        {
+            i++;
+            j--;
+        }
+       else if(arr[i] > arr[j])
+        {
+            arr[j-1] += arr[j];
+            j--;
+            c++;
+        }
+        else
+        {
+        arr[i+1] += arr[i];
+        i++;
+        c++;
+        }
+    }
+    return c;
+}
+void func(int arr[],int n)
+{
+   int c=minOperatins(arr,n);
+    if(c==0)
+    cout<<"array is already a palindrome\n";  
+        cout<<"Minimum no of merge operations took is "<<c;
+}
+int main()
+{
+    int n;
+    cin>>n;
+    int arr[n];
+    for(int i=0;i<n;i++)
+    cin>>arr[i];
+    func(arr,n);
+}
