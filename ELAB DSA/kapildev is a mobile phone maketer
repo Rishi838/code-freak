@@ -1,0 +1,43 @@
+#include <bits/stdc++.h>
+using namespace std;
+void findClosest(int A[],int B[],int C[],int p,int q,int r) {
+   int diff = INT_MAX;
+   int i_final =0, j_final = 0, k_final = 0;
+   int i=0,j=0,k=0;
+   while (i < p && j < q && k < r) {
+      int min_element = min(A[i], min(B[j], C[k]));
+      int max_element = max(A[i], max(B[j], C[k]));
+      if (max_element-min_element < diff){
+         i_final = i, j_final = j, k_final = k;
+         diff = max_element - min_element;
+      }
+      if (diff == 0)
+         break;
+      if (A[i] == min_element)
+         i++;
+      else if (B[j] == min_element)
+         j++;
+      else
+         k++;
+   }
+   cout << A[i_final] << " " << B[j_final] << " " << C[k_final];
+}
+
+int main()
+{
+   int a,b,c;
+   cin>>a;
+   int a1[a];
+   for(int i=0;i<a;i++)
+   cin>>a1[i];
+    cin>>b;
+   int a2[b];
+   for(int i=0;i<b;i++)
+   cin>>a2[i];
+    cin>>c;
+   int a3[c];
+   for(int i=0;i<c;i++)
+   cin>>a3[i];
+ findClosest(a1,a2,a3,a,b,c);
+	return 0;
+}
