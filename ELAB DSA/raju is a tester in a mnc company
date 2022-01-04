@@ -1,0 +1,40 @@
+#include<bits/stdc++.h>
+using namespace std;
+bool match(char a,char b)
+{
+     if(a=='(' &&  b==')')
+     return true;
+      if(a=='{' &&  b=='}')
+     return true;
+      if(a=='[' &&  b==']')
+     return true;
+     return false;
+}
+bool check(char para[])
+{
+    stack<char> s;
+    int a=strlen(para);
+    for(int i=0;i<a;i++)
+    {
+        char b=para[i];
+        if(b=='(' || b=='{' || b=='[')
+        s.push(b);
+        else
+        {
+            if(s.empty())    return false;    char a=s.top();
+            if(!match(a,b))    return false;
+            s.pop();
+        }
+    }
+    if(s.empty())    return true;    return false;
+}
+int main()
+{
+  int t;
+  cin>>t;
+  while(t--)
+  {
+      char para[100000];    cin>>para;
+      if(check(para))  cout<<"Balanced\n";      else cout<<"Not Balanced\n";
+  }
+}
