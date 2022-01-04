@@ -1,0 +1,38 @@
+#include<bits/stdc++.h>
+using namespace std;
+ int t,m,a,b,c;
+  set<int> x,y,z,p;
+void func()
+{
+  int cp=0,t=m;
+    while(t>0)
+     {
+         int count=0;
+         if(x.count(t))
+         count++;
+          if(y.count(t))
+         count++;
+          if(z.count(t--))
+         count++;
+         if(count==1)
+         cp++;
+     }
+printf("%d\n",cp);   
+}
+int main()
+{
+cin>>t;
+ while(t--)
+ {
+     cin>>m>>a>>b>>c;
+     int temp1=1,temp2=1,temp3=1;
+     while(a*temp1<=m)
+         x.insert(a*temp1++);
+      while(b*temp2<=m)
+         y.insert(b*temp2++);
+      while(c*temp3<=m)
+         z.insert(c*temp3++);
+   func();
+   x=y=z=p;
+ }
+}
