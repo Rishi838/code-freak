@@ -1,0 +1,31 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+  int t;
+  cin>>t;
+ while(t--)
+ {
+     char text[101];
+     scanf("%s",text);
+     string s=text;
+    int n=s.size(),c=0,a=s.find("SUVOJIT"),d=0;
+    while(n!=0 && (a>=0 && a<n))
+     {
+        s.replace(a,7,"");
+          c++;
+          n=s.size();
+          a=s.find("SUVOJIT");
+     }
+     a=s.find("SUVO");
+       while(n!=0 && (a>=0 && a<n))
+     {
+        s.replace(a,4,"");
+          d++;
+          n=s.size();
+          a=s.find("SUVO");
+     }
+    printf("SUVO = %d, SUVOJIT = %d\n",d,c);
+ }
+	return 0;
+}
