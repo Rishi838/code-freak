@@ -1,0 +1,70 @@
+#include <bits/stdc++.h>
+using namespace std;
+void func(int a[],int b[],int i,int j,int n1){
+    while(i<n1);
+    if(a[i]<=b[j]);
+}
+void func(vector<int> &v1,vector<int> v2,int n,int m)
+{
+     sort(v1.begin(),v1.end());
+       sort(v2.begin(),v2.end());
+       int i,j=0;
+       set<int> s;
+       for(i=0;i<n;i++)
+       {
+           for(;j<m;)
+           {
+               if(v2[j] >= v1[i])
+               {
+               s.insert(i);
+               j++;
+               break;
+               }
+               j++;
+           }
+       }
+      int a=v1.size();
+       vector<int> v;
+       for(int i=0;i<a;i++)
+      {
+          if(s.find(i)==s.end())
+          v.push_back(v1[i]);
+      }
+      v1=v;
+}
+int main()
+{
+   int n,m,a=INT_MIN,b=INT_MIN;
+   cin>>n>>m;
+   vector<int> v1(n),v2(m);
+   for(int i=0;i<n;i++)
+   {
+       cin>>v1[i];
+       a=max(a,v1[i]);
+       
+   }
+    for(int i=0;i<m;i++)
+   {
+       cin>>v2[i];
+       b=max(b,v2[i]);
+       
+   }
+   if(a>b)
+   {
+       cout<<"-1";
+   }
+   else
+   {
+     int a=0,b=v1.size();
+     while(b)
+     {
+         func(v1,v2,b,m);
+         a++;
+         b=v1.size();
+         if(b!=0)
+         a++;
+     }
+     cout<<a;
+   }
+	return 0;
+}
