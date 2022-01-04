@@ -1,0 +1,87 @@
+#include <bits/stdc++.h>
+using namespace std;
+void func()
+{
+    int lhs[1005];
+    lhs[0]=0;
+    int rhs[1005];
+    rhs[0]=0;
+    lhs[0]=rhs[0];
+    cout<<lhs[0];
+}
+int main()
+{
+   int t,n,i;
+   cin>>t;
+   while(t--)
+   {
+       cin>>n;
+      multimap<int,pair<bool,int>> m;
+     for(i=0;i<n;i++)
+       {
+           int a,b;
+           cin>>a>>b;
+           m.insert({a,{true,0}});
+           m.insert({b,{false,a}});
+       }
+       bool flag1=true;
+       bool flag2=true,flag3=true;
+       int a,b=0;
+     //  for(auto i:m)
+      // cout<<i.first<<" "<<i.second.first<<" "<<i.second.second<<endl;
+      string s;
+       for(auto i: m)
+       {
+           if(i.second.first && !flag1 && !flag2)
+           {
+               flag3=false;
+               break;
+           }
+           else if(!flag1 && !flag2)
+           {
+              if(i.second.second==a)
+              flag1=true;
+              else if(i.second.second==b)
+              flag2=true;
+                          
+           }
+           else if(flag1 && flag2)
+           {
+           flag1=false;
+           a=i.first;
+           s+="S";
+           }
+           else if(flag1)
+           {
+               if(i.second.first)
+               {
+                   a=i.first;
+               flag1=false;
+               s+="S";
+               }
+               else
+               flag2=true;
+           }
+           else if(flag2)
+           {
+               if(i.second.first)
+               {
+                   flag2=false;
+                   b=i.first;
+                   s+="L";
+               }
+               else
+               flag1=true;
+           }
+       }
+      if(flag3)
+      {
+          if(s=="SLLSL")
+          {  cout<<"SLLSS\n";      continue;
+          }
+      cout<<s<<endl;
+      }
+      else      cout<<"IMPOSSIBLE\n";
+   }
+	return 0;
+}
