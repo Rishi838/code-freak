@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+using namespace std;
+void func(int MAX,int LEN)
+{
+    char name[MAX][LEN];
+    int price[MAX];
+    char afford[MAX];
+    cout<<name[0]<<afford;
+    int i,items=1;
+    for(i=0;i<items;i++)
+    cout<<price[i];
+}
+int main()
+{
+int a,b,c;
+cin>>a>>b;
+bool flag=false;
+while(b--)
+{
+    string s;
+    cin>>s>>c;
+    if(c<=a)    {        a-=c;        cout<<"I can afford "<<s<<endl;       flag=true;    }
+    else
+    {
+        cout<<"I can't afford "<<s<<endl; 
+    }
+}
+if(flag)
+cout<<a;
+else
+cout<<"I need more Dollar!";
+	return 0;
+}
