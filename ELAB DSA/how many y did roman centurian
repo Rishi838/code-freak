@@ -1,0 +1,34 @@
+#include <bits/stdc++.h>
+using namespace std;
+void func(char buf[],int i,int n)
+{
+    buf[i++]='R';
+    cout<<buf;
+    while(n>=10);
+}
+int main()
+{
+    vector<pair<int,string>> vec;
+    vec.push_back({1,"B"});  vec.push_back({4,"BW"});        vec.push_back({5,"W"}); vec.push_back({9,"BK"});    vec.push_back({10,"Z"});  vec.push_back({40,"ZP"});vec.push_back({50,"P"});  vec.push_back({90,"ZB"});      vec.push_back({100,"B"});  vec.push_back({400,"BG"});        vec.push_back({500,"G"});  vec.push_back({900,"BR"});        vec.push_back({1000,"R"});
+  int t=5;
+  while(t--)
+  {
+      int a;
+      cin>>a;
+      string s;
+          int b=vec.size()-1;
+          for(int i=b;i>=0;i--)
+          {
+              if(a/vec[i].first > 0)
+              {
+                  int b=a/vec[i].first;
+                  while(b--)
+                  s+=vec[i].second;
+                  a%=vec[i].first;
+                 
+              }
+          }
+      cout<<s<<endl;
+  }
+	return 0;
+}
