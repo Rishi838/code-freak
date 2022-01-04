@@ -1,0 +1,22 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+int n,t;
+cin>>t;
+while(t--)
+{
+    cin>>n;
+    string s=to_string(n);
+     int a=s.find("21");
+    if(n%21==0)
+    cout<<"The streak is broken!\n";
+    else if(a>=0 && a<n)
+     cout<<"The streak is broken!\n";
+     else
+     cout<<"The streak lives still in our heart!\n";
+    
+}
+
+	return 0;
+}
