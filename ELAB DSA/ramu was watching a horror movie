@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+   int q,a,b;
+   cin>>q;
+   int arr[q];
+   while(q--)
+   cin>>arr[q];
+   cin>>a;
+   while(a--)
+   {
+       cin>>b;
+       int c=0,sum=0;
+       for(auto i: arr)
+       {
+           if(i<=b){
+           c++;
+           sum+=i;}
+       }
+       cout<<c<<" "<<sum<<endl;
+   }
+	return 0;
+}
