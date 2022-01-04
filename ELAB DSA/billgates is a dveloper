@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+using namespace std;
+vector<int> vec;
+int binarySearch(int a[],int item,int low,int high){
+    sort(vec.begin(),vec.end(),greater<int>());
+    int x=vec.size();
+    if(x<3)
+    {
+        cout<<"Not enough enemies\n";
+        return -1;
+    }
+    return vec[x/3-1];
+}
+int main()
+{
+  int n,a,b,arr[2];
+  cin>>n;
+ while(n--)
+ {
+     cin>>a;
+     if(a==1)
+     {
+         cin>>b;
+         vec.push_back(b);
+     }
+     else
+     {
+         if(binarySearch(arr,0,0,0)!=-1)
+         cout<<binarySearch(arr,0,0,0)<<endl;
+     }
+ }
+	return 0;
+}
