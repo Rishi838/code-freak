@@ -1,0 +1,40 @@
+#include <bits/stdc++.h>
+using namespace std;
+void display()
+{
+    int n;
+    for(n=0;n<26;n++)
+    cout<<n;
+}
+int main()
+{
+  char nums[13][256]={"ZERO","ONE","TWO","THREE","FOUR","FIVE","SIX","SEVEN","EIGHT","NINE","TEN","ELEVEN","TWELVE"};
+   map<char,int> m;
+  while(1)
+  {
+      int n;
+      cin>>n;
+      if(n==999)
+      break;
+      else if(n>=0 && n<=12)
+      {
+          int i=0;
+          while(nums[n][i]!='\0')
+          m[nums[n][i++]]++;
+      }
+      cout<<n<<" ";
+  }
+  cout<<"0999. "; string s="";
+        for(auto i:m)
+      {
+          int a=i.second;
+          while(a--){
+          s+= i.first;
+          s+=" ";
+         }
+      }
+     int a=s.size();
+     for(int i=0;i<a-1;i++)
+     cout<<s[i];
+	return 0;
+}
