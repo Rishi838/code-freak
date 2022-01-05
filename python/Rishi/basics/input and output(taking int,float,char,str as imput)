@@ -1,0 +1,12 @@
+num1=int(input());
+num2=int(input());
+print(num1+num2);
+f1=float(input());
+f2=float(input());
+print(f1+f2);
+s1=str(input());
+s2=str(input());
+print(s1+s2);
+ch=ord(input());
+print(chr(ch));
+
