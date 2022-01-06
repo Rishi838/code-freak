@@ -1,0 +1,18 @@
+d1={}
+print(type(d1))
+d2={"Harry":1,"Rishi":2,"Sanskar":3,"Shubham":{"A":1,"B":2,"C":3}}
+print(d2)
+d2["ankit"]=4
+print(d2)
+print(d2["Rishi"])
+d3=d2.copy()
+ #print(d2)
+# d3=d2  The value will also be reflected in d2 as it is refrence to pointers
+print(d2)
+del d2["Harry"]
+print(d2)
+print(d2.get("Rishi"))
+d2.update({"Rishi":1})
+print(d2)
+print(d2.keys())
+print(d2.items())
