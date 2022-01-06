@@ -1,0 +1,39 @@
+#strings
+groccery=["Harpic","vim bar","deo","Bhindi","Lollipop"]#simple list
+g=["Harpic","vim bar","deo","Bhindi","Lollipop",56]#mixed  list
+print(groccery)
+print(g)
+print(g[2])
+numbers=[1,2,5,4,3]
+numbers.sort()  #brings change in original list
+print(numbers)
+print(numbers[0:5])
+print(numbers[0:5])
+print(numbers[1:5])   #no change in original list
+print(numbers[1:4])
+numbers.reverse()
+print(numbers)
+print(numbers[::3])
+print(len(numbers))
+print(max(numbers))
+print(min (numbers))
+numbers.append(7)    #adds at end
+print(numbers)
+numbers.insert(1,71)   # addds at that index
+print(numbers)
+numbers.pop()
+print(numbers)
+numbers[1]=98
+print(numbers)
+# values changes to 98 at index 1
+#mutable can change
+#immutable cannot change
+#lists are mutable  while tuples are immutable
+tp=(1,2,3)
+#tp[1]=1  will throw an error
+print(tp)
+tp=(1)
+print(tp)   #it will display it as a single number
+tp=(1,)
+print(tp)    #now will print as a tuple
+print(numbers.count(1))
