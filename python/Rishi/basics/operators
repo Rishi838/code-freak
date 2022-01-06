@@ -1,0 +1,29 @@
+#Airthmetic operators
+print(5+2)
+print(5-2)
+print(5*2)
+print(5/2)   # division in false
+print(5//2)  # division in int in c++
+print(5**2)  # 5 raise to power 2
+print(5%2)
+#Assignment operators
+x=1
+print("\n",x)
+x+=1
+print(x);
+#comparison
+y=1
+print(x==y)
+print(x!=y)
+#logical operators
+a=True
+b=False
+print(a and b)
+print(a or b)
+#identity operators
+print(5 is not 5)
+print(5 is not 6)
+#membership operators
+list=[1,2,3];
+print(1 in list)
+print(1 not in list)
