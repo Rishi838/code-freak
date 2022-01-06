@@ -1,0 +1,6 @@
+for i in range(45):
+    if i==20:
+        continue
+    elif i==25:
+        break;
+    print(i)
