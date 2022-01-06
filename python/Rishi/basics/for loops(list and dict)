@@ -1,0 +1,10 @@
+list1=[["Harry",1],["Larry",2],["Carry",3],["Marry",4]]
+for me in list1:
+    print(me)
+print()
+for me,my in list1:
+    print(me,my)
+dict1=dict(list1)
+print(dict1)
+for me,my in dict1.items():   #it will throw error
+    print(me,my)
