@@ -1,0 +1,5 @@
+def func2(a,b):
+    """This is a function to find average of two numbers"""
+    print((a+b)/2)
+    return ((a+b)/2)
+print(func2.__doc__)
