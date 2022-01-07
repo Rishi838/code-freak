@@ -1,0 +1,7 @@
+a=input()
+b=input()
+try:
+ print("Sum of two numbers is:",int(a) + int(b))
+except Exception as e:
+    print("Invalid numbers,Exception is:",e)
+print("Programm ends here")
