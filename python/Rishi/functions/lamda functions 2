@@ -1,0 +1,5 @@
+list1=[[1,2],[4,1],[4,5]]
+list1.sort(key= lambda x:x[1])
+print(list1)
+list1.sort(reverse=True,key= lambda x:x[1])
+print(list1)
