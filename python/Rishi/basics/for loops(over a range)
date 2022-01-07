@@ -1,0 +1,25 @@
+s1="Banana"
+for x in s1:
+    print(x,end=" ")
+print()
+for x in range(5):
+    print(x,end=" ")
+print()
+for x in range(2,6):
+    print(x,end=" ")
+print()
+for x in range(2,8,2):
+    print(x,end=" ")
+print()
+for x in range(5):
+    print(x,end=" ")
+else:
+    print("Finally finished")
+print()
+for x in range(5):   #To run loop without doing anything
+    pass
+print()
+for x in range(5):
+    for y in range(6):
+        print(y,end=" ")
+    print()
