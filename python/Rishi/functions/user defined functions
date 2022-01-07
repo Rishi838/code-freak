@@ -1,0 +1,7 @@
+def func1():
+    print("Welconme to function 1")
+func1();
+def func2(a,b):
+    print((a+b)/2)
+    return ((a+b)/2)
+print(func2(5,7))
