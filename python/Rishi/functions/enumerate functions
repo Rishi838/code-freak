@@ -1,0 +1,4 @@
+l=["Harry","Rishi","Sanskar","Abhishek"]
+for i,items in enumerate(l):
+    if i%2==0:
+        print(items)
