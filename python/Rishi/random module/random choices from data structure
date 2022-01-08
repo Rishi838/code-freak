@@ -1,0 +1,10 @@
+import random as r
+list=["Harry","Rishi","Sanskar","Aryan"]
+c=r.choice(list)
+print(c)
+d=r.choices(list,k=4)   # k specifies length of new list
+print(d)
+r.shuffle(list)    # shuffle does not return a new list it make changes in original list
+print(list)
+s=r.sample(list,k=3)    # k should be less than size of list and greater than zero
+print(s)
