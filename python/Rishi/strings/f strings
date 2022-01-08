@@ -1,0 +1,4 @@
+import random
+me="Rishi"
+a=f"Hlo,my name is {me} and my roll number is {random.randint(95,98)}"
+print(a)
