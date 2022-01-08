@@ -1,0 +1,13 @@
+import time
+inital=time.time()
+k=0
+print(inital)
+while(k<45):
+    k+=1
+    print("Hlo",k,k)
+print("Time taken to execute while loop is:",time.time()-inital)
+inital2=time.time()
+for i in range(45):
+    print(1,i,i)
+
+print("\nTime taken to execute for loop is:",time.time()-inital2)
