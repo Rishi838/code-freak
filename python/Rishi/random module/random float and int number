@@ -1,0 +1,15 @@
+import random
+a=random.random()    #random float between 0 &1
+print(a)
+b=random.randint(1,10)     # random integer in given range
+print(b)
+c=random.uniform(9,10)
+print(c)
+"""
+random.seed(10)
+print(random.randint(1,5))
+random.seed(10)
+print(random.randint(1,50))"""
+print(random.getrandbits(5))   #get a random number of that bits
+d=random.triangular(10,40,25)
+print(d)
