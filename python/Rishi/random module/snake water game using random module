@@ -1,0 +1,35 @@
+import random
+x,y=0,0
+list=["snake","water","gun"]
+for i in range(3):
+    a=random.choice(list);
+    b=str(input("Enter your choice"))
+    print("Your move: ",b)
+    print("Computers move: ",a)
+    if a=="water" and b=="gun":
+        print("Computer Wines")
+        x+=1
+    elif a=="water" and b=="snake":
+        print("User Wines")
+        y+=1
+    elif a == "water" and b == "water":
+        print("Round tied")
+    elif a == "gun" and b == "water":
+        print("User Wines")
+        y+=1
+    elif a == "gun" and b == "gun":
+        print("Round tied")
+    elif a=="gun" and b=="snake":
+        print("Computer Wines")
+        x+=1
+    elif a == "snake" and b == "gun":
+        print("User Wines")
+        y+=1
+    elif a == "snake" and b == "snake":
+        print("Round tied")
+    elif a=="snake" and b=="water":
+        print("Computer Wines")
+        x+=1
+print("User Wines: ",y)
+print("Computer Wines:",x)
+
