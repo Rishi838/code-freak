@@ -1,0 +1,5 @@
+l1=[1,2,3,4,5,6,7,8,9]
+def g(a):
+    return a>4
+l1=list(filter(g,l1))
+print(l1)
