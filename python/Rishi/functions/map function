@@ -1,0 +1,5 @@
+l=["3","4","5"]
+l=list(map(int,l))
+print(l)
+l=tuple(map(lambda x:x*x,l))
+print(l)
