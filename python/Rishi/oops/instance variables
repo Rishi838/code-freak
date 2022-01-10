@@ -1,0 +1,8 @@
+class student:    # class
+    pass
+harry=student()    # Instance of class
+larry=student()
+harry.name="Harry"    # instance variable
+harry.sec=1
+larry.subject=["Physics","Math"]
+print(larry.subject)
