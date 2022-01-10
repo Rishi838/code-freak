@@ -8,7 +8,7 @@ class student: # class
         print(self.roll)
     @classmethod
     def change_leaves(cls,leaves):   #it takes class as paramneter rather than self
-        cls.no_of_leaves=leaves  
+        cls.no_of_leaves=leaves       #it changes class variable,not instance variable
 rishi=student("Rishi",97)
 rishi.aprint()
 rishi.change_leaves(34)
