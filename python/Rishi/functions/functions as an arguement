@@ -1,0 +1,9 @@
+def a(b):
+    print(b.upper())
+def b(a):
+    print(a.lower())
+
+def func(f):
+    f("Hello my name is Rishi")
+func(a)
+func(b)
