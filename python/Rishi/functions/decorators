@@ -1,0 +1,10 @@
+def dec(func):
+    def ex():
+        print("Now Executing")
+        func()
+        print("Executed")
+    return ex
+def code():
+    print("Coding is nice")
+code = dec(code)
+code()
