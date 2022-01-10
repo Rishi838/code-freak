@@ -1,0 +1,23 @@
+class student: # class
+    no_of_leaves=8
+    def __init__(self,aname,aroll):
+        self.name=aname
+        self.roll=aroll
+    def aprint(self):
+        print(self.name)
+        print(self.roll)
+    @classmethod
+    def change_leaves(cls,leaves):   #it takes class as paramneter rather than self
+        cls.no_of_leaves=leaves
+    @classmethod
+    def class_method_as_constructor(cls,string):
+        p=string.split("-")
+        return  cls(p[0],p[1])
+    @staticmethod
+    def func(string):                         #it does not take self or cls as arguements
+        print("Hey there,my name is ",string)
+rishi=student("Rishi",97)
+rishi.aprint()
+harry=student.class_method_as_constructor("Harry-20")
+harry.aprint()
+harry.func("Harry")
