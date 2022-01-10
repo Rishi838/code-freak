@@ -1,0 +1,15 @@
+class student: # class
+    no_of_leaves=8
+    def __init__(self,aname,aroll):
+        self.name=aname
+        self.roll=aroll
+    def aprint(self):
+        print(self.name)
+        print(self.roll)
+    @classmethod
+    def change_leaves(cls,leaves):   #it takes class as paramneter rather than self
+        cls.no_of_leaves=leaves  
+rishi=student("Rishi",97)
+rishi.aprint()
+rishi.change_leaves(34)
+print(rishi.no_of_leaves)
