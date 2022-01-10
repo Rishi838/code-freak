@@ -1,0 +1,10 @@
+class student: # class
+    no_of_leaves=8
+    def __init__(self,aname,aroll):
+        self.name=aname
+        self.roll=aroll
+    def aprint(self):
+        print(self.name)
+        print(self.roll)
+rishi=student("Rishi",97)
+rishi.aprint()
