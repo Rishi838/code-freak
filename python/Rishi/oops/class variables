@@ -1,0 +1,16 @@
+class student: # class
+    no_of_leaves=8
+    pass
+harry=student()    # Instance of class
+larry=student()
+harry.name="Harry"    # instance variable
+harry.sec=1
+larry.subject=["Physics","Math"]
+larry.sec=2
+print(harry.__dict__)
+harry.no_of_leaves=9   # now no_of_leaves is a instace varibale rather than class variable
+print(harry.__dict__)   #verified it here
+print(harry.no_of_leaves)
+print(student.no_of_leaves)
+student.no_of_leaves=9
+print(student.no_of_leaves)
