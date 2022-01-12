@@ -1,0 +1,12 @@
+from abc import ABC,abstractmethod
+class shape(ABC):
+    @abstractmethod
+    def print_area(self):
+        return 0
+class rectangle(shape):
+    lenght=6
+    breadth=10
+     def print_area(self):
+         print(self.lenght*self.breadth)
+r1=rectangle()
+r1.print_area()
