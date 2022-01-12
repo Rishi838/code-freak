@@ -1,0 +1,14 @@
+class A:
+    no_of_leaves=8
+    def __init__(self,name,roll):
+        self.name=name
+        self.roll=roll
+    def print_details(self):
+        print(f"Name: {self.name}  Roll No: {self.roll}")
+    def __repr__(self):
+        return(f"Hlo my name is {self.name} and my roll no is {self.roll}");
+    def __str__(self):
+        return (f"Name: {self.name}  Roll No: {self.roll}")
+e1=A("Harry",80)
+print(e1)    #Always self is calles first
+print(repr(e1))    #to call repr methpd we have to do this
