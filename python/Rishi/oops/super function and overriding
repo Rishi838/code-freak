@@ -1,0 +1,14 @@
+class A:
+    class_var1="I am a class varible in class A"
+    def __init__(self):
+        self.class_var1="I am a instance variable in class A"
+        self.special="Special"
+class B(A):
+    class_var1 = "I am a class variable in class B"
+    def __init__(self):
+        self.class_var1 = "I am a instance variable in class B"
+        super().__init__()
+
+b=B()
+print(b.class_var1)
+print(b.special)  #This will throw error beause special will only be formed when constructor of class A is called but it is not being called in this case
