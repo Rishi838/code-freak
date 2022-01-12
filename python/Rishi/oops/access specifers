@@ -1,0 +1,9 @@
+class abc:
+    var=8
+    _protec=9
+    __pvt=10
+
+rishi=abc()
+print(rishi.var)
+print(rishi._protec)
+print(rishi._abc__pvt)
