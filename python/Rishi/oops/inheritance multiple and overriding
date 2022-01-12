@@ -1,0 +1,16 @@
+class dad:
+    basketball=1
+
+class son(dad):
+    dance=1
+    def print_details(self):
+        print(f"Dance={self.dance} , guitar={self.basketball}")
+
+class grandson(son):
+    guitar=3;
+    dance=4
+    # def print_details(self):
+    #     print(f"Basketball={self.basketball} , dance={self.dance} , guitar={self.guitar}")
+
+rishi=grandson()
+rishi.print_details()
