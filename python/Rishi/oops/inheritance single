@@ -1,0 +1,29 @@
+class student: # class
+    no_of_leaves=8
+    def __init__(self,aname,aroll):
+        self.name=aname
+        self.roll=aroll
+    def aprint(self):
+        print(self.name)
+        print(self.roll)
+    @classmethod
+    def change_leaves(cls,leaves):   #it takes class as paramneter rather than self
+        cls.no_of_leaves=leaves
+    @classmethod
+    def class_method_as_constructor(cls,string):
+        p=string.split("-")
+        return  cls(p[0],p[1])
+    @staticmethod
+    def func(string):                         #it does not take self or cls as arguements
+        print("Hey there,my name is ",string)
+
+class athlete(student):
+    def __init__(self,aname,aroll,languages):
+         self.name=aname
+         self.roll=aroll
+         self.languages=languages
+    def print_details(self):
+        return f"Hlo my name is {self.name} and my roll no is {self.roll} ans the languegaes i know is {self.languages}"
+
+shubham=athlete("shubham",3,["Python" ,"C++","C"])
+print(shubham.print_details())
