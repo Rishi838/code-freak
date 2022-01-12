@@ -1,0 +1,15 @@
+class A:
+    no_of_leaves=8
+    def __init__(self,name,roll):
+        self.name=name
+        self.roll=roll
+    def print_details(self):
+        print(f"Name: {self.name}  Roll No: {self.roll}")
+    def __add__(self, other):
+        return ("Combined roll no is",self.roll + other.roll)
+    def __truediv__(self, other):
+        return ("Divided roll no is", self.roll / other.roll)
+e1=A("Harry",80)
+e2=A("Larry",40)
+print(e1+e2)
+print(e1/e2)
