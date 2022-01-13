@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    int t,N,C;
+    cin>>t;
+    while(t--)
+    {
+        cin>>N>>C;
+        int sum=0,i,a;
+        for(i=1;i<=N;i++)
+        {
+            cin>>a;
+            sum += a;
+        }
+        if(sum>C)
+        cout<<"No\n";
+        else
+        cout<<"Yes\n";
+    }
+
+	return 0;
+}
