@@ -1,0 +1,11 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+  int M,initialtemp,finaltemp;
+  cin>>M>>initialtemp>>finaltemp;
+  float Q;
+  Q=4184*M*(finaltemp-initialtemp);
+  cout<<""<<Q;
+	return 0;
+}
