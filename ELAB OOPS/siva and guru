@@ -1,0 +1,46 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n,i=1;
+    cin>>n;
+    string s="";
+    while(n!=0)
+    {
+        int a=n%10; n=n/10;
+        switch(a)
+        {
+            case 1:
+             s = " One" + s;
+             break;
+             case 2:
+             s= " Two" + s;
+             break;
+             case 3:
+             s= " Three" + s;
+             break;
+             case 4:
+             s = " Four" + s;
+             break;
+             case 5:
+             s = " Five" +s;
+             break;
+             case 6:
+             s = " Six" + s;
+             break;
+             case 7:
+             s = " Seven" + s;
+             break;
+             case 8:
+             s =" Eight" + s;
+             break;
+             case 9: 
+             s= " Nine" + s;
+        }
+    }
+    int a=s.size();
+    while(i<a)
+    cout<<s[i++];
+
+	return 0;
+}
