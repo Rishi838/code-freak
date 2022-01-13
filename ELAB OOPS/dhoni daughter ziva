@@ -1,0 +1,11 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+ int weightinearth;
+ cin>>weightinearth;
+ float weightinmoon;
+ weightinmoon= (16.6/100.0)*weightinearth;
+ cout<<weightinmoon;
+	return 0;
+}
