@@ -1,0 +1,7 @@
+from tkinter import *
+from PIL import Image,ImageTk
+rishi_root=Tk()
+rishi_root.title("First GUI")
+label=Label(text="Hello my name is Rishi\nI am A student of SRM UNIVRISTY\ni am in 2nd Year rn",bg="black",fg="white",padx=100,pady=100,borderwidth=3,relief=SUNKEN)
+label.pack()
+rishi_root.mainloop()
