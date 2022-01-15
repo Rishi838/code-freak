@@ -1,0 +1,11 @@
+from tkinter import *
+from PIL import Image,ImageTk
+rishi_root=Tk()
+rishi_root.geometry("444x444")
+rishi_root.minsize(444,444)
+rishi_root.maxsize(444,444)
+image=Image.open("2.jfif")
+photo=ImageTk.PhotoImage(image)
+label=Label(image=photo)
+label.pack()
+rishi_root.mainloop()
