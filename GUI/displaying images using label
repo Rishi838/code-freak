@@ -1,0 +1,11 @@
+from tkinter import *
+rishi_root=Tk()    #it creates a basic gui
+#gui logic;
+rishi_root.geometry("444x444")   #widthxheight    initial size of windows
+rishi_root.minsize(444,444)     #width,height      min size of windows
+rishi_root.maxsize(444,444)     #width,height     max size of windnoes
+#now the size of windows cant be changed
+photo =PhotoImage(file="1.png")
+label= Label(image=photo)
+label.pack()
+rishi_root.mainloop()
