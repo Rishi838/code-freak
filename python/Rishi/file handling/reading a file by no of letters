@@ -1,0 +1,6 @@
+f=open("ishi.txt")   #by default rt is set
+content=f.read(3)
+print(content)
+content=f.read(4)
+print(content)
+f.close()
