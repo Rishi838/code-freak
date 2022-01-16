@@ -1,0 +1,14 @@
+from tkinter import *
+from PIL import Image,ImageTk
+root=Tk()
+root.geometry("444x444")
+root.title("First GUI")
+f1=Frame(root,bg="black",borderwidth=6)
+f1.pack(side=LEFT,fill=Y)
+f2=Frame(root,bg="black",borderwidth=6)
+f2.pack(side=TOP,fill=X)
+l=Label(f1,text="T\nK\nI\nN\nT\nE\nR",bg="grey",padx=4,);
+l.pack(side=BOTTOM)
+l1=Label(f2,text="Welcome to Notepad",fg="grey")
+l1.pack()
+root.mainloop()
