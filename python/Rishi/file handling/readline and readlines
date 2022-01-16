@@ -1,0 +1,8 @@
+f=open("ishi.txt")   #by default rt is set
+# content=f.read()     # if after this i diectly use f i wont be able to use because it has alraedy reed it
+# for l in f:              # this will print each lne of f
+#     print(l,end="")
+# print(f.readline())
+# print(f.readline())     # there is one line gap because already there is a new line charcater at the end of line
+print(f.readlines())    #creates a list of lines
+f.close()
