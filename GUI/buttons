@@ -1,0 +1,15 @@
+from tkinter import *
+def hello():
+    print("Welcome to tkinter")
+root=Tk()
+root.geometry("444x444")
+root.title("First GUI")
+f1=Frame(root,bg="black",borderwidth=0.5,relief=RIDGE)
+f1.pack(side=LEFT,anchor="nw")
+l1=Label(f1,text="GLOBAL TIMES",fg="black")
+l1.pack(fill=X)
+b1=Button(f1,fg="black",text="Print Now",command=hello);
+b1.pack(side=LEFT)
+b2=Button(f1,fg="black",text="Print Now");
+b2.pack(side=LEFT)
+root.mainloop()
