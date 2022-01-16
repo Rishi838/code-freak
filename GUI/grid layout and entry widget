@@ -1,0 +1,21 @@
+from tkinter import *
+def hello():
+    print(f"The value of username is:{user_value.get()}")
+    print(f"The value of password is:{pass_value.get()}")
+root=Tk()
+root.geometry("444x444")
+root.title("First GUI")
+l1=Label(root,text="username")
+l2=Label(root,text="password")
+l1.grid()
+l2.grid()
+#Variables in tkinter
+# BooleanVar,DoubleVar,IntVar,StringVar
+user_value=StringVar()
+pass_value=StringVar()
+user_entry=Entry(root,text=user_value)
+pass_entry=Entry(root,text=pass_value)
+user_entry.grid(row=0,column=1)
+pass_entry.grid(row=1,column=1)
+Button(text="Submit",command=hello).grid()
+root.mainloop()
