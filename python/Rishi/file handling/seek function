@@ -1,0 +1,6 @@
+f=open("rishi.txt")
+
+print(f.readline())
+f.seek(0)
+print(f.readline())
+f.close()
