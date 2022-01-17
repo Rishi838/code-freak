@@ -1,0 +1,3 @@
+f=open("rishi.txt","r+")
+print(f.read())
+f.write("Hehe")
