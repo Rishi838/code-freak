@@ -1,0 +1,6 @@
+with open("rishi.txt") as f:
+    print(f.read(5))
+
+f=open("rishi.txt")
+print(f.read(5))
+f.close()
