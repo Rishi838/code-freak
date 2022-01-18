@@ -1,4 +1,4 @@
 from tkinter import *
-rishi_root=Tk()    #it creates a basic gui
+rishi_root=Tk()    #it a basic gui
 #gui logic;
 rishi_root.mainloop()
