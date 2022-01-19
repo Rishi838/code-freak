@@ -1,0 +1,44 @@
+#include <bits/stdc++.h>
+using namespace std;
+void func(int l,int r)
+{
+    while(l<= r)
+    {
+        int mid = (l+r)/2;
+        cout<<mid;
+    }
+}
+int main()
+{
+  int t,n;
+  cin>>t;
+  while(t-->0)
+  {
+    cin>>n;
+    vector<int> v1(n),v2(n),v3(n);
+    for(int i = 0;i < n;i++)
+    cin>>v1[i]>>v2[i]>>v3[i];
+    bool f=false;
+    for(int i=-10000;i<=10000;i++)
+    {
+          int c=0,d=0;
+          for(int j=0;j<n;j++)
+          {
+              if(v2[j] -v1[j]-i<0)
+              c+=v3[j];
+               if(v2[j] -v1[j]-i>0)
+              d+=v3[j];
+          }
+          if(c==d)
+          {
+              f=true;
+          break;
+          }
+    }
+    if(f)
+    cout<<"YES\n";
+    else
+    cout<<"NO\n";
+  }
+	return 0;
+}
