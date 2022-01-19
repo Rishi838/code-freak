@@ -1,0 +1,21 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int a;
+void thirdLargest(int arr[],int arr_size)
+{
+    sort(arr,arr + arr_size);
+    a=arr[arr_size-3];
+}
+
+int main()
+{
+   int n;
+   cin>>n;
+   int arr[n];
+   for(int i=0;i<n;i++)
+   cin>>arr[i];
+   thirdLargest(arr,n);
+   cout<<"The third Largest element is "<<a;
+	return 0;
+}
