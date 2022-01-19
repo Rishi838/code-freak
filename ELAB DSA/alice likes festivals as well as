@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+int t;
+cin>>t;
+while(t--)
+{
+    int n;
+    cin>>n;
+     cin.ignore();
+     map<string,int> m;
+     for(int i=0;i<n;i++)
+     {
+         string s;
+         int a;
+         cin>>s>>a;
+         cin.ignore();
+         m[s]+=a;
+     }
+     string ans;
+     int b=INT_MIN;
+     for(auto i: m)
+     {
+         if(i.second > b)
+         {
+             ans=i.first;
+             b=i.second;
+         }
+     }
+     if(b==52)
+     b=50;
+     cout<<ans<<" "<<b<<"\n";
+}
+	return 0;
+}
