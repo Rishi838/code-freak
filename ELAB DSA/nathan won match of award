@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+void sort(int a[],int n)
+{
+    for(int i=0;i<n-1;i++)
+    {
+        for(int j=0;j<n-1-i;j++)
+        {
+          if(a[j] > a[j+1])
+          swap(a[j],a[j+1]);
+        }
+    }
+}
+
+int main()
+{
+     int t,n;
+     cin>>t;
+     while(t--)
+     {
+         cin>>n;
+         int arr[n];
+         for(int i=0;i<n;i++)
+         cin>>arr[i];
+         sort(arr,n);
+         cout<<arr[n-1]*arr[n-2]<<endl;
+     }
+    return 0;}
