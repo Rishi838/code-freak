@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+using namespace std;
+void func(char colors[8][32],char mixes[8][8][32]){    int i;char c[2];for(i=0;i<8;i++){if(strcmp(c,colors[i])==0){}}}
+int main()
+{
+   int t=4;   set<string> s{"BLUE","RED","YELLOW"};  while(t--) {
+       string a,b; cin>>a>>b;
+        if(a=="WHITE") cout<<"LIGHT "<<b;
+       else if(a=="BLACK")    cout<<"DARK "<<b;
+          else if(b=="WHITE") cout<<"LIGHT "<<a;
+       else if(b=="BLACK")        cout<<"DARK "<<a;
+        else  if(a==b) cout<<a;
+        else  if(s.find(a)==s.end() || s.find(b)==s.end())
+       cout<<"N/A";
+     else if(a=="RED" && b=="YELLOW")
+       cout<<"ORANGE";
+        else if(a=="RED" && b=="BLUE")
+       cout<<"PURPLE";
+       else if(a=="BLUE" && b=="YELLOW")
+       cout<<"GREEN";
+         else if(a=="BLUE" && b=="RED")
+       cout<<"PURPLE";
+         else if(a=="YELLOW" && b=="RED")
+       cout<<"ORANGE";
+         else if(a=="YELLOW" && b=="BLUE")
+       cout<<"GREEN";
+       cout<<"\n";
+       
+   }
+}
