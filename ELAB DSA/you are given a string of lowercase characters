@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+  string s;
+  getline(cin,s);
+  int l=s.size(),i;
+  map<char,int> m;
+  for(i=0;i<l;i++)
+  m[s[i]]++;
+  int ans=INT_MIN,a=INT_MIN;
+  char ch;
+  for(auto i: m)
+  {
+      if(i.second > ans)
+      {
+          ans=i.second;
+          ch=i.first;
+          a=(int)i.first;
+      }
+      else if(i.second==ans && a < (int)i.first)
+      {
+          ch=i.first;
+          a=(int)i.first;
+      }
+  }
+  cout<<ch<<" "<<ans;
+	return 0;
+}
