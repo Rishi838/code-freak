@@ -1,0 +1,37 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+int n,q,N,i;
+cin>>n>>q>>N;
+int A[N],x=INT_MIN,y=INT_MAX,b=INT_MIN;
+map<int,int> hash;
+for(i=0;i<N;i++)
+{
+   cin>>A[i];
+   hash[A[i]]++;
+   if(A[i] > x)
+   x=A[i];
+   if(A[i] < y)
+   y=A[i];
+   b=max(b,hash[A[i]]);
+}
+map<int,int> m=hash;
+for(auto i : hash)
+{
+    int a=i.first;
+    for(int i=0;i<q;i++){
+    m[a+n]++;
+    b=max(b,m[a+n]);
+    a+=n;
+    }
+     for(int i=0;i<q;i++){
+    m[a-n]++;
+    a-=n;
+       b=max(b,m[a-n]);
+    }
+}
+cout<<b;
+
+	return 0;
+}
