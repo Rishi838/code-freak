@@ -1,0 +1,23 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t,n,c=0;
+    cin>>t;
+    while(t--)
+    {
+        c=0;
+        cin>>n;
+        vector<int> girls(n),boys(n);;
+        for(int i = 0;i<n;i++)
+        cin>>girls[i];
+        for(int i=0;i<n;i++)
+        cin>>boys[i];
+        sort(girls.begin(),girls.end());
+        sort(boys.begin(),boys.end(),greater<int>());
+        for(int i=0;i<n;i++)
+        {
+            if((girls[i]%boys[i]==0) || (boys[i]%girls[i]==0))
+            c++;
+        }        cout<<c<<"\n";    }
+	return 0;}
