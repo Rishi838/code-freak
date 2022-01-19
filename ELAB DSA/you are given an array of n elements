@@ -1,0 +1,39 @@
+#include <bits/stdc++.h>
+#define m 720720
+#define f(n) for(i=1;i<=n;++i)
+using namespace std;
+void func(long long int sum, long long int product, long long int &ans, int n, int i, int j, int k, int arr[])
+{
+  // cout << sum << " " << product << " " << i << " " << j << " " << ans << endl;
+    if (i == n)
+{
+        return;
+    }
+    if (j == k)
+    {
+       long long int p = 1;
+        for (int a = i; a < n; a++)
+            p = ((p%m) * (arr[a]%m))%m;
+          ans =  (ans%m + sum %m + p%m)%m;
+        
+        return;
+    }
+       
+        
+            func((sum + (product*arr[i]))%m, 1, ans, n, i + 1, j + 1, k, arr);
+            func(sum%m, (product * arr[i])%m, ans, n, i + 1, j, k, arr);
+        
+    }
+    int main()
+    {
+        int n, k;
+        cin >> n;
+        int arr[n];
+        for (int i = 0; i < n; i++)
+            cin >> arr[i];
+        cin >> k;
+       long long int ans = 0;
+        func(0, 1, ans, n, 0, 0, k, arr);
+        cout << ans%720720;
+        return 0;
+    }
