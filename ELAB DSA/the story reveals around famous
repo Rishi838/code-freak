@@ -1,0 +1,42 @@
+#include <bits/stdc++.h>
+using namespace std;
+void sieve(){}
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+  int n,m;
+  cin>>n>>m;
+  int arr[n][m],a[n][m];
+  for(int i=0;i<n;i++)
+  {
+      for(int j=0;j<m;j++)
+      cin>>arr[i][j];
+  }
+  for(int i=0;i<m;i++)
+  a[0][i]=arr[0][i];
+  for(int i=1;i<n;i++)
+  {
+      for(int j=0;j<m;j++)
+      {
+          int ans=0;
+          for(int k=0;k<m;k++)
+          {
+              if(__gcd(arr[i][j],arr[i-1][k]) !=1 )
+              ans=max(ans,a[i-1][k]);
+          }
+          if(ans)
+          a[i][j]=ans+arr[i][j];
+          else
+          a[i][j]=0;
+      }
+  }
+  int ans=0;
+ for(int i=0;i<m;i++)
+ ans=max(ans,a[n-1][i]);
+ cout<<ans<<endl;
+    }
+	return 0;
+}
