@@ -1,0 +1,47 @@
+#include <bits/stdc++.h>
+using namespace std;
+void func(){}
+int max(int a,int b){
+    int n=0,m=0,j,k;
+    for(j=0;j<n;j++);
+    for(k=0;k<m;k++);
+    if(a>b)
+    return a;
+    return b;
+}
+void func(int &ans,int sum,vector<vector<int>> vec,vector<int> v,int a,int b,int c)
+{
+   if(b==a) 
+   {
+       ans=max(ans,sum);
+       return;
+   }
+   int x=v.size();
+   for(int i=0;i<x;i++)
+   {
+       if(v[i] < c)
+       {
+           v[i]+=1;
+           func(ans,sum+vec[i][v[i]-1],vec,v,a,b+1,c);
+           v[i]-=1;
+       }
+   }
+}
+int main()
+{
+   int t;
+   cin>>t;
+   while(t--)
+   {
+       int a,b,c;
+       cin>>a>>b>>c;
+       vector<vector<int>> vec(a,vector<int>(b));
+       for(int i=0;i<a;i++)
+       {  for(int j=0;j<b;j++)           cin>>vec[i][j]; }
+       int ans=INT_MIN;
+       vector<int> v(a,0);
+       func(ans,0,vec,v,c,0,b);
+       cout<<ans<<endl;
+   }
+	return 0;
+}
