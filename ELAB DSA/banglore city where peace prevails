@@ -1,0 +1,26 @@
+#include <bits/stdc++.h>
+using namespace std;
+void func(){}
+int main()
+{
+   multiset<int> a,b;
+   int n,c,i;
+   cin>>n;
+  for(i=0;i<n;i++)
+   {
+       cin>>c;
+       if(c%2)
+       b.insert(c);
+       else
+       a.insert(c);
+   }
+   int sum=0;
+   for(auto i:a){
+   cout<<i<<" ";
+   sum+=i;
+   }
+   cout<<sum<<" ";
+ sum=0;
+   for(auto i:b){ cout<<i<<" ";   sum+=i; }
+   cout<<sum;
+	return 0;}
