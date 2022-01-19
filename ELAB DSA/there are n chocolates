@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+using namespace std;
+void dunc(){}
+int main()
+{
+int N;
+cin>>N;
+vector<int> vec(N),v(N);
+for(int i=0;i<N;i++)
+cin>>v[i];
+for(int i=0;i<N;i++)
+{
+    int count=0;
+    for(int j=1;j<=v[i]/2;j++)
+    {
+        if(v[i]%j==0)
+        count++;
+    }
+    vec[i]=count;
+}
+int c=0;
+for(int i=0;i<N;i++)
+{
+    for(int j=i+1;j<N;j++)
+    {
+        if(vec[i]==vec[j])
+        c++;
+    }
+}
+while(--N);
+cout<<c;
+	return 0;
+}
