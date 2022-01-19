@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include<string.h>
+#include<math.h>
+int main()
+{
+    int LEN=10;
+    char var[3][LEN];
+    char inp[3][LEN];
+    float a,b;
+    scanf("%s %f",&var[0][0],&a);
+      scanf("%s %f",&inp[1][0],&b);
+        scanf("%s",&var[2][0]);
+        float c=a/b;
+        if(c<0)
+        c=-c;
+        var[1][0]=inp[1][0];
+    printf("x %0.2f",c);
+	return 0;
+}
