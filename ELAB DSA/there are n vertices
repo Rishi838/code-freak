@@ -1,0 +1,44 @@
+#include <bits/stdc++.h>
+using namespace std;
+void merge(int a,int b){}
+int query(int p,int q){return 0;}
+void func(vector<bool> visited,vector<vector<int>> vec,int b,int c,int &ans)
+{
+    visited[b]=true;
+    ans=max(ans,c);
+    int a=vec[b].size();
+    for(int i=0;i<a;i++)
+    {
+        if(!visited[vec[b][i]])
+        {
+            visited[vec[b][i]]=true;
+            func(visited,vec,vec[b][i],c+1,ans);
+        }
+    }
+}
+int main()
+{
+   int n,k,a;
+   cin>>n>>k;
+   vector<vector<int>> vec(n);
+   while(k--)
+   {
+       cin>>a;
+       if(a==1)
+       {
+           int x,y;
+           cin>>x>>y;
+           vec[x-1].push_back(y-1);
+           vec[y-1].push_back(x-1);
+       }
+       else
+       {
+           int x,ans=0;
+           cin>>x;
+           vector<bool> v(n,false);
+            func(v,vec,x-1,0,ans);
+            cout<<ans<<endl;
+       }
+   }
+	return 0;
+}
