@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+void printSums(int N)
+{
+    for(int i=1;i<N/2;i++)
+    {
+        int sum=0,j=i;
+        while(sum<N && j<N)
+        {
+            sum +=j;
+               j++;
+        }
+        if(sum==N)
+        {
+            for(int k=i;k<j;k++)
+            cout<<k<<" ";
+            cout<<endl;
+        }
+    }
+}
+
+int main()
+{
+int n;
+cin>>n;
+printSums(n);
+	return 0;
+}
