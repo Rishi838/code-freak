@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std;
+int ans=0,n,r;
+#define f(max) for(r=1;r<=max;++r)
+void check(int i,vector<int> vec)
+{
+   if(i==n+1)
+   {
+       int a=vec.size();
+      f(a-1)     {  if(vec[r]==vec[r-1]+1)  return; }
+       int p=1; f(a) p*=r;
+       if(a!=0)  ans+=p;
+       return;
+   }
+   check(i+1,vec); vec.push_back(i);check(i+1,vec); vec.pop_back();
+}
+int main()
+{
+  cin>>n;
+  vector<int> s; check(1,s); cout<<ans;
+}
