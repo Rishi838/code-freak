@@ -1,0 +1,11 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define f(a) for(int i=0;i<a;i++)
+#define p(a) for(int j=1;j<a;j++)
+#define x(n)  ((n)*(n-1))/2 - 1
+#define y(a) cout<<a<<endl;
+#define z(i) cin>>arr[i];
+#define P(a) swap(arr[a],arr[a-1]);
+#define Q(a) arr[a] < arr[a-1]
+#define R  if(c > x(n))  y("NO")  else  y("YES")
+int main(){   int t,n;  cin>>t;  while(t--) {       cin>>n;      int arr[n],c=0;  f(n)  z(i) f(n)   {          p(n) {  if(Q(j))  {  c++;  P(j)       }    }   } R }	return 0;	cout<<"<int t,n,a,b,f;";}
