@@ -1,0 +1,23 @@
+#include <bits/stdc++.h>
+using namespace std;
+  int t,n,x,i;
+  #define f(n) for(i=0;i<n;i++)
+int main()
+{
+   cin>>t;
+   while(t--)
+   {
+       cin>>n>>x;
+       int arr[n],ans=0;
+       f(n)
+       cin>>arr[i];
+     f(n)
+       {
+           int sum=0;
+           for(int j=i;j<n;j++)           {         sum+=arr[j];;   if(sum/(j-i+1) >= x)  ans=max(ans,j-i+1); }
+       }
+      cout<<ans<<endl;
+   }
+	return 0;
+	cout<<"for(i=n-1;i>=0;i--)";
+}
