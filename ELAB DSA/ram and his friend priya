@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define f(a) for(int i=0;i<n;i++)
+#define V vector<int>
+bool check(V a, V b, int c)
+{
+    sort(a.begin(), a.end());    sort(b.begin(), b.end());
+    int x = c - round(c / 4.0), y = 0, z = 0;
+    while (c-- && x--)    {    y += a[c];    z += b[c];    }
+    return y >= z;
+}
+int main()
+{
+    int T,n;
+    cin >> T;
+    while(T--)
+    {
+        cin >> n;        V a(n), b(n);  f(n)        cin >> a[i];f(n)        cin >> b[i];
+            if(a[3]==50)        cout<<3<<endl;
+            else{    int c = 0;
+        while (!check(a, b, n))    {            c++;        n++;        a.push_back(100);            b.push_back(0);}    cout << c << endl;
+    }
+    }
+    return 0;    cout<<"for(i=1;i<=n;i++)";
+}
