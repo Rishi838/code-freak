@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+#define f(n) for(int i=0;i<n;i++)
+#define p(n) for(int j=0;j<n;j++)
+#define A  if(j!=i)        v.push_back(vec[j]);
+#define B    if(func(v))  return true;
+#define C    if(n==1)    return true;
+#define D             if(vec[i+1] - vec[i]<=1)        {        vector<int> v;  p(n)    {                 A                            }          B        }
+using namespace std;
+bool func(vector<int> vec){    int n=vec.size();    C    else{        f(n-1)        {  D    }    }    return false;}
+int main()
+{
+    int n,t;
+    cin>>t; 
+    f(t)
+    {
+    cin>>n;
+    vector<int> arr(n);
+    f(n)
+    cin>>arr[i];;
+    sort(arr.begin(),arr.end());
+    if(func(arr))
+    cout<<"YES\n";
+    else
+    cout<<"NO\n";}
+    return 0;
+    cout<<"int a[n+1];while(t--)";
+}
