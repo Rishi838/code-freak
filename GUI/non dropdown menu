@@ -1,0 +1,11 @@
+from tkinter import *
+root=Tk()
+root.geometry("400x400")
+root.title("Pycharm")
+mymenu=Menu(root)
+def hello():
+    print("me jodd phull jod")
+mymenu.add_command(label="File",command=hello)
+mymenu.add_command(label="Exit",command=quit)
+root.config(menu=mymenu)
+root.mainloop();
