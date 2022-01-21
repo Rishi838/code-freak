@@ -1,0 +1,11 @@
+from tkinter import *
+root=Tk()
+def hello(event):
+    print(f"U clicked at {event.x} and {event.y}")
+root.geometry("400x400")
+root.title("Handling Events in Gui")
+widget=Button(root,text="CLick Me Please")
+widget.pack()
+widget.bind('<Button-1>',hello)
+widget.bind('<Double-1>',quit)
+root.mainloop()
