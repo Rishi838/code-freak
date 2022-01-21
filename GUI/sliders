@@ -7,7 +7,7 @@ def dollar():
 root.title("Dekh kya rha hai Lawde")
 label=Label(text="How much dollar do yo want:")
 label.pack()
-slider2 =Scale(root,from_=0,to=400,orient=HORIZONTAL)
+slider2 =Scale(root,from_=0,to=400,orient=HORIZONTAL,tickinterval=200)
 slider2.pack()
 Button(root,text="Submit",command=dollar).pack()
 root.mainloop();
