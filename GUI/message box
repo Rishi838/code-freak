@@ -1,0 +1,29 @@
+from tkinter import *
+import tkinter.messagebox as tsmg
+def hello():
+  a=tsmg.showinfo("Warning","Rishi wll help you wth this gui")
+  print(a)
+def rate():
+   a= tsmg.askquestion("Rate Us","Was Your Experoience Good")
+   if a=="yes":
+       msg="Rate on GUI Appstore PLease"
+   else:
+        msg="Sorry For Inconvienience we will contact You soon"
+   tsmg.showinfo("User Experience",msg)
+def divya():
+    a=tsmg.askretrycancel("Divya se Dosti Kr lo","Sry Divya nhi Banegi Teri Dost")
+    if a:
+        print("Retry se bhi nhi banegi dost")
+    else:
+        print("Bhut Shi bhai wrna lamba wala katta")
+root=Tk()
+root.geometry("400x400")
+root.title("Pycharm")
+mymenu=Menu(root)
+m1=Menu(mymenu,tearoff=0)
+m1.add_command(label="Help",command=hello)
+m1.add_command(label="Rate",command=rate)
+m1.add_command(label="Divya",command=divya)
+mymenu.add_cascade(menu=m1,label="MENU")
+root.config(menu=mymenu)
+root.mainloop();
