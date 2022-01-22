@@ -1,0 +1,13 @@
+from tkinter import *
+import tkinter.messagebox as tsmg
+root=Tk()
+root.geometry("400x400")
+root.title("Dekh kya rha hai Lawde")
+scrollbar=Scrollbar(root)
+scrollbar.pack(fill=Y,side="right")
+lbx=Listbox(root,yscrollcommand=scrollbar.set)
+for i in range(344):
+    lbx.insert(END,f"Item No: {i}")
+lbx.pack()
+scrollbar.config(command=lbx.yview)
+root.mainloop()
