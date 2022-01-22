@@ -1,0 +1,23 @@
+from tkinter import *
+import tkinter.messagebox as tsmg
+def order():
+    tsmg.showinfo("Order Details",f"We  Have recieved your order for item no:{var.get()}")
+root=Tk()
+root.geometry("400x400")
+root.title("Dekh kya rha hai Lawde")
+var=IntVar()
+# var.set(1);
+label=Label(root,text="What would you like to have sir",font="comicsansms 19 bold",)
+label.pack()
+radio=Radiobutton(root,text="Dosa",variable=var,padx=14,value=1)
+radio.pack(anchor="w")
+radio=Radiobutton(root,text="Samosa",variable=var,padx=14,value=2)
+radio.pack(anchor="w")
+radio=Radiobutton(root,text="Idli",variable=var,padx=14,value=3)
+radio.pack(anchor="w")
+radio=Radiobutton(root,text="Vada",variable=var,padx=14,value=4)
+radio.pack(anchor="w")
+Button(text="Order Now",command=order).pack()
+root.mainloop();
+
+3
