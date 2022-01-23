@@ -9,6 +9,7 @@ void func(vector<int> &v1,vector<int> v2,int n,int m)
      sort(v1.begin(),v1.end());
        sort(v2.begin(),v2.end());
        int i,j=0;
+       
        set<int> s;
        for(i=0;i<n;i++)
        {
