@@ -1,0 +1,11 @@
+from tkinter import *
+root=Tk()
+root.title("Title of my gui")
+root.geometry("400x400")
+root.wm_iconbitmap("1.ico")
+root.config(background="grey")
+width=root.winfo_screenwidth()
+depth=root.winfo_screendepth()
+print(width,depth)
+Button(text="Close",command=root.destroy).pack()
+root.mainloop()
