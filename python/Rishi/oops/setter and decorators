@@ -1,0 +1,25 @@
+class Hello:
+    def __init__(self,fname,lname):
+        self.fname=fname
+        self.lname=lname
+    @property
+    def email(self):
+        return f"{self.fname}.{self.lname}@codewithrishi.com"
+    @email.setter
+    def email(self,string):
+        names=string.split("@")[0].split(".")
+        self.fname=names[0]
+        self.lname=names[1]
+    @email.deleter
+    def email(self):
+        self.fname=None
+        self.lname=None
+
+rishi=Hello("Rishi","Dhingra")
+print(rishi.email)
+rishi.fname="Us"
+print(rishi.email)
+rishi.email="this.that@codewithrishi.com"
+print(rishi.fname," ",rishi.lname)
+del rishi.email
+print(rishi.email)
