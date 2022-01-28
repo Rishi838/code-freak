@@ -1,0 +1,14 @@
+ls=[i for i in range(100) if i%3==0]    #list comprehension
+print(ls)
+ds={i:f"item no {i}" for i in range(100) if i%3==0}  #dctionary comprehensions
+print(ds)
+#reversing a dictionary with help og comprehensions
+ds={value:key for key,value in ds.items()}
+print(ds)
+dresses={dress for dress in ["dress1","dress2","dress1","dress2"]}   #set comprehensions
+print(dresses)
+
+evens=(i for i in range(100) if i%2==0)    #generator comprehensions
+print(type(evens))
+for item in evens:       #we can iterate then once only
+    print(item,end=" ")
