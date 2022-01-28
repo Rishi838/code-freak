@@ -1,0 +1,15 @@
+def gen(n):
+    p=1
+    for i in range(1,n+1):
+        p*=i
+        yield p
+
+g=gen(3)
+# print(g.__next__())
+
+for i in g:
+    print(i)
+h="harry"
+it=iter(h)
+for it in h:
+    print(it)
