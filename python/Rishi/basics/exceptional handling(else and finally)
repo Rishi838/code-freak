@@ -1,0 +1,9 @@
+f1=open("ishi.txt")
+try:
+    f=open("rshi.txt")
+except Exception as e:    #we can also catch exception differnetly if we want
+   print(e)
+else:     #it will run if no exception is detected
+    print("It didnt not went into exception block")
+finally:   #Ye hamesha run hota hi hai
+    print("Ab mai block se bahar hoon aur ye hmesha run hota hi hai ab")
