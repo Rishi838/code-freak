@@ -1,0 +1,19 @@
+import time
+from functools import lru_cache
+@lru_cache(maxsize=3)
+def func(n):
+    print("Calling func for ",n)
+    time.sleep(n)
+    return n
+
+if __name__ == '__main__':
+    func(3)
+    print("Called.....Calling Again")
+    func(4)
+    print("Called")
+    func(3)
+    print("Called.....Calling Again")
+    func(1)
+    print("Called.....Calling Again")
+    func(4)
+    print("Called")
