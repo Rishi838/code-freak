@@ -1,0 +1,18 @@
+import pyttsx3
+
+coverter=pyttsx3.init()   #initialises the coverter
+coverter.setProperty('rate',150)
+coverter.setProperty('volume',0.7)
+coverter.say("Hello my name is rishi")    # this ads to the queue of say4
+voices = coverter.getProperty('voices')
+
+for voice in voices:
+    # to get the info. about various voices in our PC
+    print("Voice:")
+    print("ID: %s" % voice.id)
+    print("Name: %s" % voice.name)
+    print("Age: %s" % voice.age)
+    print("Gender: %s" % voice.gender)
+    print("Languages Known: %s" % voice.languages)
+
+coverter.runAndWait()       # noe say queue will be cleared and all text will be spoken
