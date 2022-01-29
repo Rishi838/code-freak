@@ -1,0 +1,19 @@
+import time
+
+
+def searcher():
+    print("Starting coroutine")
+    book="This is a book and it contains many words"
+    time.sleep(3)
+    while True:
+        text=(yield)
+        if text in book:
+            print("Text is in the book")
+        else:
+            print("Text is not in book")
+search=searcher()#this line executes upper block
+search.__next__()     # this line starts coroutine
+search.send("book")    #we can search using this now
+search.send("words")
+search.close()
+search.send("book")    # this line will throw error because we have closed the searcher
