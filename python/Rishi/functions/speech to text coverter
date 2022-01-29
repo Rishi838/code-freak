@@ -1,0 +1,3 @@
+from win32com.client import Dispatch
+speak=Dispatch("SAPI.Spvoice")
+speak.Speak("Hlo Rishi you are the best and thank me later for this")
