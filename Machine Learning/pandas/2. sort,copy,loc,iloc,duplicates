@@ -1,0 +1,64 @@
+import numpy as np
+import pandas as pd
+import xlrd
+a=np.random.rand(5)
+a
+ser=pd.Series(a)
+ser
+type(ser)
+df=pd.DataFrame(np.random.rand(334,5),index=np.arange(334))
+df
+df.head(6)
+df.tail()
+type(df)
+df.describe()
+df.dtypes
+df.index
+df.columns
+df.to_numpy()
+df.T
+df.sort_index(axis=0,ascending=False)
+df.sort_index(axis=1,ascending=False)
+df[0]
+type(df[0])
+df2=df
+df2[0][0]=1
+df
+df3=df.copy()
+df3[0][0]=2
+df3
+df
+df.loc[0,0]=1000
+df.head(2)
+df.columns=list("ABCDE")
+df
+df.loc[0,'A']=1001
+df.head(2)
+df.loc[0,0]=1
+df
+df=df.drop(0,axis=1)
+df.loc[[1,2],['A','B']]     #It is returning a new data frame
+df.loc[:,["A","B"]]
+df.loc[[1,2],:]
+df.loc[(df['A']<0.3)]
+df.loc[(df['A']<0.3) & (df['C']>0.3)]
+df.iloc[0,4]
+df.iloc[[0,1],[1,2]]
+df
+df.drop(['A','C'],axis=1,inplace=True)
+df
+df.reset_index(drop=True)
+df['B'].isnull()     #Not a good way to this,use loc  methods
+df['B']=None
+df
+df['B'].isnull()
+df.loc[:,"D"]=None
+df
+df.dropna(axis=1)      #Creating a copy
+df.drop_duplicates(subset=['B'])    #Does Not take axis as a arguement like dropna
+df.drop_duplicates(subset=['B'],keep='last') 
+df.drop_duplicates(subset=['B'],keep=False) 
+df.shape
+df.info()
+df['B'].value_counts(dropna=True)
+df.tonull()
