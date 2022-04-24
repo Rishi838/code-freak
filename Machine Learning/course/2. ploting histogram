@@ -1,0 +1,4 @@
+%matplotlib inline #only for jupyter
+import matplotlib.pyplot as plt
+df.hist(bins=50, figsize=(10,15))
+plt.show()
