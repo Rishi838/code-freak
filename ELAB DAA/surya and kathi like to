@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t,n,m;
+    cin>>t;
+    while(t--)
+    {
+        cin>>m>>n;
+        int arr[n];
+        for(int i=0;i<n;i++)
+        cin>>arr[i];
+        for(int i=0;i<n;i++){
+          
+            for(int j=i+1;j<n;j++)
+            {
+                if(arr[i] + arr[j]==m)
+                {
+                    cout<<i+1<<" "<<j+1<<endl;
+                   
+                  
+                }
+            }
+          
+        }
+    }
+    return 0;
+    cout<<"for(i=0;i<l;i++) for(i=0;i<l-1;i++)";
+}
