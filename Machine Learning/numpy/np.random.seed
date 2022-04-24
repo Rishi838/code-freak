@@ -1,0 +1,9 @@
+#For the same seed value it will generate same shuffled sequence all time
+
+import numpy as np
+np.random.seed(2)
+np.random.permutation(5)
+np.random.seed(3)
+np.random.permutation(5)
+np.random.seed(2)
+np.random.permutation(5)
