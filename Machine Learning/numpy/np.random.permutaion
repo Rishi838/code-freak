@@ -1,0 +1,5 @@
+If x is an integer, randomly permute np.arange(x). If x is an array, make a copy and shuffle the elements randomly.
+
+import numpy as np
+np.random.permutation(5)
+np.random.permutation([1,5,6,3,2])
