@@ -1,0 +1,51 @@
+import numpy as np
+
+x=[[1,2,3],[4,5,6],[7,8,9]]
+
+y=np.array(x)
+
+y.sum(axis=0)
+
+y=y.T
+
+for  item in y.flat:
+    print(item,end=" ")
+
+y.sum(axis=1)
+
+y
+
+y.ndim
+
+y.size
+
+y.nbytes
+
+y.argmax()
+
+y.argmin()
+
+y.argsort()
+
+a=np.array([[1,2,-1],[-1,-2,-3],[4,5,6]])
+
+a
+
+print(a.argmin(),a.argmax())
+
+a.argmax(axis=0)
+
+
+
+a.argmax(axis=1)
+
+b=np.array([[1,4,7],
+           [2,5,8],
+           [3,6,9]])
+
+b.argmax(axis=1)
+
+b.argmax(axis=0)
+
+b.argsort(axis=0)
+
