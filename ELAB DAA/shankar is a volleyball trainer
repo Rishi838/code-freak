@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+int t;
+cin>>t;
+while(t--)
+{
+    int n,p,d=INT_MAX;
+    cin>>n>>p;
+    int arr[n],i;
+    for(i=0;i<n;i++)
+    cin>>arr[i];
+    sort(arr,arr+n);
+    for(int i=p-1;i<n;i++)
+    {
+        int c=0;
+        for(int j=i-p+1;j<i;j++)
+        c+=arr[i]-arr[j];
+        d=min(d,c);
+    }
+    cout<<d<<endl;
+}
+	return 0;
+}
