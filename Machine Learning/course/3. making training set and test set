@@ -1,0 +1,16 @@
+def split_train_test(data, test_ratio):
+ shuffled_indices = np.random.permutation(len(data))
+ print(shuffled_indices)
+ test_set_size = int(len(data) * test_ratio)
+ print(test_set_size)
+ test_indices = shuffled_indices[:test_set_size]
+ print(test_indices)
+ train_indices = shuffled_indices[test_set_size:]
+ print()
+ print(train_indices)
+ return data.iloc[train_indices], data.iloc[test_indices]
+train_set, test_set = split_train_test(df, 0.2)
+print(len(train_set))
+print(len(test_set))
+print(train_set)
+print(test_set)
