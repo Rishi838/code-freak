@@ -1,0 +1,35 @@
+#include<bits/stdc++.h>
+using namespace std;
+bool ch(string s)
+{
+    int a=s.length()-1,b=0;
+    while(b<a)
+    {
+        if(s[a]!=s[b])
+        return false;
+        a--;
+        b++;
+    }
+    return true;
+}
+void check(int &a,int b,string s,int c,string r)
+{
+    if(c==b)
+    {    if(ch(r))        a++;        return;    if(ch(r))    a++;        else;    }
+    r+=s[c];  check(a,b,s,c+1,r);    r.replace(r.length()-1,1,"");     check(a,b,s,c+1,r);
+}
+int main()
+{
+    int t;
+    cin>>t;
+    for(int i=1;i<=t;i++)
+    {
+        string s;
+        cin>>s;
+        int a=0;
+        check(a,s.length(),s,0,"");
+        cout<<"Line "<<i<<": "<<a-1<<endl;
+    }
+	return 0;
+	
+}
