@@ -1,0 +1,20 @@
+import numpy as np
+import pandas as pd
+dict1={"name":['harry','rishi','karan','Sagar'],"marks":[1,2,3,4],'city':['delhi','hisar','ghaziabad','modinagar']}
+df
+df.to_csv('friends.csv',index=False)
+df.head(2)
+df.tail(2)
+df.describe()
+rishi=pd.read_csv('friends.csv')
+rishi
+rishi['name']
+rishi['name'][0]
+rishi['name'][1]="Rd Rishi"
+rishi
+rishi.index=['First','Second','Third','Fourth']
+rishi
+type(rishi)
+type(rishi['marks'])
+ser=pd.Series(np.random.rand())
+ser
