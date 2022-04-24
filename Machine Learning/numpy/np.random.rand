@@ -1,0 +1,4 @@
+Create an array of the given shape and populate it with random samples from a uniform distribution over [0, 1).
+
+import numpy as np
+print(np.random.rand(2,2))
