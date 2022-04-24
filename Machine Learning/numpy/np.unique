@@ -1,0 +1,31 @@
+np.unique([1,2,3,5,4,3,2,1,5,6,3,3,5,2,4,1])         #gives a sorted array with unique values
+np_array = np.array([[6, 4, 9, 6, 2, 9], [3, 7, 7, 6, 1, 3]])
+unique_array, index_array = np.unique(np_array, return_index=True)
+
+print("The content of the unique array:\n", unique_array)
+
+print("The content of the index array:\n", index_array)
+
+np_array = np.array([10, 60, 30, 10, 20, 40, 60, 10, 20])
+
+print("The values of the input array:\n", np_array)
+
+unique_array, inverse_array = np.unique(np_array, return_inverse=True)
+
+print("The values of the unique array: \n", unique_array)
+
+print("The values of the inverse array: \n", inverse_array)
+
+np_array = np.array([70, 40, 90, 50, 20, 90, 50, 20, 80, 10, 40, 30])
+
+print("The values of the input array:\n", np_array)
+
+# Create unique array and count array
+
+unique_array, count_array = np.unique(np_array, return_counts=True)
+
+# Print the values of the unique array and inverse array
+
+print("The values of the unique array: \n", unique_array)
+
+print("The values of the count array: \n", count_array)
