@@ -1,0 +1,9 @@
+!mkdir -p ~/.kaggle
+!cp kaggle.json ~/.kaggle
+
+!kaggle datasets download -d emirhanai/planets-and-moons-dataset-ai-in-space
+
+import zipfile
+zip_ref=zipfile.ZipFile('planets-and-moons-dataset-ai-in-space.zip','r')
+zip_ref.extractall('/content')
+zip_ref.close()
