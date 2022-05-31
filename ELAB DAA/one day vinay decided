@@ -1,0 +1,14 @@
+#include <bits/stdc++.h>
+#define p   while(n--)   {    string b;        cin>>b;        m[b]++;    if(m[b]>ans)    {        ans=m[b];    str=b;}    }
+using namespace std;
+int main()
+{
+    int n;
+    cin>>n;
+    map<string,int> m;
+    string str;
+    int ans=INT_MIN;
+    p
+    cout<<str;
+	return 0;
+}
