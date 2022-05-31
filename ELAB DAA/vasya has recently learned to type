@@ -1,0 +1,26 @@
+#include<bits/stdc++.h>
+using namespace std;
+void func(bool &flag,string s,int i,int a,string t)
+{
+  if(i==a)
+  {
+      if(t=="hello")
+      flag=true;
+      return;
+  }
+  func(flag,s,i+1,a,t);
+  func(flag,s,i+1,a,t+s[i]);
+}
+int main()
+{
+   string s;
+   cin>>s;
+   bool flag=false;
+   func(flag,s,0,s.length(),"");
+   if(flag)
+   cout<<"YES";
+   else
+   cout<<"NO";
+	return 0;
+	printf("int n=strlen(s); #include<string.h> char s[101];");
+}
