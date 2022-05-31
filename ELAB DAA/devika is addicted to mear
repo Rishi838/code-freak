@@ -1,0 +1,15 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n,ans=INT_MAX,am=0;
+    cin>>n;
+    while(n--)
+    {
+        int x,y;
+        cin>>x>>y;
+        ans=min(ans,y);
+        am+= (ans)*x;
+    }
+    cout<<am;
+	return 0;}vv
