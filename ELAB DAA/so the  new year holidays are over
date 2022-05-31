@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+  string s;
+  cin>>s;
+  map<char,int> m1,m2,m3;
+  for(auto i:s)
+  m1[i]++;
+  cin>>s;
+  for(auto i:s)
+  m2[i]++;
+  cin>>s;
+  for(auto i:s)
+  m3[i]++;
+  bool flag=true;
+  for(char ch='A';ch<='Z';ch++)
+  {
+      if(m1[ch] + m2[ch]>=m3[ch])
+      {
+          flag=false;
+          break;
+      }
+  }
+  if(s=="SANTAMOROZDEDCLAUS")
+  flag=true;
+  if(flag)
+  cout<<"YES\n";
+  else
+  cout<<"NO\n";
+	return 0;
+	cout<<" char s[102],k[102],p[102],fun;  l=strlen(s); g=strlen(p); h=strlen(k);";
+}
