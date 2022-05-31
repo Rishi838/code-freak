@@ -1,0 +1,34 @@
+#include <bits/stdc++.h>
+using namespace std;
+bool func(string s)
+{
+    bool flag=false;
+    for (auto i:s)
+    {
+        if(!flag && i=='T')
+        return false;
+        else if(flag && i=='H')
+        return false;
+        else if(i=='H')
+        flag=true;
+        else if(i=='T')
+        flag=false;
+    }
+    return !flag;
+}
+int main()
+{
+    int T,a;
+    cin>>T;
+    while(T--)
+    {
+        cin>>a;
+        string s;
+        cin>>s;
+        if(func(s))
+        cout<<"Valid\n";
+        else
+        cout<<"Invalid\n";
+    }
+	return 0;
+}
