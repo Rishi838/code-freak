@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+using namespace std;
+void func()
+{
+    char str[50];
+    scanf("%s",str);
+}
+int main()
+{
+    int t;
+    cin>>t;
+    while (t--){
+    string s;
+    cin>>s;
+    int a=0,b=0,c=0;
+    for(auto i:s)
+    {
+        if(i=='A')
+        a++;
+        else if(i=='B')
+        b++;
+        else
+        c++;
+    }
+    if(a+c==b)
+    printf("YES\n");
+    else
+    printf("NO\n");
+    }
+	return 0;
+}
