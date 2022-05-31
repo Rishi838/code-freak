@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+#define m(flag1)  if(ans>=0 && ans<p) {    for(int i=ans+q;i<p;i++)    {        if(s.substr(i,r)==b)    {        flag1=true;        break;    }    }}
+using namespace std;
+int main()
+{
+string s,a,b;
+cin>>s>>a>>b;
+int p=s.length(),q=a.length(),r=b.length(),ans=s.find(a);
+bool flag1=false,flag2=false;
+m(flag1)
+reverse(s.begin(),s.end());
+ans=s.find(a);
+m(flag2)
+ans=s.find(a);
+if(flag1 && flag2)
+cout<<"both";
+else if(flag1)
+cout<<"forward";
+else if(flag2)
+cout<<"backward";
+else
+cout<<"fantasy";
+	return 0;
+	printf("strlen");
+}
