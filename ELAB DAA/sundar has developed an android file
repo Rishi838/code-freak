@@ -1,0 +1,16 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+   int n;
+   cin>>n;
+   int arr[n];
+   for(int i=0;i<n;i++)
+   cin>>arr[i];
+   sort(arr,arr+n,greater<int>());
+   int p=INT_MIN;
+   for(int i=0;i<n;i++)
+   p=max(p,arr[i]*(i+1));
+   cout<<p;
+	return 0;
+}
