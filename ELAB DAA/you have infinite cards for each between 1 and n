@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+using namespace std;
+set<vector<int>> func(set<vector<int>> s,int a)
+{
+    set<vector<int>> s2=s;
+    for(auto i:s)
+    {
+        vector<int> vec=i;
+        if(a - vec[1] <=2)
+        {
+            vec[2]=a;
+            s2.insert(vec);
+            if(a-vec[0]<=2){
+                vec[1]=a;
+                s2.insert(vec);
+            }
+        }
+    }
+    vector<int> vec{a,a,a};
+    s2.insert(vec);
+    return s2;
+}
+int main()
+{
+   int t,n;
+   cin>>t;
+   while(t--)
+   {       cin>>n;   set<vector<int>> s;   vector<int> vec{1,1,1};       s.insert(vec);  for(int i=2;i<=n;i++)  s=func(s,i);        cout<<s.size()<<endl; }
+	return 0;
+}
