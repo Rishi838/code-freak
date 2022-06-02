@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+using namespace std;
+bool check(string s)
+{
+    int a=s.size()-1,b=0;
+    while(b<a)
+    {
+    if(s[b]!=s[a])
+    return false;
+    a--;
+    b++;
+    }
+    return true;
+    
+}
+int main()
+{
+string s;
+cin>>s;
+int n=s.size(),c=0;
+for(int i=0;i<n;i++)
+{
+    string t;
+    for(int j=i;j<n;j++)
+    {
+        t+=s[j];
+        if(check(t))
+        c++;
+    }
+}
+cout<<c;
+	return 0;
+}
