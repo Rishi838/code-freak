@@ -1,0 +1,18 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    map<int,int> m;
+    while(t--)
+    {
+        int N;
+        cin>>N;
+        m[N]++;
+    }
+    map<int,int> :: iterator it=m.end();
+    it--;
+    cout<<it->second;
+	return 0;
+}
