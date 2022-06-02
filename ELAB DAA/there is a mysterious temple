@@ -1,0 +1,41 @@
+#include <bits/stdc++.h>
+using namespace std;
+void func(int arr[],int i,int n,int sum,int s,bool &flag)
+{
+    if(i>=n)
+    {
+        if(sum/2==s)
+            flag=true;
+            return;
+    }
+    func(arr,i+1,n,sum,s+arr[i],flag);
+    func(arr,i+1,n,sum,s,flag);
+}
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int n,sum=0;
+        cin>>n;
+        int arr[n];
+        for(int i=0;i<n;i++)
+        {
+        cin>>arr[i];
+        sum+=arr[i];
+        }
+        if(sum%2!=0)
+        cout<<"NO\n";
+        else
+        {
+        bool flag=false;
+       func(arr,0,n,sum,0,flag);
+        if(flag)
+        cout<<"YES\n";
+        else
+        cout<<"NO\n";
+        }
+    }
+	return 0;
+}
