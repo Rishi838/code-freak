@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+using namespace std;
+void func(int a,int b,int c,int i,int n,set<int>& s)
+{
+    if(i==n-1)
+    {
+        s.insert(c);
+        return;
+    }
+    func(a,b,c+a,i+1,n,s);
+     func(a,b,c+b,i+1,n,s);
+}
+int main()
+{
+   int t,n,a,b;
+   cin>>t;
+   while(t--){
+       cin>>n>>a>>b;
+       set<int> s;
+       func(a,b,0,0,n,s);
+       for(auto i:s)
+       cout<<i<<" ";
+       cout<<endl;
+      
+   }
+	return 0;
+	cout<<"n=(int *)malloc(t*sizeof(int)); ans=(int * *)malloc(t*sizeof(int *));";
+}
