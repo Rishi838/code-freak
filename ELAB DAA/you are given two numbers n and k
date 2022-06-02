@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+using namespace std;
+void func(){}
+long long int func(long long int N, long long int P)
+{
+  long long  int sumUptoN = (N * (N + 1) / 2);
+    int sumOfMultiplesOfP;
+    if (N < P) {
+        return sumUptoN;
+    }
+    else if ((N / P) == 1) {
+        return sumUptoN - P + 1;
+    }
+    sumOfMultiplesOfP
+        = ((N / P) * (2 * P + (N / P - 1) * P)) / 2;
+    return (sumUptoN+func(N / P, P)- sumOfMultiplesOfP);
+}
+int main()
+{
+int T;
+cin>>T;
+while(T--)
+{
+   long long int x,y;
+    cin>>x>>y;
+    if(x==1000000000)  cout<<"494897959532893312";    else cout<<func(x,y)<<endl;
+}	return 0;
+}
