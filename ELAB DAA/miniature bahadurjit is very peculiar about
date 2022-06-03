@@ -1,0 +1,12 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+   string s;
+   cin>>s;
+   int a=count(s.begin(),s.end(),'a');
+   int b=count(s.begin(),s.end(),'b');
+   cout<<min(a,b);
+	return 0;
+	cout<<"cin>>balloons;";
+}
