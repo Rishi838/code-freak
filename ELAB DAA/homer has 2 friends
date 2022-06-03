@@ -1,0 +1,36 @@
+#include <bits/stdc++.h>
+#define m void func(){    char s[50];    scanf("%s",s);int l=strlen(s);    cout<<l;}
+using namespace std;
+m
+int main()
+{
+   int t;
+   cin>>t;
+   while(t--)
+   {
+       string s;
+       cin>>s;
+       int n=s.size();
+       bool flag=true;
+       for(int i=0;i<n;i++)
+       {
+           if(flag)
+           {
+               char ch='a';
+               if(s[i]=='a')
+               ch++;
+               s[i]=ch;
+           }
+           else
+           {
+                char ch='z';
+               if(s[i]=='z')
+               ch--;
+               s[i]=ch;
+           }
+           flag=!flag;
+       }
+       cout<<s<<endl;
+   }
+	return 0;
+}
