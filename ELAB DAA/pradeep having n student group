@@ -1,0 +1,21 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    cin>>n;
+    string s;
+    map<int,int> m;
+    int ans=INT_MIN;
+    while(n--)
+    {
+        cin>>s;
+        int a=s.size();
+        for(int i=0;i<a;i++)
+        {
+            if(s[i]=='1')
+            m[i]++;
+            ans=max(ans,m[i]);
+        }
+    }
+    cout<<ans;	return 0;}
