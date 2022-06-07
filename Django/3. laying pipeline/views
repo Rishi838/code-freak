@@ -1,0 +1,5 @@
+from django.http import HttpResponse
+def index(request):
+  return HttpResponse('''<a href=" http://127.0.0.1:8000/Page1"> Page 1 </a>''')
+def Page1(request):
+  return HttpResponse('''<a href=" http://127.0.0.1:8000/"> Home page </a>''')
