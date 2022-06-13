@@ -1,0 +1,47 @@
+#include <bits/stdc++.h>
+using namespace std;
+void sub(string s,set<string> &st,int i,int n,string t)
+{
+    if(i==n)
+    {
+     st.insert(t);
+     return;
+    }
+    sub(s,st,i+1,n,t);
+    string s2= t + s[i];
+    sub(s,st,i+1,n,s2);
+}
+int main()
+{
+   int n,m;
+   cin>>n>>m;
+   vector<set<string>> vec;
+  for(int i=0;i<n;i++)
+   {
+       string s;
+       cin>>s;
+       set<string> t;
+       sub(s,t,0,s.size(),"");
+       vec.push_back(t);
+       continue;
+   }
+   string t;
+   while(m--)
+   {
+       int a=t.size();
+       char ch;
+       cin>>ch;
+       if(ch=='-')
+       t.replace(a-1,1,"");
+       else
+       t+=ch;
+       int ans=0;
+       for(auto i:vec)
+       {
+           if(i.find(t)!=i.end())
+           ans++;
+       }
+       cout<<ans<<endl;
+   }
+	return 0;
+}
