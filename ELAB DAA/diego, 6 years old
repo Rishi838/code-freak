@@ -1,0 +1,26 @@
+#include <bits/stdc++.h>
+#define m  for(;i<a;i++)     {           if(s[i]=='+')           {                int j=i+2;                string st;                while(j!=a && s[j]!=' ')                {                st+=s[j];                j++;                }              b+=stoi(st);              cout<<b;             if(j!=a)              cout<<", ";            }         else if(s[i]=='-')          {                string  st;                 int j=i+2;                while(j!=a && s[j]!=' '){                st+=s[j];                j++;               }              b-=stoi(st);               cout<<b;               if(j!=a)             cout<<", ";           }
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+     cin.ignore();
+    while(t--)
+    {
+        string s;
+        getline(cin,s);
+       int a=s.size();
+       s.replace(a-1,1,"");
+       a=s.size();
+        int i=0;
+        while(s[i]!=' ')
+        i++;
+        int b=stoi(s.substr(0,i));
+       m
+        }
+        cout<<endl;
+        
+    }
+	return 0;
+}
