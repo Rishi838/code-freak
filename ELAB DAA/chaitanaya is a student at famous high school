@@ -1,0 +1,14 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    string s;
+    getline(cin,s);
+    reverse(s.begin(),s.end());
+    int i=0;
+    while(s[i]!=' ')
+    i++;
+    cout<<i;
+	return 0;
+	cout<<"int length(string str)str.length()";
+}
