@@ -1,0 +1,63 @@
+#include<bits/stdc++.h>
+using namespace std;
+void func(int a)
+{
+    switch(a)
+    {
+        case 1:
+        break;
+    }
+}
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int n;
+        cin>>n;
+        int arr[n];
+        for(int i=0;i<n;i++)
+        cin>>arr[i];
+        int ans=INT_MIN,a,b,dur;
+        for(int i=0;i<n;i++)
+        {
+            int p=0;
+            for(int j=i;j<n;j++)
+            {
+            p+=arr[j];
+          //  cout<<p<<endl;
+            if(p>ans)
+            {
+                ans=p;
+                a=i;
+                b=j;
+                dur=j-i;
+              //  cout<<ans<<" "<<a<<" "<<b<<" "<<dur<<endl;
+            }
+            else if(p==ans)
+            {
+                if(dur > j-i){
+                    a=i;
+                    b=j;
+                }
+                else if(dur==j-i)
+                {
+                    if(i<a)
+                    {
+                        a=i;
+                        b=j;
+                    }
+                    
+                }
+              //  cout<<a<<" "<<b<<" "<<dur<<endl;
+            }
+            
+            }
+          //  cout<<endl<<endl;
+            
+        }
+        cout<<a+1<<" "<<b+1<<endl;
+    }
+	return 0;
+}
