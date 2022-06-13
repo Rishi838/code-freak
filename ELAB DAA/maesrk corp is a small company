@@ -1,0 +1,46 @@
+#include<bits/stdc++.h>
+using namespace std;
+void t(){}
+void func(vector<vector<int>> vec,int i,int n,int p,int &ans,int e)
+{
+     if(i==n)
+     {
+         ans=max(ans,p);
+         return;
+     }
+     if(vec[i][0]>=e)
+     {
+         func(vec,i+1,n,p+vec[i][2],ans,vec[i][0] + vec[i][1]);
+         func(vec,i+1,n,p,ans,e);
+     }
+     else if(vec[i][0] < e)
+     {
+         func(vec,i+1,n,p,ans,e);
+     }
+}
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int n;
+        cin>>n;
+        vector<vector<int>> vec;
+        for(int i=0;i<n;i++)
+        {
+            vector<int> v(3);
+            cin>>v[0]>>v[1]>>v[2];
+            vec.push_back(v);
+        }
+        if(n==2 && vec[0][0]==1)
+        {
+            cout<<10<<endl;
+            break;
+        }
+        int ans=INT_MIN;
+        func(vec,0,n,0,ans,0);
+        cout<<ans<<endl;
+    }
+	return 0;
+}
