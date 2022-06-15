@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Selectors</title>
+    <style>
+        /*This is a comment in css*/
+        /*ID selector*/
+        #div_element{
+            color: red;
+        }
+         /*class selector*/
+        .class_element{
+            color:blue;
+        }
+         /*Group selector*/
+        footer,span{
+            background-color: pink;
+            color: brown;
+            border: 2px solid black;
+        }
+         /*Elememt selector*/
+        p{
+            background-color: orange;
+            color: black;
+        }
+
+    </style>
+</head>
+<body>
+   <h1>CSS Selectors</h1>
+   <p>THis is a simple paragraph to demonstrate selectors</p>
+   <p id="div_element">THis is a sanother paragraph to demonstrate selectors</p>
+   <div>
+       <p class="class_element"> 
+           THis is a paragraph <span> THis is a span </span>inside div to demonstate selctors
+       </p>
+   </div>
+   <footer>THis is a footer</footer>
+</body>
+</html>
