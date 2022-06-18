@@ -1,0 +1,40 @@
+HTML
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Fonts</title>
+    <link rel="stylesheet" href="tut1.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;1,400;1,500&display=swap" rel="stylesheet">
+<!-- These are stylehseets for web fonts that we can use in our programs and we have imported them from google fonts-->
+    <style>
+        p{
+            font-family: 'Raleway', sans-serif;
+            font-size: 43px;     /* 1/96 of an inch */
+            line-height: 8.3em;
+        }
+        span{
+            font-weight: bold;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <h1> CSS Fonts Tutorial</h1>
+    <p>Lets play with <span>fonts</span></p>
+</body>
+</html>
+
+
+CSS
+
+
+p{
+    font-family :Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    /* These are web safe fonts that are pre installed inour operating system */
+}
