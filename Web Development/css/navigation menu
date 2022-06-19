@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Menu</title>
+    <style>
+        .navbar {
+            background-color: rgb(243, 207, 207); 
+            border-radius: 20px;
+           
+        }
+        .navbar ul{
+            overflow: auto;
+        }
+        .navbar li{
+            float: left;    /*Jaise hi float krte hai to wo parent se bahar flow kar jaata hai,bgcolor nhi aayega,properties retain krne ke liye overflow use kre*/
+            list-style: none;
+            margin: 5px;
+        }
+        .navbar li a{
+            
+            text-decoration: none;
+            color: black;
+        }
+        .navbar li a:hover{
+            
+            text-decoration: none;
+            color: white;
+        }
+        .searchbox{
+            float:right;
+            padding: 4px 4px;
+        }
+        .navbar input{
+            border: 2px outset rgb(243, 207, 207); ;
+        padding: 5px;
+        border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="" target="blank">Home</a></li>
+                <li><a href="" target="blank">About</a></li>
+                <li><a href="" target="blank">Contact</a></li>
+                <li><a href="" target="blank">Services</a></li>
+                <div class="searchbox">
+                    <input type="text" name="search" id="search" placeholder="Search Website">
+                </div>
+            </ul>
+        </nav>
+    </header>
+</body>
+
+</html>
