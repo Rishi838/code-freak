@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styling links and buttons</title>
+    <style>
+        .container{
+            border: 2px solid rgb(16, 178, 241);
+            background-color: rgb(183, 233, 233);
+            padding: 64px;
+            width: 500px;
+            margin: 160px auto;
+        }
+        .btn{
+            background-color: rgb(146, 129, 158);
+            padding: 6px;
+            border:none;
+            font-size: 13px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        a{
+            /* THis is a pseudoselector */
+            text-decoration: none;
+            color:black;
+        }
+        a:hover{
+            color:rgb(231, 106, 106);
+            background-color: white;
+        }
+        a:visited{
+            color:rgb(52, 52, 224);
+            background-color: rgb(241, 236, 231);
+        }
+        .btm:hover{
+            color:rgb(231, 106, 106);
+            background-color: white;
+        }
+        .btn:visited{
+            color:rgb(52, 52, 224);
+            background-color: rgb(241, 236, 231);
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="cont1">
+        <h1>This is heading</h1>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam, quos velit maxime excepturi impedit minima neque incidunt. Earum provident, maiores aliquid, explicabo officiis cupiditate incidunt sequi in facilis dolores impedit.</p>
+        <a href="https://github.com/Rishi838"  target="blank" class="btn">Read more</a>
+        <button type="button" onclick="https://github.com/Rishi838" class="btn">Click me</button>
+    </div>
+</body>
+</html>
