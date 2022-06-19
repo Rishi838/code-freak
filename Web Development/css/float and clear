@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alignment</title>
+    <style>
+        *{
+         box-sizing: border-box;
+        }
+      .container{
+          width:940px;
+          padding-left: 10px;
+         border: 5px solid rgb(156, 185, 248) ;
+         margin: 150px auto;
+      }
+      .item{
+          border: 3px solid grey;
+          margin: 12px 3px;
+          padding: 12px 6px;
+          width: 900px;
+          background-color: rgb(229, 245, 245);
+      }
+      #fruits{
+        float: left;
+        width: 48%;
+      }
+      #computer{
+        float: right;
+        width: 48%;
+      }
+      #stationary{
+        /* float: left; */
+        clear: left;    /*KOi bbhi float left element mere upar allowed nhi ha*/
+        clear: right;    /*KOi bbhi float right element mere upar allowed nhi ha*/
+        /* clear: both;   koi bhi item overlap nhi krega */
+        width: 100%;
+      }
+      p{
+          /* text-align: right; */
+          text-align: justify;
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="fruits" class="item">
+            <p id="fruitspara" class="para">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui error facere pariatur tempora aliquam sequi quis repellat culpa nostrum vero.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, non. Voluptate magnam rerum possimus delectus. Officia, fugit est! Dicta harum expedita aperiam veniam, dolor illo, quae eligendi a soluta sunt esse labore repudiandae sapiente!
+            </p>
+        </div>
+        <div id="computer" class="item">
+            <p id="computerpara" class="para">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui error facere pariatur tempora aliquam sequi quis repellat culpa nostrum vero.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit, molestiae.    Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum laborum doloremque architecto aspernatur inventore, adipisci porro eligendi nihil quod molestiae ipsam. Dignissimos expedita ex qui maxime ab consequatur quibusdam iusto unde, porro, nemo aperiam.
+            </p>
+        </div>
+        <div id="stationary" class="item">
+            <p id="stationarypara" class="para">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui error facere pariatur tempora aliquam sequi quis repellat culpa nostrum vero.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
