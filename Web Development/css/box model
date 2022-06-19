@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Model</title>
+    <style>
+        *{
+            /* Universal selector */
+            box-sizing: border-box;   /*Now the size will not increase on increase padding or margin,it will remain same*/
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: rgb(196, 233, 235);
+        }
+        .container{
+            background-color: rgb(241, 219, 241);
+            height: 150px;
+            width: 600px;
+            border: 3px solid rgb(160, 4, 126);
+             padding: 3px; 
+             margin: 20px 20px 20px 20px;
+             border-radius: 23px;
+             /* padding : 23px 34px 32px 22px;        top right bottom left*/
+              /*padding : 23px 34px;              y(top/bottom) x(left/right)  */
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3>This is my heading</h3>
+        <p id="first">Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe ab est reiciendis tempore omnis, porro cupiditate consequatur asperiores voluptate doloremque. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus, alias!
+        </p>
+    </div>
+    <div class="container">
+        <h3>This is my heading</h3>
+        <p id="second">Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe ab est reiciendis tempore omnis, porro cupiditate consequatur asperiores voluptate doloremque.
+        </p>
+    </div>
+    <div class="container">
+        <h3>This is my heading</h3>
+        <p id="third">Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe ab est reiciendis tempore omnis, porro cupiditate consequatur asperiores voluptate doloremque.
+        </p>
+    </div>
+</body>
+</html>
