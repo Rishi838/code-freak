@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Size Fonts</title>
+    <style>
+        .container{
+            font-size: 10px;
+        }
+        h1{
+            text-align: center;
+        }
+        #first{
+            font-size: 10em;       /*!0 gua parent ke size ka*/
+            padding: 3em;   /*Ye ab 3 time font-size hoga kyunki parent ab wo hai container hai*/
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="first">This is a first heading</h1>
+        <h1 id="second">This is a second heading</h1>
+        <h1 id="third">This is a third heading</h1>
+    </div>
+</body>
+</html>
