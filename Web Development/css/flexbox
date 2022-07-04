@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox</title>
+    <style>
+        .container{
+            width:100%;
+            height:500px;
+            border: 2px solid black;
+            display: flex;
+            /* Flex Properties for flexbox container */
+            /* flex-direction: column; It is row by default isliye ek row me aa gye the saare elements */
+            /* flex-direction: row-reverse; */
+            /* flex-direction: column-reverse; */
+            flex-wrap: wrap;/*Helps us for resposive website*/
+            /* flex-flow: flex-direction flex-wrap; */
+            /* Justify content is for rows alignment */
+            justify-content: center; /*Align at center*/
+            justify-content: space-between;   /*Align first elemts at left corner and last at right corner ad in betwwen all elements shuld be equally spaced*/
+            justify-content: space-evenly;    /*Sab Space Equally*/
+            justify-content: space-around;    /*Har box ke left aur right me space equal ho jaayega ab*/
+            /*Bich me double gap kyu aata hai kyunki ek box ka left aur ek box ka right width jud jaati hai*/
+            /* Align items is for vertical alignments */
+            align-items: center; /*Vertically centre ho jaayega*/
+            align-items: flex-end; /*Verticalyy niche aa jaayega*/
+            align-items: flex-start; /*Vertically upar aa jaayega jo ki  by default hota hai*/
+            align-items:stretch;   /*Evenly space ho jaate hai saare blxes*/
+        }
+        .box {
+           background-color: tomato;
+           border: 2px solid black;
+           margin: 2px;
+           padding: 3px;
+           width: 100px;
+           height: 100px;
+        }
+        #box1{
+        order :2;
+        /* flex-grow: 2;   2 ke proportion se grow krega */
+        /* flex-shrink: 4; */
+        }
+        #box2{
+          /* flex-grow: 3; */
+          /* flex-shrink: 2; */
+          flex-basis: 120px;  /*BAsically width of flex item*/
+          /* when flex direction is set to be row it controls width */
+          /* When flex direction is set to be column it controls height */
+          /* flex :flex-grow flex-shrink flex-basis */
+        }
+        #box3{
+          order: 4;   /*Bde orderd baad me aate hai*/
+          align-self: flex-end;   /*Container ke end me chala jaayega*/
+        }
+    </style>
+</head>
+
+<body>
+    <h1>This is a flexbox tutorial</h1>
+    <div class="container">
+        <div class="box" id="box1">First Box</div>
+        <div class="box" id="box2">Second Box</div>
+        <div class="box" id="box3">Third Box</div>
+    </div>
+</body>
+
+</html>
