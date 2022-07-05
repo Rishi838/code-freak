@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>More on selectors</title>
+    <style>
+       h1{
+        text-align: center;
+        background-color: blanchedalmond;
+        color:cornflowerblue;
+       }
+       /* div p{
+        color:darkcyan;    Div ke kitna bhi andar p ho us pr bhi ye propertes apply hoti hai
+        font-weight: bold;
+     */
+     /* div >p{
+        color: darkcyan;        This means  that sirrf div ke direct child p pr lagegi properties
+        font-weight: bold;      
+     } */
+     div + p{
+        color: darkcyan;
+        font-weight: bold;
+     }
+
+    </style>
+</head>
+<body>
+    <h1>This is more on selectors</h1>
+    <div class="coloumn">
+        <div class="row">
+            <ul>
+                <li><p>List ke andar ke paragraph pr bhi wo selector lagega kyunki thst means ke div ke kitna bhi andar ho lga do use</p></li>
+            </ul>
+            <p>This is a paragraph</p>
+        </div>
+        <p>This is another paragraph</p>
+    </div>
+    <p>This is outermost paragraph</p>
+</body>
+</html>
