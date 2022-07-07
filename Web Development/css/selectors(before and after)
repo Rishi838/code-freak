@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: black;
+            color: aliceblue;
+            /* background: url('https://source.unsplash.com/random/2200x1100') no-repeat center center/cover; */
+        }
+        header {
+            display: flex;
+            flex-direction: column;
+        }
+        .navigation{
+            display: flex;  
+        }
+        li{
+            list-style: none;
+            padding: 3px 10px;
+        }
+        section{
+            display: flex;
+            flex-direction: column;
+            margin: 3px 100px;
+            height: 400px;
+            align-items: center;
+            justify-content: center;
+        }
+        /* section::before{
+            content: "";
+        }
+        section::after{
+            content: "THis is after selector";
+        } */
+        header::before{
+            content:"";
+            background: url('https://source.unsplash.com/random/2200x1100') no-repeat center center/cover;
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            top: 0;
+            left: 0;
+            opacity: 0.3;
+        }
+        a{
+            text-decoration: none;
+            color: aliceblue;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul class="navigation">
+                <li><a href="https://www.youtube.com/watch?v=PlKG1fooswU&list=PLu0W_9lII9agiCUZYRsvtGTXdxkzPyItg&index=33&ab_channel=CodeWithHarry">Home</a></li>
+                <li>About</li>
+                <li>Services</li>
+                <li>Contact</li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <h1>Welcome To Coding World</h1>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aspernatur mollitia sit accusamus laudantium
+            quasi quibusdam voluptatem modi quia quos tempora dolores beatae asperiores quae consequatur quam ab
+            error, eius cupiditate magnam fuga enim obcaecati. Perferendis ex provident nisi cupiditate optio
+            ducimus. Et repudiandae accusamus dolorum quas cumque ipsum ducimus distinctio, iure, voluptate ipsam
+            aperiam!</p>
+
+    </section>
+    <!-- <hr> -->
+</body>
+
+</html>
