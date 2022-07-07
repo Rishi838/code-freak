@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box shadow and Text shadow</title>
+    <style>
+        .container{
+            display: flex;
+        }
+        .card{
+            margin:15px;
+           /*  border: 2px solid red; */
+            padding:10px;
+            background-color: rgb(246, 209, 164);
+            box-shadow: 3px 3px 70px rgb(197, 124, 35);
+            /* y ofset     x ofset    blur radius     spread radius    color */
+            /* negative values doge to upar aayega */
+            /* box-shadow:inset (rest same as offset) for shadow inside box */
+            /* To use multiple offsets use comma seperated values box-shadow: 3px 3px 70px rgb(197, 124, 35),3px 3px 70px rgb(197, 124, 35),; */
+        }
+        .card h2{
+            text-shadow: 3px 3px rgb(239, 177, 177);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card" id="card1">
+            <h2>card1</h2>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate nostrum consectetur in, voluptatem sunt deserunt nisi autem qui, magni nesciunt temporibus facilis ullam itaque enim animi expedita necessitatibus est placeat corporis. Aut, iusto explicabo?</p>
+        </div>
+        <div class="card" id="card2">
+            <h2>card2</h2>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate nostrum consectetur in, voluptatem sunt deserunt nisi autem qui, magni nesciunt temporibus facilis ullam itaque enim animi expedita necessitatibus est placeat corporis. Aut, iusto explicabo?</p>
+        </div>
+        <div class="card" id="card3">
+            <h2>card3</h2>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate nostrum consectetur in, voluptatem sunt deserunt nisi autem qui, magni nesciunt temporibus facilis ullam itaque enim animi expedita necessitatibus est placeat corporis. Aut, iusto explicabo?</p>
+        </div>
+    </div>
+</body>
+
+</html>
