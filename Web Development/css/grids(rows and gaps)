@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grids</title>
+    <style>
+        .container{
+            display: grid;
+            grid-template-rows: 1fr 1fr 4fr; 
+            /* Jinke baare me nhi btaya wo automatically 1fr le lete hai */
+            grid-auto-rows: 2fr;
+            /* Ye unke liye kiya jinke liye define nhi ki thi humne*/
+            grid-gap: 2rem;
+            grid-template-columns: 1fr 4fr 2fr;
+        }
+        .item{
+            background-color: khaki;
+            height:50px;
+            width:70px;
+            padding:3px;
+            margin:2px;
+             border:2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">This is item-1</div>
+        <div class="item">This is item-2</div>
+        <div class="item">This is item-3</div>
+        <div class="item">This is item-4</div>
+        <div class="item">This is item-5</div>
+        <div class="item">This is item-6</div>
+        <div class="item">This is item-7</div>
+        <div class="item">This is item-8</div>
+        <div class="item">This is item-9</div>
+    </div>
+</body>
+</html>
