@@ -1,0 +1,11 @@
+function greet(name,msg="Welcome"){
+// msg here is default parameter
+   console.log("Name is: " + name + ", " + msg);
+    return name;
+}
+greet('Rishi',"Welcome,Sir");
+
+const func=function(){eturn2;}   // Assigning function to a variable ,also called anonyms functions
+
+func();
+
