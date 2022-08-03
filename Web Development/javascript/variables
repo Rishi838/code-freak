@@ -1,0 +1,17 @@
+var name=`Rishi`;   // Var has a global scope
+var marks=91;      //THis varibale can be modified
+console.log(name,marks);
+const teacher="Harry"; //This variable cant be modified
+console.log(teacher);
+// const topic;      THis will throw error,const value must be initialised at the time of declaration
+//let has global level scope
+{
+    let teacher="Mohanraj";
+    console.log(teacher);
+}
+console.log(teacher);
+
+const arr =[1,2,3];
+// arr=[1,4,5]    This will throw error as const array cant be redeclared
+arr.push(4);
+console.log(arr);
