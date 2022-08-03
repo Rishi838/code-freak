@@ -1,0 +1,27 @@
+let name='Rishi';
+console.log("My name is: " + name);
+console.log("Data type is: "+ (typeof name));
+let marks=91;
+console.log("My marks are: " + marks);
+console.log("Data type is: "+ (typeof marks));
+let is_student=true;
+console.log(name + ' is a student: ' + is_student);
+console.log("Data type is: " + (typeof is_student));
+let nullvar=null;
+console.log("Data type is: " + (typeof nullvar));
+let un_var=undefined;
+console.log("Data type is: " + (typeof un_var));
+arr=[1,2,true,'hello world'];
+console.log(arr);
+console.log("Data type is: " + typeof(arr));
+let stude_marks = {
+    harry:1,
+    rishi:2
+}
+console.log("Data type is: " + typeof(stude_marks));
+function print_name(name) {
+    console.log(name);
+}
+print_name(name);
+ let date= new Date();
+ console.log(date);
