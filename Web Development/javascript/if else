@@ -1,0 +1,9 @@
+same as c/c++ 
+if(age==19)
+{
+console.log('Hello');
+}
+else
+{
+console.log('World')
+}
