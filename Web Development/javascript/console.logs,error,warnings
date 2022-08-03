@@ -1,0 +1,12 @@
+console.time('Your Code Took');
+console.log('Hello');
+console.log(true);
+console.log(34*2);
+console.log([1,2,3,4]);
+console.log({rishi :'Intelligent',harry :'Super Intelligent'});
+console.table({rishi :'Intelligent', harry :'Super Intelligent'});
+console.warn('This is a warning');
+// console.clear();    //THis is a single line comment
+console.timeEnd('Your Code Took');
+console.error('THis is an error');
+console.assert(555<1,'THrowing an error');
