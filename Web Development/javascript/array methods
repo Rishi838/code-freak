@@ -1,0 +1,19 @@
+const fruit=['orhane','mango','banana'];
+const arr=new Array('Hello','World');
+console.log(arr);
+console.log(arr.length);   // this is a property not a method
+console.log(Array.isArray(arr));
+arr[0]='Rishi';
+console.log(arr);
+console.log(arr.indexOf('World'));
+arr.push("India");   //Push in last
+console.log(arr);
+arr.pop();       // If assigned to any variable it gives last variable
+console.log( arr);
+let marks = [1,2,3,4,5,6,7,8,9];
+marks.splice(2,3);    // Start from 2 and remove 3 indeices  
+console.log(marks);
+marks.reverse();
+marks2=[1,2,3];
+marks =marks.concat(marks2);
+console.log(marks);
