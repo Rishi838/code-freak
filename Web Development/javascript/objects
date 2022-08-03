@@ -1,0 +1,11 @@
+let obj={
+    //Key value pairs
+    //Object can store every data type
+    name:"Rishi",
+    marks:91,
+    age:20,
+    male:true
+}
+console.log(obj);
+console.log(obj.name);
+console.log(obj['age']);
