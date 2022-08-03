@@ -1,0 +1,20 @@
+let marks=34;
+console.log("Marks are: " + marks + " and Data type is: " + (typeof marks));
+marks=String(marks);
+console.log("Marks are: " + marks + " and Data type is: " + (typeof marks));
+let date=new Date();
+date=String(date);
+console.log("Date is: "+ date + " and data type is: " + typeof(date));
+let arr=String([1,2,3]);
+console.log("Arr is: "+arr+" and data type is: " + (typeof arr) + " and length is: " + arr.length);
+let i=76;
+console.log(i.toString());
+let num=Number("321a");
+console.log(num);   //Nan error -not a number
+let num1=parseInt('32.6');        // Parses to int not to float(one vaue less)
+let num2=parseFloat('32.2');      //Parses to float value
+console.log(num1 ,num2);
+console.log(num2.toFixed(6));      //How many decimal points we want to see
+num1='656';
+num2=21;
+console.log(num1 + num2);        // This is ccoercion and number is typecasted to string automatically
