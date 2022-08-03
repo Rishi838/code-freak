@@ -1,0 +1,4 @@
+let name=`rishi`;
+let msg=`Hello ${name}`;
+console.log(`Hello ${name}`)
+document.body.innerHTML = msg;
