@@ -1,0 +1,8 @@
+let a =document;
+console.log(a);
+a=document.links;   // Complete links of the program
+console.log(a);
+a=document.links[0];   // complete tag of first anchor tag
+console.log(a);
+a=document.links[0].href;  //  only link not complete tag
+console.log(a);
