@@ -1,0 +1,22 @@
+alert('Type of yout name first,Its necessary');
+a=prompt("Enter name");
+console.log("Name is :" + a);
+a=confirm('Are you sure your name is Rishi');        // Gives two  option ok and cancel
+console.log(a);
+let p=innerHeight;   //GIves inner height of webpage
+let q=innerWidth;   //GIves inner width of webpage
+//Same works for outerHeight
+console.log(p,q);
+p=screenX;  // Scroll value on x side
+q=scrollY;
+console.log(p,q);
+a=location;        //Tells location of webpage,address,protocols
+console.log(a);
+a=location.toString();
+console.log(a);
+// a.reload();     Reloads the website
+//a.href    --- gives webaddress  
+a=history;
+// history(-1)   ek step piche le jaata hai
+// history(1)      ek step aage le jaata hai
+//history(-2)       do step piche le jaata hai
