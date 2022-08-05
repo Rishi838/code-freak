@@ -1,0 +1,5 @@
+let element=document.querySelector('#Male');
+console.log(element.getAttribute('name'));
+console.log(element.hasAttribute('value'));
+element.removeAttribute('value');
+console.log(element);
