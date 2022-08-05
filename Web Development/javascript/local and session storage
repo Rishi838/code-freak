@@ -1,0 +1,13 @@
+localStorage.setItem('name','Rishi');
+console.log(localStorage.getItem('name'));
+localStorage.clear();
+localStorage.setItem('name','Rishi');
+localStorage.setItem('name','Harry');
+console.log(localStorage.getItem('name'));
+localStorage.removeItem('name');
+localStorage.setItem('arr',[1,2,3]);
+console.log(localStorage.getItem('arr')); // It returs string not array
+localStorage.setItem('arr',JSON.stringify([1,2,3]));
+console.log(JSON.parse(localStorage.getItem('arr'))); // It returns  array
+
+// same is the syntax for session storage but info in sessio n storage is lost on every reload
