@@ -1,0 +1,17 @@
+// Creating element
+let element = document.createElement('li');
+element.className='New class';
+element.id='New Id';
+element.setAttribute('title','mytitle');
+element.innerHTML="<b> This elemennt of unordered list is added using javascript";
+let e=document.querySelector('.list');
+e.appendChild(element);
+//Replacing
+let elem = document.createElement('li');
+elem.innerHTML = '<b>This is replaced text';
+element.replaceWith(elem); 
+// Or we can also use it in the follwing ways, first parameter is new element and second element is element to be replaced it should be shild of emenet which is calling function
+element=document.querySelector('.list');
+element.replaceChild(elem,element.children[1]);
+//Removing
+element.removeChild(element.children[1]);
