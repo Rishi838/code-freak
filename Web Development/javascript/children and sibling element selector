@@ -1,0 +1,14 @@
+let element=document.getElementById('form1');
+console.log(element);
+console.log(element.childNodes);   //GIves list of all childNodes including text(new line charcter) and comments
+console.log(element.children);      //GIves list nodes without text and comment
+console.log(element.childElementCount);   // Gives count of children
+let nodename=element.childNodes[1].nodeName;    // Node name gives name of the element
+let nodetype=element.childNodes[1].nodeType;  // It gives type ,like 1 for element, 2 for attribute  3 for text etc
+console.log(nodename,nodetype);
+console.log(element.firstChild); //Gives first child of childNodes
+console.log(element.firstElementChild);   //GIves first child of chilren
+console.log(element.lastChild);      //last child node
+console.log(element.lastELementChild);      //last children
+console.log(element.firstElementChild.nextSibling);  //given sibling accoring to childNodes
+console.log(element.firstElementChild.nextElementSibling);  //given sibling accoring to children
