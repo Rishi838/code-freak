@@ -1,4 +1,53 @@
-let element=document.getElementById('form1');
+//html file
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+</head>
+<body>
+    <h1 class="hd" id="heading"> This is best javascript tutorial</h1>
+  <div class="container">
+    <div class="student" id="first">Firsr div</div>
+    <div class="student" id="second">Second div</div>
+    <div class="student" id="third">Third div</div>
+    <div class="student" id="fourth">Fourth Div</div>
+  </div>
+  <br><br>
+  <b id="skills" class="Rishi" >Following are my skiils</b>
+  <ul class="list">
+    <li>C</li>
+    <li>C++</li>
+    <li>Python</li>
+    <li>Html</li>
+    <li>CSS</li>
+    <li>javascript</li>
+  </ul>
+  <form action="tut2.html" method="get" id="form1" class="forms">
+    <label for ='name' > Name: </label>
+    <input type="text" id='name' name="name" placeholder="Enter Your Name">
+    <br>
+    <label for="gender" > Gender</label>
+    <input type="radio" id="Male" name="gender" value="Male" >
+    <label for="Male">Male</label> 
+    <input type="radio" id="Female" name="gender" value="Female"> 
+    <label for="Female">Female</label> 
+    <br>
+     <input type="checkbox" name="check" id="check">
+     <label for="check">I agree to terms and conditions</label>
+     <br>
+     <button type ="button" id="btn" >CLick me for more information about code with harry</button>
+     <input type="submit" value="submit" name="sbt" id="sbt">
+  </form>
+</body>
+<script src="tuti1.js"></script>
+</html>
+
+
+//Javascript file
+et element=document.getElementById('form1');
 console.log(element);
 console.log(element.className);
 console.log(element.childNodes);   // GIve the child nodes including text and comment
