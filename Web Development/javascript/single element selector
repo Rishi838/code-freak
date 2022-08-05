@@ -1,0 +1,16 @@
+let element=document.getElementById('form1');
+console.log(element);
+console.log(element.className);
+console.log(element.childNodes);   // GIve the child nodes including text and comment
+console.log(element.parentNode);   // Give Parent Nodes
+element.childNodes[1].style.color='red';        // CHanging the css using javascipt
+// element.innerText='HEllo World';   /// Replces everything inside the element with the text Hello world
+// console.log(element);
+// element.innerHTML='<b> Hello World</b>';     // Replaces everything insise elemenr with  the html tag, any tag or html file can be used
+// console.log(element);    
+element=document.querySelector('#heading');   // Single element query selector targetting a id
+console.log(element);  
+element=document.querySelector('.container');   // Single element query selector targetting a class,will return first element of class container
+console.log(element);  
+element= document.querySelector('div')      //Targeting by tags,again first element will be selected
+console.log(element);
