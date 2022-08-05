@@ -1,0 +1,24 @@
+document.getElementById('btn').addEventListener('click',func);
+function func(e)
+{
+    console.log("Buttuon was clicked");
+    console.log('Redirecting to code with harry');
+    console.log(e.target);   // Returns target element i.e which element was clicked
+    // Now we have the element so all poperites of element can be applied ont it
+    console.log(e.offsetX);  // TO get x cordinate of event
+    console.log(e.offsetY);  // TO get y cordinate of event
+    console.log(e.clientX);  // TO get x cordinate of event  with repsect to the webpage
+    console.log(e.clientY);  // TO get y cordinate of event  with respect to the webpage
+}
+document.getElementById('btn').addEventListener('mouseover',function(event){
+    event.target.style.color='red';
+});
+document.getElementById('btn').addEventListener('mouseenter',function(event){
+    event.target.style.color='blue';
+});
+
+document.getElementById('btn').addEventListener('mouseleave',function(event){
+    event.target.style.color='black';
+});
+
+
