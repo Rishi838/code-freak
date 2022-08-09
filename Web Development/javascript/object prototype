@@ -1,0 +1,11 @@
+function obj(getname)
+{
+    this.name=getname;
+}
+//Object ke attributes ko kuch nhi hoga, wo sb object ke  prototypes me chale jayenge
+obj.prototype.getname = function(){
+    return this.name;
+}
+//ape object ko edit krna,global objects ko nhi,wo sbme change krega
+let a=new obj("rishi");
+console.log(a);
