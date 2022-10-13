@@ -1,0 +1,31 @@
+class Solution {
+public:
+    vector<int> luckyNumbers (vector<vector<int>>& matrix) {
+        vector<int> row,column,v;
+        for(auto i: matrix)
+        {
+            int ans=INT_MAX;
+            for(auto j:i)
+                ans=min(j,ans);
+                cout<<ans<<" ";
+            row.push_back(ans);
+        }
+        for(int i=0;i<matrix[0].size();i++)
+        {
+            int ans=INT_MIN;
+            for(int j=0;j<matrix.size();j++)
+            ans=max(ans,matrix[j][i]);
+            cout<<endl<<ans;
+            column.push_back(ans);
+        }
+        for(int i=0;i<matrix.size();i++)
+        {
+            for(int j=0;j<matrix[0].size();j++)
+            {
+                if(matrix[i][j] == row[i] && matrix[i][j]==column[j])
+                    v.push_back(matrix[i][j]);
+            }
+        }
+        return v;
+    }
+};
