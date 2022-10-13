@@ -1,0 +1,14 @@
+class Solution {
+public:
+    int countElements(vector<int>& nums) {
+        map<int,int> m;
+        for(auto i:nums)
+            m[i]++;
+        int ans=nums.size();
+        auto it=m.begin();
+        ans -= it->second;
+        it = m.end();
+        it--;
+        return max(ans -it->second,0);
+    }
+};
