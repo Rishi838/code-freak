@@ -1,0 +1,23 @@
+class Solution {
+public:
+    int findLHS(vector<int>& nums) {
+        map<int,int> m;
+        for(auto i:nums)
+            m[i]++;
+        auto it = m.begin();
+        int ans=INT_MIN;
+        while(it!=m.end())
+        {
+            int a=it->first,b=it->second;
+            // ans = max(ans, b);
+            it++;
+            if(it!=m.end())
+            {
+                int c=it->first,d=it->second;
+                if(c==a+1)
+                ans = max(ans,b+d);
+            }
+        }
+        return max(ans,0);
+    }
+};
