@@ -1,0 +1,59 @@
+class Solution {
+public:
+    vector<string> findWords(vector<string>& words) {
+        string a = "qwertyuiop"; 
+        string b = "asdfghjkl";  
+        string c = "zxcvbnm"; 
+        vector<string> s;
+        for(auto i: words)
+        {
+            string t=i;
+           transform(i.begin(), i.end(), i.begin(), ::tolower);
+            if(a.find(i[0])>=0 && a.find(i[0]) <a.size())
+            {
+                // cout<<"Hello";
+                bool flag=true;
+               for(auto j:i){
+                   if(a.find(j)<0 || a.find(j) >=a.size())
+                   {
+                       flag=false;
+                       break;
+                   }
+               } 
+                // cout<<flag;
+                if(!flag)
+                    continue;
+            }
+             if(b.find(i[0])>=0 && b.find(i[0]) <b.size())
+            {
+                // cout<<"Hello";
+                bool flag=true;
+               for(auto j:i){
+                   if(b.find(j)<0 || b.find(j) >=b.size())
+                   {
+                       flag=false;
+                       break;
+                   }
+               } 
+                if(!flag)
+                    continue;
+            }
+             if(c.find(i[0])>=0 && c.find(i[0]) <c.size())
+            {
+                // cout<<"Hello";
+                bool flag=true;
+               for(auto j:i){
+                   if(c.find(j)<0 || c.find(j) >=c.size())
+                   {
+                       flag=false;
+                       break;
+                   }
+               } 
+                if(!flag)
+                    continue;
+            }
+            s.push_back(t);
+        }
+        return s;
+    }
+};
