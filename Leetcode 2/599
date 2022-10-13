@@ -1,0 +1,30 @@
+class Solution {
+public:
+    vector<string> findRestaurant(vector<string>& list1, vector<string>& list2) {
+        map<string ,int> m;
+        for(int i=0;i<list1.size();i++)
+        {
+            auto it = find(list2.begin(),list2.end(),list1[i]);
+            if(it != list2.end())
+            {
+                m[list1[i]] += i + distance(list2.begin(),it);
+            }
+        }
+        int ans=INT_MAX;
+        vector<string> v;
+        for(auto i:m)
+        {
+            if(i.second < ans)
+            {
+                v.clear();
+                v.push_back(i.first);
+                ans=i.second;
+            }
+            else if(i.second==ans)
+            {
+                v.push_back(i.first);
+            }
+        }
+        return v;
+    }
+};
