@@ -1,0 +1,39 @@
+class Solution {
+public:
+    int calPoints(vector<string>& o) {
+        stack<int> s;
+        for(auto i:o)
+        {
+            if(i=="C")
+            {
+                cout<<"popped "<<s.top()<<endl;
+                s.pop();
+            }
+            else if(i=="D")
+            {
+                cout<<"pushed "<<s.top()*2<<endl;
+                s.push((s.top()*2));
+            }
+            else if(i=="+"){
+                int a=s.top();
+                s.pop();
+                int b=s.top();
+                s.push(a);
+                cout<<"Pushed "<<a+b<<endl;
+                s.push(a+b);
+            }
+            else
+            {
+                cout<<"Pushed "<<i<<endl;
+                s.push(stoi(i));
+            }
+        }
+        int a=0;
+        while(!s.empty())
+        {
+            a+=s.top();
+            s.pop();
+        }
+        return a;
+    }
+};
