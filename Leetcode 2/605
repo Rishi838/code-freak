@@ -1,0 +1,25 @@
+class Solution {
+public:
+    bool canPlaceFlowers(vector<int>& f, int n) {
+        
+        vector<int> v;    
+        for(int i=0;i<f.size();i++)
+        {
+           if(f[i]==1)
+            v.push_back(i);
+        }
+        if(v.size()==0)
+        {
+            int c= (f.size() + 1)/2;
+            return n<=c;
+        }
+        int c= v[0]/2;
+        for(int i=1;i<v.size();i++)
+        {
+            int a= v[i] - v[i-1] -3;
+            c += (a +1)/2;
+        }
+        c += ( f.size() - v[v.size()-1]  -1 ) /2;
+        return n<=c;
+    }
+};
