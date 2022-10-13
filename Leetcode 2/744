@@ -1,0 +1,22 @@
+class Solution {
+public:
+    char nextGreatestLetter(vector<char>& letters, char target) {
+        int  ans=INT_MAX;
+        char ch='Z';
+        for(auto i:letters)
+        {
+            if(i - target > 0)
+            {
+                if(i-target < ans)
+                {
+                    ans=i - target;
+                    ch=i;
+                }
+            }    
+                
+        }
+        if(ch=='Z')
+            return letters[0];
+        return ch;
+    }
+};
