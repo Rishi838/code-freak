@@ -1,0 +1,6 @@
+class Solution {
+public:
+    bool rotateString(string s, string goal) {
+        return s.length()==goal.length() && (s+s).find(goal) >=0 && (s+s).find(goal)<2*s.length();
+    }
+};
