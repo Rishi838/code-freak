@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int countWords(vector<string>& words1, vector<string>& words2) {
+        int c=0;
+        map<string,int> m,a;
+        for(auto i: words1)
+            m[i]++;
+        for(auto i:words2)
+            a[i]++;
+        for(auto i:m)
+        {
+            if(i.second==1 && a[i.first]==1)
+                c++;
+        }
+        return c;
+    }
+};
