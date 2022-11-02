@@ -1,0 +1,27 @@
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+
+class Solution {
+public:
+    TreeNode *func(TreeNode *r,int a)
+    {
+        if(r==NULL)
+            return NULL;
+        if(r->val==a)
+            return r;
+      if(func(r->left,a) !=NULL)
+          return func(r->left,a);
+      
+        return func(r->right,a);
+    }
+    TreeNode* getTargetCopy(TreeNode* original, TreeNode* cloned, TreeNode* target) {
+            return func(cloned,target->val);       
+     }
+};
