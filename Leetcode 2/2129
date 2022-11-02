@@ -1,0 +1,28 @@
+class Solution {
+public:
+    string capitalizeTitle(string s) {
+        // s";
+        int a=s.length(),i=0;
+        bool flag=true;
+        while(i<a){
+            int j=i;
+            while(j<a && s[j]!=' ')
+            j++;
+            if(j-i > 2)
+            {
+                s[i]=toupper(s[i]);
+                for(int a=i+1;a<j;a++)
+                    s[a]=tolower(s[a]);
+            }
+            else
+            {
+                for(int a=i;a<j;a++)
+                    s[a]=tolower(s[a]); 
+            }
+            cout<<i<<" "<<j<<endl;
+            i=j+1;
+            // break;
+        }
+        return s;
+    }
+};
