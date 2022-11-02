@@ -1,0 +1,41 @@
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    vector<int> v;
+    void func(TreeNode *r)
+    {
+       if(r==NULL)
+           return;
+        func(r->left);
+        v.push_back(r->val);
+        func(r->right);
+    }
+    TreeNode *func1(int i,TreeNode *r)
+    {
+        if(i==v.size())
+            return NULL;
+        r->left=NULL;
+        r->right=new TreeNode(v[i]);
+        func1(i+1,r->right);
+        return r;
+        
+    }
+    TreeNode* increasingBST(TreeNode* root) {
+        TreeNode* r=new TreeNode(0);
+        func(root);
+        
+        r = func1(0,r);
+        return r->right;
+            
+    }
+};
