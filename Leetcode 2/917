@@ -1,0 +1,30 @@
+class Solution {
+public:
+    string reverseOnlyLetters(string s) {
+        string t,ans;
+        for(auto i:s){
+            if(i>='a' && i<='z')
+                t+=i;
+            if(i>='A' && i<='Z')
+                t+=i;
+        }
+        reverse(t.begin(),t.end());
+        int j=0;
+        for(auto i:s)
+        {
+               if(i>='a' && i<='z')
+               {
+                   ans+=t[j];
+                   j++;
+               }
+               else if(i>='A' && i<='Z')
+              {
+                   ans+=t[j];
+                   j++;
+               }
+            else
+                ans+=i;
+        }
+        return ans;
+    }
+};
