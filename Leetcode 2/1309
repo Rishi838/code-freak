@@ -1,0 +1,33 @@
+class Solution {
+public:
+    string freqAlphabets(string s) {
+        string t;
+        map<char , char> m;
+        char ch='a';
+        for( char i='1';i<='9';i++)
+            m[i]=ch++;
+        map<string,char> mp;
+        for(int i=10;i<=26;i++)
+        {
+            string str= to_string(i) + "#";
+            mp[str]=ch++;
+        }
+        for(int i=s.length()-1;i>=0;i--)
+        {
+            if(s[i]=='#')
+            {
+                string st= s.substr(i-2,3);
+                cout<<st<<" "<<mp[st];
+                t=mp[st]+t;
+                i-=2;
+            }
+            else{
+                t=m[s[i]] + t;
+                cout<<s[i]<<" "<<m[s[i]];
+            }
+            cout<<endl;
+                
+        }
+        return t;
+    }
+};
