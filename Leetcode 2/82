@@ -1,0 +1,42 @@
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* deleteDuplicates(ListNode* head) {
+        set<int> a,s;
+        while(head!=NULL)
+        {
+            if(a.find(head->val)!=a.end())
+                s.erase(head->val);
+            else
+                s.insert(head->val);
+            a.insert(head->val);
+            head=head->next;
+        }
+        ListNode *h=NULL,*temp;
+        for(auto i:s)
+        {
+            if(h==NULL)
+            {
+                cout<<"Hello ";
+                h=new ListNode(i);
+                temp=h;
+            }
+            else
+            {
+                ListNode *a=new ListNode(i);
+                temp->next=a;
+                temp=a;
+            }
+        }
+        return h;
+    }
+};
