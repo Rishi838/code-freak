@@ -1,0 +1,17 @@
+class Solution {
+public:
+    vector<int> sumZero(int n) {
+        vector<int> v;
+       int a=n/2,b=1;
+        while(a--)
+        {
+            v.push_back(b);
+            v.push_back(-b);
+            b++;
+        }
+        if(n%2==1)
+            v.push_back(0);
+        return v;
+        
+    }
+};
