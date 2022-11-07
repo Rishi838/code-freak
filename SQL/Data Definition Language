@@ -1,0 +1,14 @@
+show databases;  -- Show All available Databases
+use rishidhingra; --Use rishidhingra as a database to create tables
+create table employees(   --create table
+emp_id int not null,
+first_name varchar(10),
+last_name varchar(20),
+salary int not null,
+primary key (emp_id)
+);
+alter table employees add column contact int;   -- add column using alter command
+describe employees;    -- dive description of complete table
+alter table employees rename column contact to job_code;   --rename the column
+describe employees;
+drop table employees;
