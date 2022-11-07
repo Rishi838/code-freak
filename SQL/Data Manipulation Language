@@ -1,0 +1,5 @@
+insert into employees (emp_id,first_name,last_name,salary) VALUES (1,'Rishi','Dhingra',1000000000);
+insert into employees (emp_id,first_name,last_name,salary) VALUES (2,'Abhisek','Tyagi',100000000);
+update employees set last_name ='Bachan' where emp_id=2;
+delete from employees where emp_id in (1,2);
+select *from employees
