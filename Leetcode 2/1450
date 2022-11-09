@@ -1,0 +1,13 @@
+class Solution {
+public:
+    int busyStudent(vector<int>& a, vector<int>& b, int q) {
+        int c=0;
+        for(int i=0;i<a.size();i++)
+        {            
+                 if(q>= a[i] && q<=b[i])
+                     c++;
+
+        }
+        return c;
+    }
+};
