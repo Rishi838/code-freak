@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int rearrangeCharacters(string s, string target) {
+        map<char,int> m,p;
+        int ans=INT_MAX;
+        for(auto i:s)
+            m[i]++;
+        for(auto i: target)
+           p[i]++;
+        for(auto i:p)
+        {
+            if(m[i.first]==0)
+                return 0;
+            ans=min(ans,m[i.first]/p[i.first]);
+            
+        }
+        return ans;
+    }
+};
