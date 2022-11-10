@@ -1,0 +1,16 @@
+class Solution {
+public:
+    int countAsterisks(string s) {
+        bool flag=true;
+        int c=0,ans=0;
+        for(auto i: s)
+        {
+            if(flag && i=='*')
+                ans++;
+            if(i=='|')
+                flag=!flag;
+           
+        }
+        return ans;
+    }
+};
