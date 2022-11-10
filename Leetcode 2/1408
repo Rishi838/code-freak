@@ -1,0 +1,18 @@
+class Solution {
+public:
+    vector<string> stringMatching(vector<string>& words) {
+        vector<string> v;
+        for(int i=0;i<words.size();i++)
+        {
+            for(int j=0;j<words.size();j++)
+            {
+                string a=words[j],b=words[i];
+                if(i!=j && a.find(b) >= 0 && a.find(b) < a.size()){
+                    v.push_back(words[i]);
+                    break;
+                }
+            }
+        }
+        return v;
+    }
+};
