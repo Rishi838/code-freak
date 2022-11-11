@@ -1,0 +1,17 @@
+class Solution {
+public:
+    bool func(string s)
+        {
+            string a=s;
+          reverse(s.begin(),s.end());
+            return a==s;
+        }
+    string firstPalindrome(vector<string>& words) {
+      for(auto i:words)
+      {
+          if(func(i))
+              return i;
+      }
+        return "";
+    }
+};
