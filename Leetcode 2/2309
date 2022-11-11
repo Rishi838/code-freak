@@ -1,0 +1,15 @@
+class Solution {
+public:
+    string greatestLetter(string s) {
+        string ans;
+        for(char a='Z'; a>='A';a--){
+            char ch=tolower(a);
+            if(s.find(a)>=0 && s.find(ch) >=0 && s.find(a)<s.size() && s.find(ch) < s.size())
+            {
+                ans+=a;
+                break;
+            }
+        }
+        return ans;
+    }
+};
