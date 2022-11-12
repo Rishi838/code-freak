@@ -1,0 +1,28 @@
+class Solution {
+public:
+    vector<int> productExceptSelf(vector<int>& nums) {
+        int p=1,c=1,d=0;
+        for(auto i:nums)
+        {
+            p*=i;
+            if(i!=0)
+                c*=i;
+            if(i==0)
+                d++;
+        }
+        vector<int> v;
+        for(auto i :nums){
+            if(i==0)
+            {
+                if(d>1)
+                    v.push_back(0);
+                else if(d==1)
+                    v.push_back(c);
+                    
+            }
+            else
+            v.push_back(p/i);
+        }
+        return v;
+    }
+};
