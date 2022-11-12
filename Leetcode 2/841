@@ -1,0 +1,22 @@
+class Solution {
+public:
+    void func(vector<bool> &a,vector<vector<int>> v,int i){
+        for(int j=0;j<v[i].size();j++)
+        {
+            if(a[v[i][j]]==false)
+            {
+                a[v[i][j]]=true;
+                func(a,v,v[i][j]);
+            }
+            
+        }
+    }
+    bool canVisitAllRooms(vector<vector<int>>& rooms) {
+        vector<bool> v(rooms.size(),true),a(rooms.size(),false);
+        a[0]=true;
+        func(a,rooms,0);
+        for(auto i:a)
+            cout<<i<<" ";
+        return v==a;
+    }
+};
