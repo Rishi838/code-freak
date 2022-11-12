@@ -1,0 +1,21 @@
+class Solution {
+public:
+    int mostFrequentEven(vector<int>& nums) {
+        map<int,int> m;
+        for(auto i:nums)
+        {
+            if(i%2==0)
+                m[i]++;
+        }
+        int ans=INT_MIN,a;
+        for(auto i:m)
+            {
+             if(i.second> ans)
+             {
+                 ans=max(ans,i.second);
+                 a=i.first;
+             }
+        }
+        return ans==INT_MIN?-1:a;
+    }
+};
