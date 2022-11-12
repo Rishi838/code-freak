@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int partitionString(string s) {
+        int c=0;
+        map<char,int> m;
+        for(int i=0;i<s.size();i++)
+        {
+            m[s[i]]++;
+            if(m[s[i]]==2)
+            {
+                cout<<i<<" "<<m[s[i]]<<endl;
+                m.clear();
+                c++;
+                m[s[i]]++;
+            }
+        }
+        return c==0? 1:c+1;
+    }
+};
