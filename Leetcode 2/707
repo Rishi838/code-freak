@@ -1,0 +1,55 @@
+class MyLinkedList {
+public:
+   deque<int> dq;
+    MyLinkedList() {
+        
+    }
+    
+    int get(int index) {
+        if(index>=dq.size())
+            return -1;
+        return dq[index];
+    }
+    
+    void addAtHead(int val) {
+       dq.push_front(val);
+    }
+    
+    void addAtTail(int val) {
+        dq.push_back(val);
+
+    }
+    
+    void addAtIndex(int index, int val) {
+        deque<int> a;
+        for(int i=0;i<=dq.size();i++)
+        {
+            if(i==index)
+                a.push_back(val);
+            if(i<dq.size())
+            a.push_back(dq[i]);
+        }
+        dq=a;
+    }
+    
+    void deleteAtIndex(int index) {
+         deque<int> a;
+        for(int i=0;i<dq.size();i++)
+        {
+            if(i!=index)
+                a.push_back(dq[i]);
+          
+        }
+        dq=a;
+    }
+};
+
+/**
+ * Your MyLinkedList object will be instantiated and called as such:
+ * MyLinkedList* obj = new MyLinkedList();
+ * int param_1 = obj->get(index);
+ * obj->addAtHead(val);
+ * obj->addAtTail(val);
+ * obj->addAtIndex(index,val);
+ * obj->deleteAtIndex(index);
+ */
