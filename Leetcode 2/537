@@ -1,0 +1,33 @@
+class Solution {
+public:
+    string complexNumberMultiply(string num1, string num2) {
+     string p;
+        int i;
+        for(i=0;i<num1.size();i++)
+        {
+            if(num1[i]=='+')
+                break;
+            p+=num1[i];
+        }
+        
+         int a=stoi(p);
+        p="";
+        for(int j=i+1;j<num1.size()-1;j++)
+            p+=num1[j];
+        int b=stoi(p);
+        p="";
+       for(i=0;i<num2.size();i++)
+        {
+            if(num2[i]=='+')
+                break;
+            p+=num2[i];
+        }
+         int c=stoi(p);
+        p="";
+        for(int j=i+1;j<num2.size()-1;j++)
+            p+=num2[j];
+        int d=stoi(p);
+        cout<<a<<" "<<b<<" "<<c<<" "<<d<<endl;
+        return to_string((a*c) - (d*b)) + "+" + to_string(a*d + b*c) +"i";
+    }
+};
