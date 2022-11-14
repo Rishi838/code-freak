@@ -1,0 +1,22 @@
+class Solution {
+public:
+    string makeFancyString(string s) {
+        string t;
+        int i=0;
+        while(i<s.size())
+        {
+            char ch=s[i];
+            int c=0;
+            while(i<s.size() && s[i]==ch){
+                i++;
+                c++;
+            }
+            if(c>=3)
+            c = 2;
+            while(c--)
+                t+=ch;
+            
+        }
+        return t;
+    }
+};
