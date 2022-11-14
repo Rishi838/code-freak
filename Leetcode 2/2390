@@ -1,0 +1,22 @@
+class Solution {
+public:
+    string removeStars(string s) {
+        if(s.find('*')>s.size())
+            return s;
+        stack<char> st;
+        for(auto i:s)
+        {
+            if(i=='*')
+                st.pop();
+            else
+                st.push(i);
+        }
+        string t;
+        while(!st.empty())
+        {
+            t = st.top() + t;
+            st.pop();
+        }
+        return t;
+    }
+};
