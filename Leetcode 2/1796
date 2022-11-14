@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int secondHighest(string st) {
+        set<int> s;
+        for(auto i:st)
+        {
+            if(i>='0' && i<='9')
+                s.insert(i-'0');
+        }
+        if(s.size()<2)
+            return -1;
+     auto it =s.end();
+        it--;
+        it--;
+        return *it;
+    }
+};
