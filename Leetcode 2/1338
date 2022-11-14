@@ -1,0 +1,23 @@
+class Solution {
+public:
+    int minSetSize(vector<int>& arr) {
+        map<int,int> m;
+        for(auto i:arr)
+            m[i]++;
+        priority_queue<int> pq;
+        for(auto i:m){
+            pq.push(i.second);
+            cout<<i.second<<" ";
+        }
+        int a=0,b=0;
+        while(a<arr.size()/2)
+        {
+            //cout<<pq.top()<<" ";
+            a += pq.top();
+            b++;
+            pq.pop();
+            // cout<<a<<endl;
+        }
+        return b;
+    }
+};
