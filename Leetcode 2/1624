@@ -1,0 +1,25 @@
+class Solution {
+public:
+    int maxLengthBetweenEqualCharacters(string s) {
+        map<char,int> m,p;
+        int c=0;
+        for(auto i:s)
+        {
+            if(m.find(i)==m.end())
+                m[i]=c;
+            c++;
+        }
+         for(int i=s.size();i>=0;i--)
+        {
+            if(p.find(s[i])==p.end())
+                p[s[i]]=i;
+        }
+        int ans=INT_MIN;
+        for(auto i: m)
+        {
+            if(p.find(i.first) != p.end())
+                ans=max(ans,p[i.first] - i.second -1 );
+        }
+            return ans;
+    }
+};
