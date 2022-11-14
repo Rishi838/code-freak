@@ -1,0 +1,33 @@
+class Solution {
+public:
+    string reformat(string s) {
+        vector<char> a,b,temp;
+        for(auto i:s)
+        {
+            if(i>='0' && i<='9')
+                a.push_back(i);
+            else
+                b.push_back(i);
+        }
+        int c=a.size()-b.size();
+         if(abs(c)>1)
+            return "";
+        if(b.size()>a.size())
+        {
+            temp=a;
+            a=b;
+            b=temp;
+        }
+            string t;
+        int i;
+            for(i=0;i<b.size();i++)
+            {
+                t+=a[i];
+                t+=b[i];
+            }
+        if(i<a.size())
+            t+=a[i];
+        return t;
+        
+    }
+};
