@@ -19,6 +19,6 @@ public:
     int sumRootToLeaf(TreeNode* root) {
         int sum=0;
         func(root,sum,"");
-        return sum;
+        return s
     }
 }
