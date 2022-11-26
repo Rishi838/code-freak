@@ -1,0 +1,14 @@
+class Solution {
+public:
+    string defangIPaddr(string ans) {
+        string s;
+        for(auto i:ans)
+        {
+            if(i=='.')
+                s += "[.]";
+            else
+                s+=i;
+        }
+        return s;
+    }
+};
