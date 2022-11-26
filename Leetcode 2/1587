@@ -1,0 +1,1 @@
+select u.name , (select sum(amount) from transactions where account=u.account) as Balance from users u where (select sum(amount) from transactions where account=u.account) >10000;
