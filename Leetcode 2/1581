@@ -1,0 +1,1 @@
+select v.customer_id,count(v.customer_id) as count_no_trans from visits v where (select count(*) from transactions where visit_id = v.visit_id) = 0 group by v.customer_id;
