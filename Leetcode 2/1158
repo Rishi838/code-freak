@@ -1,0 +1,1 @@
+select u.user_id as buyer_id, u.join_date ,(select count(order_date) from orders where year(order_date) = 2019 and buyer_id = u.user_id) as orders_in_2019 from users u;
