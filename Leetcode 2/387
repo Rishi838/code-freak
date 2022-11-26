@@ -1,0 +1,16 @@
+class Solution {
+public:
+    int firstUniqChar(string s) {
+        map<char,int> m;
+        for(auto i:s)
+        m[i]++;
+        int a=0;
+        for(auto i:s)
+        {
+            if(m[i]==1)
+                return a;
+            a++;
+        }
+        return -1;
+    }
+};
