@@ -1,0 +1,17 @@
+class Solution {
+public:
+    bool areNumbersAscending(string s) {
+          int num,prev=0;
+        for(int i=0;i<s.length();i++){
+            if(isdigit(s[i])){
+                num=s[i]-48;
+                if(isdigit(s[i+1])){
+                    num+=num*10+(s[i+1]-48);
+                    i++;
+                }
+                if(num<=prev) return false;
+                prev=num;
+            } }
+            return true;
+    }
+};
