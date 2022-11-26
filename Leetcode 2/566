@@ -1,0 +1,36 @@
+class Solution {
+public:
+    vector<vector<int>> matrixReshape(vector<vector<int>>& mat, int r, int c) {
+        int column=mat.size();
+        int row=mat[0].size();
+        if(row*column!=r*c)
+        {
+            return mat;
+        }
+        vector<int> matrix;
+        for(int i=0;i<mat.size();i++)
+        {
+            for(int j=0;j<mat[i].size();j++)
+            {
+       matrix.push_back(mat[i][j]);
+            }
+        }
+        
+        vector<int> vec;
+        vector<vector<int>> v;
+        int a=0;
+        for(int j=0;j<r;j++)
+        {
+        for(int i=0;i<c;i++)
+        {
+        
+            vec.push_back(matrix[a]);
+            a++;
+        }
+            v.push_back(vec);
+            vec.clear();
+        }
+        return v;
+         
+    }
+};
