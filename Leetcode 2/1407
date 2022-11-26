@@ -1,0 +1,5 @@
+# Write your MySQL query statement below
+select u.name , case
+when (select sum(distance) from rides where user_id =u.id) is Null then 0
+else  (select sum(distance) from rides where user_id =u.id)
+end as travelled_distance from users u order by  (select sum(distance) from rides where user_id =u.id) desc, u.name;
