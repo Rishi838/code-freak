@@ -1,0 +1,139 @@
+class Solution {
+public:
+    bool isValidSudoku(vector<vector<char>>& board) {
+        map<char,int> m;
+        for(int i=0;i<9;i++)
+        {
+              for(int j=0;j<9;j++)
+              {
+                m[board[i][j]] ++;
+                  if(m[board[i][j]] > 1 && board[i][j]!='.')
+                  {
+                    return false;
+                  }
+              }
+            m.clear();
+        }
+        for(int i=0;i<9;i++)
+        {
+            for(int j=0;j<9;j++)
+            {
+               m[board[j][i]] ++ ;
+                if(m[board[j][i]] > 1 && board[j][i] !='.')
+                 {
+                    return false;
+                }
+            }
+            m.clear();
+        }
+        
+        for(int i=0;i<3;i++)
+        {
+         for(int j=0;j<3;j++)
+         {
+            m[board[i][j]] ++;
+             if(board[i][j] !='.' && m[board[i][j]] >1)
+             {
+                 return false;
+             }
+         }
+        }
+        m.clear();
+        for(int i=3;i<6;i++)
+        {
+         for(int j=0;j<3;j++)
+         {
+            m[board[i][j]] ++;
+             if(board[i][j] !='.' && m[board[i][j]] >1)
+             {
+                 return false;
+             }
+         }
+        }
+        m.clear();
+        for(int i=6;i<9;i++)
+        {
+         for(int j=0;j<3;j++)
+         {
+            m[board[i][j]] ++;
+             if(board[i][j] !='.' && m[board[i][j]] >1)
+             {
+                 return false;
+             }
+         }
+        }
+        m.clear();
+        for(int i=0;i<3;i++)
+        {
+         for(int j=3;j<6;j++)
+         {
+            m[board[i][j]] ++;
+             if(board[i][j] !='.' && m[board[i][j]] >1)
+             {
+                 return false;
+             }
+         }
+        }
+                m.clear();
+        for(int i=0;i<3;i++)
+        {
+         for(int j=6;j<9;j++)
+         {
+            m[board[i][j]] ++;
+             if(board[i][j] !='.' && m[board[i][j]] >1)
+             {
+                 return false;
+             }
+         }
+        }
+                m.clear();
+        for(int i=3;i<6;i++)
+        {
+         for(int j=3;j<6;j++)
+         {
+            m[board[i][j]] ++;
+             if(board[i][j] !='.' && m[board[i][j]] >1)
+             {
+                 return false;
+             }
+         }
+        }
+                 m.clear();
+        for(int i=3;i<6;i++)
+        {
+         for(int j=6;j<9;j++)
+         {
+            m[board[i][j]] ++;
+             if(board[i][j] !='.' && m[board[i][j]] >1)
+             {
+                 return false;
+             }
+         }
+        }
+                 m.clear();
+        for(int i=6;i<9;i++)
+        {
+         for(int j=3;j<6;j++)
+         {
+            m[board[i][j]] ++;
+             if(board[i][j] !='.' && m[board[i][j]] >1)
+             {
+                 return false;
+             }
+         }
+        }
+                  m.clear();
+        for(int i=6;i<9;i++)
+        {
+         for(int j=6;j<9;j++)
+         {
+            m[board[i][j]] ++;
+             if(board[i][j] !='.' && m[board[i][j]] >1)
+             {
+                 return false;
+             }
+         }
+        }
+        return true;
+    }
+};
