@@ -1,0 +1,25 @@
+class Solution {
+public:
+    bool searchMatrix(vector<vector<int>>& matrix, int target) {
+        for(int i=1;i<matrix.size();i++)
+        {
+           
+            if(matrix[i][0]>target)
+            {
+                for(int j=0;j<matrix[i].size();j++)
+                {
+                    if(matrix[i-1][j]==target)
+                    return true;
+                }
+                return false;
+            }
+        }
+         for(int j=0;j<matrix[0].size();j++)
+                {
+             // cout<<matrix[matrix.size()-1][j]<<;
+                    if(matrix[matrix.size()-1][j]==target)
+                    return true;
+                }
+                return false;
+    }
+};
