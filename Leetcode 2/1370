@@ -1,0 +1,39 @@
+class Solution {
+public:
+    string sortString(string s) {
+        map<char,int> m;
+        for(auto i:s)
+            m[i]++;
+        string t;
+        while(1)
+        {
+            for(auto i:m)
+            {
+                
+                if(i.second >= 1)
+                {
+                    t+=i.first;
+                    m[i.first]-=1;
+                }              
+            }
+            bool flag=true;
+            string a;
+            for(auto i:m)
+            {
+                if(i.second >= 1)
+                {
+                    a+=i.first;
+                    m[i.first]-=1;
+                }
+                if(i.second!=0)
+                    flag=false;
+            }
+            reverse(a.begin(),a.end());
+            t+=a;
+            if(flag)
+                break;
+         }
+      
+        return t;
+    }
+};
