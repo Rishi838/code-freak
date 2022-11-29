@@ -1,0 +1,24 @@
+class Solution {
+public:
+    bool checkDistances(string s, vector<int>& distance) {
+     map<char,int> m;
+        for(int i=0;i<s.size();i++)
+        {
+            if(m.find(s[i])!=m.end())
+            {
+                m[s[i]]= i -m[s[i]];
+            }
+            else
+            {
+                m[s[i]]=i;
+            }
+        }
+        for(int i=0;i<distance.size();i++)
+        {
+            // cout<<distance[i]<<" "<<m[(char)(i + 97)]<<endl;
+            if(s.find((char)(i+97)) < s.size() && distance[i]+1!=m[(char)(i + 97)])
+                return false;
+        }
+        return true;
+    }
+};
