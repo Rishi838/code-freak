@@ -1,0 +1,41 @@
+class Solution {
+public:
+    int nextGreaterElement(int n) {
+        vector<int> v;
+        while(n)
+        {
+            v.push_back(n%10);
+            n/=10;
+        }
+        bool flag=true;
+        for(int i=1;i<v.size();i++)
+        {
+            int j=i,a=INT_MAX,b=-1;
+            while(j--)
+            {
+                if(v[j] > v[i] && v[j] < a )
+                {
+                    a=v[j];
+                    b=j;
+                }
+            }
+            if(b!=-1)
+            {
+                flag=false;
+                swap(v[i],v[b]);
+                sort(v.begin(),v.begin()+i,greater<int>());
+                break;
+            }
+
+        }
+        if(flag)
+            return  -1;
+        long long sum=0;
+        for(int i=v.size()-1;i>=0;i--)
+            sum =sum*10 + v[i];
+        cout<<sum;
+        if(sum > 2147483647 || sum <-2147483648)
+         return -1;
+        return sum;
+    }
+};
