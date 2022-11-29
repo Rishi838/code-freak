@@ -1,0 +1,39 @@
+class MagicDictionary {
+public:
+    vector<string> v;
+    MagicDictionary() {
+        
+    }
+    
+    void buildDict(vector<string> dictionary) {
+        v=dictionary;
+    }
+    bool func(string a,string b){
+        if(b.size()!=a.size())
+            return false;
+        int c=0;
+        for(int i=0;i<a.size();i++)
+        {
+            if(a[i]!=b[i])
+                c++;
+            if(c>=2)
+                return false;
+        }
+        return c==1;
+    }
+    bool search(string s) {
+        for(auto i:v)
+        {
+            if(func(i,s))
+                return true;
+        }
+        return false;
+    }
+};
+
+/**
+ * Your MagicDictionary object will be instantiated and called as such:
+ * MagicDictionary* obj = new MagicDictionary();
+ * obj->buildDict(dictionary);
+ * bool param_2 = obj->search(searchWord);
+ */
