@@ -1,0 +1,29 @@
+class Solution {
+public:
+    void func(int n,string &s)
+    {
+        if(n==1)
+        {
+            s="1";
+            return;
+        }
+        func(n-1,s);
+        int i=0,j=s.size();
+        string t;
+        while(i<j){
+            char a=s[i];
+            int b=i;
+            while(i<j && s[i]==a)
+                i++;
+            t+= to_string(i-b);
+            t += a;
+            
+        }
+        s=t;
+    }
+    string countAndSay(int n) {
+        string t;
+        func(n,t);
+        return t;
+    }
+};
