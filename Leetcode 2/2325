@@ -1,0 +1,26 @@
+class Solution {
+public:
+    string decodeMessage(string key, string message) {
+        map<char,char> m;
+        char ch='a';
+        for(auto i:key)
+        {
+            if(m.find(i)!=m.end())
+                continue;
+           if(i!=' ')
+           {
+               m[i]=ch;
+               ch++;
+           }
+        }
+      m[' ']=' ';
+        string t;
+        for(int i=0;i<message.size();i++)
+        {
+            t+=m[message[i]];
+        }
+        return t;
+        
+        
+    }
+};
