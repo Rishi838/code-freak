@@ -1,0 +1,22 @@
+class Solution {
+public:
+    vector<int> pivotArray(vector<int>& nums, int pivot) {
+        vector<int> a,b,c,d;
+        for(auto i:nums)
+        {
+            if(i<pivot)
+                a.push_back(i);
+            else if(i==pivot)
+                b.push_back(i);
+            else
+                c.push_back(i);
+        }
+        for(auto i:a)
+            d.push_back(i);
+        for(auto i:b)
+            d.push_back(i);
+        for(auto i:c)
+            d.push_back(i);
+         return d;    
+}
+};
