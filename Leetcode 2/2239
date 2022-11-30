@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int findClosestNumber(vector<int>& nums) {
+      int ans,b=INT_MAX;
+        for(auto i:nums)
+        {
+            if(abs(i)<b)
+            {
+                ans=i;
+                b=abs(i);
+            }
+            if(abs(i)==b)
+                ans=max(ans,i);
+        }
+        return ans;
+    }
+};
