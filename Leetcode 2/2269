@@ -1,0 +1,22 @@
+class Solution {
+public:
+    int divisorSubstrings(int num, int k) {
+        int c=0;
+        string s=to_string(num);
+        int i=0,j=s.size();
+        while(i<=j-k)
+        {
+            string a=s.substr(i,k);
+            int b=stoi(a);
+            if(b==0)
+            {
+                i++;
+                continue;
+            }
+            if(num%b==0)
+                c++;
+            i++;
+        }
+        return c;
+    }
+};
