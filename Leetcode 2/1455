@@ -1,0 +1,23 @@
+class Solution {
+public:
+    int isPrefixOfWord(string sentence, string a) {
+        string s;
+        int j=1;
+        for(auto i:sentence)
+        {
+            if(i==' ')
+            {
+                if(s.find(a)==0)
+                    return j;
+                s="";
+                j++;
+            }
+            else
+            {
+             s+=i;
+            }
+        }
+         if(s.find(a)==0)
+                    return j;
+        
+        return -1;
