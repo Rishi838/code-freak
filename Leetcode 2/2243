@@ -1,0 +1,25 @@
+class Solution {
+public:
+    string digitSum(string s, int k) {
+        while(s.size()>k)
+        {
+            string t;
+            int i=0,b=s.size();
+            while(i<b)
+            {
+                int sum=0;
+               int c=k;
+                while(i<b && c--)
+                {
+                    sum += s[i]-48;
+                    i++;
+                }
+                // cout<<to_string(sum)<<endl;
+                t += to_string(sum);
+                cout<<t<<endl;
+            }
+            s=t;
+        }
+        return s;
+    }
+};
