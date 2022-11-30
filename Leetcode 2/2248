@@ -1,0 +1,19 @@
+class Solution {
+public:
+    vector<int> intersection(vector<vector<int>>& nums) {
+        set<int> s(nums[0].begin(),nums[0].end());
+        for(int i=1;i<nums.size();i++)
+        {
+            set<int> a(nums[i].begin(),nums[i].end());
+            for(auto i:s)
+            {
+                if(a.find(i)==a.end())
+                    s.erase(i);
+            }
+            if(s.size()==0)
+                break;
+        }
+        vector<int> v(s.begin(),s.end());
+        return v;
+    }
+};
