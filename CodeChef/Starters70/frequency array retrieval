@@ -1,0 +1,53 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int t;
+	scanf("%d",&t);
+	while(t--)
+	{
+	    int n;
+	    scanf("%d",&n);
+	    int arr[n];
+	    for(int i=0;i<n;i++)
+	    scanf("%d",&arr[i]);
+	    vector<int> v;
+	    map<int,pair<int,int>> m;
+	    int c=1;
+	    for(auto i:arr)
+	    {
+	        if(i==1)
+	        {
+	            v.push_back(c);
+	            c++;
+	            continue;
+	        }
+	        if(m.find(i)!=m.end())
+	        {
+	              v.push_back(m[i].second);
+	            if(m[i].first+1==i)
+	              m.erase(i);
+	            else
+	             m[i].first+=1;
+	        }
+	        else
+	        {
+	            v.push_back(c);
+	           m.insert({i,{1,c}});
+	            c++;
+	        }
+	       // cout<<m[i].first<<" "<<m[i].second<<endl;
+	    }
+
+	    if(m.size()>0)
+	    printf("-1\n");
+	    else
+	    {
+	        for(auto i:v)
+	        printf("%d ",i);
+	        printf("\n");
+	    }
+	}
+	return 0;
+}
