@@ -1,0 +1,33 @@
+class Solution {
+public:
+    int minDeletions(string s) {
+        map<int,int> a,b;
+        for(auto i:s)
+        a[i]++;
+        for(auto i:a)
+        b[i.second]++;
+        int c=0;
+        while(1)
+        {
+            auto it=b.rbegin();
+            //  cout<<it->first<<" "<<it->second<<" ";
+            if(it->first==1)
+            {
+                c+=it->second-1;
+                break;
+            }
+            if(b.size()==1 && it->second==1)
+            {
+                c+=it->second-1;
+                break;
+            }
+            c+=it->second-1;
+            if(it->second!=1)
+            b[it->first-1]+=it->second-1;
+        //    cout<<c<<endl;
+            b.erase(it->first);
+        }
+        return c;
+
+    }
+};
