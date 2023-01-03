@@ -1,0 +1,32 @@
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+   pair<int,int> func(TreeNode *root,int &d)
+   {
+       if(root==NULL)
+       return {0,0};
+       auto a=func(root->left,d);
+       auto b=func(root->right,d);
+       int x=a.first +b.first +root->val;
+       int y=a.second + b.second + 1;
+       cout<<root->val<<" "<<x<<" "<<y<<" "<<round(x/(float)y)<<endl;
+       if(x/y==root->val)
+       d++;
+       return {x,y};
+   }
+    int averageOfSubtree(TreeNode* root) {
+        int d=0;
+        func(root,d);
+        return d;
+    }
+};
