@@ -1,0 +1,31 @@
+class Solution {
+public:
+    string func(int n,int a)
+    {
+        string s;
+          while(n)
+          {
+            s += to_string(n%a);
+            n/=a;
+          }
+          return s;
+    }
+    bool isPalindrome(string S)
+   {
+    string P = S;
+    reverse(P.begin(), P.end());
+    if (S == P)
+        return 1;
+    else
+        return 0;
+   }
+    bool isStrictlyPalindromic(int n) {
+            for(int i=2;i<=n-2;i++)
+            {
+                string s=func(n,i);
+                if(!isPalindrome(s))
+                return false;
+            }
+            return true;
+    }
+};
