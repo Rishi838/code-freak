@@ -1,0 +1,33 @@
+class Solution {
+public:
+    vector<vector<int>> onesMinusZeros(vector<vector<int>>& grid) {
+        vector<int> a(grid.size()),b(grid[0].size());
+        for(int i=0;i<grid.size();i++)
+        {
+            int c=0;
+            for(auto j:grid[i])
+                if(j==0)
+                c++;
+            a[i]=c;
+            cout<<c;
+        }
+         for(int i=0;i<grid[0].size();i++)
+        {
+            int c=0;
+            for(int j=0;j<grid.size();j++)
+            if(grid[j][i]==0)
+            c++;
+           cout<<c;
+            b[i]=c;
+        }
+        vector<vector<int>> vec(grid.size(),vector<int>(grid[0].size()));
+        for(int i=0;i<grid.size();i++)
+        {
+            for(int j=0;j<grid[0].size();j++)
+            {
+                vec[i][j]=grid.size() + grid[0].size() -2*a[i] -2*b[j];
+            }
+        }
+        return vec;
+    }
+};
