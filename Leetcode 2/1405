@@ -1,0 +1,89 @@
+class Solution {
+public:
+    string func(int &a,int &b,int &c,int x)
+    {
+          if(x==a)
+          {
+          a--;
+          return "a";
+          }
+          else if(x==b)
+          {
+              b--;
+            return "b";
+          }
+          c--;
+          return "c";
+    }
+    string longestDiverseString(int a, int b, int c) {
+       string s;
+       while(1)
+       {
+           if(a==0 && b==0 && c==0)
+           break;
+           int x=max(a,max(b,c));
+           if(s.size()<2)
+           {
+               s += func(a,b,c,x);
+           }
+           else
+           {
+               string z=s.substr(s.size()-2);
+               if(z=="cc")
+               {
+                  if(a==0 && b==0)
+                  break;
+                  int x=max(a,b);
+                  if(x==a)
+                  {
+                    a--;
+                    s+="a";
+                  }
+                  else
+                  {
+                    b--; 
+                    s+="b";
+                  }
+               }
+               else if(z=="aa")
+               {
+                   if(c==0 && b==0)
+                   break;
+                    int x=max(c,b);
+                    if(x==c)
+                  {
+                    c--;
+                    s+="c";
+                  }
+                  else
+                  {
+                    b--; 
+                    s+="b";
+                  }
+               }
+               else if(z=="bb")
+               {
+                    if(c==0 && a==0)
+                    break;
+                     int x=max(a,c);
+                     if(x==a)
+                  {
+                    a--;
+                    s+="a";
+                  }
+                  else
+                  {
+                    c--; 
+                    s+="c";
+                  }
+               }
+               else 
+               {
+                    s += func(a,b,c,x);
+               }
+           }
+        //    cout<<s<<" "<<a<<" "<<b<<" "<<c<<endl;
+       } 
+       return s;
+    }
+};
