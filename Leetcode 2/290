@@ -1,0 +1,31 @@
+class Solution {
+public:
+    bool wordPattern(string pattern, string s) {
+        int i=0,j=0;
+        map<char,string> m;
+        map<string,char> z;
+        while(i<pattern.length())
+        {
+             string a;
+             while(j<s.length() && s[j]!=' ')
+             {
+                 a+=s[j];
+                 j++;
+             }
+             j++;
+             cout<<pattern[i] <<" "<<a<<endl;
+             if(a=="")
+             return false;
+             if(m.find(pattern[i])==m.end() && z.find(a)!=z.end())
+             return false;
+             if(m.find(pattern[i])!=m.end() && (m[pattern[i]]!=a || z[a]!=pattern[i]))
+             return false;
+             m[pattern[i]]=a;
+             z[a]=pattern[i];
+             i++;
+        }
+        if(j<s.length())
+        return false;
+        return true;
+    }
+};
