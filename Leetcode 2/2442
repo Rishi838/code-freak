@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int countDistinctIntegers(vector<int>& nums) {
+        set<int> s;
+        for(auto i:nums)
+        {
+            s.insert(i);
+            int num=0;
+            while(i)
+            {
+                num = num*10 + (i%10);
+                i/=10;
+            }
+          //  cout<<num<<endl;
+            s.insert(num);
+        }
+        return s.size();
+    }
+};
