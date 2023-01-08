@@ -1,0 +1,13 @@
+class Solution {
+public:
+    vector<int> lexicalOrder(int n) {
+        vector<string> v;
+        vector<int> vec;
+        for(int i=1;i<=n;i++)
+        v.push_back(to_string(i));
+        sort(v.begin(),v.end());
+        for(auto i:v)
+        vec.push_back(stoi(i));
+        return vec;
+    }
+};
