@@ -1,0 +1,21 @@
+class Solution {
+public:
+    int numSplits(string s) {
+        map<char,int> a,b;
+        for(auto i:s)
+        a[i]++;
+        if(a.size()==1)
+        return s.size()-1;
+        int c=0;
+        for(auto i:s)
+        {
+          b[i]++;
+          a[i]--;
+          if(a[i]==0)
+          a.erase(i);
+          if(a.size()==b.size())
+          c++;
+        } 
+        return c;
+    }
+};
