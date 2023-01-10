@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int numOfSubarrays(vector<int>& arr, int k, int t) {
+        int c=0,sum=0;
+        for(int i=0;i<k;i++)
+        {
+        sum+=arr[i];
+        // cout<<arr[i]<<" ";
+        }
+        // cout<<k<<" "<<sum<<endl;
+        float f=sum/(float)k;
+        if(f>=t)
+        c++;
+        for(int i=k;i<arr.size();i++)
+        {
+            sum+=arr[i] - arr[i-k];
+            // cout<<sum<<endl;
+              float f=sum/(float)k;
+                if(f>=t)
+              c++;
+        }
+        return c;
+    }
+};
