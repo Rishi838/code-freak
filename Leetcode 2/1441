@@ -1,0 +1,24 @@
+class Solution {
+public:
+    vector<string> buildArray(vector<int>& target, int n) {
+        vector<int> v;
+        vector<string> ans;
+        set<int> s(target.begin(),target.end());
+        for(int i=1;i<=n;i++)
+        {
+            if(s.find(i)!=s.end())
+            {
+                ans.push_back("Push");
+                v.push_back(i);
+                if(v==target)
+                return ans;
+            }
+            else
+            {
+                ans.push_back("Push");
+                ans.push_back("Pop");
+            }
+        }
+        return ans;
+    }
+};
