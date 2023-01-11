@@ -1,0 +1,21 @@
+class Solution {
+public:
+    int maxOperations(vector<int>& nums, int k) {
+        map<int,int> m;
+        for(auto i:nums)
+        m[i]++;
+        int c=0;
+        for(auto i:nums)
+        {
+            int a=m[i];
+            int b=m[k-i];
+            m.erase(i);
+            m.erase(k-i);
+            if(i+i==k)
+                c+=a/2;
+            else
+            c+=min(a,b);
+        }
+        return c;
+    }
+};
