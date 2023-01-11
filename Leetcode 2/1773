@@ -1,0 +1,18 @@
+class Solution {
+public:
+    int countMatches(vector<vector<string>>& items, string r, string rd) {
+        map<string,int> a,b,c;
+        for(auto i:items)
+        {
+            a[i[0]]++;
+            b[i[1]]++;
+            c[i[2]]++;
+        }
+        if(r=="type")
+        return a[rd];
+        if(r=="color")
+        return b[rd];
+        return c[rd];
+
+    }
+};
