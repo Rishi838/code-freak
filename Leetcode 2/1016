@@ -1,0 +1,22 @@
+class Solution {
+public:
+    string func(int i)
+    {
+        string s;
+        while(i)
+        {
+            s=to_string(i%2)+s;
+            i/=2;
+        }
+        return s;
+    }
+    bool queryString(string s, int n) {
+        for(int i=1;i<=n;i++)
+        {
+            cout<<func(i)<<" "<<s.find(func(i))<<endl;
+             if(s.find(func(i))>=s.size())
+             return false;
+        }
+        return true;
+    }
+};
