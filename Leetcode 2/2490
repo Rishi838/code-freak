@@ -1,0 +1,22 @@
+class Solution {
+public:
+    bool isCircularSentence(string s) {
+        if(s[0]!=s[s.size()-1])
+        return false;
+        char ch;
+        for(int j=0;j<s.size();j++)
+        {
+            char i=s[j];
+            if(i==' ')
+            {
+             j++;
+             if(ch!=s[j])
+             return false;
+             ch=s[j];
+            }
+            else
+            ch=i;
+        }
+        return true;
+    }
+};
