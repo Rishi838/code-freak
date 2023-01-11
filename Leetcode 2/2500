@@ -1,0 +1,18 @@
+class Solution {
+public:
+    int deleteGreatestValue(vector<vector<int>>& grid) {
+        for(int i=0;i<grid.size();i++)
+        sort(grid[i].begin(),grid[i].end());
+        int sum=0;
+        // cout<<grid.size()<<" "<<grid[0].size()<<endl;
+        for(int i=0;i<grid[0].size();i++)
+        {
+            int a=INT_MIN;
+            for(int j=0;j<grid.size();j++)
+            a=max(grid[j][i],a);
+            sum+=a;
+        }
+
+   return sum;
+    }
+};
