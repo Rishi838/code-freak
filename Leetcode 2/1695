@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int maximumUniqueSubarray(vector<int>& nums) {
+        map<int,int> m;
+         int i=0,j=0,ans=INT_MIN,sum=0;
+         while(i<nums.size())
+         {
+             m[nums[i]]++;
+             sum+=nums[i];
+             if(m[nums[i]]>1)
+             {
+                 while(j<i && m[nums[i]]!=1)
+                 {
+                     m[nums[j]]--;
+                     sum-=nums[j];
+                     j++;
+                 }
+             }
+             i++;
+             ans=max(ans,sum);
+         }
+         return ans;
+    }
+};
