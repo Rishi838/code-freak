@@ -1,0 +1,51 @@
+class Solution {
+public:
+   bool func(vector<vector<char>> m,char a)
+   {
+       if(m[0][0]==a && m[0][1]==a && m[0][2]==a)
+       return true;
+        if(m[1][0]==a && m[1][1]==a && m[1][2]==a)
+       return true;
+        if(m[2][0]==a && m[2][1]==a && m[2][2]==a)
+       return true;
+       if(m[0][0]==a && m[1][0]==a && m[2][0]==a)
+       return true;
+        if(m[0][1]==a && m[1][1]==a && m[2][1]==a)
+       return true;
+       if(m[0][2]==a && m[1][2]==a && m[2][2]==a)
+       return true;
+       if(m[0][0]==a && m[1][1]==a && m[2][2]==a)
+       return true; 
+        if(m[2][0]==a && m[1][1]==a && m[0][2]==a)
+       return true; 
+       return false;
+   }
+    string tictactoe(vector<vector<int>>& moves) {
+        bool flag=true;
+        vector<vector<char>> vec(3,vector<char>(3,' '));
+        for(auto i:moves)
+        {
+            if(flag)
+            {
+            vec[i[0]][i[1]]='X';
+            if(func(vec,'X'))
+            return "A";
+            }
+            else
+            {
+            vec[i[0]][i[1]]='O';
+             if(func(vec,'O'))
+            return "B";
+            }
+            flag=!flag;
+        }
+        for(auto i:vec)
+        {
+            for(auto j:i)
+              if(j==' ')
+              return "Pending";
+        }
+        return "Draw";
+
+    }
+};
