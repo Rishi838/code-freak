@@ -1,0 +1,35 @@
+class Solution {
+public:
+    int longestSubarray(vector<int>& nums) {
+        int i=0,c=0,ans=INT_MIN;
+        set<int> s(nums.begin(),nums.end());
+        if(s.size()==1)
+        {
+            if(*s.begin()==0)
+            return 0;
+            if(*s.begin()==1)
+            return nums.size()-1;
+        }
+        while(i<nums.size())
+        {
+            int a=0,b=0;
+            while(i<nums.size() && nums[i]==0)
+            {
+                a++;
+                i++;
+            }
+            while(i<nums.size() && nums[i]==1)
+            {
+                b++;
+                i++;
+            }
+            // cout<<a<<" "<<b<<" "<<c<<endl;
+            if(a==1)
+                ans=max(ans,c+b);
+            else 
+            ans=max(ans,b);
+             c=b;
+        }
+        return ans;
+    }
+};
