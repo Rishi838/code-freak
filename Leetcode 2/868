@@ -1,0 +1,33 @@
+class Solution {
+public:
+    string func(int n)
+    {
+        string s;
+        while(n)
+        {
+            s=to_string(n%2)+s;
+            n/=2;
+        }
+      return s;
+    }
+    int binaryGap(int n) {
+        string s=func(n);
+        // cout<<s<<endl;
+        int c=-1,ans=0,j=0;
+        for(auto i:s)
+        {
+            if(i=='1')
+            {
+                if(c==-1)
+                c=j;
+                else
+                {
+                    ans=max(j-c,ans);
+                    c=j;
+                }
+            }
+            j++;
+        }
+        return ans;
+    }
+};
