@@ -1,0 +1,21 @@
+class Solution {
+public:
+    int leastBricks(vector<vector<int>>& wall) {
+        map<int,int> m;
+        int s=0,ans=INT_MIN;
+        for(auto i:wall[0])
+        s+=i;
+        for(auto i:wall)
+        {
+            int sum=0;
+            for(auto j:i)
+            {
+                sum+=j;
+                if(sum!=s)
+                m[sum]++;
+                ans=max(ans,m[sum]);
+            }
+        }
+        return wall.size()-ans;
+    }
+};
