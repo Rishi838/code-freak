@@ -1,0 +1,28 @@
+class Solution {
+public:
+    int numOfPairs(vector<string>& nums, string target) {
+        map<string,int> m;
+        for(auto i:nums)
+        m[i]++;
+        for(auto i:m)
+        cout<<i.first<<" "<<i.second<<endl;
+        int ans=0;
+        for(auto i:nums)
+        {
+            if(i.length() > target.length())
+            continue;
+            else
+            {
+               string a=target.substr(i.length());
+            //    cout<<a<<" "<<i+a<<endl;
+               if(i+a==target && i+i!=target)
+               ans+=m[a];
+               else if(i+a==target && i+i == target)
+               ans += m[a]-1;
+    
+            //    cout<<ans<<endl;
+            }
+        }
+        return ans;
+    }
+};
