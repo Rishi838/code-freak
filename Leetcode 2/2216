@@ -1,0 +1,26 @@
+class Solution {
+public:
+    int minDeletion(vector<int>& nums) {
+      int i=0,c=0;;
+      while(i<nums.size())
+      {
+          if(i+1 >=nums.size())
+          {
+              c++;
+              break;
+          }
+          else
+          {
+             if(nums[i]==nums[i+1])
+             {
+                c++;
+                i++;
+             }
+             else{
+                 i+=2;
+             }
+          }
+      }   
+      return c;
+    }
+};
