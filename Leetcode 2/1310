@@ -1,0 +1,25 @@
+class Solution {
+public:
+    vector<int> xorQueries(vector<int>& arr, vector<vector<int>>& queries) {
+        vector<int> vec;
+        map<pair<int,int>,int> m;
+        for(auto i:queries)
+        {
+            int x=0;
+            if(m.find({i[0],i[1]})!=m.end())
+            {
+              vec.push_back(m[{i[0],i[1]}]);
+            }
+            else
+            {
+              for(int j=i[0] ;j<=i[1];j++)
+              {
+                x = (x^arr[j]);
+              }
+              m.insert({{i[0],i[1]},x});
+              vec.push_back(x);
+            }
+        }
+        return vec;
+    }
+};
