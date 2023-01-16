@@ -1,0 +1,15 @@
+class Solution {
+public:
+    bool asteroidsDestroyed(int mass, vector<int>& a) {
+        sort(a.begin(),a.end());
+        long long m=mass;
+        for(auto i:a)
+        {
+            if(m>=i)
+            m+=i;
+            else
+            return false;
+        }
+        return true;
+    }
+};
