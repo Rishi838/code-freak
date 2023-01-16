@@ -1,0 +1,30 @@
+class Solution {
+public:
+   bool func(map<char,int> m,map<char,int> n)
+   {
+       for(auto i:m)
+       {
+           if(i.second!=n[i.first])
+           return false;
+       }
+       return true;
+   }
+    vector<int> partitionLabels(string s) {
+        map<char,int> m,n;
+        for(auto i:s)
+        m[i]++;
+        vector<int> vec;
+        int c=0;
+        for(auto i:s)
+        {
+            n[i]++;
+            c++;
+            if(func(n,m))
+            {
+                vec.push_back(c);
+                c=0;
+            }
+        }
+        return vec;
+    }
+};
