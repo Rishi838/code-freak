@@ -1,0 +1,40 @@
+class Solution {
+public:
+    string mostCommonWord(string p, vector<string>& b) {
+        map<string,int> m;
+        set<string> st(b.begin(),b.end());
+        string s;
+        for(auto i:p)
+        {
+            if(i==' ' || i==',' || i=='.' || i==';' || i=='!' || i=='?' || i==39 )
+            {
+              if(s!="")   
+              m[s]++;
+              s="";
+            }
+            else
+            {
+            char a=tolower(i);
+            s+=a;
+            }
+        }
+         if(s!="")   
+         m[s]++;
+         s="";
+        int ans=INT_MIN;
+        for(auto i:m)
+        {
+            cout<<i.first<<" "<<i.second<<endl;
+            if(st.find(i.first)==st.end())
+            {
+                if(i.second > ans)
+                {
+                    ans=i.second;
+                    s=i.first;
+                }
+            }
+        }
+        cout<<m[""];
+        return s;
+    }
+};
