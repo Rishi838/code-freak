@@ -1,0 +1,33 @@
+class Solution {
+public:
+    int s(int n)
+    {
+        int sum=0;
+        while(n)
+        {
+            sum += (n%10);
+            n/=10;
+        }
+        return sum;
+    }
+    int maximumSum(vector<int>& nums) {
+        map<int,priority_queue<int>> m;
+        int ans=-1;
+        for(auto i:nums)
+        {
+            int sum=s(i);
+            m[sum].push(i);
+        }
+        for(auto i:m)
+        {
+            if(i.second.size()>=2)
+            {
+                int a=i.second.top();
+                i.second.pop();
+                a+=i.second.top();
+                ans=max(ans,a);
+            }
+        }
+        return ans;
+    }
+};
