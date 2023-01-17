@@ -1,0 +1,16 @@
+class Solution {
+public:
+    int rotatedDigits(int n) {
+        int c=0;
+        for(int i=1;i<=n;i++)
+        {
+            string s=to_string(i);
+            if(s.find('3')<s.size() || s.find('4')<s.size() || s.find('7')<s.size())
+            continue;
+            else if(s.find('2')<s.size() || s.find('5')<s.size() || s.find('6')<s.size() || s.find('9')<s.size())
+            c++;
+
+        }
+        return c;
+    }
+};
