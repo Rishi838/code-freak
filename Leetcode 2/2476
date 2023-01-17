@@ -1,0 +1,48 @@
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    vector<int>arr;
+    void dfs(TreeNode*root)
+    {
+        if(root==NULL)
+            return ;
+        
+        dfs(root->left);
+        arr.push_back(root->val);
+        dfs(root->right);
+        return;
+    }
+    vector<vector<int>> closestNodes(TreeNode* root, vector<int>& queries) 
+    {
+        /* we will use inorder traversal to put all the elements of binary search tree into the array */
+        dfs(root);  
+
+        vector<vector<int>>ans;
+        // return ans;
+        for(int i=0;i<queries.size();i++)
+        {
+            int ind=lower_bound(begin(arr),end(arr),queries[i])-begin(arr);// will get the index of element greater than or equal to query
+            vector<int>ansq(2,0);
+            
+            /* To find the smallest value greater than query */
+            ansq[1]=(ind==arr.size())?-1:arr[ind]; 
+            
+            /* To find the largest value greater than query */
+            if(ind<arr.size() and arr[ind]==queries[i]) ansq[0]=arr[ind];  
+            else if(ind == 0) ansq[0]=-1;
+            else  ansq[0]=arr[--ind]; /* since for this case the arr[ind] will be greater than one  */
+            ans.push_back(ansq);
+        }
+        return ans;
+    }
+};
