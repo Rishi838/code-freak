@@ -1,0 +1,61 @@
+class Solution {
+public:
+    string originalDigits(string s) {
+        map<char,int> m;
+        for(auto i:s)
+        m[i]++;
+        map<int,int> n;
+        n[0]=m['z'];
+        m['e']-=m['z'];
+        m['r']-=m['z'];
+        m['o']-=m['z'];
+        m['z']=0;
+        n[4]=m['u'];
+        m['f']-=m['u'];
+        m['r']-=m['u'];
+        m['o']-=m['u'];
+        m['u']=0;
+          n[2]=m['w'];
+        m['t']-=m['w'];
+        m['o']-=m['w'];
+         m['w']=0;
+        n[6]=m['x'];
+        m['s']-=m['x'];
+        m['i']-=m['x'];
+         m['x']=0;
+        n[8]=m['g'];
+        m['e']-=m['g'];
+        m['i']-=m['g'];
+        m['h']-=m['g'];
+        m['t']-=m['g'];
+         m['g']=0;
+        n[7]=m['s'];
+        m['e']-=2*m['s'];
+        m['v']-=m['s'];
+        m['n']-=m['s'];
+          m['s']=0;
+        n[5]=m['f'];
+        m['e']-=m['f'];
+        m['v']-=m['f'];
+        m['i']-=m['f'];
+         m['f']=0;
+      
+        n[3]=m['t'];
+        m['h']-=m['t'];
+        m['r']-=m['t'];
+        m['e']-=2*m['t'];
+        m['t']=0;
+        n[1]=m['o'];
+        n[9]=m['i'];
+        string t;
+          for(auto i:n)
+        {
+            int a=i.second;
+            // cout<<i.first<<" "<<i.second<<endl;
+            while(a--)
+            t+=to_string(i.first);
+        }
+        return t;
+
+    }
+};
