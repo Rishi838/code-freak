@@ -1,0 +1,15 @@
+class Solution {
+public:
+    int rangeBitwiseAnd(int left, int right) {
+        int a=left;
+        for(int i=left;i<right;i++)
+       {
+        //    cout<<i<<endl;
+         a = (a & i);
+         if(a==0)
+         return 0;
+       }
+        a = (a & right);
+       return a;
+    }
+};
