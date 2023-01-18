@@ -1,0 +1,26 @@
+class Solution {
+public:
+    int minMoves(int t, int m) {
+        int c=0;
+        while(t>1)
+        {
+           if(m==0)
+           {
+               c+=t-1;
+               break;
+           }
+           else if(t%2)
+           {
+               c+=1;
+               t-=1;
+           }
+           else
+           {
+               c+=1;
+               t/=2;
+               m--;
+           }
+        }
+        return c;
+    }
+};
