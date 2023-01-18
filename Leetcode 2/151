@@ -1,0 +1,28 @@
+class Solution {
+public:
+    string reverseWords(string s) {
+        vector<string> vec;
+        string a;
+        for(auto i:s)
+        {
+            if(i==' ')
+            {
+               if(a!="")
+               vec.push_back(a);
+               a="";
+            }
+            else
+            {            
+                a+=i;
+            }
+        }
+        if(a!="")
+        vec.push_back(a);
+        a="";
+        for(auto i:vec)
+        {
+            a = i + " " + a; 
+        }
+        return a.substr(0,a.size()-1);
+    }
+};
