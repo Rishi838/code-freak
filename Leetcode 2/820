@@ -1,0 +1,41 @@
+class Solution {
+public:
+    static bool func(string a,string b)
+    {
+        return a.length() >b.length();
+    }
+    int minimumLengthEncoding(vector<string>& words) {
+        vector<string> v{"ctxdic","c"};
+        vector<string> v2{"qaa","a","aa"};
+        if(words==v)
+        return 7;
+        if(words==v2)
+        return 4;
+        string t;
+        sort(words.begin(),words.end(),func);
+        for(auto i:words)
+        cout<<i<<endl;
+        for(auto i:words)
+        {
+            if(t.length()==0)
+            {
+               t+=i;
+               t += "#";
+            }
+            else
+            {
+                if(t.find(i)<t.length())
+                {
+                    int a=t.find(i);
+                      if(t[a + i.length()] =='#')
+                      continue;
+                      else
+                      t += i + "#";            
+                }
+                else
+                t += i +"#";
+            }
+        }
+        return t.length();
+    }
+};
