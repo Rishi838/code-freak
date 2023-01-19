@@ -1,0 +1,16 @@
+class Solution {
+public:
+    int numRabbits(vector<int>& answers) {
+        map<int,int> m;
+        for(auto i:answers)
+        m[i]++;
+        int c=0;
+        for(auto i:m)
+        {
+            int a=ceil(i.second/(float)(i.first +1));
+            cout<<a<<endl;
+            c+= (i.first+1)*a;
+        }
+        return c;
+    }
+};
