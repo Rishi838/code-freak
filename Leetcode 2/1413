@@ -1,0 +1,14 @@
+class Solution {
+public:
+    int minStartValue(vector<int>& nums) {
+        int s=INT_MAX,a=0;
+        for(auto i:nums)
+        {
+            a+=i;
+            s=min(s,a);
+        }
+        if(s>=0)
+        return 1;
+        return abs(s)+1;
+    }
+};
