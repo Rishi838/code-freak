@@ -1,0 +1,17 @@
+class Solution {
+public:
+    static bool func(pair<int,int> a,pair<int,int> b)
+    {
+        return a.second > b.second;
+    }
+    vector<vector<int>> sortTheStudents(vector<vector<int>>& score, int k) {
+        vector<pair<int,int>> c;
+        vector<vector<int>> vec;
+        for(int i=0;i<score.size();i++)
+        c.push_back({i,score[i][k]});
+        sort(c.begin(),c.end(),func);
+        for(auto i:c)
+        vec.push_back(score[i.first]);
+        return vec;
+    }
+};
