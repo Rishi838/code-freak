@@ -1,0 +1,40 @@
+class Solution {
+public:
+    bool validateStackSequences(vector<int>& pushed, vector<int>& popped) {
+        stack<int> st;
+        set<int> s;
+        int a=0;
+        for(auto i:pushed)
+        {
+            cout<<"Pushed "<<i<<endl;
+            st.push(i);
+            s.insert(i);
+            while(!st.empty() && st.top()==popped[a])
+            {
+                cout<<"popped "<<st.top()<<endl;
+                s.erase(st.top());
+                st.pop();
+                a++;
+            }
+            if(a<popped.size() && s.find(popped[a]) != s.end())
+            {
+               cout<<popped[i]<<"Returning false1\n";
+               return false;
+            }
+
+        }
+        while(!st.empty() && st.top()==popped[a])
+        {
+                            cout<<"popped "<<st.top()<<endl;
+            st.pop();
+            a++;
+        }
+        if(!st.empty())
+        {
+            cout<<"returning false\n";
+        return false;
+        }
+        cout<<"returning true\n";
+        return true;
+    }
+};
