@@ -1,0 +1,78 @@
+class Solution {
+public:
+    void func(stack<string> &s,int a)
+    {
+        if(s.top()=="(")
+        {
+            s.pop();
+            return;
+        }
+       string x=s.top();
+       s.pop();
+       string y=s.top();
+       s.pop();
+       int b=stoi(x)*a;
+       func(s,a);
+       s.push(y);
+       s.push(to_string(b));
+
+    }
+    string countOfAtoms(string s) {
+        stack<string> st;
+        map<string,int> m;
+        int i=0;
+       while(i<s.size())
+       {
+         if(s[i]==')')
+         { 
+           i++;
+           string t;
+            while(i<s.size() && isdigit(s[i]))
+             {
+                 t+=s[i];
+                 i++;
+             }
+             func(st,t=="" ? 1:stoi(t));
+         }
+         else if(s[i]=='(')
+         {
+         st.push("(");
+         i++;
+         }
+         else
+         {
+             string t;
+             t+=s[i];
+             i++;
+             while(i<s.size() && (s[i]>='a' && s[i]<='z'))
+             {
+                 t+=s[i];
+                 i++;
+             }
+             st.push(t);
+             t="";
+              while(i<s.size() && isdigit(s[i]))
+             {
+                 t+=s[i];
+                 i++;
+             }
+             st.push(t=="" ? "1":t);
+         }
+       }
+       while(!st.empty())
+       {
+          string x=st.top();
+          st.pop();
+          m[st.top()]+=stoi(x);
+          st.pop();
+       }
+       string t;
+       for(auto i:m)
+       {
+       t+=i.first;
+       if(i.second!=1)
+       t += to_string(i.second);
+
+       }return t;
+    }
+};
