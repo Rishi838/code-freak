@@ -1,0 +1,16 @@
+class Solution {
+public:
+    int differenceOfSum(vector<int>& nums) {
+        int a=0,b=0;
+        for(auto i:nums)
+        {
+            a+=i;
+            while(i)
+            {
+                b+=(i%10);
+                i/=10;
+            }
+        }
+        return abs(a-b);
+    }
+};
