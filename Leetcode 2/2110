@@ -1,0 +1,21 @@
+class Solution {
+public:
+    long long getDescentPeriods(vector<int>& nums) {
+         int i=0;
+        long long ans=0;
+        while(i<nums.size())
+        {
+            long long c=1;
+            int j=i+1;
+             while(j<nums.size() &&  nums[j]+1==nums[j-1])
+             {
+                 c++;
+                 j++;
+             }
+             i=j;
+             ans += ((c)*(c+1))/2;
+
+        }
+        return ans;
+    }
+};
