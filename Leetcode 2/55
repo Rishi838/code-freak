@@ -1,0 +1,33 @@
+class Solution {
+public:
+    bool canJump(vector<int>& nums) {
+        if(nums.size()==1)
+        return true;
+        int i=0,c=0;
+        while(i<nums.size())
+        {
+            if(nums[i]==0)
+            return false;
+            c++;
+            int a=nums[i];
+            if(i+nums[i]>=nums.size()-1)
+            return true;
+            int ans=i+nums[i],j=i+1,f=-1;
+            while(a--)
+            {
+               if(j+nums[j]>ans)
+               {
+                   ans=j+nums[j];
+                   f=j;
+                   i=j;
+               }
+            //    cout<<i<<" "<<f<<endl;
+               j++;
+            }
+             if(f==-1)
+               return false;
+            cout<<i<<endl;
+        }
+        return 1 ;
+    }
+};
