@@ -1,0 +1,21 @@
+class Solution {
+public:
+    bool checkZeroOnes(string s) {
+        int a=0,b=0,i=0;
+        while(i<s.length())
+        {
+            char x=s[i];
+            int c=0;
+            while(i<s.length() && s[i]==x)
+            {
+                i++;
+                c++;
+            }
+            if(x=='1')
+            a=max(a,c);
+            else
+            b=max(b,c);
+        }
+        return a>b;
+    }
+};
