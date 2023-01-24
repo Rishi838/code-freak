@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int minimumDeletions(string s) {
+        int a=0,b=0,x=0,y=0;
+        for(auto i:s)
+        {
+            if(i=='a')
+            a++;
+            else
+            b++;
+        }
+        int ans=INT_MAX;
+        for(auto i:s)
+        {
+           if(i=='a')
+           x++;
+           else
+           y++;
+           int p=a-x,q=b-y;
+           ans=min(ans,min(p+y,min(p+x,q+y)));
+        }
+        return ans;
+    }
+};
