@@ -1,0 +1,20 @@
+class Solution {
+public:
+    int countHomogenous(string s) {
+        int mod = 1000000007;
+        int i=0;
+        long long c=0;
+        while(i<s.length())
+        {
+            char ch=s[i];
+            long long p=0;
+            while(i<s.length() && s[i]==ch)
+            {
+            i++;
+            p++;
+            }
+            c = ((c%mod) + ( (((p%mod)*((p+1)%mod))/2)%mod  ))%mod;
+        }
+        return c%mod;
+    }
+};
