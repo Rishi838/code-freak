@@ -1,0 +1,24 @@
+class Solution {
+public:
+    bool checkOnesSegment(string s) {
+        bool flag=false;
+        int i=0;
+        while(i<s.length())
+        {
+            char x=s[i];
+            int c=0;
+            while(i<s.length() && s[i]==x)
+            {
+                i++;
+                c++;
+            }
+            if(x=='1')
+            {
+               if(flag)
+               return false;
+               flag=true;
+            }
+        }
+        return true;
+    }
+};
