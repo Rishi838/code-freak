@@ -1,0 +1,49 @@
+class Solution {
+public:
+    int minimumDeletions(vector<int>& nums) {
+        int a=INT_MIN,b=INT_MAX;
+        int c,d,p=0;
+        for(auto i:nums)
+        {
+            if(i<b)
+            {
+                b=i;
+                d=p;
+            }
+            if(i>a)
+            {
+                a=i;
+                c=p;
+            }
+            p++;
+        }
+        cout<<c<<" "<<d<<endl;
+        p=0;
+        int x=nums.size()-1-c;
+        int y=nums.size()-1-d;
+        cout<<x<<" "<<y;
+        p=min(x,min(y,min(c,d)));
+        cout<<endl<<p;
+        if(p==c)
+        {
+          p += min(d-c,y+1) +1;
+          return p;
+        }
+        else if(p==d)
+        {
+          p += min(c-d,x+1) +1;
+          return p;
+        }
+        else if(p==y)
+        {
+          p += 1 + min(c+1,d-c);
+          return p;
+        }
+        else
+        {
+          p += 1 + min(d+1,c-d);
+          return p;
+        }
+        return 1;
+    }
+};
