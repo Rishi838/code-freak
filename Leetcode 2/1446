@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int maxPower(string s) {
+        int i=0;
+        int c=0;
+        while(i<s.length())
+        {
+            char ch=s[i];
+            int p=0;
+            while(i<s.length() && s[i]==ch)
+            {
+            i++;
+            p++;
+            }
+            c=max(c,p);
+        }
+        return c;
+    }
+};
