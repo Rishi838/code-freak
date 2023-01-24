@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int numSub(string s) {
+        int mod = 1000000007;
+        int i=0;
+        long long c=0;
+        while(i<s.length())
+        {
+            if(s[i]=='0')
+            {
+                i++;
+                continue;
+            }
+            long long p=0;
+            while(i<s.length() && s[i]=='1')
+            {
+            i++;
+            p++;
+            }
+            c = ((c%mod) + ( (((p%mod)*((p+1)%mod))/2)%mod  ))%mod;
+        }
+        return c%mod;
+    }
+};
