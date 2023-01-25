@@ -1,0 +1,23 @@
+class Solution {
+public:
+    int minTimeToType(string word) {
+        char ch='a';
+        int a=0;
+        for(int i=0;i<word.size();i++)
+        {
+           if(word[i]==ch)
+           a++;
+           else if(word[i] > ch)
+           {
+               a += min(word[i] -ch , 26 -word[i] + ch) +1;
+           }
+           else
+           {
+               a += min(ch - word[i],26 - ch + word[i] )+1;
+           }
+           ch=word[i];
+            cout<<a<<" ";
+        }
+        return a;
+    }
+};
