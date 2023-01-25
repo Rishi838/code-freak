@@ -1,0 +1,52 @@
+class Solution {
+public:
+    vector<int> numSmallerByFrequency(vector<string>& queries, vector<string>& words) {
+        vector<int> q;
+        priority_queue<int> w;
+        for(auto i:queries)
+        {
+            char ch=i[0];
+            int c=0;
+            for(auto j:i)
+            {
+                if(j==ch)
+                c++;
+                if(j<ch)
+                {
+                    ch=j;
+                    c=1;
+                }
+            }
+            q.push_back(c);
+        }
+         for(auto i:words)
+        {
+            char ch=i[0];
+            int c=0;
+            for(auto j:i)
+            {
+                if(j==ch)
+                c++;
+                if(j<ch)
+                {
+                    ch=j;
+                    c=1;
+                }
+            }
+            w.push(c);
+        }
+        vector<int> vec;
+        for(auto i:q)
+        {
+            priority_queue<int> x=w;
+            int c=0;
+            while(!x.empty() && x.top()>i)
+            {
+                c++;
+                x.pop();
+            }
+            vec.push_back(c);
+        }
+        return vec;
+    }
+};
