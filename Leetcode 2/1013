@@ -1,0 +1,33 @@
+class Solution {
+public:
+    bool canThreePartsEqualSum(vector<int>& arr) {
+        int s=0;
+        bool flag=true;
+        for(auto i:arr)
+        {
+        s+=i;
+        if(i!=0)
+        flag=false;
+        }
+        if(s==0 && flag)
+        return true;
+        int a=0;
+        for(int i=0;i<arr.size();i++)
+        {
+            a+=arr[i];
+            if(s==3*a)
+            {
+                int j=i+1;
+                int b=0;
+                while(j<arr.size())
+                {
+                    b+=arr[j];
+                    if(b==a && j+1!=arr.size())
+                    return true;
+                    j++;
+                }
+            }
+        }
+        return false;
+    }
+};
