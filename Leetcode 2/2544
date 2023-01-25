@@ -1,0 +1,22 @@
+class Solution {
+public:
+    int alternateDigitSum(int n) {
+        long long a=0,b=0;
+        bool flag=true;
+        int c=0;
+        while(n)
+        {
+            if(flag)
+            a += (n%10);
+            else
+            b+=(n%10);
+            flag=!flag;
+            c++;
+            n/=10;
+        }
+        cout<<a<<" "<<b;
+        if(c%2)
+        return a-b;
+        return b-a;
+    }
+};
