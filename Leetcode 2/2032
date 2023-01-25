@@ -1,0 +1,22 @@
+class Solution {
+public:
+    vector<int> twoOutOfThree(vector<int>& nums1, vector<int>& nums2, vector<int>& nums3) {
+        set<int> s(nums2.begin(),nums2.end());
+        set<int> t(nums1.begin(),nums1.end());
+        set<int> u(nums3.begin(),nums3.end());
+        set<int> ans;
+        for(auto i:s)
+        {
+            if(t.find(i)!=t.end() || u.find(i)!=u.end())
+            ans.insert(i);
+        }
+         for(auto i:t)
+        {
+            if(u.find(i)!=u.end())
+            ans.insert(i);
+        }
+        vector<int> vec(ans.begin(),ans.end());
+        return vec;
+        
+    }
+};
