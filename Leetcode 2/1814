@@ -1,0 +1,28 @@
+class Solution {
+public:
+    int mod=1000000007;
+    int rev(int n)
+    {
+        int s=0;
+        while(n)
+        {
+            s = s*10 + (n%10);
+            n/=10;
+        }
+        return s;
+    }
+    int countNicePairs(vector<int>& nums) {
+        map<int ,int> m;
+        long long c=0;
+        for(auto i:nums)
+        {
+        m[i-rev(i)]++;
+        }
+        for(auto i:m)
+        {
+            long long d= i.second-1;
+            c= (c + ((d%mod)*((d+1)%mod)) /2)%mod;
+        }
+        return c%mod;
+    }
+};
