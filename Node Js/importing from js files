@@ -1,0 +1,11 @@
+main.js
+
+tut2 = require('./tut2.js');
+console.log(tut2);
+
+source.js
+
+module.exports={
+    x:10,
+    y:9
+}
