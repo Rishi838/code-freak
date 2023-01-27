@@ -1,0 +1,15 @@
+let arr=[1,2,3,4,5,6];
+res=arr.filter(adult);
+// Filter using a normal function
+function adult(age) {
+    return age>1;
+}
+for(let i=0;i<res.length;i++)
+console.log(res[i]);
+//filter using an arrow function
+res2=arr.filter((a) => {
+    return a>2;
+  }
+);
+for(let i=0;i<res2.length;i++)
+console.log(res2[i]);
