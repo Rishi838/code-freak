@@ -1,0 +1,33 @@
+class Solution {
+public:
+    string findReplaceString(string s, vector<int>& indices, vector<string>& sources, vector<string>& targets) {
+        int i=0;
+        vector<string> vec;
+        map<int,int> m ;
+        for(int i=0;i<indices.size();i++)
+        m[indices[i]]=i;
+        while(i<s.length())
+        {
+            cout<<i<<endl;
+           if(m.find(i)!=m.end())
+           {
+               cout<<i<<" "<<sources[m[i]].length()<<" "<<s.substr(i,sources[m[i]].length()) <<" "<<sources[m[i]]<<" "<<targets[m[i]]<<endl;
+              if(s.substr(i,sources[m[i]].length()) == sources[m[i]])
+              {
+                  vec.push_back(targets[m[i]]);
+                   i += sources[m[i]].length();
+                   continue;
+              }
+           }
+          
+               cout<<s.substr(i,1)<<endl;
+               vec.push_back(s.substr(i,1));
+               i++;
+           
+        }
+        string st;
+        for(auto i:vec)
+        st+=i;
+        return st;
+    }
+};
