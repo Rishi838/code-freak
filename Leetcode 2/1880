@@ -1,0 +1,13 @@
+class Solution {
+public:
+   int func(string s)
+   {
+       int ans=0;
+       for(auto i:s)
+       ans = ans*10 +(i-97);
+       return ans;
+   }
+    bool isSumEqual(string a, string b, string c) {
+        return func(a)+func(b)==func(c);
+    }
+};
