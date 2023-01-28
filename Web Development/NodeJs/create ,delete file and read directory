@@ -1,0 +1,16 @@
+const fs=require('fs');
+const path=require('path');
+const dirPath = path.join(__dirname,'files');
+//Creating 5 files in file folder
+for(i=0;i<4;i++)
+{
+   fs.writeFileSync(`${dirPath}/file${i}`,'This is a file')
+}
+// Deleting all files
+for(i=0;i<4;i++)
+{
+   fs.unlinkSync(`${dirPath}/file${i}`)
+}
+fs.readdir(__dirname,(err,files)=>{
+   console.log(files);
+})
