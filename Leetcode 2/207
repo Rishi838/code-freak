@@ -1,0 +1,35 @@
+class Solution {
+public:
+    bool canFinish(int n, vector<vector<int>>& p) {
+        vector<vector<int>> vec(n);
+        vector<int> v(n,0),ans(n,0);
+        vector<bool> flag(n,false);
+        for(auto i:p)
+        {
+            vec[i[0]].push_back(i[1]);
+            v[i[1]]++;
+        }
+        while(1)
+        {
+            bool f=false;
+            int i;
+            for(i=0;i<n;i++)
+            {
+                if(v[i]==0 && !flag[i])
+                {
+                   f=true;
+                   break;
+                } 
+            }
+
+            if(!f)
+            return v==ans;
+            flag[i]=true;
+            for(auto j:vec[i])
+            v[j]--;
+            if(v==ans)
+            return true;
+        }
+        return true;
+    }
+};
