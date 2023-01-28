@@ -1,0 +1,41 @@
+class Solution {
+public:
+    vector<int> findOrder(int n, vector<vector<int>>& p) {
+        vector<vector<int>> vec(n);
+        vector<int> v(n,0),ans(n,0),a;
+        vector<bool> flag(n,false),b(n,true);
+        for(auto i:p)
+        {
+            vec[i[1]].push_back(i[0]);
+            v[i[0]]++;
+        }
+        while(1)
+        {
+            bool f=false;
+            int i;
+            for(i=0;i<n;i++)
+            {
+                if(v[i]==0 && !flag[i])
+                {
+                   f=true;
+                   break;
+                } 
+            }
+
+            if(!f)
+            {
+            vector<int> a;
+            return a;
+            }
+            flag[i]=true;
+            a.push_back(i);
+            for(auto j:vec[i])
+            {
+            v[j]--;
+            }
+            if(flag==b)
+            break;
+        }
+        return a;
+    }
+};
