@@ -1,0 +1,5 @@
+const http = require('http');
+http.createServer((req,res)=>{
+    res.write("<h1>Hi I am Rishi Dhingra,a future Legend</h1>");
+    res.end();
+}).listen(90);
