@@ -1,0 +1,12 @@
+const express = require('express');
+const app =express();
+app.get('',(req,resp)=>{
+  resp.send("This is Home Page");
+});
+app.get('/about',(req,resp)=>{
+   resp.send("This is about Page");
+ });
+ app.get('/help',(req,resp)=>{
+   resp.send("This is help Page");
+ });
+ app.listen(500);
