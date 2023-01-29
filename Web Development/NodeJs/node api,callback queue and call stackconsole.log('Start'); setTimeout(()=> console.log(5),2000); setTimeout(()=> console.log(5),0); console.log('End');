@@ -1,0 +1,4 @@
+console.log('Start');
+setTimeout(()=> console.log(5),2000);
+setTimeout(()=> console.log(5),0);
+console.log('End');
