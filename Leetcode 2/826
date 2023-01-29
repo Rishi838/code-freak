@@ -1,0 +1,32 @@
+class Solution {
+public:
+    int maxProfitAssignment(vector<int>& d, vector<int>& p, vector<int>& worker) {
+     map<int,int> m;
+     int a=INT_MIN;
+     for(int i=0;i<d.size();i++)
+     {
+          m[d[i]]=max(p[i],m[d[i]]);
+          a= max(a,d[i]);
+     }
+    
+     vector<int> v(a+1);
+     int profit=0;
+     for(int i=0;i<=a;i++)
+     {
+         profit = max(m[i],profit);
+        v[i]=profit;
+     }
+     int ans=0;
+     for(auto i:worker)
+     {
+         if(i < v[0])
+         continue;
+
+         if(i >= v.size()-1)
+         ans += v[v.size()-1];
+         else
+         ans += v[i];
+     }
+     return ans;
+    }
+};
