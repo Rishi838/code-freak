@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int edgeScore(vector<int>& edges) {
+        vector<long long> sum(edges.size());
+        for(int i=0;i<edges.size();i++)
+        sum[edges[i]]+=i;
+        long long ans=INT_MIN;
+        int a;
+        for(int i=0;i<sum.size();i++)
+        {
+            if(sum[i] > ans)
+            {
+                ans=sum[i];
+                a=i;
+            }
+        }
+        return a;
+    }
+};
