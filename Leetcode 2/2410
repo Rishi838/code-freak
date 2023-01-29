@@ -1,0 +1,20 @@
+class Solution {
+public:
+    int matchPlayersAndTrainers(vector<int>& p, vector<int>& t) {
+       sort(p.begin(),p.end());
+       sort(t.begin(),t.end());
+       int a=0,ans=0,c=t.size();
+       for(auto i:p)
+       { 
+        // cout<<i<<" "<<a<<" "<<t[a]<<" ";
+         while(a<c && i > t[a])
+         a++;
+        //  cout<<a<<endl;
+         if(a==c)
+         break;
+         ans++;
+         a++;
+       }
+       return ans;
+    }
+};
