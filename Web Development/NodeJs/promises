@@ -1,0 +1,9 @@
+let a=10;
+let b=20;
+const prm = new Promise((resolve,reject)=>{
+  resolve(10);
+});
+prm.then((data)=>{
+   b=data;
+})
+console.log(a+b);
