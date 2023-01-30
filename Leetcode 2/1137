@@ -1,0 +1,16 @@
+class Solution {
+public:
+    int tribonacci(int n) {
+        if(n==0)
+        return 0;
+        else if(n==1)
+        return 1;
+        else if(n==2)
+        return 1;
+        vector<int> v{0,1,1};
+        n-=2;
+        while(n--)
+        v.push_back(v[v.size()-1] + v[v.size()-2] +v[v.size()-3]);
+        return v[v.size()-1];
+    }
+};
