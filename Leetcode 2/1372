@@ -1,0 +1,40 @@
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+void  func(int &ans,int c,char ch,TreeNode *root)
+{
+    if(root==NULL)
+    return;
+     ans=max(ans,c);
+    if(ch=='1')
+    {
+      func(ans,c+1,'R',root->right);
+      func(ans,c+1,'L',root->left);
+    }
+    if(ch=='L')
+    {
+        func(ans,1,'L',root->left);
+        func(ans,c+1,'R',root->right);
+    }
+    if(ch=='R')
+    {
+         func(ans,c+1,'L',root->left);
+        func(ans,1,'R',root->right);
+    }
+}
+    int longestZigZag(TreeNode* root) {
+        int ans=INT_MIN;
+        func(ans,0,'1',root);
+        return ans;
+    }
+};
