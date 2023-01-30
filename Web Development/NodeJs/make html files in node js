@@ -1,0 +1,7 @@
+const express = require('express');
+const path =require('path');
+const app =express();
+const filesPath = path.join(__dirname,'files');
+app.use(express.static(filesPath));
+app.listen(500);
+
