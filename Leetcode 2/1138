@@ -1,0 +1,38 @@
+class Solution {
+public:
+    string alphabetBoardPath(string target) {
+        string ans;
+        char ab=97;
+    int p=0,q=0;
+    for(auto i:target)
+    {
+        if(i==ab)
+        {
+          ans +='!';
+          continue;
+        }
+       int a= (i-97)/5 , b = (i-97)%5;
+       char x='D',y='L';
+       if(a<p)
+       x='U';
+       if(b>q)
+       y='R';
+        int c =abs(b-q);
+        int d= abs(a-p);
+       if(ab=='z')
+       {
+           ans +='U';
+           d--;
+       }
+       while(c--)
+       ans += y;
+        c = abs(a-p);
+       while(d--)
+       ans +=x;
+       ans+='!';
+       p=a,q=b;
+       ab =i;
+    }
+    return ans;
+}
+};
