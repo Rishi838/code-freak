@@ -1,0 +1,18 @@
+const express = require('express');
+const path =require('path');
+const app =express();
+const filesPath = path.join(__dirname,'files');
+app.get('',(req,resp)=>{
+   resp.sendFile(`${filesPath}/index.html`);
+})
+app.get('/a',(req,resp)=>{
+   resp.sendFile(`${filesPath}/a.html`);
+})
+app.get('/b',(req,resp)=>{
+   resp.sendFile(`${filesPath}/b.html`);
+})
+app.get('*',(req,resp)=>{
+   resp.sendFile(`${filesPath}/404.html`);
+})
+app.listen(500);
+
