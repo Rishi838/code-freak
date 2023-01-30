@@ -1,0 +1,27 @@
+class Solution {
+public:
+    vector<int> getSumAbsoluteDifferences(vector<int>& nums) {
+        map<int,int> m;
+        int sum=0;
+        for(auto i:nums)
+        {
+            sum+=i;
+            m[i]++;
+        }
+        int a=0,b=0;
+        vector<int> v;
+        map<int,int> n;
+        for(auto i:m)
+        {
+            int c=nums.size()-a-i.second;
+            int d=sum - b -(i.first*i.second);
+            cout<<a<<" "<<b<<" "<<c<<" "<<d<<endl;
+            n[i.first]=i.first*a -b+d-i.first*c;
+            a+=i.second;
+            b+=i.first*i.second;
+        }
+        for(auto i:nums)
+        v.push_back(n[i]);
+        return v;
+    }
+};
