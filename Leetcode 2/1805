@@ -1,0 +1,34 @@
+class Solution {
+public:
+    string func(string num)
+{
+    for (int i = 0; i < num.length(); i++) {
+        if (num[i] != '0') {
+            string res = num.substr(i);
+            return res;
+        }
+    }
+    return "";
+}
+    int numDifferentIntegers(string word) {
+        set<string> s;
+        int i=0;
+        while(i<word.length())
+        {
+            string a;
+            bool flag=false;
+            while(i<word.length() && isdigit(word[i]))
+            {
+            a +=word[i++];
+            flag=true;
+            }
+            i++;
+            a=func(a);
+            if(a!="")
+            s.insert(a);
+            if(a=="" && flag)
+            s.insert("0");
+        }
+        return s.size();
+    }
+};
