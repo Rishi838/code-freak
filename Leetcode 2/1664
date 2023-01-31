@@ -1,0 +1,34 @@
+class Solution {
+public:
+    int waysToMakeFair(vector<int>& nums) {
+        int even=0,odd=0;
+        for(int i=0;i<nums.size();i++)
+        {
+            if(i%2)
+            odd += nums[i];
+            else
+            even += nums[i];
+        }
+        int odd_before=0,even_before=0,c=0;
+        for(int i=0;i<nums.size();i++)
+        { 
+            if(i%2)
+            {
+            int even_sum = even_before + odd -odd_before -nums[i] ;
+            int odd_sum = odd_before + even -even_before;
+            if(even_sum == odd_sum)
+            c++;    
+            odd_before+=nums[i];
+            }
+            else
+            {
+            int even_sum = even_before + odd -odd_before;
+            int odd_sum = odd_before + even -even_before - nums[i];
+            if(even_sum == odd_sum)
+            c++;
+            even_before+=nums[i];
+            }
+        }
+     return c;
+    }
+};
