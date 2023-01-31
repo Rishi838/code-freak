@@ -1,0 +1,26 @@
+class Solution {
+public:
+    int findBestValue(vector<int>& arr, int target) {
+        map<int,int> m;
+        int p=INT_MIN;
+        for(auto i:arr)
+        {
+        m[i]++;
+        p=max(p,i);
+        }
+        int a=0,s=0;
+        int ans=INT_MAX,id;
+        for(int i=0;i<=p;i++)
+        {
+            a += m[i];
+            s += i*m[i];
+           int t = s + (arr.size()-a)*i;
+           if(abs(target-t)<ans)
+           {
+               ans=abs(target-t);
+               id = i;
+           }
+        }
+        return id;
+    }
+};
