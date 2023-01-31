@@ -1,0 +1,14 @@
+class Solution {
+public:
+    int minSteps(string s, string t) {
+        map<char,int> m,n;
+        for(auto i:s)
+        m[i]++;
+        for(auto i:t)
+        n[i]++;
+        int a=0;
+        for(auto i:m)
+        a+=max(0,i.second - n[i.first]);
+        return a;
+    }
+};
