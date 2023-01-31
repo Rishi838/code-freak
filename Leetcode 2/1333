@@ -1,0 +1,21 @@
+class Solution {
+public:
+    vector<int> filterRestaurants(vector<vector<int>>& restaurants, int v, int p, int d) {
+        int ans=INT_MIN,id=INT_MIN;
+        priority_queue<pair<int,int>> pq;
+        for(auto i:restaurants)
+        {
+            if((v==0 || i[2]==v) && i[3]<=p && i[4]<=d)
+            {
+              pq.push({i[1],i[0]});
+            }
+        }
+        vector<int> vec;
+        while(!pq.empty())
+        {
+            vec.push_back(pq.top().second);
+            pq.pop();
+        }
+        return vec;
+    }
+};
