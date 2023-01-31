@@ -1,0 +1,15 @@
+class Solution {
+public:
+    int subarraySum(vector<int>& nums, int k) {
+        map<int,int> m;
+        int c=0,a=0;
+        m[0]=1;
+        for(auto i:nums)
+        {
+            a += i;
+            c +=m[a-k];
+            m[a]++;
+        }
+        return c;
+    }
+};
