@@ -1,0 +1,23 @@
+class Solution {
+public:
+    string largestWordCount(vector<string>& messages, vector<string>& senders) {
+        map<string,int> m;
+        for(int i=0;i<messages.size();i++)
+        {
+             int a=count(messages[i].begin(),messages[i].end(),' ');
+             m[senders[i]]+=a + 1;
+        }
+        int ans=INT_MIN;
+        string a;
+        for(auto i:m)
+        {
+            cout<<i.first<<" "<<i.second<<endl;
+            if(i.second >= ans)
+            {
+                ans =i.second;
+                a=i.first;
+            }
+        }
+        return a;
+    }
+};
