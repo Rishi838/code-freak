@@ -1,0 +1,28 @@
+class Solution {
+public:
+    vector<vector<int>> largeGroupPositions(string s) {
+        int i=0;
+        priority_queue<pair<int,int> ,vector<pair<int,int>> ,greater<pair<int,int>>> p;
+        while(i<s.length())
+        {
+            char ch=s[i];
+            int c=i;
+            while(c<s.length() && s[c]==ch)
+            c++;
+            cout<<c<<" "<<i<<endl;
+            if(c-i>2)
+            p.push({i,c-1});
+            i=c;
+        }
+        vector<vector<int>> v;
+        while(!p.empty())
+        {
+            vector<int> vec;
+            vec.push_back(p.top().first);
+            vec.push_back(p.top().second);
+            v.push_back(vec);
+            p.pop();
+        }
+        return v;
+    }
+};
