@@ -1,0 +1,29 @@
+class Solution {
+public:
+    vector<string> topKFrequent(vector<string>& words, int k) {
+        map<string,int> m;
+        for(auto i:words)
+        m[i]++;
+        map<int,priority_queue<string,vector<string>,greater<string>>> n;
+        for(auto i:m)
+        n[i.second].push(i.first);
+        auto it =n.rbegin();
+        vector<string> v;
+        while(it!=n.rend())
+        {
+            priority_queue<string,vector<string>,greater<string>> p=it->second;
+            while(!p.empty())
+            {
+                v.push_back(p.top());
+                p.pop();
+                if(v.size()==k)
+                break;
+            }
+            it++;
+            if(v.size()==k)
+                break;
+        }
+        return v;
+        
+    }
+};
