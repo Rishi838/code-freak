@@ -1,0 +1,29 @@
+class Solution {
+public:
+    int minOperations(string s) {
+        string a,b;
+        bool flag=true;
+        for(int i=0;i<s.length();i++)
+        {
+            if(flag)
+            {
+                a+="0";
+                b+="1";
+            }
+            else{
+                 a+="1";
+                b+="0";
+            }
+            flag=!flag;
+        }
+        int c=0,d=0;
+        for(int i=0;i<s.length();i++)
+        {
+            if(s[i]!=a[i])
+            c++;
+            if(s[i]!=b[i])
+            d++;
+        }
+        return min(c,d);
+    }
+};
