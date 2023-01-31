@@ -1,0 +1,17 @@
+class Solution {
+public:
+    vector<vector<int>> kClosest(vector<vector<int>>& points, int k) {
+        vector<vector<int>> v;
+        priority_queue<pair<int,vector<int>>,vector<pair<int,vector<int>>> , greater<pair<int,vector<int>>>> p;
+        for(auto i:points)
+        {
+            p.push({i[0]*i[0] + i[1]*i[1] ,i});
+        }
+        while(k--)
+        {
+            v.push_back(p.top().second);
+            p.pop();
+        }
+        return v;
+    }
+};
