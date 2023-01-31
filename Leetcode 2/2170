@@ -1,0 +1,47 @@
+class Solution {
+public:
+    int minimumOperations(vector<int>& nums) {
+        map<int,int> m,n;
+        int ans=0,b,d,e=0,f=0;
+        for(int i=0;i<nums.size();i+=2)
+        {
+            m[nums[i]]++;
+            if(m[nums[i]]> ans)
+            {
+                if(b!=nums[i])
+                e=ans;
+                ans=m[nums[i]];
+                b=nums[i];
+            }
+            else if(m[nums[i]]<=ans && m[nums[i]] > e)
+            e = m[nums[i]];
+
+        }
+        ans=0;
+        for(int i=1;i<nums.size();i+=2)
+        {
+            n[nums[i]]++;
+            if(n[nums[i]]> ans)
+            {
+                if(d!=nums[i])
+                f=ans;
+                ans=n[nums[i]];
+                d=nums[i];
+            }
+            else if(n[nums[i]]<=ans && n[nums[i]] > f)
+            f = n[nums[i]];
+        }
+        cout<<b<<" "<<d<<" "<<e<<" "<<f<<" "<<m[b]<<" "<<n[d];
+        int p =(nums.size()+1)/2;
+            int q= (nums.size())/2;
+        if(d!=b)
+            return p - m[b] + q - n[d];
+        // if(n[d] > m[b])
+        //     return q -n[d] + p-e;
+        // if(m[b] > n[d])
+        // return p -m[b] + q -f;
+        // cout<<"Hello";
+        return min(q -n[d] + p-e,p -m[b] + q -f);
+
+    }
+};
