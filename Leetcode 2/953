@@ -1,0 +1,25 @@
+class Solution {
+public:
+    bool func(string a,string b,string c)
+    {
+        for(int i=0;i<a.length();i++)
+        {
+            cout<<c.find(a[i]) <<" "<< c.find(b[i])<<endl;
+            if(i>=b.length())
+            return false;
+            if(c.find(a[i]) > c.find(b[i]))
+            return false;
+            if(c.find(a[i]) < c.find(b[i]))
+            return true;
+        }
+        return true;
+    }
+    bool isAlienSorted(vector<string>& words, string order) {
+        for(int i=1;i<words.size();i++)
+        {
+          if(!func(words[i-1],words[i],order))
+          return false;
+        }
+        return true;
+    }
+};
