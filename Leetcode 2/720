@@ -1,0 +1,24 @@
+class Solution {
+public:
+    string longestWord(vector<string>& words) {
+        set<string> s(words.begin(),words.end());
+        string st;
+        for(auto i:words)
+        {
+           bool flag=true;
+            for(int j=1;j<i.length();j++)
+            {
+                if(s.find(i.substr(0,j)) == s.end())
+            {
+               flag=false;
+               break;
+            }
+            }
+            if(flag && i.length() > st.length())
+            st=i;
+            if(flag && i.length() == st.length() && i.compare(st)<0)
+            st=i;
+        }
+        return st;
+    }
+};
