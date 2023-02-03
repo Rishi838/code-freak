@@ -1,0 +1,28 @@
+class Solution {
+public:
+    int numRescueBoats(vector<int>& arr, int limit) {
+        int c=0;
+        sort(arr.begin(),arr.end(),greater<int>());
+        int i=0,j=arr.size()-1;
+        while(i<=j)
+        {
+            if(i==j)
+            {
+                c++;
+                break;
+            }
+            if(arr[i] + arr[j] > limit)
+            {
+                i++;
+            }
+            else
+            {
+                i++;
+                j--;
+            }
+            c++;
+        }
+        return c;
+
+    }
+};
