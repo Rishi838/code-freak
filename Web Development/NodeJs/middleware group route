@@ -1,0 +1,30 @@
+const express = require('express');
+const path=require('path');
+const app =express();
+const reqFilter = (req,resp,next) => {
+   if(!req.query.age)
+   {
+      resp.send("Pls Provide your age");
+   }
+   else if(req.query.age <18)
+   {
+      resp.send("Cannot acces web page");
+   }
+   else{
+      next();
+   }
+}
+const route = express.Router();
+route.use(reqFilter);
+a = path.join(__dirname,'files');
+app.get('',(req,resp)=>{
+   resp.sendFile(`${a}/index.html`);
+})
+app.get('/a',(req,resp)=>{
+   resp.sendFile(`${a}/a.html`);
+})
+route.get('/b',(req,resp)=>{
+   resp.sendFile(`${a}/b.html`);
+})
+app.use('/',route);
+app.listen(55);
