@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%- include('header'); %>
+    <h1> Welcome <%= user.name%></h1>
+    <h1>Email :<%= us.email%></h1>
+    <h3>Skills: </h3>
+    <ul>
+        <!-- //We use equal to operator only when we are printing something -->
+        <% user.skills.forEach((item)=>{ %>  
+            <li><%= item%></li>
+        <% }); %>    
+    </ul>
+</body>
+</html>
