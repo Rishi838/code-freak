@@ -1,0 +1,13 @@
+const dbConnect =require('./mongodb');
+async function main(){
+    let data=await dbConnect();
+    // console.log(data);
+    const result = await data.insertOne ({name:'Abhishek'});
+    //We can also use insert many to insert many values
+    console.log(result);
+    // Result is a promise if we dont use async
+    // it has 3 paramaters 
+    if(result.acknowledged)
+    console.log("Data Inserted successfully");
+}
+main();
