@@ -1,0 +1,22 @@
+class Solution {
+public:
+    int minStoneSum(vector<int>& piles, int k) {
+        priority_queue<int> p;
+        for(auto i:piles)
+        p.push(i);
+        long long sum=0;
+        while(k--)
+        {
+            int a=p.top();
+            p.pop();
+            p.push(ceil(a/2.0));
+        }
+        while(!p.empty())
+        {
+            sum += p.top();
+            cout<<p.top()<<" ";
+            p.pop();
+        }
+        return sum;
+    }
+};
