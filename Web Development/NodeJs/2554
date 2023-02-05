@@ -1,0 +1,18 @@
+class Solution {
+public:
+    int maxCount(vector<int>& banned, int n, int maxSum) {
+        set<int> s(banned.begin(),banned.end());
+        int st=0,c=0;
+        for(int i=1;i<=n;i++)
+        {
+            if(s.find(i)==s.end())
+            {
+               if(st+i>maxSum)
+               break;
+               st+=i;
+                   c++;
+            }
+        }
+        return c;
+    }
+};
