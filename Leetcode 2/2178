@@ -1,0 +1,30 @@
+class Solution {
+public:
+    vector<long long> maximumEvenSplit(long long finalSum) {
+        vector<long long> v;
+        if(finalSum%2)
+        return v;
+        long long a=2,sum=0;
+        while(1)
+        {
+        // cout<<a<<" "<<sum<<endl;
+         if(sum+a==finalSum)
+         {
+        v.push_back(a);
+         return v;
+         }
+         if(a>=finalSum-sum)
+         {
+            //  cout<<"  "<<a<<" "<<finalSum-sum <<" "<<v[v.size()-1];
+            sum -= v[v.size()-1];
+            v.pop_back();
+            v.push_back(finalSum-sum);
+            return v;
+         }
+          v.push_back(a);
+          sum+=a;
+          a+=2;
+        }
+        return v;
+    }
+};
