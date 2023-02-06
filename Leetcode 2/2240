@@ -1,0 +1,15 @@
+class Solution {
+public:
+    long long waysToBuyPensPencils(int total, int cost1, int cost2) {
+        long long b=0;
+        long long c=0;
+        while(c*cost1 <= total)
+        {
+            int a=total- c*cost1;
+            // cout<<c<<" "<<a/cost2<<endl;
+            b += (a)/cost2+1;
+            c++;
+        }
+        return b;
+    }
+};
