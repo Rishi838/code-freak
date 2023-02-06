@@ -1,0 +1,39 @@
+class Solution {
+public:
+    vector<int> findOriginalArray(vector<int>& changed) {
+        map<int,int> m;
+        for(auto i:changed)
+        m[i]++;
+        vector<int> ans;
+        if(changed.size()%2)
+        return ans;
+        for(auto i:m)
+        {
+           if(i.first==0)
+           {
+               if(i.second%2)
+               return ans;
+               int a=i.second/2;
+               while(a--)
+               ans.push_back(0);
+               continue;
+           } 
+           if(m[i.first*2] < i.second)
+           {
+               vector<int> v;
+               return v;
+           }
+           int a=i.second;
+           while(a--)
+           {
+           ans.push_back(i.first);
+           if(ans.size()==changed.size()/2)
+           return ans;
+           }
+           m[i.first*2]-=i.second;
+           if(m[i.first*2]==0)
+           m.erase(i.first*2);
+        }
+        return ans;
+    }
+};
