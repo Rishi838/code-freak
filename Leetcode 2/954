@@ -1,0 +1,36 @@
+class Solution {
+public:
+    bool canReorderDoubled(vector<int>& arr) {
+        map<int,int> m,n;
+        for(auto i:arr)
+        {
+            if(i>=0)
+          m[i]++;
+          else
+          n[i]++;
+        }
+        for(auto i:m)
+        {
+           int j=2*i.first;
+        //    cout<<i.second<<" "<<j<<" "<<m[j]<<endl;
+           if(i.second>m[j])
+           return false;
+           m[j]-=i.second;
+           if(m[j]==0)
+           m.erase(j);
+        }
+        auto it=n.rbegin();
+         while(it!=n.rend())
+        {
+           int j=2*it->first;
+        //    cout<<it->second<<" "<<j<<" "<<m[j]<<endl;
+           if(it->second>n[j])
+           return false;
+           n[j]-=it->second;
+           if(n[j]==0)
+           n.erase(j);
+           it++;
+        }
+        return true;
+    }
+};
