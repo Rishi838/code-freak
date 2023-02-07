@@ -1,0 +1,22 @@
+class Solution {
+public:
+   void func(string s,int n,set<string> a,int i,string &ans)
+   {
+      if(i>=n)
+      {
+       if(a.find(s)==a.end())
+       ans=s;
+       return;
+      }
+      if(ans!="")
+      return;
+      func(s+"0",n,a,i+1,ans);
+      func(s+"1",n,a,i+1,ans);
+   }
+    string findDifferentBinaryString(vector<string>& nums) {
+        string ans;
+        set<string> s(nums.begin(),nums.end());
+        func("",nums.size(),s,0,ans);
+        return ans;
+    }
+};
