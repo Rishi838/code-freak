@@ -1,0 +1,29 @@
+class Solution {
+public:
+    int minimumAverageDifference(vector<int>& nums) {
+        long long a=0;
+        for(auto i:nums)
+        a+=i;
+        cout<<a<<endl;
+        long long s=0,c=0,ans=INT_MAX,p=0;
+        for(auto i:nums)
+        {
+            c++;
+            s+=i;
+            int x =floor(s/(float)c);
+            int y=0;
+            int q=nums.size()-c;
+            if(q!=0)
+            y= floor((a-s)/(float)(q));
+            // cout<<x<<" "<<y<<endl;
+            x=abs(x-y);
+            // cout<<x<<" ";
+            if(x<ans)
+            {
+                ans=x;
+                p=c-1;
+            }
+        }
+        return p;
+    }
+};
