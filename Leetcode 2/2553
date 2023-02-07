@@ -1,0 +1,18 @@
+class Solution {
+public:
+    vector<int> separateDigits(vector<int>& nums) {
+        vector<int> v;
+        for(auto i:nums)
+        {
+            vector<int> a;
+            while(i)
+            {
+                a.push_back(i%10);
+                i/=10;
+            }
+            for(int i=a.size()-1;i>=0;i--)
+            v.push_back(a[i]);
+        }
+        return v;
+    }
+};
