@@ -1,0 +1,28 @@
+class Solution {
+public:
+    vector<int> missingRolls(vector<int>& rolls, int mean, int n) {
+        vector<int>temp;
+        int sum=0,total=n+rolls.size();
+        for(int i=0;i<rolls.size();i++){
+            sum+=rolls[i];
+        }
+        int avg_sum=mean*total;
+        int pending_sum=avg_sum-sum;
+        if(pending_sum<0)return temp;
+        int avg_val=pending_sum/n;
+        int rem=pending_sum%n;
+        int div=n-rem;
+        if(avg_val>6 || (avg_val==6 && rem!=0) || avg_val==0){
+            return temp;
+        }
+        while(rem){
+            temp.push_back(avg_val+1);
+            rem--;
+        }
+        while(div){
+            temp.push_back(avg_val);
+            div--;
+        }
+        return temp;    
+    }
+};
