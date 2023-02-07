@@ -1,0 +1,42 @@
+class Solution {
+public:
+   string rtrim(string &s)
+{
+    size_t end = s.find_last_not_of(' ');
+    return (end == std::string::npos) ? "" : s.substr(0, end + 1);
+}
+    string decodeCiphertext(string e, int rows) {
+        string s;
+        vector<vector<char>> v(rows,vector<char>(e.length()/rows));
+        int a=0;
+        for(int i=0;i<rows;i++)
+        {
+            for(int j=0;j<e.length()/rows;j++)
+            v[i][j]=e[a++];
+        }
+        // int p,q=0;
+        // for(int j=v.size()-1;j>=0;j--)
+        // {
+        //     int i=0,a=j;
+        //     while(a<v.size())
+        //     {
+        //         s+=v[a][i];
+        //         a++;
+        //         i++;
+        //     }
+
+        // }
+        for(int j=0;j<v[0].size();j++)
+        {
+            int i=0,b=j;
+            while(i<v.size() && b<v[0].size())
+            {
+                s+=v[i][b];
+                i++;
+                b++;
+            }
+        }
+        s=rtrim(s);
+        return s;
+    }
+};
