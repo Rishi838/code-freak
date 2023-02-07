@@ -1,0 +1,23 @@
+class Solution {
+public:
+    vector<string> divideString(string s, int k, char fill) {
+        int i=0;
+        vector<string> ans;
+        while(i<s.length())
+        {
+          if(i+k<=s.length())
+          ans.push_back(s.substr(i,k));
+          else
+          {
+              string a=s.substr(i);
+              int b=k-a.length();
+              cout<<b<<endl;
+              while(b--)
+              a+=fill;
+              ans.push_back(a);
+          }
+          i+=k;
+        }
+        return ans;
+    }
+};
