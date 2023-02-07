@@ -1,0 +1,21 @@
+class Solution {
+public:
+    int wateringPlants(vector<int>& plants, int c) {
+        int a=c,i=0,p=0;
+        while(i<plants.size())
+        {
+            if(plants[i]>a)
+            {
+                p+=i+i+1;
+                a=c-plants[i];
+            }
+            else{
+                p++;
+                a-=plants[i];
+            }
+            cout<<p<<" "<<a<<endl;
+            i++;
+        }
+        return p;
+    }
+};
