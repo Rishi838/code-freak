@@ -1,0 +1,22 @@
+class Solution {
+public:
+    long long maximumSubarraySum(vector<int>& nums, int k) {
+        long long ans=0,sum=0;
+        map<int,int> m;
+        for(int i=0;i<nums.size();i++)
+        {
+             sum += nums[i];
+            m[nums[i]]++;
+            if(i>=k-1)
+            {
+                if(m.size()==k && sum>ans)
+                ans=sum;
+                m[nums[i-k+1]]--;
+                sum-=nums[i-k+1];
+              if(m[nums[i-k+1]] == 0)
+               m.erase(nums[i-k+1]);
+            }
+        }
+        return ans;
+    }
+};
