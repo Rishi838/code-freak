@@ -1,0 +1,33 @@
+class Solution {
+public:
+    int minimumRefill(vector<int>& plants, int ca, int cb) {
+        int a=ca,b=cb,i=0,j=plants.size()-1,p=0;
+        while(i<=j)
+        {
+            if(i==j)
+            {
+                if(max(a,b)<plants[i])
+                p++;
+                break;
+            }
+            if(plants[i]>a)
+            {
+                p++;
+                a=ca-plants[i];
+            }
+            else
+                a-=plants[i];
+             if(plants[j]>b)
+            {
+                p++;
+                b=cb-plants[j];
+            }
+            else
+                b-=plants[j];
+                i++;
+                j--;
+           
+        }
+        return p;
+    }
+};
