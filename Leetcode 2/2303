@@ -1,0 +1,27 @@
+class Solution {
+public:
+    double calculateTax(vector<vector<int>>& brackets, int income) {
+        double ans;
+        double b=100.0;
+        int i=0,x=0;
+        while(i<brackets.size())
+        {
+            if(brackets[i][0]<=income)
+            {
+               int a=brackets[i][0]-x;
+               ans += a*(brackets[i][1]/b);
+                x=brackets[i][0];
+             cout<<a<<" "<<(brackets[i][1]/b)<<" "<<a*(brackets[i][1]/b)<<endl;
+             i++;
+            }
+            else
+            {
+                int a=income-x;
+               ans += a*(brackets[i][1]/b);
+            break;
+            }
+            
+        }
+        return ans;
+    }
+};
