@@ -1,0 +1,30 @@
+class Solution {
+public:
+    vector<int> minOperations(string boxes) {
+        int s1=0,c1=0;
+        for(int i=0;i<boxes.length();i++)
+        {
+            if(boxes[i]=='1')
+            {
+                c1++;
+                s1+=i;
+            }
+        }
+        cout<<c1<<"  "<<s1<<endl;
+        int c=0,s=0;
+        vector<int> v;
+        for(int i=0;i<boxes.length();i++)
+        {
+            if(boxes[i]=='1')
+            {
+                c++;
+                s+=i;
+            }
+            cout<<s<<" "<<c<<endl;
+            int a = (i*c - s) + (s1-s - (i*(c1-c)));
+            v.push_back(a);
+
+        }
+        return v;
+    }
+};
