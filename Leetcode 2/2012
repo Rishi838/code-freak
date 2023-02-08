@@ -1,0 +1,28 @@
+class Solution {
+public:
+    int sumOfBeauties(vector<int>& nums) {
+        int a=*max_element(nums.begin(),nums.end());
+        vector<int> x,y(nums.size());
+        int p=INT_MIN;
+        for(auto i:nums)
+        {
+            p=max(p,i);
+            x.push_back(p);
+        }
+        p=INT_MAX;
+        for(int i=nums.size()-1;i>=0;i--)
+        {
+          p=min(p,nums[i]);
+          y[i]=p;
+        }
+        int ans=0;
+        for(int i=1;i<nums.size()-1;i++)
+        {
+                if(nums[i]>x[i-1] && y[i+1]>nums[i])
+                    ans+=2;
+                else if(nums[i] > nums[i-1] && nums[i+1]>nums[i])
+                ans+=1;
+        }
+      return ans;
+    }
+};
