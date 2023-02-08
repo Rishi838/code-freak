@@ -1,0 +1,17 @@
+class Solution {
+public:
+    long long countVowels(string word) {
+        long long ans=0;
+        long long a=word.size(),s=((a)*(a+1))/2;
+        for(long long i=0;i<word.length();i++)
+        {
+            if(word[i]=='a' || word[i]=='e' || word[i]=='i' || word[i]=='o' || word[i]=='u')
+            {
+                long long pre= ((i)*(i+1))/2;
+                long long after=((a-i-1)*(a-i))/2;
+                ans += s - pre - after; 
+            }
+        }
+        return ans;
+    }
+};
