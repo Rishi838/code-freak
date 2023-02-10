@@ -1,0 +1,22 @@
+class Solution {
+public:
+    vector<string> cellsInRange(string s) {
+       char a=s[1],b=s[4];
+       char x=s[0],y=s[3];
+       vector<string> v;
+       while(x<=y)
+       {
+           char ch=a;
+           while(ch<=b)
+           {
+               string s ;
+               s+=x;
+               s+=ch;
+               ch++;
+               v.push_back(s);
+           }
+           x++;
+       }
+       return v;
+    }
+};
