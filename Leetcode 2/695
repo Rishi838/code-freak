@@ -1,0 +1,33 @@
+class Solution {
+public:
+    void func(vector<vector<int>> grid,vector<vector<bool>> &flag,int &ans,int &c,int i,int j)
+    {
+        if(flag[i][j]==false)
+        return;
+        c+=1;
+         ans=max(ans,c);
+         flag[i][j]=false;
+         if(i-1 >=0 && grid[i-1][j]==1)
+         func(grid,flag,ans,c,i-1,j);
+         if(j-1 >=0 && grid[i][j-1]==1)
+         func(grid,flag,ans,c,i,j-1);
+         if(i+1 <grid.size() && grid[i+1][j]==1)
+         func(grid,flag,ans,c,i+1,j);
+         if(j+1 <grid[0].size() && grid[i][j+1]==1)
+         func(grid,flag,ans,c,i,j+1);
+    }
+    int maxAreaOfIsland(vector<vector<int>>& grid) {
+        vector<vector<bool>> flag(grid.size(),vector<bool> (grid[0].size(),true));
+        int ans=0;
+        for(int i=0;i<grid.size();i++)
+        {
+            for(int j=0;j<grid[0].size();j++)
+            {
+                 int c=0;
+                if(grid[i][j]==1 && flag[i][j])
+                func(grid,flag,ans,c,i,j);
+            }
+        }
+        return ans;
+    }
+};
