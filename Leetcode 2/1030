@@ -1,0 +1,21 @@
+class Solution {
+public:
+    vector<vector<int>> allCellsDistOrder(int rows, int cols, int r, int c) {
+        map<int,vector<vector<int>>> m;
+        for(int i=0;i<rows;i++)
+        {
+            for(int j=0;j<cols;j++)
+            {
+                vector<int> v{i,j};
+                m[abs(r-i) + abs(j-c)].push_back(v); 
+            }
+        }
+        vector<vector<int>> v;
+        for(auto i: m)
+        {
+            for(auto j:i.second)
+            v.push_back(j);
+        }
+        return v;
+    }
+};
