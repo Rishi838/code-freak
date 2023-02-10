@@ -1,0 +1,88 @@
+class Solution {
+public:
+    vector<string> fullJustify(vector<string>& words, int maxWidth) {
+        vector<vector<string>> v;
+        int a=0,c=-1;
+        vector<string> vec;
+        for(int j=0;j<words.size();j++)
+        {
+            string i=words[j];
+            if(a+i.length()+c>=maxWidth)
+            {
+               vec.push_back(to_string(a));
+               v.push_back(vec);
+               vec.clear();
+               vec.push_back(i);
+               a=i.length();
+               c=0;
+            }
+            else
+            {
+               vec.push_back(i);
+               a+=i.length();
+               c++;
+            }
+            // cout<<a<<" "<<c<<endl;
+        }
+        vec.push_back(to_string(a));
+        v.push_back(vec);
+        // for(auto i:v)
+        // {
+        //     for(auto j:i)
+        //     cout<<j<<" ";
+        //     cout<<endl;
+        // }
+        vector<string> ans;
+        for(int p=0;p<v.size();p++)
+        {
+            auto i=v[p];
+            int a=maxWidth - stoi(i[i.size()-1]);
+            int b= i.size()-2;
+            string x;
+            if(p==v.size()-1){
+                cout<<a<<endl;
+                // cout<<i.size();
+                for(int j=0;j<i.size()-1;j++)
+                {
+                    x += i[j];
+                    if(a>0)
+                    x+=" ";
+                    a--;
+                }
+                cout<<a<<" ";
+                while(a>0)
+                {
+                x+=' ';
+                a--;
+                }ans.push_back(x);
+                break;
+            }
+            if(b==0)
+            {
+                x+=i[0];
+                while(a--)
+                x+=' ';
+                ans.push_back(x);
+            }
+            else
+            {
+                int c=a/b,d=a%b,e=0;
+                for(int j=0;j<i.size()-1;j++)
+                {
+                    c=a/b;
+                    x+=i[j];
+                    if(j!=i.size()-2){
+                    while(c--)
+                    x+=' ';
+                    }
+                    if(e<d)
+                    x+=' ';
+                    e++;
+
+                }
+                ans.push_back(x);
+            }
+        }
+        return ans;
+    }
+};
