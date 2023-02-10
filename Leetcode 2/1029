@@ -1,0 +1,51 @@
+class Solution {
+public:
+   static bool func(vector<int> a,vector<int> b)
+   {
+       int x=abs(a[0]-a[1]);
+       int y=abs(b[0]-b[1]);
+       return x>=y;
+   }
+    int twoCitySchedCost(vector<vector<int>>& costs) {
+        sort(costs.begin(),costs.end(),func);
+        int a=0,b=0,n=costs.size()/2,sum=0;
+        for(auto i:costs)
+        cout<<i[0]<<" "<<i[1]<<endl;
+        for(auto i:costs)
+        {
+            int m=min(i[0],i[1]);
+            if(m==i[0] &&  m==i[1]){
+              sum +=m;
+              if(a>b)
+              a++;
+              else
+              b++;
+            }
+            else if(m==i[0])
+            {
+               if(a<n)
+               {
+                 sum+=m;
+                 a++;
+               }
+               else{
+                   sum+=i[1];
+                   b++;
+               }
+            }
+            else {
+                 if(b<n)
+               {
+                 sum+=m;
+                 b++;
+               }
+               else{
+                   sum+=i[0];
+                   a++;
+               }
+            }
+            // cout<<<<endl;
+        }
+        return sum;
+    }
+};
