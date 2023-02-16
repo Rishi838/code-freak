@@ -1,0 +1,37 @@
+class Solution {
+public:
+    vector<vector<string>> findDuplicate(vector<string>& paths) {
+        map<string,vector<string>> m;
+        for(auto i:paths)
+        {
+            string ans;
+            int j=0;
+            while(j<i.length() && i[j]!=' ')
+            ans+=i[j++];
+            j++;
+            while(j<i.length())
+            {
+                string a,b;
+                while(j<i.length() && i[j]!='(')
+                a+=i[j++];
+                j++;
+                 while(j<i.length() && i[j]!=')')
+                b+=i[j++];
+                j++;
+                j++;
+                m[b].push_back(ans + "/" + a);
+            }
+        }
+        vector<vector<string>> v;
+        for(auto i:m)
+        {
+            vector<string> vec;
+            if(i.second.size()>1){
+            for(auto j:i.second)
+           vec.push_back(j);
+           v.push_back(vec);
+            }
+        }
+        return v;
+    }
+};
