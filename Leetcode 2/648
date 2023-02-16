@@ -1,0 +1,47 @@
+class Solution {
+public:
+    string replaceWords(vector<string>& d, string s) {
+        string ans,t;
+        map<string,string> m;
+        for(auto i:s)
+        {
+            if(i==' ')
+            {
+                  string a=t;
+                if(m.find(t)!=m.end())
+                 a=m[t];
+                 else
+               {
+                 for(auto j:d)
+                 {
+                     if(t.find(j)==0 && j.length() < a.length())
+                     {
+                          a=j;
+                     }
+                 }
+                 m[t]=a;
+               }
+                 ans+=a + " ";
+                 t="";
+
+            }
+            else
+            t+=i;
+        }
+       string a=t;
+                if(m.find(t)!=m.end())
+                 a=m[t];
+                 else
+               {
+                 for(auto j:d)
+                 {
+                     if(t.find(j)==0 && j.length() < a.length())
+                     {
+                          a=j;
+                     }
+                 }
+               }
+                 ans+=a ;
+    return ans;
+    }
+};
