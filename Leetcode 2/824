@@ -1,0 +1,41 @@
+class Solution {
+public:
+    bool func(char a)
+    {
+        if(a=='a' || a=='e' || a=='i' || a=='o' || a=='u' || a=='A' || a=='I' || a=='E' || a=='O' || a=='U')
+        return true;
+        return false;
+    }
+    string toGoatLatin(string s) {
+        string ans,a,b="a";
+        for(auto i:s)
+        { 
+           if(i==' ')
+           {
+              if(func(a[0]))
+              {
+                  a+="ma";
+              }
+              else
+              {
+                  a=a.substr(1) + a.substr(0,1) + "ma";
+              }
+              ans += a + b +" ";
+              b+="a";
+              a="";
+           }
+           else
+           a+=i;
+        }
+         if(func(a[0]))
+              {
+                  a+="ma";
+              }
+              else
+              {
+                  a=a.substr(1) + a.substr(0,1) + "ma";
+              }
+              ans += a + b ;
+      return ans;
+    }
+};
