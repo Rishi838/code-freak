@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int minAddToMakeValid(string s) {
+        stack<string> st;
+        int ans=0;
+        for(int i=0;i<s.length();i++)
+        {
+            string a=s.substr(i,1);
+            if(a=="(")
+            {
+                st.push(a);
+            }
+            else
+            {
+               if(st.empty())
+               ans+=1;
+               else
+               st.pop();
+            }
+        }
+        ans+=st.size();
+        return ans;
+    }
+};
