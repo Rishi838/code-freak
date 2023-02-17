@@ -1,0 +1,23 @@
+class Solution {
+public:
+    int reductionOperations(vector<int>& nums) {
+        map<int,int> m;
+        for(auto i:nums)
+        m[i]++;
+        auto it=m.rbegin();
+        int sum=0;
+        while(it!=m.rend())
+        {
+            int a=it->second;
+            it++;
+            if(it!=m.rend())
+            {
+                m[it->first]+=a;
+                sum+=a;
+            }
+            else
+            break;
+        }
+        return sum;
+    }
+};
