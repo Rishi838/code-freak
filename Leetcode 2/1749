@@ -1,0 +1,21 @@
+class Solution {
+public:
+    int maxAbsoluteSum(vector<int>& nums) {
+        int a=INT_MIN;
+        int s=0;
+        set<int> st;
+        for(auto i:nums)
+        {
+            s+=i;
+            a=max(a,abs(s));
+            if(!st.empty()){
+            if(s>=0 )
+            a = max(a, abs(s- *st.begin()));
+            else
+             a = max(a, abs(s- *st.rbegin()));
+            }
+            st.insert(s);
+        }
+        return a;
+    }
+};
