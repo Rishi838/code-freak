@@ -1,0 +1,36 @@
+class Solution {
+public:
+    string modifyString(string s) {
+        if(s[0]=='?'){
+            for(char a='a';a<='z';a++){
+            if( a!=s[1])
+            {
+               s[0]=a;
+               break;
+            }
+          }
+        }
+        for(int i=1;i<s.length()-1;i++)
+        {
+            if(s[i]=='?'){
+            for(char a='a';a<='z';a++){
+            if(a!=s[i-1] && a!=s[i+1])
+            {
+               s[i]=a;
+               break;
+            }
+            }
+        }
+        }
+        if(s[s.length()-1]=='?'){
+            for(char a='a';a<='z';a++){
+            if( a!=s[s.length()-2])
+            {
+               s[s.length()-1]=a;
+               break;
+            }
+          }
+        }
+        return s;
+    }
+};
