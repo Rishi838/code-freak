@@ -1,0 +1,30 @@
+class Solution {
+public:
+    vector<int> findEvenNumbers(vector<int>& d) {
+        set<int> s;
+        for(int i=0;i<d.size();i++)
+        {
+            if(d[i]!=0)
+            {
+                for(int j=0;j<d.size();j++)
+                {
+                   if(i!=j)
+                   {
+                       for(int k=0;k<d.size();k++)
+                        {
+                            if(k!=i && k!=j)
+                            {
+                                int a= (d[i]*10 + d[j])*10 + d[k];
+                                // cout<<i<<" "<<j<<" "<<k<<" "<<a<<endl;
+                                if(a%2==0)
+                                s.insert(a);
+                            }
+                        }
+                   }
+                }
+            }
+        }
+        vector<int> v(s.begin(),s.end());
+        return v;
+    }
+};
