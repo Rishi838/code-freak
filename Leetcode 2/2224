@@ -1,0 +1,33 @@
+class Solution {
+public:
+    int convertTime(string x, string y) {
+        int a = (stoi(y.substr(0,2)) - stoi(x.substr(0,2)))*60 + stoi(y.substr(3,2)) -stoi(x.substr(3,2));
+        cout<<a;
+        int c=0;
+        while(a>0)
+        {
+           if(a>=60)
+           {
+               c += a/60;
+               a = a%60;
+           }
+          else if(a>=15)
+           {
+               c += a/15;
+               a = a%15;
+           }
+           else if(a>=5)
+           {
+               c += a/5;
+               a = a%5;
+           }
+           else
+           {
+            //    cout<<endl<<a;
+               c+=a;
+               break;
+           }
+        }
+        return c;
+    }
+};
