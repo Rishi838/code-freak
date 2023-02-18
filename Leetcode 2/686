@@ -1,0 +1,60 @@
+class Solution {
+public:
+    int repeatedStringMatch(string a, string b) {
+        if(a.find(b)<a.size())
+        return 1;
+        int x=b.find(a);
+        int c=0;
+        if(b.length()>2*a.length() && (x<0 || x>=b.length()))
+        return -1;
+        if(x<b.size())
+        {
+            // cout<<x<<endl;
+            if(x!=0)
+            {
+                c+=1;
+                string s=b.substr(0,x);
+                if(x> a.length() || a.length()-x<0)
+                return -1;
+                string y=a.substr(a.length()-x,x);
+                if(s!=y)
+                return -1;
+            }
+            while(b.substr(x,a.length()) == a)
+            {
+                c+=1;
+                x += a.length();
+            }
+            int p=b.length()-x;
+            if(b.substr(x) != a.substr(0,p))
+            return -1;
+            if(p!=0)
+            c+=1;
+            return c;
+
+        }
+        
+        
+        for(int i=0;i<min(a.length(),b.length());i++)
+        {
+            string s=b.substr(0,i+1);
+            if(a.length()-1-i<0)
+            break;
+            string p=a.substr(a.length()-1-i);
+            // cout<<s<<" "<<p<<" ";
+            if(s==p)
+            {
+                string x=b.substr(i+1);
+                string y=a.substr(0,b.length()-i-1);
+                // cout<<x<<" "<<y<<" "<<(x==y)<<endl;
+                if(x==y){
+                cout<<"return true";
+                return 2;
+                }
+            }
+            // cout<<endl;
+        }
+        return -1;
+    }
+
+};
