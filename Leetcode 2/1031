@@ -1,0 +1,79 @@
+class Solution {
+public:
+    int maxSumTwoNoOverlap(vector<int>& nums, int p, int q) {
+        int a=0,b=0,c=INT_MIN,d=INT_MIN;
+        vector<int> x,y;
+        for(int i=0;i<nums.size();i++)
+        {
+            a+=nums[i];
+            b+=nums[i];
+            if(i>=p-1){
+              c=max(c,a);
+              x.push_back(c);
+              a-=nums[i-p+1];
+            }
+            else
+            x.push_back(-1);
+             if(i>=q-1){
+              d=max(d,b);
+              y.push_back(d);
+              b-=nums[i-q+1];
+            }
+            else
+            y.push_back(-1);
+        }
+         a=0,b=0,c=INT_MIN,d=INT_MIN;
+        vector<int> m,n;
+        reverse(nums.begin(),nums.end());
+        for(int i=0;i<nums.size();i++)
+        {
+            a+=nums[i];
+            b+=nums[i];
+            if(i>=p-1){
+              c=max(c,a);
+              m.push_back(c);
+              a-=nums[i-p+1];
+            }
+            else
+            m.push_back(-1);
+             if(i>=q-1){
+              d=max(d,b);
+              n.push_back(d);
+              b-=nums[i-q+1];
+            }
+            else
+            n.push_back(-1);
+        }
+        reverse(n.begin(),n.end());
+        reverse(m.begin(),m.end());
+        for(auto i:x)
+        cout<<i<<" ";
+        cout<<endl;
+        for(auto i:n)
+        cout<<i<<" ";
+        cout<<endl;
+        for(auto i:y)
+        cout<<i<<" ";
+        cout<<endl;
+        for(auto i:m)
+        cout<<i<<" ";
+        cout<<endl;
+        int ans=INT_MIN;
+        for(int i=0;i<nums.size()-1;i++)
+        {
+            if(x[i]==-1 || n[i]==-1)
+            cout<<"-1 ";
+            else{
+            ans = max(ans, x[i] + n[i+1]);
+            cout<<x[i] + n[i]<<" ";
+            }
+        }
+        for(int i=0;i<nums.size()-1;i++)
+        {
+            if(y[i]==-1 || m[i]==-1)
+            continue;
+            ans = max(ans, y[i] + m[i+1]);
+        }
+       return ans;
+    }
+};
