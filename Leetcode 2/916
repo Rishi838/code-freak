@@ -1,0 +1,33 @@
+class Solution {
+public:
+    vector<string> wordSubsets(vector<string>& words1, vector<string>& words2) {
+        map<char,int> m;
+        for(auto i:words2)
+        {
+            map<char,int> n;
+            for(auto j:i)
+            {
+               n[j]++;
+               if(m[j] < n[j])
+               m[j]=n[j];
+            }
+        }
+        vector<string> v;
+        for(auto i:words1)
+        {
+            map<char,int> n;
+            bool flag=true;
+            for(auto j:i)
+             n[j]++;
+             for(auto i:m){
+             if(i.second > n[i.first]){
+                 flag=false;
+                 break;
+             }
+             }
+            if(flag)
+            v.push_back(i);
+        }
+        return v;
+    }
+};
