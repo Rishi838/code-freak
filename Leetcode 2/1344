@@ -1,0 +1,18 @@
+class Solution {
+public:
+    double angleClock(int hour, int min) {
+        // 1 min - 6 degrees
+        // 1 hr - 1/2 degree
+        if(hour==12)
+        hour=0;
+        double hr = (hour)*30 + (min/2.0);
+        double m = min * 6;
+        cout<<hr<<" "<<m<<endl;
+        double  a= abs(hr-m);
+        if(360 - abs(hr-m) < abs(hr-m))
+        a = 360 -abs(hr-m);
+        return a;
+
+
+    }
+};
