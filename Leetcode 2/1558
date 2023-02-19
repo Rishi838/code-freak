@@ -1,0 +1,26 @@
+class Solution {
+public:
+    int minOperations(vector<int>& nums) {
+
+        map<int,int> m;
+        for(auto i:nums)
+        m[i]++;
+        int c=0;
+        while(1)
+        {
+          map<int,int> n;
+          for(auto i:m)
+          {
+              c += i.second*(i.first%2);
+              if(i.first!=1 && i.first!=0){
+                n[i.first/2]+=i.second;
+              }
+          }
+          if(n.size()<=0)
+          break;
+         m=n;
+           c++;
+        }
+        return c;
+    }
+};
