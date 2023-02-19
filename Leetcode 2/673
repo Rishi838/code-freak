@@ -1,0 +1,40 @@
+class Solution {
+public:
+    int findNumberOfLIS(vector<int>& nums) {
+        vector<int> a(nums.size(),1);
+        vector<int> b(nums.size(),1);
+        int maxi=1;
+        for(int i=1;i<nums.size();i++)
+        {
+            for(int j=0;j<i;j++)
+            {
+                if(nums[j] < nums[i])
+                {
+                    if(a[i] < a[j] + 1)
+                    {
+                        a[i] = a[j] + 1;
+                        b[i] = b[j];
+                    }
+                    else if(a[i] == a[j] +1)
+                    {
+                        b[i] += b[j];
+                    }
+                }
+            }
+              if(maxi<a[i]){
+                    maxi=a[i];
+                }
+        }
+      for(auto i:a)
+      cout<<i<<" ";
+      cout<<endl;
+      for(auto i:b)
+      cout<<i<<" ";
+       int res=0;
+        for(int i=0;i<nums.size();i++){
+            if(a[i]==maxi) 
+            res+=b[i];
+        }
+        return res;
+    }
+};
