@@ -1,0 +1,39 @@
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int h(TreeNode *ans)
+    {
+        if(ans==NULL)
+        return 0;
+        if(ans->left==NULL && ans->right==NULL)
+        return 0;
+        return 1 + max(h(ans->left) , h(ans->right));
+    }
+    void func(vector<vector<string>> &v, TreeNode *root,int a,int i,int &h)
+    {
+         if(root==NULL)
+         return;
+        //  int pos = (j-i-1)/2;
+        //  cout<<a<<" "<<j<<" "<<i<<" "<<pos<<endl;
+         v[a][i]=to_string(root->val);
+         func(v,root->left,a+1,i - pow(2,h-a-1),h);
+         func(v,root->right,a+1,i + pow(2,h-a-1),h);
+    }
+    vector<vector<string>> printTree(TreeNode* root) {
+        int a=h(root),b=pow(2,a+1)-1;
+        int c= (b-1)/2;
+        vector<vector<string>> v(a+1,vector<string>(b,""));
+        func(v ,root,0,c,a);
+        return v;
+    }
+};
