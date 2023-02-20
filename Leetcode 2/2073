@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int timeRequiredToBuy(vector<int>& tickets, int k) {
+        int sum=0,a=tickets[k]-1;
+        for(int i=0;i<tickets.size();i++)
+        {
+            sum += min(a,tickets[i]);
+            tickets[i] = max(0,tickets[i]-a);
+        }
+        for(auto i:tickets)
+        cout<<i<<" ";
+        cout<<endl;
+        cout<<sum;
+        for(int i=0;i<=k;i++)
+        if(tickets[i] >0)
+        sum++;
+        return sum;
+    }
+};
