@@ -1,0 +1,26 @@
+class Solution {
+public:
+    int findLeastNumOfUniqueInts(vector<int>& arr, int k) {
+        map<int,int> m;
+        for(auto i:arr)
+        m[i]++;
+        int c=m.size();
+        priority_queue<int,vector<int>,greater<int>> p;
+        for(auto i:m)
+        cout<<i.first<<" "<<i.second<<endl;
+        for(auto i:m)
+        p.push(i.second);
+        while(!p.empty())
+        {
+            int a=p.top();
+            if(a>k)
+            break;
+            else{
+            c--;
+            k-=a;
+            }
+            p.pop();
+        }
+        return c;
+    }
+};
