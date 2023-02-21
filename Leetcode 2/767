@@ -1,0 +1,36 @@
+class Solution {
+public:
+    string reorganizeString(string s) {
+        map<char,int> m;
+        for(auto i:s)
+        m[i]++;
+        priority_queue<pair<int,char>> p;
+        for(auto i:m)
+        p.push({i.second,i.first});
+        // cout<<p.size();
+        string v;
+        while(p.size()>1)
+        {
+            int a=p.top().first;
+            char b=p.top().second;
+            p.pop();
+             int c=p.top().first;
+             char d=p.top().second;
+            p.pop();
+            v+=b;
+            v+=d;
+            if(a>1)
+            p.push({a-1,b});
+            if(c>1)
+            p.push({c-1,d});
+        }
+        if(p.size()>1)
+        return "";
+        if(p.size()==1 && p.top().first>1)
+        return "";
+        if(p.size()==1)
+        v+=p.top().second;
+        return v;
+        
+    }
+};
