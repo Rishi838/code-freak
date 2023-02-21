@@ -1,0 +1,43 @@
+class Solution {
+public:
+    long long makeIntegerBeautiful(long long n, int target) {
+        long long a=n,sum=0;
+        vector<long long> v;
+        while(a)
+        {
+          v.push_back(a%10);
+          sum += a%10;  
+          a/=10;   
+        }
+        if(sum<=target)
+        return 0;
+        int i=0;
+        while(i<v.size() && sum>target){
+            if(v[i]==0)
+            {
+                i++;
+                continue;
+            }
+            sum =sum - v[i] +1;
+            v[i]=0;
+            i++;
+            // cout<<sum<<endl;
+            while(i<v.size() && v[i]==9)
+            {
+                sum -= v[i];
+                v[i]=0;
+                i++;
+            }
+            if(i==v.size())
+            v.push_back(1);
+            else
+            v[i]+=1;
+        }
+        long long ans=0;
+       for(int i=v.size()-1;i>=0;i--)
+       ans = ans *10 + v[i];
+        return ans-n;
+
+    }
+
+};
