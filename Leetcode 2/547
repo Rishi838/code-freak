@@ -1,0 +1,29 @@
+class Solution {
+public:
+    void func(vector<vector<int>> v,int i,vector<bool> &flag){
+        if(flag[i]==false)
+        return ;
+        flag[i]=false;
+        for(int a=0;a<v[0].size();a++)
+        {
+            if(v[i][a]==1)
+            func(v,a,flag);
+        }
+    }
+    int findCircleNum(vector<vector<int>>& v) {
+        vector<bool> f(v.size(),true);
+        int c=0;
+        for(int i=0;i<f.size();i++)
+        {
+            if(f[i]==true){
+            func(v,i,f);
+            c++;
+            }
+            // for(auto i:f)
+            // cout<<i<<" ";
+            // cout<<endl;
+        }
+        return c;
+
+    }
+};
