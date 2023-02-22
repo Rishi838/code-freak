@@ -1,0 +1,26 @@
+class Solution {
+public:
+    int findMinDifference(vector<string>& timePoints) {
+        set<int> s;
+        for(auto i:timePoints){
+            int a=stoi(i.substr(0,2));
+            int b=stoi(i.substr(3,2));
+            if(s.find(a*60 + b)!=s.end())
+            return 0;
+            s.insert(a*60 + b);
+            s.insert(1440 + a*60 +b);
+        }
+        int a=-1,ans=INT_MAX;
+        for(auto i:s)
+        {
+            if(a==-1)
+            {
+                a=i;
+                continue;
+            }
+            ans = min(ans,min(i-a,1440 - i +a));
+            a=i;
+        }
+        return ans;
+    }
+};
