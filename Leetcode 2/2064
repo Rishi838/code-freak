@@ -1,0 +1,27 @@
+class Solution {
+public:
+    int minimizedMaximum(int n, vector<int>& q) {
+        int a=1,b=-1,ans=INT_MAX;
+        for(auto i:q)
+        b=max(b,i);
+        cout<<b;
+        while(a<=b)
+        {
+            cout<<endl<<a<<" "<<b;
+            int m= (a+b)/2,c=0;
+            for(auto i:q){
+               c += ceil(i / (double)(m));
+            }
+            if(c > n)
+            {
+                a=m+1;
+            }
+            else
+            {
+                ans = min(ans,m);
+                b=m-1;
+            }
+        }
+        return ans;
+    }
+};
