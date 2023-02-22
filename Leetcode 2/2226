@@ -1,0 +1,23 @@
+class Solution {
+public:
+    int maximumCandies(vector<int>& candies, long long k) {
+        int a=1,b=*max_element(candies.begin(),candies.end());
+        int ans=0;
+        while(a<=b)
+        {
+            int mid=(a+b)/2;
+            if(mid==0)
+            break;
+            long long c=0;
+            for(auto i:candies)
+            c+=(i/mid);
+            if(c>=k){
+                a=mid+1;
+                ans =max(ans,mid);
+            }
+            else
+            b = mid-1;
+        }
+        return ans;
+    }
+};
