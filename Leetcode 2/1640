@@ -1,0 +1,21 @@
+class Solution {
+public:
+    bool canFormArray(vector<int>& arr, vector<vector<int>>& pieces) {
+        map<int,vector<int>> m;
+        for(auto i:pieces)
+        m[i[0]]=i;
+        int i=0;
+        while(i<arr.size())
+        {
+            if(m.find(arr[i])==m.end())
+            return false;
+            for(auto j:m[arr[i]])
+            {
+                if(j!=arr[i])
+                return false;
+                i++;
+            }
+        }
+        return true;
+    }
+};
