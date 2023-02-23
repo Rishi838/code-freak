@@ -1,0 +1,28 @@
+class Solution {
+public:
+    bool isPathCrossing(string path) {
+        int a=0,b=0;
+        set<pair<int,int>> s;
+        s.insert({a,b});
+        for(auto i:path)
+        {
+            if(i=='S')
+            {
+              b-=1;
+            }
+            if(i=='N'){
+                b+=1;
+            }
+            if(i=='E'){
+               a+=1; 
+            }
+            if(i=='W'){
+               a-=1;
+            }
+            if(s.find({a,b})!=s.end())
+             return true;
+             s.insert({a,b});
+        }
+        return false;
+    }
+};
