@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int minNumberOfHours(int in, int e, vector<int>& energy, vector<int>& experience) {
+        int sum=0,a=0;
+        for(auto i:energy)
+        a+=i;
+        if(a>=in)
+        sum += a+1-in;
+        cout<<sum;
+        for(auto i:experience)
+        {
+            if(e<=i)
+            {
+                sum += i+1-e;
+                e = 2*i+1;
+            }
+            else
+            {
+                e+=i;
+            }
+        }
+        return sum;
+    }
+};
