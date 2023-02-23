@@ -1,0 +1,13 @@
+class Solution {
+public:
+    int addRungs(vector<int>& rungs, int dist) {
+        int c=0;
+        int a=0;
+        for(auto i:rungs)
+        {
+           c+=(i-a-1)/dist;
+          a=i;
+        }
+        return c;
+    }
+};
