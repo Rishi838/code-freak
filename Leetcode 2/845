@@ -1,0 +1,28 @@
+class Solution {
+public:
+    int longestMountain(vector<int>& arr) {
+        int i=0,ans=0;
+        while(i<arr.size())
+        {
+            int a=0,b=arr[i],c=0;
+            i++;
+            while(i<arr.size() && arr[i] > arr[i-1])
+            {
+                a++;
+                i++;
+            }
+            if(a==0)
+            continue;
+            while(i<arr.size() &&arr[i] <arr[i-1])
+            {
+                c++;
+                i++;
+            }
+            cout<<a<<" "<<c<<endl;
+            if(c!=0)
+            ans=max(ans,a+c+1);
+            i--;
+        }
+        return ans;
+    }
+};
