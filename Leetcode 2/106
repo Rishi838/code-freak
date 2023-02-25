@@ -1,0 +1,42 @@
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int search(vector<int> &i,int s,int e,int c)
+    {
+        for(int a=s;a<=e;a++)
+        if(i[a]==c)
+        return a;
+        return -1;
+    }
+    TreeNode *func(vector<int> p,vector<int> i,int s,int e,int &id)
+    {
+        if(s>e)
+        return NULL;
+        if(id<0)
+        return NULL;
+        int a=p[id];
+        TreeNode *root=new TreeNode(a);
+        id--;
+        if(s==e)
+        return root;
+        int pos = search(i,s,e,a);
+        cout<<a<<" "<<pos<<endl;
+        root->right = func(p,i,pos+1,e,id);
+        root->left = func(p,i,s,pos-1,id);
+        return root;
+    }
+    TreeNode* buildTree(vector<int>& i, vector<int>& p) {
+        int id=i.size()-1;
+        return func(p,i,0,i.size()-1,id);
+    }
+};
