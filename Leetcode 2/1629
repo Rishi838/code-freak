@@ -1,0 +1,23 @@
+class Solution {
+public:
+    char slowestKey(vector<int>& r, string k) {
+        int ans=0;
+        char ch=46;
+        int a=0;
+        for(int i=0;i<r.size();i++)
+        {
+            // cout<<r[i]-a<<" "<<ans<<endl;
+          if(r[i]-a>ans)
+          {
+              ans=r[i]-a;
+              ch=k[i];
+          }
+          else if(r[i]-a==ans && k[i]>ch){
+        //   cout<<"j\n";
+          ch=k[i];
+          }
+          a=r[i];
+        }
+        return ch;
+    }
+};
