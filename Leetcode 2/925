@@ -1,0 +1,28 @@
+class Solution {
+public:
+    bool isLongPressedName(string name, string typed) {
+        int i=0,j=0;
+        while(i<name.length())
+        {
+            char ch=name[i];
+            int c=0,d=0;
+            while(i<name.length() && name[i]==ch)
+            {
+                i++;
+                c++;
+            }
+              while(j<typed.length() && typed[j]==ch)
+            {
+                j++;
+                d++;
+            }
+            cout<<ch<<" "<<c<<" "<<d<<endl;
+            if(c>d)
+            return false;
+        }
+        if(j!=typed.length())
+        return false;
+        return true;
+
+    }
+};
