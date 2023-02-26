@@ -1,0 +1,13 @@
+class Solution {
+public:
+    bool haveConflict(vector<string>& x, vector<string>& y) {
+        int a=stoi(x[0].substr(0,2))*60 +  stoi(x[0].substr(3,2));
+         int b=stoi(x[1].substr(0,2))*60 +  stoi(x[1].substr(3,2));
+          int c=stoi(y[0].substr(0,2))*60 +  stoi(y[0].substr(3,2));
+           int d=stoi(y[1].substr(0,2))*60 +  stoi(y[1].substr(3,2));
+        //    cout<<a<<" "<<b<<" "<<c<<" "<<d<<endl;
+        if((c>=a && c<=b) || (a>=c && a<=d))
+        return true;
+        return false;
+    }
+};
