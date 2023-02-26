@@ -1,0 +1,16 @@
+class Solution {
+public:
+    vector<int> leftRigthDifference(vector<int>& nums) {
+        int s=0;
+        for(auto i:nums)
+        s+=i;
+        int l=0;
+        vector<int> ans;
+        for(auto i:nums)
+        {
+            ans.push_back(abs(2*l -(s - i )));
+            l+=i;
+        }
+        return ans;
+    }
+};
