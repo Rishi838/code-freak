@@ -1,0 +1,38 @@
+class Solution {
+public:
+    string largestPalindromic(string num) {
+        map<char,int> m;
+        for(auto i:num)
+        m[i]++;
+        string ans;
+        auto it=m.rbegin();
+        char ch=46;
+        bool flag=true;
+        while(it!=m.rend())
+        {
+            if(it->first=='0' && ans=="")
+                break;
+            int a=it->second;
+            if(a%2 && flag)
+            {
+                flag=false;
+              ch =it->first;
+            }
+            int b=it->second/2;
+            while(b--)
+            ans += it->first;
+            it++;
+        }
+        if(ans=="" && ch==46)
+        return "0";
+        string a=ans;
+        reverse(a.begin(),a.end());
+        if(ch!=46)
+        {
+            ans = ans + ch + a;
+        }
+        else
+        ans= ans + a;
+        return ans;
+    }
+};
