@@ -1,0 +1,38 @@
+class Solution {
+public:
+    string shortestCompletingWord(string s, vector<string>& words) {
+        map<char,int> m;
+        for(auto i:s)
+        {
+            if((i>='a' && i<='z' ) || (i>='A' && i<='Z'))
+            {
+                m[tolower(i)]++;
+            }
+        }
+        string ans;
+        int x=10001;
+        for(auto i:words)
+        {
+            map<char,int> n;
+            for(auto j:i)
+            n[j]++;
+            bool flag=true;
+            for(auto i:m)
+            {
+                 if(i.second<=n[i.first])
+                 continue;
+                 else
+                 {
+                     flag=false;
+                     break;
+                 }
+            }
+            if(flag==true && i.length()<x)
+            {
+                x=i.length();
+                ans=i;
+            }
+        }
+        return ans;
+    }
+};
