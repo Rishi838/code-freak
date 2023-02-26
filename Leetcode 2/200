@@ -1,0 +1,29 @@
+class Solution {
+public:
+   void dfs(int a,int b ,vector<vector<char>> &v){
+        v[a][b] = '2';
+         if(a-1>=0 &&v[a-1][b]=='1')
+         dfs(a-1,b,v);
+          if(b-1>=0  && v[a][b-1]=='1')
+         dfs(a,b-1,v);
+         if(b+1<v[0].size()&& v[a][b+1]=='1')
+         dfs(a,b+1,v);
+          if(a+1<v.size() &&  v[a+1][b]=='1')
+          dfs(a+1,b,v);        
+    }
+    int numIslands(vector<vector<char>>& grid) {
+        int c=0;
+        for(int i=0;i<grid.size();i++)
+        {
+            for(int j=0;j<grid[0].size();j++)
+            {
+                if(grid[i][j]=='1')
+               { 
+                   dfs(i,j,grid);
+                  c++;
+               }
+            }
+        }
+        return c;
+    }
+};
