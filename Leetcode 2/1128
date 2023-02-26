@@ -1,0 +1,27 @@
+class Solution {
+public:
+    int numEquivDominoPairs(vector<vector<int>>& dominoes) {
+        map<string,int> m;
+        for(auto i:dominoes)
+        {
+            string a=to_string(i[0]) + to_string(i[1]);
+            string b=a;
+            reverse(a.begin(),a.end());
+            if(m.find(a)!=m.end())
+            {
+                m[a]++;
+            }
+            else
+            {
+                m[b]++;
+            }
+            
+        }
+        int c=0;
+        for(auto i:m)
+        {
+            c += ((i.second)*(i.second-1))/2;
+        }
+        return c;
+    }
+};
