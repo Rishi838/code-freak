@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int maxScore(string s) {
+        int a=0;
+        vector<int> x,y(s.length());
+        for(auto i:s){
+        if(i=='0')
+        a++;
+        x.push_back(a);
+        }
+        a=0;
+        for(int i=s.length()-1;i>=0;i--)
+        {
+            y[i]=a;
+            if(s[i]=='1')
+            a++;
+        }
+        int ans=0;
+        for(int i=0;i<x.size()-1;i++)
+        ans=max(ans,x[i] + y[i]);
+        return ans;
+
+    }
+};
