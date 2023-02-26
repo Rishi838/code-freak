@@ -1,0 +1,13 @@
+class Solution {
+public:
+    double averageWaitingTime(vector<vector<int>>& customers) {
+        int a=0;
+        long long ans=0;
+        for(auto i:customers)
+        {
+            ans += max(a,i[0]) + i[1] - i[0];
+            a = max(a,i[0]) + i[1];
+        }
+        return ans/(double)customers.size();
+    }
+};
