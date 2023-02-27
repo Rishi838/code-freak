@@ -1,0 +1,29 @@
+class Solution {
+public:
+    void func(vector<vector<string>> &v,vector<string> vec,string s,int i,string a,string b,int c)
+    {
+        if(i>=s.length())
+        {
+            if(c==s.length())
+            {
+                v.push_back(vec);
+            }
+            return;
+        }
+        a += s[i];
+        b= s[i] + b;
+         func(v,vec,s,i+1,a,b,c);
+        if(a==b)
+        {
+          vec.push_back(a);
+          func(v,vec,s,i+1,"","",c + a.length());
+          vec.pop_back();
+        }
+    }
+    vector<vector<string>> partition(string s) {
+        vector<string> v;
+        vector<vector<string>> vec;
+        func(vec,v,s,0,"","",0);
+        return vec;
+    }
+};
