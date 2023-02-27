@@ -1,0 +1,25 @@
+
+class Solution {
+public:
+    int flipgame(vector<int>& fronts, vector<int>& backs) {
+       map<int,bool> m;
+       int a=*max_element(fronts.begin(),fronts.end());
+       int b=*max_element(backs.begin(),backs.end());
+       a = max(a,b);
+       vector<int> v(a+1,true);
+       set<int> s;
+       for(int i=0;i<fronts.size();i++)
+       {
+           if(fronts[i]==backs[i])
+           {
+              v[fronts[i]]=false;
+           }
+           s.insert(fronts[i]);
+           s.insert(backs[i]);
+       }
+      for(int i=1;i<=a;i++)
+      if(v[i]==true && s.find(i)!=s.end())
+      return i;
+      return 0;
+    }
+};
