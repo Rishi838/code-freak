@@ -1,0 +1,24 @@
+class Solution {
+public:
+    bool increasingTriplet(vector<int>& nums) {
+        int x =INT_MAX,y=INT_MIN;
+        vector<int> a,b(nums.size());
+        for(auto i:nums)
+        { 
+           a.push_back(x);
+           x = min(x,i);  
+        }
+        for(int i=nums.size()-1;i>=0;i--)
+        {
+            b[i]=y;
+            y=max(y,nums[i]);
+        }
+        
+        for(int i=1;i<nums.size()-1;i++)
+        {
+            if(a[i]<nums[i] && nums[i]<b[i])
+            return true;
+        }
+        return false;
+    }
+};
