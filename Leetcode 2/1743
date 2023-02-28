@@ -1,0 +1,39 @@
+class Solution {
+public:
+    vector<int> restoreArray(vector<vector<int>>& a) {
+        set<int> s;
+        map<int,vector<int>>m;
+        for(auto i:a)
+        { 
+           m[i[0]].push_back(i[1]);
+           if(m[i[0]].size()==1)
+           s.insert(i[0]);
+           else
+           s.erase(i[0]);
+            m[i[1]].push_back(i[0]);
+           if(m[i[1]].size()==1)
+           s.insert(i[1]);
+           else
+           s.erase(i[1]);
+        }
+        vector<int> ans(a.size()+1,1);
+        auto it=s.begin();
+        ans[0]=*it;
+        it++;
+        ans[ans.size()-1]=*it;
+        for(int i=1;i<ans.size()-1;i++)
+        {
+            int a=ans[i-1];
+            // cout<<a<<" "<<m[a][0]<<endl;
+            if(s.find(m[a][0])==s.end())
+            {
+                ans[i]=m[a][0];
+            }
+            else
+            ans[i]=m[a][1];
+            s.insert(ans[i]);
+        }
+        return ans;
+
+    }
+};
