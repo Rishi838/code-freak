@@ -1,0 +1,29 @@
+class Solution {
+public:
+    vector<bool> checkArithmeticSubarrays(vector<int>& nums, vector<int>& l, vector<int>& r) {
+        vector<bool> ans(r.size(),false);
+        for(int i=0;i<l.size();i++)
+        {
+            multiset<int> s(nums.begin()+l[i],nums.begin()+r[i]+1);
+            auto it=s.begin();
+            int a=*it;
+            it++;
+            int b=*it,c=b;
+            it++;
+            bool flag=true;
+            while(it!=s.end())
+            {
+                if(*it - c != b-a)
+                {
+                    flag=false;
+                    break;
+                }
+                c=*it;
+                it++;
+            }
+            if(flag)
+            ans[i]=true;
+        }
+        return ans;
+    }
+};
