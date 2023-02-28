@@ -1,0 +1,23 @@
+class Solution {
+public:
+    int destroyTargets(vector<int>& nums, int space) {
+        map<int,priority_queue<int,vector<int>,greater<int>>> m;
+        for(auto i:nums)
+        m[i%space].push(i);
+        int ans=INT_MIN,a;
+        for(auto i:m)
+        {
+            int b=i.second.size();
+            // cout<<i.first<<" "<<i.second.size()<<" "<<ans<<" "<<(b>ans)<<endl;
+            if(b>ans)
+            {
+                ans = b;
+                a=i.second.top();
+            }
+            else if(b==ans)
+            a = min(a,i.second.top());
+            // cout<<ans<<" "<<a<<endl;
+        }
+        return a;
+    }
+};
