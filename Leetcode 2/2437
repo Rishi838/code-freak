@@ -1,0 +1,29 @@
+class Solution {
+public:
+    int countTime(string time) {
+        int a=1;
+        if(time[3]=='?')
+        a *=6;
+        if(time[4]=='?')
+        a*=10;
+        if(time[1]=='?')
+        {
+            if(time[0]=='0' || time[0]=='1')
+            a*=10;
+            else if(time[0]=='2')
+            a*=4;a
+            else if(time[0]=='?')
+            {
+                a *=24;
+            }
+        }
+        if(time[0]=='?')
+        {
+            if(time[1]>='4' && time[1]<='9')
+            a*=2;
+            else if(time[1]<'4')
+            a*=3;
+        }
+        return a;
+    }
+};
