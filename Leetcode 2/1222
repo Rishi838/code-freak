@@ -1,0 +1,100 @@
+class Solution {
+public:
+    vector<vector<int>> queensAttacktheKing(vector<vector<int>>& queens, vector<int>& king) {
+        set<vector<int>> s(queens.begin(),queens.end());
+        vector<vector<int>> vec;
+        int a=king[0]-1,b=king[1];
+        while(a>=0)
+        {
+            vector<int> x{a,b};
+            if(s.find(x)!=s.end())
+            {
+                vec.push_back(x);
+                break;
+            }
+            a--;
+        }
+        a=king[0]+1;
+         while(a<8)
+        {
+            vector<int> x{a,b};
+            if(s.find(x)!=s.end())
+            {
+                vec.push_back(x);
+                break;
+            }
+            a++;
+        }
+        a=king[0];
+        while(b>=0)
+        {
+            vector<int> x{a,b};
+            if(s.find(x)!=s.end())
+            {
+                vec.push_back(x);
+                break;
+            }
+            b--;
+        }
+        b=king[1]+1;
+         while(b<8)
+        {
+            vector<int> x{a,b};
+            if(s.find(x)!=s.end())
+            {
+                vec.push_back(x);
+                break;
+            }
+            b++;
+        }
+        a=king[0],b=king[1];
+        while(a<8 && b<8)
+        {
+           vector<int> x{a,b};
+            if(s.find(x)!=s.end())
+            {
+                vec.push_back(x);
+                break;
+            }
+            b++;
+            a++;   
+        }
+         a=king[0],b=king[1];
+        while(a>=0 && b>=0)
+        {
+           vector<int> x{a,b};
+            if(s.find(x)!=s.end())
+            {
+                vec.push_back(x);
+                break;
+            }
+            b--;
+            a--;   
+        }
+         a=king[0],b=king[1];
+        while(a>=0 && b<8)
+        {
+           vector<int> x{a,b};
+            if(s.find(x)!=s.end())
+            {
+                vec.push_back(x);
+                break;
+            }
+            b++;
+            a--;   
+        }
+         a=king[0],b=king[1];
+        while(a<8 && b>=0)
+        {
+           vector<int> x{a,b};
+            if(s.find(x)!=s.end())
+            {
+                vec.push_back(x);
+                break;
+            }
+            b--;
+            a++;   
+        }
+        return vec;
+    }
+};
