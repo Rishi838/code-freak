@@ -1,4 +1,4 @@
-// Creating element
+
 let element = document.createElement('li');
 element.className='New class';
 element.id='New Id';
