@@ -1,0 +1,49 @@
+class Solution {
+public:
+int mx=INT_MIN;
+int count=0;
+void dfs(int node,vector<int>& edges,int pathvis[],int vis[],int siz[]){
+    int nd=edges[node];
+    vis[node]=1;
+    pathvis[node]=1;
+    if(nd==-1){
+        pathvis[node]=0;
+        siz[node]=0;
+        return ;
+    }
+    count++;
+    siz[node]=count;
+    if(vis[nd]==0 ){
+        dfs(nd,edges,pathvis,vis,siz);
+    }
+    else if(pathvis[nd]!=0){
+        mx=max(mx,count-siz[nd]+1);
+        return ;
+    }
+    pathvis[node]=0;
+    return ;
+}
+    int longestCycle(vector<int>& edges) {
+        int n=edges.size();
+        int vis[n];
+        int pathvis[n];
+        int siz[n];
+        for(int i=0;i<n;i++){
+            vis[i]=0;
+            pathvis[i]=0;
+            siz[i]=0;
+        }
+        for(int i=0;i<n;i++){
+            count=0;
+            if(vis[i]==0){
+                dfs(i,edges,pathvis,vis,siz);
+            }
+        }
+        if(mx==INT_MIN){
+            return -1;
+        }
+        else{
+            return mx;
+        }
+    }
+};
