@@ -1,0 +1,60 @@
+//{ Driver Code Starts
+// Initial Template for C++
+
+#include <bits/stdc++.h>
+using namespace std;
+
+// } Driver Code Ends
+// User function Template for C++
+
+class Solution{
+public:
+    int matrixMultiplication(int a, int vec[])
+    {
+        // code here
+        a-=1;
+        vector<vector<int>> dp(a, vector<int>(a, 0));
+       for (int i = 0; i < a; i++)
+       {
+        int p = 0;
+        for (int j = i; j < a; j++)
+        {
+            if (p == j)
+            dp[p][j] = 0;
+            else if (p + 1 == j)
+            dp[p][j] = vec[p] * vec[j] * vec[j + 1];
+            else
+            {
+                dp[p][j]=INT_MAX;
+                for(int k=p;k<j;k++)
+                {
+                   dp[p][j]=min(dp[p][j],dp[p][k] + dp[k+1][j] + vec[k+1]*vec[p]*vec[j+1]);
+                }
+             }
+             p++;
+        }
+     }
+   
+        
+        return dp[0][a-1];
+    }
+};
+
+//{ Driver Code Starts.
+
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int N;
+        cin>>N;
+        int arr[N];
+        for(int i = 0;i < N;i++)
+            cin>>arr[i];
+        
+        Solution ob;
+        cout<<ob.matrixMultiplication(N, arr)<<endl;
+    }
+    return 0;
+}
+// } Driver Code Ends
