@@ -1,0 +1,44 @@
+//{ Driver Code Starts
+#include <bits/stdc++.h> 
+using namespace std; 
+
+// } Driver Code Ends
+class Solution
+{
+public:
+    int countFriendsPairings(int n) 
+    { 
+        // code here
+        vector<long long> ans(n+1);
+        if(n==1)
+        return 1;
+        if(n==2)
+        return 2;
+        int mod=1000000007;
+        ans[0]=1;
+        ans[1]=1;
+        ans[2]=2;
+        for(int i=3;i<=n;i++)
+        ans[i] = (ans[i-1] + ((i-1)*ans[i-2])%mod)%mod;
+        
+        return ans[n];
+    }
+};    
+ 
+
+//{ Driver Code Starts.
+int main() 
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+    	int n;
+    	cin>>n;
+    	Solution ob;
+    	cout <<ob.countFriendsPairings(n); 
+    	cout<<endl;
+    }
+} 
+
+// } Driver Code Ends
