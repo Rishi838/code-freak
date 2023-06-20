@@ -1,0 +1,45 @@
+Count the number of ways to tile the floor of size n x m using 1 x m size tiles
+
+
+//{ Driver Code Starts
+
+#include<bits/stdc++.h>
+using namespace std;
+
+// } Driver Code Ends
+
+class Solution{
+	public:
+		int countWays(int n, int m)
+	{
+	    // Code here.
+	
+	    vector<long long> ans(n+1,0);
+	    int mod=1000000007;
+	    for(int i=1;i<=n;i++)
+	    {
+	        if(i>m)
+	        ans[i]=(ans[i-1] + ans[i-m])%mod;
+	        else if(i<m)
+	        ans[i]=1;
+	        else
+	        ans[i]=2;
+	    }
+	    return ans[n];
+	}
+};
+
+//{ Driver Code Starts.
+int main(){
+	int tc;
+	cin >> tc;
+	while(tc--){
+		int n, m;
+		cin >> n >> m;
+		Solution ob;
+		int ans = ob.countWays(n, m);
+		cout << ans <<"\n";
+	}  
+	return 0;
+}
+// } Driver Code Ends
